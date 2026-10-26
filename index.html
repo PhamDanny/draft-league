@@ -90,6 +90,9 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-table td.num, .lx-table th.num { text-align: right; }
 .lx-table tbody tr:last-child td { border-bottom: 0; }
 .lx-table tr[data-pick] { cursor: pointer; }
+.lx-table tr.lx-weekrow td { background: var(--color-bg); font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-body); padding: var(--cds-pad-md) var(--cds-pad-sm) var(--cds-pad-sm); border-top: 2px solid var(--color-fg-muted); border-bottom: 1px solid var(--color-border-line); }
+.lx-table tr.lx-weekrow:first-child td { border-top: 0; }
+.lx-weeksub { margin-left: var(--cds-gap-sm); color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-weight: normal; }
 .lx-table tr.lx-sel td { background: var(--color-bg); font-weight: var(--cds-font-weight-medium); }
 .lx-table a { color: inherit; }
 .lx-table th:first-child, .lx-table td:first-child { position: sticky; left: 0; background: var(--color-panel); z-index: 2; box-shadow: 1px 0 0 var(--color-border-line); }
@@ -834,7 +837,24 @@ function draw(T) {
   T.shown = rows;
   const tb = T.el.tBodies[0];
   tb.textContent = '';
+  let lastWeek = null;
   for (const r of rows) {
+    if (T.weekHeaders && f === 'week' && r.week !== lastWeek) {
+      lastWeek = r.week;
+      const wr = document.createElement('tr');
+      wr.className = 'lx-weekrow';
+      const wc = document.createElement('td');
+      wc.colSpan = T.cols.length;
+      const done = rows.filter((x) => x.week === r.week && x.status === 'Played').length;
+      const all = rows.filter((x) => x.week === r.week).length;
+      wc.textContent = 'Week ' + r.week;
+      const sub = document.createElement('span');
+      sub.className = 'lx-weeksub';
+      sub.textContent = done + ' of ' + all + ' series played';
+      wc.appendChild(sub);
+      wr.appendChild(wc);
+      tb.appendChild(wr);
+    }
     const tr = document.createElement('tr');
     tr.dataset.key = r[T.key];
     if (T.rowClass) { const k = T.rowClass(r); if (k) tr.classList.add(k); }
@@ -894,6 +914,7 @@ const T_SCHED = mkTable('lx-t-sched', [
   { f: 'game1', t: 'text', base: REPLAY }, { f: 'game2', t: 'text', base: REPLAY }, { f: 'game3', t: 'text', base: REPLAY },
 ], { f: 'week', dir: 1 }, 'id');
 T_SCHED.rowClass = (r) => (r.status === 'Upcoming' ? 'lx-up' : '');
+T_SCHED.weekHeaders = true;
 const T_LUCK = mkTable('lx-t-luck', [
   { f: 'player', t: 'text' }, { f: 'score', t: 's2' }, { f: 'percentile', t: 'pct' }, { f: 'net', t: 's1' }, { f: 'crit_net', t: 's1' }, { f: 'acc_net', t: 's1' },
   { f: 'brn_net', t: 's1' }, { f: 'frz_net', t: 's1' }, { f: 'par_net', t: 's1' }, { f: 'flinch_net', t: 's1' }, { f: 'other_net', t: 's1' }, { f: 'deny_net', t: 's1' },
