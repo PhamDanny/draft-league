@@ -532,7 +532,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Playoff race</h2>
-      <p class="lx-note">Seeds go by series wins. Ties are broken by head-to-head series win % among the tied players, then game win %, then game differential, then name. After a tie splits, the smaller group starts again at head-to-head. A coin flip is not modelled.</p>
+      <p class="lx-note">Seeds go by series wins. Ties are broken by head-to-head series win %, then game win %, then game differential, then name. Head-to-head only counts when all the tied players have played each other. After a tie splits, the smaller group starts again at head-to-head. A coin flip is not modelled.</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-playoffs" data-source="playoffs" data-row-key="player">
           <thead><tr>
@@ -698,20 +698,21 @@ dash.calc('playoffs', {
     const rec = (a) => a[0] + '–' + a[1];
     const sgn = (n) => (n > 0 ? '+' : '') + n;
     const STEPS = [
-      { rule: 'series', val: (p) => by[p].series_wins, show: (p) => rec([by[p].series_wins, by[p].series_losses]), word: 'series wins' },
-      { rule: 'h2h', val: (p, c) => { const [w, l] = c.h[p]; return w + l ? w / (w + l) : 0.5; }, show: (p, c) => rec(c.h[p]), word: 'head-to-head' },
-      { rule: 'gwp', val: (p) => by[p].wins / by[p].games, show: (p) => fmt.pct(by[p].wins / by[p].games), word: 'game win %' },
-      { rule: 'diff', val: (p) => by[p].wins - by[p].losses, show: (p) => sgn(by[p].wins - by[p].losses), word: 'game differential' },
-      { rule: 'name', val: (p) => -names.indexOf(p), show: () => '', word: 'name' },
+      { rule: 'series', val: (p) => by[p].series_wins },
+      { rule: 'h2h', ok: (g, c) => g.every((p) => c.h[p][0] + c.h[p][1] === g.length - 1), val: (p, c) => c.h[p][0] / (c.h[p][0] + c.h[p][1]) },
+      { rule: 'gwp', val: (p) => by[p].wins / by[p].games, show: (p) => fmt.pct(by[p].wins / by[p].games) },
+      { rule: 'diff', val: (p) => by[p].wins - by[p].losses, show: (p) => sgn(by[p].wins - by[p].losses) },
+      { rule: 'name', val: (p) => -names.indexOf(p) },
     ];
     const above = {}, below = {};
-    let tied = {};
+    const tied = {};
     const order = (g, from) => {
       if (g.length < 2) return g;
       const c = { h: h2h(g) };
       for (let i = from; i < STEPS.length; i++) {
         const st = STEPS[i], v = (p) => Math.round(st.val(p, c) * 1e9);
-        const vs = [...new Set(g.map(v))].sort((a, b) => b - a);
+        if (st.ok && !st.ok(g, c)) continue;
+        const vs = [...new Set(g.map(v))].sort((x, y) => y - x);
         if (vs.length < 2) continue;
         if (i === 0) g.forEach((p) => { tied[p] = g.filter((q) => q !== p && v(q) === v(p)); });
         const out = [];
@@ -719,9 +720,8 @@ dash.calc('playoffs', {
           const tier = order(g.filter((p) => v(p) === x), 1);
           if (out.length) {
             const a = out[out.length - 1], b = tier[0];
-            const two = g.length === 2 && st.rule === 'h2h';
-            above[b] = { who: a, text: two ? 'Lost head-to-head ' + rec(c.h[b]) : 'Behind on ' + st.word + (st.show(b, c) ? ' (' + st.show(b, c) + ' vs ' + st.show(a, c) + ')' : ''), rule: st.rule };
-            below[a] = { who: b, text: two ? 'Won head-to-head ' + rec(c.h[a]) : 'Ahead on ' + st.word + (st.show(a, c) ? ' (' + st.show(a, c) + ' vs ' + st.show(b, c) + ')' : ''), rule: st.rule };
+            above[b] = { who: a, rule: st.rule, two: g.length === 2, own: st.show && st.show(b), other: st.show && st.show(a) };
+            below[a] = { who: b, rule: st.rule, two: g.length === 2, own: st.show && st.show(a), other: st.show && st.show(b) };
           }
           out.push(...tier);
         });
@@ -729,19 +729,30 @@ dash.calc('playoffs', {
       }
       return g;
     };
+    const say = (p, tie) => {
+      const t = by[p], a = above[p], b = below[p];
+      const e = b && b.rule !== 'series' ? b : a && a.rule !== 'series' ? a : null;
+      const sr = rec([t.series_wins, t.series_losses]);
+      if (!e) return tie.length ? 'Tied at ' + sr : (b ? 'Ahead' : 'Behind') + ' on series wins';
+      const up = e === b, top = !(a && a.rule !== 'series');
+      const pre = 'Tied at ' + sr + (e.rule === 'h2h' && e.two ? ' with ' + e.who : '');
+      const how = e.rule === 'h2h' ? (e.two ? (up ? 'won their series' : 'lost their series') : up ? 'ahead in head-to-head' : 'behind in head-to-head')
+        : e.rule === 'gwp' ? (top ? 'best game win % (' + e.own + ')' : 'game win % ' + e.own + ' vs ' + e.other)
+        : e.rule === 'diff' ? (top ? 'best game differential (' + e.own + ')' : 'game differential ' + e.own + ' vs ' + e.other)
+        : up ? 'first by name' : 'later by name';
+      return pre + '; ' + how;
+    };
     const ranked = order(names.slice(), 0);
     return ranked.map((p, i) => {
-      const t = by[p], tie = tied[p] || [];
-      const pick = above[p] && (above[p].rule !== 'series' || !tie.length) ? above[p] : below[p] || above[p];
-      const pre = tie.length ? 'Tied ' + rec([t.series_wins, t.series_losses]) + ' with ' + (tie.length > 2 ? tie.length + ' others' : tie.join(', ')) : '';
+      const t = by[p];
       return {
         player: p, rank: i + 1, seed: i < 6 ? i + 1 : null,
         series_wins: t.series_wins, series_losses: t.series_losses, series: rec([t.series_wins, t.series_losses]),
         wins: t.wins, losses: t.losses, games_wl: rec([t.wins, t.losses]), game_pct: t.wins / t.games, diff: t.wins - t.losses,
         left: sched.filter((r) => r.status === 'Upcoming' && (r.player1 === p || r.player2 === p)).length,
         status: i < 2 ? 'Bye' : i < 6 ? 'Wild card' : 'Out',
-        reason: [pre, pick && pick.text.replace(/^./, (m) => (pre ? m.toLowerCase() : m))].filter(Boolean).join('; '),
-        reason_full: tie.length > 2 ? 'Tied with ' + tie.join(', ') : '',
+        reason: say(p, tied[p] || []),
+        reason_full: (tied[p] || []).length > 1 ? 'Tied with ' + tied[p].join(', ') : '',
       };
     });
   },
