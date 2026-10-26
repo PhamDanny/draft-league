@@ -108,6 +108,28 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
 .lx-fail { display: flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 6rem; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
 .lx-fail::before { content: ""; width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+.lx-bscroll { overflow-x: auto; padding-bottom: var(--cds-pad-xs); }
+.lx-bracket { display: grid; grid-template-columns: repeat(3, 12rem); grid-template-rows: auto 1fr 1fr; column-gap: 2rem; row-gap: 1rem; width: max-content; margin-inline: auto; }
+.lx-bh { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); }
+.lx-bcell { position: relative; display: flex; align-items: center; }
+.lx-bcell > .lx-bm { width: 100%; }
+.lx-bm { border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); background: var(--color-bg); overflow: hidden; }
+.lx-bs { display: flex; align-items: baseline; gap: var(--cds-gap-sm); padding: var(--cds-pad-sm) var(--cds-pad-md); font-size: var(--cds-font-size-body); min-height: 2.5rem; }
+.lx-bs + .lx-bs { border-top: 1px solid var(--color-border-line); }
+.lx-bs[data-tip] { cursor: pointer; }
+.lx-bseed { width: 1.25rem; flex: none; color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.lx-bname { flex: 1; min-width: 0; overflow-wrap: anywhere; font-weight: var(--cds-font-weight-medium); }
+.lx-brec { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.lx-bbye { color: var(--color-ok); font-size: 0.6875rem; }
+.lx-bph .lx-bname { color: var(--color-fg-muted); font-weight: normal; font-size: var(--cds-font-size-caption); }
+.lx-bcell.lx-bl::before, .lx-bcell.lx-br::after { content: ""; position: absolute; width: 1rem; top: 50%; border-top: 1px solid var(--cds-chart-muted); }
+.lx-bcell.lx-bl::before { right: 100%; }
+.lx-bcell.lx-br::after { left: 100%; }
+.lx-bcell.lx-bjt::after, .lx-bcell.lx-bjb::after { content: ""; position: absolute; left: 100%; width: 1rem; border-right: 1px solid var(--cds-chart-muted); }
+.lx-bcell.lx-bjt::after { top: 50%; bottom: -0.5rem; border-top: 1px solid var(--cds-chart-muted); }
+.lx-bcell.lx-bjb::after { top: -0.5rem; bottom: 50%; border-bottom: 1px solid var(--cds-chart-muted); }
+.lx-table tr.lx-cut2 td { border-bottom: 2px solid var(--color-fg-muted); }
+.lx-table tr.lx-cut6 td { border-bottom: 3px double var(--color-bad); }
 .lx-defs { margin: 0; padding-left: 1.1rem; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.6; }
 .lx-defs b { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
 [data-dash-source-state="refreshing"] { opacity: .5; transition: opacity var(--cds-dur-slow); }
@@ -194,6 +216,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <button class="lx-tab" role="tab" data-tab="moves" aria-selected="false">Moves</button>
     <button class="lx-tab" role="tab" data-tab="luck" aria-selected="false">Luck</button>
     <button class="lx-tab" role="tab" data-tab="schedule" aria-selected="false">Schedule</button>
+    <button class="lx-tab" role="tab" data-tab="playoffs" aria-selected="false">Playoffs</button>
     <button class="lx-tab" role="tab" data-tab="games" aria-selected="false">Games</button>
     <button class="lx-tab" role="tab" data-tab="extras" aria-selected="false">Extras and definitions</button>
   </div>
@@ -501,6 +524,33 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
   </section>
 
+  <section class="lx-page" id="lx-playoffs" data-page="playoffs" hidden>
+    <div class="lx-card">
+      <h2>Projected bracket</h2>
+      <p class="lx-note">If the season ended today. Seeds 1–2 get a bye; 3 plays 6 and 4 plays 5, then 1 plays the 4/5 winner and 2 plays the 3/6 winner. The bracket is fixed, with no reseeding.</p>
+      <div class="lx-chart" id="lx-c-bracket"><div class="lx-bscroll" id="lx-bracket"></div></div>
+    </div>
+    <div class="lx-card">
+      <h2>Playoff race</h2>
+      <p class="lx-note">Seeds go by series wins. Ties are broken by head-to-head series win % among the tied players, then game win %, then game differential, then name. After a tie splits, the smaller group starts again at head-to-head. A coin flip is not modelled.</p>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-playoffs" data-source="playoffs" data-row-key="player">
+          <thead><tr>
+            <th class="num" data-field="seed"><button class="lx-sort" type="button">Seed</button></th>
+            <th data-field="player"><button class="lx-sort" type="button">Player</button></th>
+            <th data-field="series"><button class="lx-sort" type="button">Series</button></th>
+            <th data-field="games_wl"><button class="lx-sort" type="button">Games</button></th>
+            <th class="num" data-field="game_pct"><button class="lx-sort" type="button">Game win %</button></th>
+            <th class="num" data-field="left"><button class="lx-sort" type="button">Series left</button></th>
+            <th data-field="status"><button class="lx-sort" type="button">Status</button></th>
+            <th data-field="reason"><button class="lx-sort" type="button">Tiebreak</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <section class="lx-page" id="lx-games" data-page="games" hidden>
     <div class="lx-card">
       <h2>Game length</h2>
@@ -629,6 +679,71 @@ dash.calc('league', {
       best_record: best.series_wins + '–' + best.series_losses,
       best_games: best.wins + '–' + best.losses,
     }];
+  },
+});
+
+dash.calc('playoffs', {
+  inputs: ['teams', 'schedule'],
+  title: 'Projected playoffs',
+  description: 'Playoff seeds if the season ended today: series wins, then head-to-head, game win %, game differential and name.',
+  fn: (teams, sched) => {
+    const names = teams.map((t) => t.player).sort();
+    const by = Object.fromEntries(teams.map((t) => [t.player, t]));
+    const played = sched.filter((r) => r.status === 'Played' && r.winner);
+    const h2h = (g) => {
+      const m = Object.fromEntries(g.map((p) => [p, [0, 0]]));
+      played.forEach((r) => { if (m[r.player1] && m[r.player2]) { m[r.winner][0]++; m[r.winner === r.player1 ? r.player2 : r.player1][1]++; } });
+      return m;
+    };
+    const rec = (a) => a[0] + '–' + a[1];
+    const sgn = (n) => (n > 0 ? '+' : '') + n;
+    const STEPS = [
+      { rule: 'series', val: (p) => by[p].series_wins, show: (p) => rec([by[p].series_wins, by[p].series_losses]), word: 'series wins' },
+      { rule: 'h2h', val: (p, c) => { const [w, l] = c.h[p]; return w + l ? w / (w + l) : 0.5; }, show: (p, c) => rec(c.h[p]), word: 'head-to-head' },
+      { rule: 'gwp', val: (p) => by[p].wins / by[p].games, show: (p) => fmt.pct(by[p].wins / by[p].games), word: 'game win %' },
+      { rule: 'diff', val: (p) => by[p].wins - by[p].losses, show: (p) => sgn(by[p].wins - by[p].losses), word: 'game differential' },
+      { rule: 'name', val: (p) => -names.indexOf(p), show: () => '', word: 'name' },
+    ];
+    const above = {}, below = {};
+    let tied = {};
+    const order = (g, from) => {
+      if (g.length < 2) return g;
+      const c = { h: h2h(g) };
+      for (let i = from; i < STEPS.length; i++) {
+        const st = STEPS[i], v = (p) => Math.round(st.val(p, c) * 1e9);
+        const vs = [...new Set(g.map(v))].sort((a, b) => b - a);
+        if (vs.length < 2) continue;
+        if (i === 0) g.forEach((p) => { tied[p] = g.filter((q) => q !== p && v(q) === v(p)); });
+        const out = [];
+        vs.forEach((x) => {
+          const tier = order(g.filter((p) => v(p) === x), 1);
+          if (out.length) {
+            const a = out[out.length - 1], b = tier[0];
+            const two = g.length === 2 && st.rule === 'h2h';
+            above[b] = { who: a, text: two ? 'Lost head-to-head ' + rec(c.h[b]) : 'Behind on ' + st.word + (st.show(b, c) ? ' (' + st.show(b, c) + ' vs ' + st.show(a, c) + ')' : ''), rule: st.rule };
+            below[a] = { who: b, text: two ? 'Won head-to-head ' + rec(c.h[a]) : 'Ahead on ' + st.word + (st.show(a, c) ? ' (' + st.show(a, c) + ' vs ' + st.show(b, c) + ')' : ''), rule: st.rule };
+          }
+          out.push(...tier);
+        });
+        return out;
+      }
+      return g;
+    };
+    const ranked = order(names.slice(), 0);
+    return ranked.map((p, i) => {
+      const t = by[p], tie = tied[p] || [];
+      const pick = above[p] && (above[p].rule !== 'series' || !tie.length) ? above[p] : below[p] || above[p];
+      const pre = tie.length ? 'Tied ' + rec([t.series_wins, t.series_losses]) + ' with ' + (tie.length > 2 ? tie.length + ' others' : tie.join(', ')) : '';
+      return {
+        player: p, rank: i + 1, seed: i < 6 ? i + 1 : null,
+        series_wins: t.series_wins, series_losses: t.series_losses, series: rec([t.series_wins, t.series_losses]),
+        wins: t.wins, losses: t.losses, games_wl: rec([t.wins, t.losses]), game_pct: t.wins / t.games, diff: t.wins - t.losses,
+        left: sched.filter((r) => r.status === 'Upcoming' && (r.player1 === p || r.player2 === p)).length,
+        status: i < 2 ? 'Bye' : i < 6 ? 'Wild card' : 'Out',
+        reason: [pre, pick && pick.text.replace(/^./, (m) => (pre ? m.toLowerCase() : m))].filter(Boolean).join('; '),
+        reason_full: tie.length > 2 ? 'Tied with ' + tie.join(', ') : '',
+      };
+    });
   },
 });
 
@@ -928,6 +1043,11 @@ const T_SCHED = mkTable('lx-t-sched', [
 ], { f: 'week', dir: 1 }, 'id');
 T_SCHED.rowClass = (r) => (r.status === 'Upcoming' ? 'lx-up' : '');
 T_SCHED.weekHeaders = true;
+const T_PO = mkTable('lx-t-playoffs', [
+  { f: 'seed', t: 'int' }, { f: 'player', t: 'text' }, { f: 'series', t: 'text' }, { f: 'games_wl', t: 'text' }, { f: 'game_pct', t: 'pct' },
+  { f: 'left', t: 'int' }, { f: 'status', t: 'text' }, { f: 'reason', t: 'text', tip: 'reason_full' },
+], { f: 'rank', dir: 1 }, 'player');
+T_PO.rowClass = (r) => (T_PO.sort.f !== 'rank' || T_PO.sort.dir !== 1 ? '' : r.rank === 2 ? 'lx-cut2' : r.rank === 6 ? 'lx-cut6' : '');
 const T_LUCK = mkTable('lx-t-luck', [
   { f: 'player', t: 'text' }, { f: 'score', t: 's2' }, { f: 'percentile', t: 'pct' }, { f: 'net', t: 's1' }, { f: 'crit_net', t: 's1' }, { f: 'acc_net', t: 's1' },
   { f: 'brn_net', t: 's1' }, { f: 'frz_net', t: 's1' }, { f: 'par_net', t: 's1' }, { f: 'flinch_net', t: 's1' }, { f: 'other_net', t: 's1' }, { f: 'deny_net', t: 's1' },
@@ -1113,6 +1233,56 @@ function renderGames() {
   draw(T_GAMES);
 }
 
+function bracket(el, rows) {
+  const at = (n) => rows[n - 1];
+  const ph = (t) => ({ ph: t });
+  const slot = (x) => {
+    const d = document.createElement('div');
+    d.className = 'lx-bs' + (x.ph ? ' lx-bph' : '');
+    const s = document.createElement('span'); s.className = 'lx-bseed'; s.textContent = x.ph ? '' : x.seed;
+    const n = document.createElement('span'); n.className = 'lx-bname'; n.textContent = x.ph || x.player;
+    d.appendChild(s); d.appendChild(n);
+    if (!x.ph) {
+      if (x.bye) { const b = document.createElement('span'); b.className = 'lx-bbye'; b.textContent = 'Bye'; d.appendChild(b); }
+      const r = document.createElement('span'); r.className = 'lx-brec'; r.textContent = x.series; d.appendChild(r);
+      tipOn(d, el.parentNode, () => [x.player + ', seed ' + x.seed, 'Series ' + x.series + ', games ' + x.games_wl + ' (' + fmt.pct(x.game_pct) + ')', x.reason]);
+    }
+    return d;
+  };
+  const cell = (cls, a, b, col, row) => {
+    const c = document.createElement('div');
+    c.className = 'lx-bcell ' + cls;
+    c.style.gridColumn = col; c.style.gridRow = row;
+    const m = document.createElement('div'); m.className = 'lx-bm';
+    m.appendChild(slot(a)); m.appendChild(slot(b));
+    c.appendChild(m);
+    return c;
+  };
+  const hd = (t, col) => { const h = document.createElement('div'); h.className = 'lx-bh'; h.textContent = t; h.style.gridColumn = col; h.style.gridRow = 1; return h; };
+  const bye = (n) => Object.assign({}, at(n), { bye: true });
+  const g = document.createElement('div');
+  g.className = 'lx-bracket';
+  [['Wild card', 1], ['Semifinals', 2], ['Final', 3]].forEach(([t, c]) => g.appendChild(hd(t, c)));
+  g.appendChild(cell('lx-br', at(4), at(5), 1, 2));
+  g.appendChild(cell('lx-br', at(3), at(6), 1, 3));
+  g.appendChild(cell('lx-bl lx-bjt', bye(1), ph('Winner of 4 vs 5'), 2, 2));
+  g.appendChild(cell('lx-bl lx-bjb', bye(2), ph('Winner of 3 vs 6'), 2, 3));
+  const f = cell('lx-bl', ph('Winner of 1 vs 4/5'), ph('Winner of 2 vs 3/6'), 3, '2 / span 2');
+  g.appendChild(f);
+  el.textContent = '';
+  el.appendChild(g);
+}
+
+function renderPlayoffs() {
+  const c = $('#lx-bracket');
+  if (gate(c, ['playoffs'])) return;
+  const rows = rowsOf('playoffs');
+  if (rows.length < 6) { c.textContent = ''; const m = document.createElement('div'); m.className = 'lx-muted'; m.textContent = 'At least six players are needed for a bracket.'; c.appendChild(m); return; }
+  bracket(c, rows);
+  T_PO.rows = rows;
+  draw(T_PO);
+}
+
 function renderSchedule() {
   const sel = $('#lx-sp');
   fillSel(sel, okAll(['teams']) && players());
@@ -1156,12 +1326,13 @@ function render() {
   else if (tab === 'moves') renderMoves();
   else if (tab === 'luck') renderLuck();
   else if (tab === 'schedule') renderSchedule();
+  else if (tab === 'playoffs') renderPlayoffs();
   else if (tab === 'games') renderGames();
   else if (tab === 'extras') renderExtras();
   syncHash();
 }
 
-const TABS = ['teams', 'pokemon', 'moves', 'luck', 'schedule', 'games', 'extras'];
+const TABS = ['teams', 'pokemon', 'moves', 'luck', 'schedule', 'playoffs', 'games', 'extras'];
 const selField = (id) => ({ get: () => { const e = $('#' + id); return e.options.length > 1 || !e.dataset.want ? e.value : e.dataset.want; }, set: (v) => { const e = $('#' + id); e.dataset.want = v; e.value = v; } });
 const HASH_STATE = {
   pokemon: { player: selField('lx-team'), min: selField('lx-min'), mon: { get: () => selMon || '', set: (v) => { selMon = v || null; } } },
