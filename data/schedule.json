@@ -161,12 +161,12 @@
   "matchup": "Alex vs Dzzy",
   "player1": "Alex",
   "player2": "Dzzy",
-  "status": "Upcoming",
-  "winner": null,
-  "score": null,
-  "game1": null,
-  "game2": null,
-  "game3": null
+  "status": "Played",
+  "winner": "Dzzy",
+  "score": "1–2",
+  "game1": "2704696809",
+  "game2": "2704700254",
+  "game3": "2704703137"
  },
  {
   "id": "w3-Connor-Bo",
@@ -187,11 +187,11 @@
   "matchup": "Dennis vs Brayden",
   "player1": "Dennis",
   "player2": "Brayden",
-  "status": "Upcoming",
-  "winner": null,
-  "score": null,
-  "game1": null,
-  "game2": null,
+  "status": "Played",
+  "winner": "Brayden",
+  "score": "0–2",
+  "game1": "2704645206",
+  "game2": "2704648705",
   "game3": null
  },
  {
