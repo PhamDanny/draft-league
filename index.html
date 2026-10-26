@@ -75,7 +75,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-tl { font-size: 12px; fill: var(--color-fg); font-family: var(--font-anthropic-sans); font-variant-numeric: tabular-nums; }
 .lx-legend { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-bottom: var(--cds-gap-xs); }
 .lx-sw { display: inline-block; width: 0.625rem; height: 0.625rem; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
-.lx-tip { position: absolute; display: none; pointer-events: none; z-index: 5; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; }
+.lx-tip { position: absolute; display: none; pointer-events: none; z-index: 5; width: max-content; max-width: calc(100vw - 1rem); background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); }
 .lx-tip-h { color: var(--cds-text-secondary); }
 .lx-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; margin-bottom: var(--cds-gap-sm); }
 .lx-controls select, .lx-controls input[type="search"] { font: inherit; font-size: var(--cds-font-size-body); color: var(--color-fg); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); }
@@ -129,8 +129,8 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <span data-source="league" data-field="top_mon_apps" data-row="0">—</span> games.
     The player who scores the first KO wins
     <span data-source="league" data-field="first_blood_win_pct" data-row="0" data-fmt="pct">—</span> of games.
-    Across <span data-source="league" data-field="games" data-row="0">—</span> games the average length is
-    <span data-source="league" data-field="avg_turns" data-row="0" data-fmt="d1">—</span> turns.
+    Games average <span data-source="league" data-field="avg_turns" data-row="0" data-fmt="d1">—</span> turns
+    (<span data-source="league" data-field="games" data-row="0">—</span> played).
   </p>
 
   <div class="lx-leaders">
@@ -216,9 +216,9 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
             <th class="num" data-field="kos"><button class="lx-sort" type="button">KOs</button></th>
             <th class="num" data-field="damage"><button class="lx-sort" type="button">Damage dealt</button></th>
             <th class="num" data-field="taken"><button class="lx-sort" type="button">Damage taken</button></th>
-            <th class="num" data-field="lost_per_game"><button class="lx-sort" type="button">Lost / game</button></th>
+            <th class="num" data-field="lost_per_game"><button class="lx-sort" type="button">Pokémon lost / game</button></th>
             <th class="num" data-field="first_blood_pct"><button class="lx-sort" type="button">First KO %</button></th>
-            <th class="num" data-field="win_pct_after_first_blood"><button class="lx-sort" type="button">Win % after first KO</button></th>
+            <th class="num" data-field="win_pct_after_first_blood"><button class="lx-sort" type="button">Win % when scoring first KO</button></th>
             <th data-field="accounts"><button class="lx-sort" type="button">Showdown accounts</button></th>
           </tr></thead>
           <tbody></tbody>
@@ -227,13 +227,13 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Rosters</h2>
-      <p class="lx-note">Every Pokémon on each player's team. Faded sprites barely appeared; the percent under each is its bring rate. Hover for lead rate and KOs.</p>
+      <p class="lx-note">Every Pokémon on each player's team. The number under each sprite is how often it was brought. Faded ones rarely were. Hover or tap for lead rate and KOs.</p>
       <div class="lx-chart dash-skeleton lx-rosters" id="lx-c-rosters" data-source="mons"></div>
     </div>
     <div class="lx-grid">
       <div class="lx-card">
         <h2>Damage dealt vs taken per game</h2>
-        <p class="lx-note">Full HP bars per game. Longer bar for dealt, shorter for taken is the good side.</p>
+        <p class="lx-note">Full HP bars per game, sorted by the gap between dealt and taken. You want dealt longer than taken.</p>
         <div class="lx-chart dash-skeleton" id="lx-c-rates" data-source="team_rates"></div>
       </div>
       <div class="lx-card">
@@ -248,6 +248,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <div class="lx-controls">
       <select id="lx-team" aria-label="Player"><option value="">All players</option></select>
       <input id="lx-q-mons" type="search" placeholder="Search Pokémon" aria-label="Search Pokémon">
+      <label>Min. games <select id="lx-min" aria-label="Minimum games"><option>1</option><option>2</option><option>3</option><option>5</option></select></label>
       <label><input id="lx-unused" type="checkbox"> Include Pokémon that never appeared</label>
     </div>
     <div class="lx-grid">
@@ -264,7 +265,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Every Pokémon</h2>
-      <p class="lx-note">Bring % and lead % are out of that player's games. Select a row for its moves.</p>
+      <p class="lx-note">Bring % and lead % are out of that player's games. Select a row to see its moves below the table.</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-mons" data-source="mons" data-row-key="id">
           <thead><tr>
@@ -297,6 +298,9 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
   </section>
 
   <section class="lx-page" id="lx-moves" data-page="moves" hidden>
+    <div class="lx-controls">
+      <select id="lx-mp" aria-label="Player"><option value="">All players</option></select>
+    </div>
     <div class="lx-grid">
       <div class="lx-card">
         <h2>Most damage dealt by move</h2>
@@ -311,6 +315,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>All moves</h2>
+      <p class="lx-note" id="lx-mnote" hidden>KOs and damage are not tracked per player, so only uses are shown for a single player.</p>
       <div class="lx-controls"><input id="lx-q-moves" type="search" placeholder="Search moves" aria-label="Search moves"></div>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-moves" data-source="moves" data-row-key="move">
@@ -321,6 +326,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
             <th class="num" data-field="damage"><button class="lx-sort" type="button">Damage dealt</button></th>
             <th class="num" data-field="damage_per_use"><button class="lx-sort" type="button">Damage / use</button></th>
             <th class="num" data-field="kos_per_10_uses"><button class="lx-sort" type="button">KOs per 10 uses</button></th>
+            <th data-field="used_by"><button class="lx-sort" type="button">Used by</button></th>
           </tr></thead>
           <tbody></tbody>
         </table>
@@ -335,7 +341,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
       <div class="lx-ltext">
         <div class="lx-lname"><span data-source="luck_leaders" data-field="best_player" data-row="0">—</span></div>
         <div class="lx-tile-v"><span data-source="luck_leaders" data-field="best_score" data-row="0" data-fmt="s2">—</span> <span class="lx-tile-s">luck score</span></div>
-        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="best_net" data-row="0" data-fmt="s1">—</span> lucky events beyond the odds</div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="best_net" data-row="0" data-fmt="s1">—</span> net lucky events vs. the odds</div>
       </div>
     </div>
     <div class="lx-tile">
@@ -343,7 +349,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
       <div class="lx-ltext">
         <div class="lx-lname"><span data-source="luck_leaders" data-field="worst_player" data-row="0">—</span></div>
         <div class="lx-tile-v"><span data-source="luck_leaders" data-field="worst_score" data-row="0" data-fmt="s2">—</span> <span class="lx-tile-s">luck score</span></div>
-        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="worst_net" data-row="0" data-fmt="s1">—</span> lucky events beyond the odds</div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="worst_net" data-row="0" data-fmt="s1">—</span> net lucky events vs. the odds</div>
       </div>
     </div>
     <div class="lx-tile">
@@ -357,15 +363,14 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <div class="lx-tile">
       <div class="lx-tile-l">Luckier player won</div>
       <div class="lx-ltext">
-        <div class="lx-lname"><span data-source="luck_leaders" data-field="luckier_won" data-row="0">—</span> of <span data-source="luck_leaders" data-field="luckier_total" data-row="0">—</span></div>
-        <div class="lx-tile-v"></div>
-        <div class="lx-tile-s">games went to the player with the better luck</div>
+        <div class="lx-tile-v"><span data-source="luck_leaders" data-field="luckier_pct" data-row="0" data-fmt="pct">—</span></div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="luckier_won" data-row="0">—</span> of <span data-source="luck_leaders" data-field="luckier_total" data-row="0">—</span> games went to the luckier player</div>
       </div>
     </div>
   </div>
     <div class="lx-card">
       <h2>Luck score by player</h2>
-      <p class="lx-note">Every random event in every replay is compared with its odds. A score of 0 is average luck, +1 is one standard deviation luckier than chance usually gives, and every lucky event for one player is an unlucky one for the other. Hover for the breakdown.</p>
+      <p class="lx-note">Every random event in every replay is compared with its odds. A score of 0 is average luck, +1 is one standard deviation luckier than chance usually gives, and every lucky event for one player is an unlucky one for the other. Hover or tap for the breakdown.</p>
       <div class="lx-chart dash-skeleton" id="lx-c-luck" data-source="luck"></div>
     </div>
     <div class="lx-card">
@@ -441,7 +446,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Most improbable moments</h2>
-      <p class="lx-note">Non-crit events that went the way their odds said was unlikely, rarest first. Odds is the chance of exactly what happened.</p>
+      <p class="lx-note">Unlikely outcomes (crits excluded), rarest first. Odds is the chance of exactly that outcome.</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-lmom" data-source="luckmoments" data-row-key="id">
           <thead><tr>
@@ -461,11 +466,11 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <div class="lx-card">
       <h2>How luck is measured</h2>
       <ul class="lx-defs">
-        <li><b>Luck score:</b> for each random event, the outcome minus its odds. A 10% freeze that happens is +0.9 for the attacker and −0.9 for the target, and one that does not is −0.1 and +0.1. A player's net is the sum of those, and the score is the net divided by the spread chance alone would produce (the square root of the summed odds times one minus the odds). Zero is average and about two thirds of players should land between −1 and +1.</li>
+        <li><b>Luck score:</b> each random event is scored as its outcome minus its odds. A 10% freeze that happens is +0.9 for the attacker and −0.9 for the target, and one that does not is −0.1 and +0.1. A player's net is the sum of those. The score is the net divided by the spread chance alone would produce (the square root of the summed odds times one minus the odds). Zero is average, and about two thirds of players fall between −1 and +1.</li>
         <li><b>What is counted:</b> critical hits (1 in 16, 1 in 8 for high-crit moves, 1 in 4 after Focus Energy), accuracy of every move under 100%, secondary burns, freezes, paralysis, flinches, confusion and stat drops, full paralysis (25%), thawing (20% a turn), and hitting yourself in confusion (50%).</li>
         <li><b>Only real chances count:</b> a secondary effect is only counted when the target could have been affected, so not if it fainted, was behind a Substitute, already had a status, was immune by type, or (for flinches) had already moved. Frost Breath always crits, so it is left out, as are Fake Out flinches.</li>
         <li><b>Not counted:</b> damage rolls, speed ties, sleep length, repeated Protect, and anything the replay does not show, such as Serene Grace, Shield Dust, Compound Eyes, Sand Veil, Scope Lens, Wide Lens and evasion or accuracy boosts. Odds use each move's Gen 5 base values.</li>
-        <li><b>Small samples:</b> 33 games is not many random events, so a player a little above or below zero is within normal chance. Only the extremes mean much.</li>
+        <li><b>Small samples:</b> <span data-source="league" data-field="games" data-row="0">—</span> games is not many random events, so a player a little above or below zero is within normal chance. Only the extremes mean much.</li>
       </ul>
     </div>
   </section>
@@ -473,7 +478,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
   <section class="lx-page" id="lx-schedule" data-page="schedule" hidden>
     <div class="lx-card">
       <h2>Schedule</h2>
-      <p class="lx-note">All nine weeks. The score is game wins for the first player listed, and each game link opens its Showdown replay. Upcoming matches are dimmed.</p>
+      <p class="lx-note">Scores list the first player's game wins first, and each game link opens its Showdown replay. Upcoming matches are dimmed.</p>
       <div class="lx-controls">
         <select id="lx-sp" aria-label="Player"><option value="">All players</option></select>
         <select id="lx-ss" aria-label="Status"><option value="">Played and upcoming</option><option value="Played">Played</option><option value="Upcoming">Upcoming</option></select>
@@ -523,7 +528,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
             <th data-field="first_blood"><button class="lx-sort" type="button">First KO</button></th>
             <th class="num" data-field="damage1"><button class="lx-sort" type="button">Player 1 damage</button></th>
             <th class="num" data-field="damage2"><button class="lx-sort" type="button">Player 2 damage</button></th>
-            <th class="num" data-field="winner_mons_left"><button class="lx-sort" type="button">Winner left</button></th>
+            <th class="num" data-field="winner_mons_left"><button class="lx-sort" type="button">Winner's Pokémon left</button></th>
             <th data-field="weather"><button class="lx-sort" type="button">Weather</button></th>
           </tr></thead>
           <tbody></tbody>
@@ -562,7 +567,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
         <li><b>Sacrifices:</b> Final Gambit, Explosion and similar moves where the user faints on its own.</li>
         <li><b>Damage:</b> percent of HP removed from opposing Pokémon by the Pokémon's own attacks, in full HP bars. It is capped at the target's remaining HP, so overkill is not counted. Hits on a partner (spread moves) are tracked separately as friendly fire in the data.</li>
         <li><b>Player win % when brought:</b> how often the player won the games where that Pokémon appeared. Small samples swing a lot.</li>
-        <li><b>Players and accounts:</b> every Pokémon belongs to a player's team. Players who used more than one Showdown account have their accounts combined (see config/players.json).</li>
+        <li><b>Players and accounts:</b> every Pokémon belongs to a player's team. Players who used more than one Showdown account have their accounts combined.</li>
         <li><b>Source:</b> Pokémon Showdown replays of the Gen 5 Doubles Custom Game, parsed from each replay's battle log. Zoroark's Illusion can make its switch-ins show as another Pokémon.</li>
       </ul>
     </div>
@@ -671,12 +676,13 @@ dash.calc('luck_leaders', {
     const bySc = luck.slice().sort((a, b) => b.score - a.score);
     const hi = bySc[0], lo = bySc[bySc.length - 1];
     const eg = games.slice().sort((a, b) => b.edge - a.edge)[0];
+    const won = games.filter((g) => g.luckier_won === 'Yes').length;
     return [{
       best_player: hi.player, best_score: hi.score, best_net: hi.net,
       worst_player: lo.player, worst_score: lo.score, worst_net: lo.net,
       edge_matchup: eg.matchup, edge_value: eg.edge, edge_luckier: eg.luckier, edge_week: eg.week, edge_game: eg.game,
       edge_result: eg.luckier_won === 'Yes' ? 'won' : 'lost',
-      luckier_won: games.filter((g) => g.luckier_won === 'Yes').length, luckier_total: games.length,
+      luckier_won: won, luckier_total: games.length, luckier_pct: games.length ? won / games.length : null,
     }];
   },
 });
@@ -699,6 +705,12 @@ function gate(el, ids) {
   return false;
 }
 const rowsOf = (id) => dash.data(id).data || [];
+const players = () => rowsOf('teams').map((t) => t.player).sort();
+function fillSel(sel, vals) {
+  if (!vals || sel.options.length > 1) return;
+  vals.forEach((v) => sel.appendChild(new Option(v, v)));
+  if (sel.dataset.want) sel.value = sel.dataset.want;
+}
 
 function showTip(el, ev, lines) {
   let t = el.querySelector('.lx-tip');
@@ -706,14 +718,24 @@ function showTip(el, ev, lines) {
   t.textContent = '';
   lines.forEach((l, i) => { const d = document.createElement('div'); if (i === 0) d.className = 'lx-tip-h'; d.textContent = l; t.appendChild(d); });
   t.style.display = 'block';
+  t.style.left = '0px';
   const r = el.getBoundingClientRect();
+  const vw = document.documentElement.clientWidth, w = t.offsetWidth;
   let x = ev.clientX - r.left + 12;
-  const y = ev.clientY - r.top + 12;
-  if (x + t.offsetWidth > r.width) x = Math.max(0, ev.clientX - r.left - t.offsetWidth - 12);
+  if (r.left + x + w > vw - 8) x = ev.clientX - r.left - w - 12;
+  x = Math.max(8 - r.left, Math.min(x, vw - 8 - w - r.left));
   t.style.left = x + 'px';
-  t.style.top = y + 'px';
+  t.style.top = (ev.clientY - r.top + 12) + 'px';
 }
 function hideTip(el) { const t = el.querySelector('.lx-tip'); if (t) t.style.display = 'none'; }
+function hideTips() { document.querySelectorAll('.lx-tip').forEach((t) => { t.style.display = 'none'; }); }
+function tipOn(node, host, linesFn) {
+  node.setAttribute('data-tip', '');
+  node.addEventListener('pointermove', (ev) => { if (ev.pointerType === 'mouse') showTip(host, ev, linesFn()); });
+  node.addEventListener('pointerleave', (ev) => { if (ev.pointerType === 'mouse') hideTip(host); });
+  node.addEventListener('click', (ev) => { if (ev.pointerType !== 'mouse') { hideTips(); showTip(host, ev, linesFn()); } });
+}
+document.addEventListener('pointerdown', (ev) => { if (!ev.target.closest('[data-tip]')) hideTips(); });
 
 function hbar(el, rows, o) {
   el.textContent = '';
@@ -754,8 +776,7 @@ function hbar(el, rows, o) {
       g.append('text').attr('class', 'lx-t').attr('x', left + x(v) + 6).attr('y', y + (bh - 1) / 2).attr('dominant-baseline', 'middle').text(lab);
     });
     g.append('rect').attr('x', 0).attr('y', 0).attr('width', w).attr('height', rowH).style('fill', 'transparent')
-      .on('mousemove', (ev) => showTip(el, ev, [o.label(r)].concat(series.map((s) => (series.length > 1 ? s.label + ': ' : '') + o.fmt(r[s.key] || 0)), o.tip ? o.tip(r) : [])))
-      .on('mouseleave', () => hideTip(el));
+      .each(function () { tipOn(this, el, () => [o.label(r)].concat(series.map((s) => (series.length > 1 ? s.label + ': ' : '') + o.fmt(r[s.key] || 0)), o.tip ? o.tip(r) : [])); });
   });
 }
 
@@ -781,7 +802,7 @@ function divBars(el, rows, o) {
     svg.append('text').attr('class', 'lx-t').attr('x', v >= 0 ? x(v) + 6 : x(v) - 6).attr('y', y + rowH / 2).attr('text-anchor', v >= 0 ? 'start' : 'end')
       .attr('dominant-baseline', 'middle').text(o.fmt(v));
     svg.append('rect').attr('x', 0).attr('y', y).attr('width', w).attr('height', rowH).style('fill', 'transparent')
-      .on('mousemove', (ev) => showTip(el, ev, o.tip(r))).on('mouseleave', () => hideTip(el));
+      .each(function () { tipOn(this, el, () => o.tip(r)); });
   });
 }
 
@@ -799,8 +820,7 @@ function turnBars(el, rows) {
   });
   rows.forEach((r) => {
     svg.append('rect').attr('x', x(r.id)).attr('y', y(r.turns)).attr('width', x.bandwidth()).attr('height', y(0) - y(r.turns)).attr('rx', 3).style('fill', dash.colors[0])
-      .on('mousemove', (ev) => showTip(el, ev, ['Week ' + r.week + ', game ' + r.game + ': ' + r.matchup, fmt.int(r.turns) + ' turns', 'Winner: ' + r.winner]))
-      .on('mouseleave', () => hideTip(el));
+      .each(function () { tipOn(this, el, () => ['Week ' + r.week + ', game ' + r.game + ': ' + r.matchup, fmt.int(r.turns) + ' turns', 'Winner: ' + r.winner]); });
   });
 }
 
@@ -873,6 +893,7 @@ function draw(T) {
       } else if (c.link && v != null) {
         const a = document.createElement('a'); a.href = r[c.link]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = String(v); td.appendChild(a);
       } else td.textContent = v == null ? '–' : fv(c.t, v);
+      if (c.tip && r[c.tip]) td.title = r[c.tip];
       if (c.t !== 'text') td.className = 'num';
       tr.appendChild(td);
     }
@@ -893,7 +914,7 @@ const T_MONS = mkTable('lx-t-mons', [
   { f: 'sacrifices', t: 'int' }, { f: 'crits', t: 'int' }, { f: 'super_effective', t: 'int' }, { f: 'misses', t: 'int' }, { f: 'statuses', t: 'int' },
 ], { f: 'kos', dir: -1 }, 'id');
 const T_MOVES = mkTable('lx-t-moves', [
-  { f: 'move', t: 'text' }, { f: 'uses', t: 'int' }, { f: 'kos', t: 'int' }, { f: 'damage', t: 'd1' }, { f: 'damage_per_use', t: 'd2' }, { f: 'kos_per_10_uses', t: 'd2' },
+  { f: 'move', t: 'text' }, { f: 'uses', t: 'int' }, { f: 'kos', t: 'int' }, { f: 'damage', t: 'd1' }, { f: 'damage_per_use', t: 'd2' }, { f: 'kos_per_10_uses', t: 'd2' }, { f: 'used_by', t: 'text', tip: 'used_by_full' },
 ], { f: 'uses', dir: -1 }, 'move');
 const T_GAMES = mkTable('lx-t-games', [
   { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'game', t: 'int' }, { f: 'id', t: 'text', link: 'replay' }, { f: 'date', t: 'text' }, { f: 'winner', t: 'text' }, { f: 'turns', t: 'int' },
@@ -926,7 +947,7 @@ const T_LMOM = mkTable('lx-t-lmom', [
 const T_WX = mkTable('lx-t-weather', [{ f: 'weather', t: 'text' }, { f: 'games', t: 'int' }], { f: 'games', dir: -1 }, 'weather');
 
 let selMon = null;
-T_MONS.onPick = (r) => { selMon = r.id; renderDetail(r); };
+T_MONS.onPick = (r) => { selMon = r.id; renderDetail(r); syncHash(); };
 T_MONS.sel = null;
 
 let tab = 'teams';
@@ -978,8 +999,7 @@ function renderTeams() {
         const im = spr(r.pokemon, '');
         if (im) { im.style.opacity = String(0.3 + 0.7 * r.bring_pct); cell.appendChild(im); }
         const cap = document.createElement('span'); cap.textContent = fmt.pct(r.bring_pct); cell.appendChild(cap);
-        cell.addEventListener('mousemove', (ev) => showTip(ros, ev, [r.pokemon + ' · ' + team, 'Brought ' + fmt.int(r.brought) + ' of ' + fmt.int(r.team_games) + ' games (' + fmt.pct(r.bring_pct) + ')', 'Led ' + fmt.int(r.led) + ' (' + fmt.pct(r.lead_pct) + ')', fmt.int(r.kos) + ' KOs']));
-        cell.addEventListener('mouseleave', () => hideTip(ros));
+        tipOn(cell, ros, () => [r.pokemon + ' · ' + team, 'Brought ' + fmt.int(r.brought) + ' of ' + fmt.int(r.team_games) + ' games (' + fmt.pct(r.bring_pct) + ')', 'Led ' + fmt.int(r.led) + ' (' + fmt.pct(r.lead_pct) + ')', fmt.int(r.kos) + ' KOs']);
         row.appendChild(cell);
       });
       wrap.appendChild(row);
@@ -997,7 +1017,9 @@ function monFilter() {
   const team = $('#lx-team').value;
   const q = $('#lx-q-mons').value.trim().toLowerCase();
   const unused = $('#lx-unused').checked;
-  return rowsOf('mons').filter((r) => (unused || r.brought > 0) && (!team || r.player === team) && (!q || (r.pokemon + ' ' + r.player).toLowerCase().includes(q)));
+  const min = +$('#lx-min').value || 1;
+  $('#lx-min').disabled = unused;
+  return rowsOf('mons').filter((r) => (unused || r.brought >= min) && (!team || r.player === team) && (!q || (r.pokemon + ' ' + r.player).toLowerCase().includes(q)));
 }
 
 function renderDetail(m) {
@@ -1030,7 +1052,7 @@ function renderDetail(m) {
 
 function renderPokemon() {
   const sel = $('#lx-team');
-  if (okAll(['teams']) && sel.options.length <= 1) rowsOf('teams').map((t) => t.player).sort().forEach((t) => sel.appendChild(new Option(t, t)));
+  fillSel(sel, okAll(['teams']) && players());
   const kosC = $('#lx-c-kos'), dmgC = $('#lx-c-dmg');
   const g1 = gate(kosC, ['mons']);
   const g2 = gate(dmgC, ['mons']);
@@ -1051,9 +1073,29 @@ function renderPokemon() {
 
 function renderMoves() {
   const a = $('#lx-c-mdmg'), b = $('#lx-c-muse');
-  const g1 = gate(a, ['moves']), g2 = gate(b, ['moves']);
+  const sel = $('#lx-mp');
+  fillSel(sel, okAll(['teams']) && players());
+  const g1 = gate(a, ['moves', 'teammoves']), g2 = gate(b, ['moves', 'teammoves']);
   if (g1 || g2) return;
-  const rows = rowsOf('moves');
+  const p = sel.options.length > 1 ? sel.value : '';
+  const agg = new Map();
+  rowsOf('teammoves').forEach((r) => {
+    if (p && r.player !== p) return;
+    let o = agg.get(r.move);
+    if (!o) agg.set(r.move, o = { uses: 0, by: new Map() });
+    const k = r.pokemon + (p ? '' : ' (' + r.player + ')');
+    o.uses += r.uses;
+    o.by.set(k, (o.by.get(k) || 0) + r.uses);
+  });
+  const usedBy = (m) => {
+    const o = agg.get(m);
+    if (!o) return {};
+    const l = [...o.by].sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0])).map((e) => e[0]);
+    return { used_by: l.slice(0, 3).join(', ') + (l.length > 3 ? ', +' + (l.length - 3) + ' more' : ''), used_by_full: l.join(', ') };
+  };
+  const rows = (p ? [...agg].map(([move, o]) => ({ move, uses: o.uses })) : rowsOf('moves')).map((r) => Object.assign({}, r, usedBy(r.move)));
+  a.parentNode.hidden = !!p;
+  $('#lx-mnote').hidden = !p;
   hbar(a, rows.slice().sort((x, y) => y.damage - x.damage).slice(0, 12), { label: (r) => r.move, fmt: fmt.d1, series: [{ key: 'damage', label: 'Damage dealt', color: dash.colors[0] }], note: (r) => r.kos + ' KOs' });
   hbar(b, rows.slice().sort((x, y) => y.uses - x.uses).slice(0, 12), { label: (r) => r.move, fmt: fmt.int, series: [{ key: 'uses', label: 'Uses', color: dash.colors[1] }] });
   const q = $('#lx-q-moves').value.trim().toLowerCase();
@@ -1073,7 +1115,7 @@ function renderGames() {
 
 function renderSchedule() {
   const sel = $('#lx-sp');
-  if (okAll(['teams']) && sel.options.length <= 1) rowsOf('teams').map((t) => t.player).sort().forEach((p) => sel.appendChild(new Option(p, p)));
+  fillSel(sel, okAll(['teams']) && players());
   if (!okAll(['schedule'])) return;
   const p = sel.value, st = $('#lx-ss').value;
   T_SCHED.rows = rowsOf('schedule').filter((r) => (!p || r.player1 === p || r.player2 === p) && (!st || r.status === st));
@@ -1086,14 +1128,14 @@ function renderLuck() {
     const rows = rowsOf('luck').slice().sort((a, b) => b.score - a.score);
     divBars(ch, rows, {
       key: 'score', label: (r) => r.player, fmt: fmt.s2,
-      tip: (r) => [r.player, 'Luck score ' + fmt.s2(r.score) + ' (' + fmt.pct(r.percentile) + ' percentile)', fmt.s1(r.net) + ' lucky events beyond the odds',
+      tip: (r) => [r.player, 'Luck score ' + fmt.s2(r.score) + ' (' + fmt.pct(r.percentile) + ' percentile)', fmt.s1(r.net) + ' net lucky events vs. the odds',
         'Crits ' + fmt.s1(r.crit_net) + ', accuracy ' + fmt.s1(r.acc_net), 'Burns ' + fmt.s1(r.brn_net) + ', freezes ' + fmt.s1(r.frz_net) + ', paralysis ' + fmt.s1(r.par_net) + ', flinches ' + fmt.s1(r.flinch_net),
         'Other effects ' + fmt.s1(r.other_net) + ', full para, thaw and confusion hits ' + fmt.s1(r.deny_net)],
     });
   }
   if (okAll(['luck'])) { T_LUCK.rows = rowsOf('luck'); draw(T_LUCK); }
   const sel = $('#lx-lp');
-  if (okAll(['luck']) && sel.options.length <= 1) rowsOf('luck').map((t) => t.player).sort().forEach((p) => sel.appendChild(new Option(p, p)));
+  fillSel(sel, okAll(['luck']) && rowsOf('luck').map((t) => t.player).sort());
   if (okAll(['luckdetail'])) { const p = sel.value; T_LDET.rows = rowsOf('luckdetail').filter((r) => !p || r.player === p); draw(T_LDET); }
   if (okAll(['luckgames'])) { T_LGAMES.rows = rowsOf('luckgames'); draw(T_LGAMES); }
   if (okAll(['luckmoments'])) { T_LMOM.rows = rowsOf('luckmoments'); draw(T_LMOM); }
@@ -1116,24 +1158,53 @@ function render() {
   else if (tab === 'schedule') renderSchedule();
   else if (tab === 'games') renderGames();
   else if (tab === 'extras') renderExtras();
+  syncHash();
 }
 
-function setTab(name, link) {
+const TABS = ['teams', 'pokemon', 'moves', 'luck', 'schedule', 'games', 'extras'];
+const selField = (id) => ({ get: () => { const e = $('#' + id); return e.options.length > 1 || !e.dataset.want ? e.value : e.dataset.want; }, set: (v) => { const e = $('#' + id); e.dataset.want = v; e.value = v; } });
+const HASH_STATE = {
+  pokemon: { player: selField('lx-team'), min: selField('lx-min'), mon: { get: () => selMon || '', set: (v) => { selMon = v || null; } } },
+  moves: { player: selField('lx-mp') },
+  luck: { player: selField('lx-lp') },
+  schedule: { player: selField('lx-sp'), status: selField('lx-ss') },
+};
+function readHash() {
+  const [name, qs] = location.hash.replace(/^#(lx-)?/, '').split('?');
+  return { tab: TABS.includes(name) ? name : null, params: Object.fromEntries(new URLSearchParams(qs || '')) };
+}
+function writeHash(t, params) {
+  const q = new URLSearchParams();
+  Object.entries(params).forEach(([k, v]) => { if (v) q.set(k, v); });
+  const qs = q.toString();
+  const h = '#' + t + (qs ? '?' + qs : '');
+  if (location.hash !== h && (location.hash || t !== 'teams' || qs)) history.replaceState(null, '', h);
+}
+function syncHash() {
+  const p = {};
+  Object.entries(HASH_STATE[tab] || {}).forEach(([k, h]) => { p[k] = h.get(); });
+  writeHash(tab, p);
+}
+function applyHash(h) {
+  if (h.tab) tab = h.tab;
+  Object.entries(HASH_STATE[tab] || {}).forEach(([k, s]) => s.set(h.params[k] || ''));
+}
+
+function setTab(name) {
   tab = name;
   document.querySelectorAll('.lx-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === name)));
   document.querySelectorAll('.lx-page').forEach((p) => { p.hidden = p.dataset.page !== name; });
-  if (link) dash.setLink('lx-' + name);
   render();
 }
 
-document.querySelectorAll('.lx-tab').forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab, true)));
-['lx-team', 'lx-q-mons', 'lx-unused', 'lx-q-moves', 'lx-q-games', 'lx-sp', 'lx-ss', 'lx-lp'].forEach((id) => {
+document.querySelectorAll('.lx-tab').forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab)));
+['lx-team', 'lx-min', 'lx-q-mons', 'lx-unused', 'lx-mp', 'lx-q-moves', 'lx-q-games', 'lx-sp', 'lx-ss', 'lx-lp'].forEach((id) => {
   const el = $('#' + id);
   el.addEventListener(el.type === 'search' ? 'input' : 'change', render);
 });
 
-const wanted = location.hash.replace('#lx-', '');
-if (['teams', 'pokemon', 'moves', 'luck', 'schedule', 'games', 'extras'].includes(wanted)) tab = wanted;
+applyHash(readHash());
+addEventListener('hashchange', () => { applyHash(readHash()); setTab(tab); });
 dash.onData(() => {
   document.querySelectorAll('.lx-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
   document.querySelectorAll('.lx-page').forEach((p) => { p.hidden = p.dataset.page !== tab; });
