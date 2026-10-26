@@ -148,6 +148,16 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-loss { color: var(--color-bad); }
 .lx-more { margin-top: var(--cds-gap-sm); font: inherit; font-size: var(--cds-font-size-caption); color: var(--color-fg); background: none; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-md); cursor: pointer; }
 .lx-gl { margin: var(--cds-gap-sm) 0 0; padding-left: 1.1rem; font-size: var(--cds-font-size-caption); line-height: 1.6; }
+.lx-weeks { margin: calc(var(--cds-gap-sm) - var(--cds-gap-lg)) 0 var(--cds-gap-md); }
+.lx-weeks[hidden] { display: none; }
+.lx-weeks .lx-note { margin: 0; }
+.lx-controls .lx-more { margin-top: 0; }
+.lx-chips { display: inline-flex; flex-wrap: wrap; gap: 4px; vertical-align: middle; }
+.lx-chip { display: inline-block; font-size: 0.75rem; line-height: 1; padding: 4px 8px; border: 1px solid var(--color-border-line); border-radius: 999px; color: var(--color-fg); background: var(--color-bg); white-space: nowrap; }
+.lx-chip b { font-weight: var(--cds-font-weight-medium); margin-left: 5px; color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.lx-table tr.lx-risk td { background: color-mix(in srgb, var(--color-bad) 14%, var(--color-panel)); }
+.lx-cov { margin-bottom: var(--cds-gap-sm); }
+.lx-cov .lx-chips { margin: var(--cds-gap-xs) 0 var(--cds-gap-sm); }
 [data-dash-source-state="refreshing"] { opacity: .5; transition: opacity var(--cds-dur-slow); }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
@@ -238,6 +248,15 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <button class="lx-tab" role="tab" data-tab="extras" aria-selected="false">Extras and definitions</button>
   </div>
 
+  <div class="lx-weeks" id="lx-weeks" hidden>
+    <div class="lx-controls">
+      <label>Weeks from <select id="lx-wf" aria-label="From week"></select></label>
+      <label>to <select id="lx-wt" aria-label="To week"></select></label>
+      <button class="lx-more" id="lx-wreset" type="button" hidden>All weeks</button>
+    </div>
+    <p class="lx-note" id="lx-wnote" hidden></p>
+  </div>
+
   <section class="lx-page" id="lx-teams" data-page="teams">
     <div class="lx-card">
       <h2>Standings and results</h2>
@@ -274,7 +293,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
       <div class="lx-card">
         <h2>Damage dealt vs taken per game</h2>
         <p class="lx-note">Full HP bars per game, sorted by the gap between dealt and taken. You want dealt longer than taken.</p>
-        <div class="lx-chart dash-skeleton" id="lx-c-rates" data-source="team_rates"></div>
+        <div class="lx-chart dash-skeleton" id="lx-c-rates" data-source="teams"></div>
       </div>
       <div class="lx-card">
         <h2>Pokémon lost per game</h2>
@@ -291,6 +310,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
       <div class="lx-controls">
         <label>Player <select id="lx-sc-p" aria-label="Player"></select></label>
         <label>vs <select id="lx-sc-v" aria-label="Compare with"><option value="">Nobody</option></select></label>
+        <label><input id="lx-sc-unb" type="checkbox"> Include Pokémon that were never brought in type coverage</label>
       </div>
     </div>
     <div id="lx-sc-top" class="dash-skeleton"></div>
@@ -838,17 +858,6 @@ dash.calc('playoffs', {
   },
 });
 
-dash.calc('team_rates', {
-  inputs: ['teams'],
-  title: 'Damage per game',
-  description: 'Each team\'s damage dealt and taken divided by its games.',
-  fn: (teams) => teams.map((t) => ({
-    player: t.player,
-    dealt_per_game: Math.round((t.damage / t.games) * 100) / 100,
-    taken_per_game: Math.round((t.taken / t.games) * 100) / 100,
-  })),
-});
-
 dash.calc('leaders', {
   inputs: ['mons', 'moves', 'games'],
   title: 'League leaders',
@@ -893,6 +902,92 @@ dash.calc('luck_leaders', {
   },
 });
 
+
+/*agg*/
+function wkAgg(D, from, to) {
+  const rd = (x, n) => {
+    const [i, d] = x.toFixed(40).split('.');
+    if (/^50*$/.test(d.slice(n))) { const lo = Number(i + '.' + d.slice(0, n)); return Math.round(lo * 10 ** n) % 2 ? Number((lo + 10 ** -n).toFixed(n)) : lo; }
+    return Number(x.toFixed(n));
+  };
+  const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+  const sum = (a, f) => a.reduce((s, x) => s + f(x), 0);
+  const grp = (rows, kf) => { const m = new Map(); rows.forEach((r) => { const k = kf(r); if (!m.has(k)) m.set(k, []); m.get(k).push(r); }); return m; };
+  const inR = (w) => w >= from && w <= to;
+  const games = D.games.filter((g) => inR(g.week));
+  const ids = new Set(games.map((g) => g.id));
+  const gm = D.gamemons.filter((r) => ids.has(r.game)), gv = D.gamemoves.filter((r) => ids.has(r.game));
+  const byGame = grp(gm, (r) => r.game);
+  const T = new Map();
+  games.forEach((g) => {
+    const rows = byGame.get(g.id) || [];
+    [1, 2].forEach((n) => {
+      const p = g['player' + n], won = g.winner === p;
+      const mine = rows.filter((r) => r.player === p), theirs = rows.filter((r) => r.player !== p);
+      let t = T.get(p);
+      if (!t) T.set(p, t = { games: 0, wins: 0, losses: 0, turns: 0, kos: 0, damage: 0, taken: 0, lost: 0, fb: 0, fbw: 0, left: 0, hp: 0, acc: [], sp: new Set() });
+      t.games++; t.wins += won ? 1 : 0; t.losses += won ? 0 : 1; t.turns += g.turns;
+      t.kos += sum(mine, (r) => r.kos); t.damage += sum(mine, (r) => r.damage); t.taken += sum(theirs, (r) => r.damage); t.lost += sum(mine, (r) => r.faints);
+      if (g.first_blood === p) { t.fb++; t.fbw += won ? 1 : 0; }
+      if (won) { const up = mine.filter((r) => !r.faints); t.left += up.length; t.hp += sum(up, (r) => r.hp); }
+      const a = g['account' + n];
+      if (!t.acc.includes(a)) t.acc.push(a);
+      mine.forEach((r) => t.sp.add(r.pokemon));
+    });
+  });
+  const sw = {}, sl = {};
+  D.schedule.forEach((s) => {
+    if (!inR(s.week) || s.status !== 'Played' || !s.winner) return;
+    const l = s.winner === s.player1 ? s.player2 : s.player1;
+    sw[s.winner] = (sw[s.winner] || 0) + 1; sl[l] = (sl[l] || 0) + 1;
+  });
+  const teams = [...T].map(([player, t]) => {
+    const n = t.games;
+    return {
+      player, series_wins: sw[player] || 0, series_losses: sl[player] || 0, games: n, wins: t.wins, losses: t.losses,
+      win_pct: rd(t.wins / n, 3), avg_turns: rd(t.turns / n, 1), kos: t.kos, kos_per_game: rd(t.kos / n, 2),
+      damage: rd(t.damage, 1), taken: rd(t.taken, 1), mons_lost: t.lost, lost_per_game: rd(t.lost / n, 2),
+      first_blood_games: t.fb, first_blood_pct: rd(t.fb / n, 3), win_pct_after_first_blood: t.fb ? rd(t.fbw / t.fb, 3) : null,
+      avg_mons_left_in_wins: t.wins ? rd(t.left / t.wins, 2) : null, avg_hp_left_in_wins: t.wins ? rd(t.hp / t.wins, 2) : null,
+      mons_used: t.sp.size, accounts: t.acc.join(', '),
+    };
+  }).sort((a, b) => b.series_wins - a.series_wins || b.wins - a.wins || cmp(a.player, b.player));
+  const tg = {};
+  teams.forEach((t) => { tg[t.player] = t.games; });
+  const byMon = grp(gm, (r) => r.player + '|' + r.pokemon);
+  const mons = D.mons.map((b) => {
+    const rs = byMon.get(b.id) || [], n = tg[b.player] || 0, br = rs.length, led = sum(rs, (r) => r.led);
+    const s = (f) => sum(rs, (r) => r[f]), dmg = rd(s('damage'), 2);
+    return {
+      id: b.id, player: b.player, pokemon: b.pokemon, types: b.types, team_games: n,
+      brought: br, bring_pct: n ? rd(br / n, 3) : 0, led, lead_pct: n ? rd(led / n, 3) : 0,
+      win_pct_brought: br ? rd(sum(rs, (r) => r.won) / br, 3) : null, win_pct_led: led ? rd(sum(rs, (r) => r.won * r.led) / led, 3) : null,
+      kos: s('kos'), kos_per_app: br ? rd(s('kos') / br, 2) : null, damage: dmg, damage_per_app: br ? rd(dmg / br, 2) : null,
+      taken: rd(s('taken'), 2), faints: s('faints'), survival_pct: br ? rd(1 - s('faints') / br, 3) : null,
+      turns_on_field: s('turns_on_field'), sacrifices: s('sacrifices'), friendly_fire: rd(s('friendly_fire'), 2),
+      crits: s('crits'), super_effective: s('super_effective'), misses: s('misses'), statuses: s('statuses'),
+    };
+  });
+  const mv = new Map(), tm = new Map(), tot = new Map();
+  gv.forEach((r) => {
+    let o = mv.get(r.move);
+    if (!o) mv.set(r.move, o = { move: r.move, uses: 0, kos: 0, damage: 0 });
+    o.uses += r.uses; o.kos += r.kos; o.damage += r.damage;
+    const k = r.player + '|' + r.pokemon + '|' + r.move, q = r.player + '|' + r.pokemon;
+    let x = tm.get(k);
+    if (!x) tm.set(k, x = { id: k, player: r.player, pokemon: r.pokemon, move: r.move, uses: 0 });
+    x.uses += r.uses; tot.set(q, (tot.get(q) || 0) + r.uses);
+  });
+  const moves = [...mv.values()].map((o) => {
+    const d = rd(o.damage, 2), ok = o.damage && o.uses;
+    return { move: o.move, uses: o.uses, kos: o.kos, damage: d, damage_per_use: ok ? rd(d / o.uses, 2) : null, kos_per_10_uses: ok ? rd(10 * o.kos / o.uses, 2) : null };
+  }).sort((a, b) => b.uses - a.uses || cmp(a.move, b.move));
+  const teammoves = [...tm.values()].filter((x) => x.uses).map((x) => Object.assign(x, { share: rd(x.uses / tot.get(x.player + '|' + x.pokemon), 3) }))
+    .sort((a, b) => cmp(a.player, b.player) || cmp(a.pokemon, b.pokemon) || b.uses - a.uses || cmp(a.move, b.move));
+  return { games, teams, mons, moves, teammoves };
+}
+/*endagg*/
+
 const $ = (s, r) => (r || document).querySelector(s);
 const okAll = (ids) => ids.every((id) => dash.data(id).status === 'ok');
 const badAny = (ids) => ids.some((id) => ['error', 'connect', 'declined', 'missing'].includes(dash.data(id).status));
@@ -912,6 +1007,67 @@ function gate(el, ids) {
 }
 const rowsOf = (id) => dash.data(id).data || [];
 const players = () => rowsOf('teams').map((t) => t.player).sort();
+
+const WK_TABS = ['teams', 'scout', 'pokemon', 'moves'];
+const WK_IDS = ['games', 'gamemons', 'gamemoves', 'mons', 'schedule'];
+function wkRange() {
+  const f = $('#lx-wf'), t = $('#lx-wt'), n = f.options.length;
+  if (n < 2 || (f.selectedIndex === 0 && t.selectedIndex === n - 1)) return null;
+  return { from: +f.value, to: +t.value };
+}
+const need = (ids) => (wkRange() ? ids.concat(WK_IDS) : ids);
+let wkMemo = { k: null, v: null };
+function wkData() {
+  const r = wkRange();
+  if (!r) return null;
+  if (!okAll(WK_IDS)) return { games: [], teams: [], mons: [], moves: [], teammoves: [] };
+  const k = r.from + '-' + r.to;
+  if (wkMemo.k !== k) wkMemo = { k, v: wkAgg({ games: rowsOf('games'), gamemons: rowsOf('gamemons'), gamemoves: rowsOf('gamemoves'), mons: rowsOf('mons'), schedule: rowsOf('schedule') }, r.from, r.to) };
+  return wkMemo.v;
+}
+const wkRows = (name) => { const w = wkData(); return w ? w[name] : rowsOf(name); };
+const teamsF = () => wkRows('teams'), monsF = () => wkRows('mons'), gamesF = () => wkRows('games');
+const movesF = () => wkRows('moves'), teammovesF = () => wkRows('teammoves');
+function fillWeeks() {
+  const f = $('#lx-wf'), t = $('#lx-wt');
+  if (f.options.length < 2 && okAll(['schedule', 'games'])) {
+    const ws = [...new Set(rowsOf('schedule').map((r) => r.week).concat(rowsOf('games').map((g) => g.week)))].sort((a, b) => a - b).map(String);
+    fillSel(f, ws); fillSel(t, ws);
+    if (f.selectedIndex < 0) f.selectedIndex = 0;
+    if (t.selectedIndex < 0 || !t.dataset.want) t.selectedIndex = t.options.length - 1;
+    wkClamp(f);
+  }
+}
+function wkClamp(changed) {
+  const f = $('#lx-wf'), t = $('#lx-wt');
+  if (+t.value < +f.value) (changed === f ? t : f).selectedIndex = (changed === f ? f : t).selectedIndex;
+}
+function renderWeeks() {
+  $('#lx-weeks').hidden = !WK_TABS.includes(tab);
+  fillWeeks();
+  const r = wkRange(), note = $('#lx-wnote');
+  note.hidden = $('#lx-wreset').hidden = !r;
+  if (!r) return;
+  const n = okAll(['games']) ? rowsOf('games').filter((g) => g.week >= r.from && g.week <= r.to).length : 0;
+  note.textContent = (r.from === r.to ? 'Showing week ' + r.from : 'Showing weeks ' + r.from + '–' + r.to) + ' (' + n + (n === 1 ? ' game)' : ' games)');
+}
+
+const TYPES = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel'];
+// Gen 5 chart: attacking type -> [2x, 0.5x, 0x] defending types. No Fairy, and Steel still resists Ghost and Dark.
+const CHART = {
+  Normal: ['', 'Rock Steel', 'Ghost'], Fire: ['Grass Ice Bug Steel', 'Fire Water Rock Dragon', ''], Water: ['Fire Ground Rock', 'Water Grass Dragon', ''],
+  Electric: ['Water Flying', 'Electric Grass Dragon', 'Ground'], Grass: ['Water Ground Rock', 'Fire Grass Poison Flying Bug Dragon Steel', ''],
+  Ice: ['Grass Ground Flying Dragon', 'Fire Water Ice Steel', ''], Fighting: ['Normal Ice Rock Dark Steel', 'Poison Flying Psychic Bug', 'Ghost'],
+  Poison: ['Grass', 'Poison Ground Rock Ghost', 'Steel'], Ground: ['Fire Electric Poison Rock Steel', 'Grass Bug', 'Flying'],
+  Flying: ['Grass Fighting Bug', 'Electric Rock Steel', ''], Psychic: ['Fighting Poison', 'Psychic Steel', 'Dark'],
+  Bug: ['Grass Psychic Dark', 'Fire Fighting Poison Flying Ghost Steel', ''], Rock: ['Fire Ice Flying Bug', 'Fighting Ground Steel', ''],
+  Ghost: ['Psychic Ghost', 'Dark Steel', 'Normal'], Dragon: ['Dragon', 'Steel', ''], Dark: ['Psychic Ghost', 'Fighting Dark Steel', ''],
+  Steel: ['Ice Rock', 'Fire Water Electric Steel', ''],
+};
+function typeMult(att, defs) {
+  const [se, nve, no] = CHART[att].map((x) => x.split(' '));
+  return defs.reduce((m, d) => m * (no.includes(d) ? 0 : se.includes(d) ? 2 : nve.includes(d) ? 0.5 : 1), 1);
+}
 function fillSel(sel, vals) {
   if (!vals || sel.options.length > 1) return;
   vals.forEach((v) => sel.appendChild(new Option(v, v)));
@@ -1030,7 +1186,10 @@ function turnBars(el, rows) {
   });
 }
 
-const scoutHref = (p, v) => '#scout?player=' + encodeURIComponent(p) + (v ? '&vs=' + encodeURIComponent(v) : '');
+const scoutHref = (p, v) => {
+  const r = wkRange();
+  return '#scout?player=' + encodeURIComponent(p) + (v ? '&vs=' + encodeURIComponent(v) : '') + (r ? '&from=' + r.from + '&to=' + r.to : '');
+};
 function plink(p) {
   const a = document.createElement('a');
   a.className = 'lx-pl'; a.href = scoutHref(p); a.textContent = p; a.title = 'Scout ' + p;
@@ -1210,20 +1369,22 @@ function renderHeader() {
 }
 
 function renderTeams() {
-  if (okAll(['teams'])) { T_TEAMS.rows = rowsOf('teams'); draw(T_TEAMS); }
+  if (okAll(need(['teams']))) { T_TEAMS.rows = teamsF(); draw(T_TEAMS); }
   const rates = $('#lx-c-rates');
-  if (!gate(rates, ['team_rates'])) {
-    const rows = rowsOf('team_rates').slice().sort((a, b) => (b.dealt_per_game - b.taken_per_game) - (a.dealt_per_game - a.taken_per_game));
+  if (!gate(rates, need(['teams']))) {
+    const r2 = (x) => Math.round(x * 100) / 100;
+    const rows = teamsF().map((t) => ({ player: t.player, dealt_per_game: r2(t.damage / t.games), taken_per_game: r2(t.taken / t.games) })).sort((a, b) => (b.dealt_per_game - b.taken_per_game) - (a.dealt_per_game - a.taken_per_game));
     hbar(rates, rows, {
       label: (r) => r.player, fmt: fmt.d1,
       series: [{ key: 'dealt_per_game', label: 'Dealt', color: dash.colors[0] }, { key: 'taken_per_game', label: 'Taken', color: 'var(--cds-chart-muted)' }],
     });
   }
   const ros = $('#lx-c-rosters');
-  if (!gate(ros, ['mons', 'teams'])) {
+  if (!gate(ros, need(['mons', 'teams']))) {
     ros.textContent = '';
-    const byTeam = d3.group(rowsOf('mons'), (r) => r.player);
-    const order = rowsOf('teams').slice().sort((a, b) => b.series_wins - a.series_wins || b.win_pct - a.win_pct || b.games - a.games).map((t) => t.player);
+    const byTeam = d3.group(monsF(), (r) => r.player);
+    const order = teamsF().slice().sort((a, b) => b.series_wins - a.series_wins || b.win_pct - a.win_pct || b.games - a.games).map((t) => t.player);
+    players().forEach((q) => { if (!order.includes(q)) order.push(q); });
     order.forEach((team) => {
       const rows = (byTeam.get(team) || []).slice().sort((a, b) => b.brought - a.brought || b.led - a.led || a.pokemon.localeCompare(b.pokemon));
       const wrap = document.createElement('div');
@@ -1242,8 +1403,8 @@ function renderTeams() {
     });
   }
   const lost = $('#lx-c-lost');
-  if (!gate(lost, ['teams'])) {
-    const rows = rowsOf('teams').slice().sort((a, b) => a.lost_per_game - b.lost_per_game);
+  if (!gate(lost, need(['teams']))) {
+    const rows = teamsF().slice().sort((a, b) => a.lost_per_game - b.lost_per_game);
     hbar(lost, rows, { label: (r) => r.player, fmt: fmt.d2, series: [{ key: 'lost_per_game', label: 'Lost per game', color: dash.colors[1] }], note: (r) => r.wins + '–' + r.losses });
   }
 }
@@ -1254,7 +1415,7 @@ function monFilter() {
   const unused = $('#lx-unused').checked;
   const min = +$('#lx-min').value || 1;
   $('#lx-min').disabled = unused;
-  return rowsOf('mons').filter((r) => (unused || r.brought >= min) && (!team || r.player === team) && (!q || (r.pokemon + ' ' + r.player).toLowerCase().includes(q)));
+  return monsF().filter((r) => (unused || r.brought >= min) && (!team || r.player === team) && (!q || (r.pokemon + ' ' + r.player).toLowerCase().includes(q)));
 }
 
 function renderDetail(m) {
@@ -1267,7 +1428,7 @@ function renderDetail(m) {
   const tm = mark(document.createElement('span'), 'mons', 'player', where); tm.className = 'lx-dteam'; tm.textContent = m.player;
   const dim = spr(m.pokemon, 'lx-dspr');
   if (dim) head.appendChild(dim);
-  head.appendChild(nm); head.appendChild(tm); box.appendChild(head);
+  head.appendChild(nm); head.appendChild(tm); head.appendChild(typeChips(m.types)); box.appendChild(head);
   const stats = [['Bring %', 'bring_pct', 'pct'], ['Lead %', 'lead_pct', 'pct'], ['KOs', 'kos', 'int'], ['KOs / game', 'kos_per_app', 'd2'], ['Damage dealt', 'damage', 'd1'],
     ['Damage taken', 'taken', 'd1'], ['Survived %', 'survival_pct', 'pct'], ['Player win % when brought', 'win_pct_brought', 'pct'], ['Turns on field', 'turns_on_field', 'int']];
   const grid = document.createElement('div'); grid.className = 'lx-stats';
@@ -1281,7 +1442,7 @@ function renderDetail(m) {
   const h = document.createElement('h2'); h.textContent = 'Moves used'; box.appendChild(h);
   const note = document.createElement('p'); note.className = 'lx-note'; note.textContent = 'Times used across the games this Pokémon appeared in.'; box.appendChild(note);
   const ch = document.createElement('div'); ch.className = 'lx-chart'; ch.setAttribute('data-source', 'teammoves'); box.appendChild(ch);
-  const mv = rowsOf('teammoves').filter((r) => r.player === m.player && r.pokemon === m.pokemon).sort((a, b) => b.uses - a.uses);
+  const mv = teammovesF().filter((r) => r.player === m.player && r.pokemon === m.pokemon).sort((a, b) => b.uses - a.uses);
   hbar(ch, mv, { label: (r) => r.move, fmt: fmt.int, series: [{ key: 'uses', label: 'Uses', color: dash.colors[0] }], note: (r) => fmt.pct(r.share), empty: 'This Pokémon never appeared in a replay.' });
 }
 
@@ -1363,6 +1524,52 @@ function h2hCard(p, v, sched, games) {
   return card;
 }
 
+const typeChips = (types) => { const e = node('span', 'lx-chips'); (types || []).forEach((t) => e.appendChild(node('span', 'lx-chip', t))); return e; };
+
+function coverage(p, mons, unb) {
+  const rows = mons.filter((r) => r.player === p && (unb || r.brought > 0));
+  const count = {};
+  rows.forEach((r) => (r.types || []).forEach((t) => { count[t] = (count[t] || 0) + 1; }));
+  const att = TYPES.map((a) => {
+    const o = { type: a, weak: [], resist: [], immune: [] };
+    rows.forEach((r) => {
+      const m = typeMult(a, r.types || []);
+      if (m === 0) o.immune.push(r.pokemon); else if (m > 1) o.weak.push(r.pokemon + (m > 2 ? ' (4×)' : '')); else if (m < 1) o.resist.push(r.pokemon);
+    });
+    o.risk = o.weak.length >= 3 && o.resist.length + o.immune.length <= 1;
+    return o;
+  }).sort((a, b) => b.weak.length - a.weak.length || (a.resist.length + a.immune.length) - (b.resist.length + b.immune.length));
+  return { n: rows.length, count, att };
+}
+function coverageCol(p, mons, unb) {
+  const c = coverage(p, mons, unb), col = node('div', 'lx-cov');
+  col.appendChild(node('div', 'lx-rteam', p));
+  col.appendChild(node('div', 'lx-muted', c.n + ' Pokémon counted'));
+  const chips = node('span', 'lx-chips');
+  Object.entries(c.count).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).forEach(([t, n]) => { const e = node('span', 'lx-chip', t); e.appendChild(node('b', null, String(n))); chips.appendChild(e); });
+  col.appendChild(chips);
+  const cell = (list) => { const e = node('span', null, String(list.length)); if (list.length) e.title = list.join(', '); return e; };
+  const tbl = plainTable(['Attack type', 'Weak', 'Resist', 'Immune'], c.att.map((o) => [o.type, cell(o.weak), cell(o.resist), cell(o.immune)]));
+  tbl.querySelectorAll('tbody tr').forEach((tr, i) => {
+    if (c.att[i].risk) tr.classList.add('lx-risk');
+    for (let k = 1; k < 4; k++) { tr.cells[k].className = 'num'; tbl.querySelectorAll('thead th')[k].className = 'num'; }
+  });
+  col.appendChild(tbl);
+  return col;
+}
+function coverageCard(p, v, mons) {
+  const unb = $('#lx-sc-unb').checked, r = wkRange();
+  const card = node('div', 'lx-card');
+  card.appendChild(node('h2', null, 'Type coverage'));
+  card.appendChild(node('p', 'lx-note', (unb ? 'Every Pokémon on the roster' : 'Pokémon brought' + (r ? ' in the selected weeks' : '')) + '. Weak means 2× or 4× damage. Highlighted rows have 3 or more Pokémon weak and at most one that resists or is immune.'));
+  card.appendChild(node('p', 'lx-note', "Abilities such as Levitate aren't counted."));
+  const g = node('div', v ? 'lx-pair' : null);
+  g.appendChild(coverageCol(p, mons, unb));
+  if (v) g.appendChild(coverageCol(v, mons, unb));
+  card.appendChild(g);
+  return card;
+}
+
 function prepCol(p, games, mons) {
   const col = node('div');
   col.appendChild(node('div', 'lx-rteam', p));
@@ -1379,7 +1586,7 @@ function prepCol(p, games, mons) {
 }
 
 function summaryCard(p, v) {
-  const t = rowsOf('teams').find((x) => x.player === p), lk = rowsOf('luck').find((x) => x.player === p), po = rowsOf('playoffs').find((x) => x.player === p);
+  const t = teamsF().find((x) => x.player === p), lk = rowsOf('luck').find((x) => x.player === p), po = rowsOf('playoffs').find((x) => x.player === p);
   const card = node('div', 'lx-card');
   const head = node('div', 'lx-dhead');
   head.appendChild(node('span', 'lx-dname', p));
@@ -1391,6 +1598,7 @@ function summaryCard(p, v) {
     ['Avg turns', sv('d1', t && t.avg_turns)], ['KOs / game', sv('d1', t && t.kos_per_game)], ['Pokémon lost / game', sv('d2', t && t.lost_per_game)],
     ['First KO %', sv('pct', t && t.first_blood_pct)], ['Luck score', sv('s2', lk && lk.score)]].forEach(([l, x]) => st.appendChild(statBox(l, x)));
   card.appendChild(st);
+  if (wkRange()) card.appendChild(node('p', 'lx-note', 'Luck score and projected seed are for the full season.'));
   const nx = rowsOf('schedule').filter((r) => r.status === 'Upcoming' && (r.player1 === p || r.player2 === p)).sort((a, b) => a.week - b.week)[0];
   const line = node('p', 'lx-take');
   if (!nx) line.textContent = 'No upcoming series.';
@@ -1429,14 +1637,14 @@ function renderScout() {
   fillSel(ps, okAll(['teams']) && players());
   fillSel(vsel, okAll(['teams']) && players());
   const top = $('#lx-sc-top');
-  const ids = ['teams', 'games', 'mons', 'teammoves', 'schedule', 'luck', 'playoffs'];
+  const ids = need(['teams', 'games', 'mons', 'teammoves', 'schedule', 'luck', 'playoffs']);
   if (gate(top, ids)) return;
   if (!ps.value) ps.value = ps.options[0].value;
   if (vsel.value === ps.value) vsel.value = '';
   const p = ps.value, v = vsel.value;
-  const games = rowsOf('games'), sched = rowsOf('schedule'), mons = rowsOf('mons');
+  const all = rowsOf('games'), games = gamesF(), sched = rowsOf('schedule'), mons = monsF();
   top.textContent = '';
-  if (v) top.appendChild(h2hCard(p, v, sched, games));
+  if (v) top.appendChild(h2hCard(p, v, sched, all));
   top.appendChild(summaryCard(p, v));
   if (v) {
     const c = node('div', 'lx-card');
@@ -1445,16 +1653,17 @@ function renderScout() {
     const g = node('div', 'lx-pair'); g.appendChild(prepCol(p, games, mons)); g.appendChild(prepCol(v, games, mons)); c.appendChild(g);
     top.appendChild(c);
   }
-  top.appendChild(rosterCard(p, mons, rowsOf('teammoves')));
+  top.appendChild(rosterCard(p, mons, teammovesF()));
+  top.appendChild(coverageCard(p, v, mons));
   const mine = sidesOf(games, p);
   $('#lx-sc-n1').textContent = p; $('#lx-sc-n2').textContent = p;
   T_SLEAD.rows = leadPairs(mine); draw(T_SLEAD);
   T_SGAMES.rows = mine; draw(T_SGAMES);
-  const all = leadPairs([].concat(...players().map((q) => sidesOf(games, q))));
-  T_LLEADS.rows = all; draw(T_LLEADS);
+  const lead = leadPairs([].concat(...players().map((q) => sidesOf(games, q))));
+  T_LLEADS.rows = lead; draw(T_LLEADS);
   const more = $('#lx-ll-more');
-  more.hidden = all.length <= 15;
-  more.textContent = T_LLEADS.limit ? 'Show all ' + all.length : 'Show top 15';
+  more.hidden = lead.length <= 15;
+  more.textContent = T_LLEADS.limit ? 'Show all ' + lead.length : 'Show top 15';
 }
 $('#lx-ll-more').addEventListener('click', () => { T_LLEADS.limit = T_LLEADS.limit ? null : 15; renderScout(); });
 
@@ -1462,8 +1671,8 @@ function renderPokemon() {
   const sel = $('#lx-team');
   fillSel(sel, okAll(['teams']) && players());
   const kosC = $('#lx-c-kos'), dmgC = $('#lx-c-dmg');
-  const g1 = gate(kosC, ['mons']);
-  const g2 = gate(dmgC, ['mons']);
+  const g1 = gate(kosC, need(['mons']));
+  const g2 = gate(dmgC, need(['mons']));
   if (g1 || g2) return;
   const rows = monFilter();
   const lab = (r) => r.pokemon;
@@ -1476,18 +1685,18 @@ function renderPokemon() {
   T_MONS.sel = cur ? cur.id : null;
   selMon = T_MONS.sel;
   draw(T_MONS);
-  if (okAll(['teammoves'])) renderDetail(cur);
+  if (okAll(need(['teammoves']))) renderDetail(cur);
 }
 
 function renderMoves() {
   const a = $('#lx-c-mdmg'), b = $('#lx-c-muse');
   const sel = $('#lx-mp');
   fillSel(sel, okAll(['teams']) && players());
-  const g1 = gate(a, ['moves', 'teammoves']), g2 = gate(b, ['moves', 'teammoves']);
+  const g1 = gate(a, need(['moves', 'teammoves'])), g2 = gate(b, need(['moves', 'teammoves']));
   if (g1 || g2) return;
   const p = sel.options.length > 1 ? sel.value : '';
   const agg = new Map();
-  rowsOf('teammoves').forEach((r) => {
+  teammovesF().forEach((r) => {
     if (p && r.player !== p) return;
     let o = agg.get(r.move);
     if (!o) agg.set(r.move, o = { uses: 0, by: new Map() });
@@ -1501,7 +1710,7 @@ function renderMoves() {
     const l = [...o.by].sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0])).map((e) => e[0]);
     return { used_by: l.slice(0, 3).join(', ') + (l.length > 3 ? ', +' + (l.length - 3) + ' more' : ''), used_by_full: l.join(', ') };
   };
-  const rows = (p ? [...agg].map(([move, o]) => ({ move, uses: o.uses })) : rowsOf('moves')).map((r) => Object.assign({}, r, usedBy(r.move)));
+  const rows = (p ? [...agg].map(([move, o]) => ({ move, uses: o.uses })) : movesF()).map((r) => Object.assign({}, r, usedBy(r.move)));
   a.parentNode.hidden = !!p;
   $('#lx-mnote').hidden = !p;
   hbar(a, rows.slice().sort((x, y) => y.damage - x.damage).slice(0, 12), { label: (r) => r.move, fmt: fmt.d1, series: [{ key: 'damage', label: 'Damage dealt', color: dash.colors[0] }], note: (r) => r.kos + ' KOs' });
@@ -1609,6 +1818,7 @@ function renderExtras() {
 
 function render() {
   renderHeader();
+  renderWeeks();
   if (tab === 'teams') renderTeams();
   else if (tab === 'scout') renderScout();
   else if (tab === 'pokemon') renderPokemon();
@@ -1623,10 +1833,16 @@ function render() {
 
 const TABS = ['teams', 'scout', 'pokemon', 'moves', 'luck', 'schedule', 'playoffs', 'games', 'extras'];
 const selField = (id) => ({ get: () => { const e = $('#' + id); return e.options.length > 1 || !e.dataset.want ? e.value : e.dataset.want; }, set: (v) => { const e = $('#' + id); e.dataset.want = v; e.value = v; } });
+const wkField = (id, last) => ({
+  get: () => { const e = $('#' + id); return e.options.length < 2 ? e.dataset.want || '' : e.selectedIndex === (last ? e.options.length - 1 : 0) ? '' : e.value; },
+  set: (v) => { const e = $('#' + id); e.dataset.want = v; if (e.options.length > 1) { e.value = v; if (e.selectedIndex < 0) e.selectedIndex = last ? e.options.length - 1 : 0; } },
+});
+const WKH = { from: wkField('lx-wf', false), to: wkField('lx-wt', true) };
 const HASH_STATE = {
-  scout: { player: selField('lx-sc-p'), vs: selField('lx-sc-v') },
-  pokemon: { player: selField('lx-team'), min: selField('lx-min'), mon: { get: () => selMon || '', set: (v) => { selMon = v || null; } } },
-  moves: { player: selField('lx-mp') },
+  teams: WKH,
+  scout: Object.assign({ player: selField('lx-sc-p'), vs: selField('lx-sc-v'), types: { get: () => ($('#lx-sc-unb').checked ? 'all' : ''), set: (v) => { $('#lx-sc-unb').checked = v === 'all'; } } }, WKH),
+  pokemon: Object.assign({ player: selField('lx-team'), min: selField('lx-min'), mon: { get: () => selMon || '', set: (v) => { selMon = v || null; } } }, WKH),
+  moves: Object.assign({ player: selField('lx-mp') }, WKH),
   luck: { player: selField('lx-lp') },
   schedule: { player: selField('lx-sp'), status: selField('lx-ss') },
 };
@@ -1659,10 +1875,13 @@ function setTab(name) {
 }
 
 document.querySelectorAll('.lx-tab').forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab)));
-['lx-sc-p', 'lx-sc-v', 'lx-team', 'lx-min', 'lx-q-mons', 'lx-unused', 'lx-mp', 'lx-q-moves', 'lx-q-games', 'lx-sp', 'lx-ss', 'lx-lp'].forEach((id) => {
+['lx-sc-p', 'lx-sc-v', 'lx-sc-unb', 'lx-team', 'lx-min', 'lx-q-mons', 'lx-unused', 'lx-mp', 'lx-q-moves', 'lx-q-games', 'lx-sp', 'lx-ss', 'lx-lp'].forEach((id) => {
   const el = $('#' + id);
   el.addEventListener(el.type === 'search' ? 'input' : 'change', render);
 });
+
+[$('#lx-wf'), $('#lx-wt')].forEach((e) => e.addEventListener('change', () => { wkClamp(e); render(); }));
+$('#lx-wreset').addEventListener('click', () => { const f = $('#lx-wf'), t = $('#lx-wt'); f.selectedIndex = 0; t.selectedIndex = t.options.length - 1; render(); });
 
 applyHash(readHash());
 addEventListener('hashchange', () => { applyHash(readHash()); setTab(tab); });
