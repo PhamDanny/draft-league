@@ -35,9 +35,12 @@ def load(path, default=None):
         return default
 
 
-def save(name, obj):
+def save(name, obj, compact=False):
     with open(os.path.join(DATA, name + ".json"), "w") as f:
-        json.dump(obj, f, ensure_ascii=False, indent=1)
+        if compact:
+            json.dump(obj, f, ensure_ascii=False, separators=(",", ":"))
+        else:
+            json.dump(obj, f, ensure_ascii=False, indent=1)
         f.write("\n")
 
 
@@ -51,6 +54,36 @@ def r2(x):
 
 def r1(x):
     return round(x, 1)
+
+
+def r6(x):
+    return round(x, 6)
+
+
+# The reference species file has current types. Gen 5 had no Fairy type: these were Normal, Psychic,
+# Water, Steel or Grass back then.
+FAIRY_GEN5 = {
+    "Cleffa": "Normal", "Clefairy": "Normal", "Clefable": "Normal", "Igglybuff": "Normal", "Jigglypuff": "Normal",
+    "Wigglytuff": "Normal", "Togepi": "Normal", "Togetic": "Normal", "Togekiss": "Normal", "Snubbull": "Normal",
+    "Granbull": "Normal", "Azurill": "Normal", "Marill": "Water", "Azumarill": "Water", "Ralts": "Psychic",
+    "Kirlia": "Psychic", "Gardevoir": "Psychic", "Mime Jr.": "Psychic", "Mr. Mime": "Psychic", "Mawile": "Steel",
+    "Cottonee": "Grass", "Whimsicott": "Grass",
+}
+
+
+def species_types(species, name):
+    """Gen 5 types for a species name, trying the full forme name and then the base name before '-'."""
+    t = species.get(name) or species.get(name.split("-")[0])
+    if not t:
+        print("No types for %s" % name)
+        return []
+    out = []
+    for x in t:
+        if x == "Fairy":
+            x = FAIRY_GEN5.get(name) or FAIRY_GEN5.get(name.split("-")[0])
+        if x and x not in out:
+            out.append(x)
+    return out
 
 
 def parse_links(path):
@@ -134,7 +167,8 @@ def main():
         counter[key] += 1
         g["game"] = counter[key]
 
-    out_games, mon_rows, move_rows, tm_rows = [], [], [], []
+    species_ref = load(os.path.join(ROOT, "scripts", "ref", "species.json"), {})
+    out_games, gm_rows, gmv_rows = [], [], []
     ind = defaultdict(lambda: {"hits": 0, "damage": 0.0, "faints": 0})
     weather_games = defaultdict(int)
     team = defaultdict(lambda: defaultdict(float))
@@ -161,9 +195,10 @@ def main():
         left = sum(1 for m in wm.values() if m.brought and not m.fainted)
         hp_left = sum(m.frac for m in wm.values() if m.brought and not m.fainted)
         leads = {s: " + ".join(m.species.split("-")[0] for m in sides[s].values() if m.led) for s in sides}
+        gid = g["id"].split("-")[-1]
         date = datetime.datetime.fromtimestamp(g["rep"]["uploadtime"], datetime.timezone.utc).strftime("%Y-%m-%d")
         out_games.append(OrderedDict([
-            ("id", g["id"].split("-")[-1]),
+            ("id", gid),
             ("replay", "https://replay.pokemonshowdown.com/" + g["id"]),
             ("date", date), ("week", g["week"]), ("game", g["game"]),
             ("matchup", "%s vs %s" % (r["p1"], r["p2"])),
@@ -222,7 +257,18 @@ def main():
                           "super_effective", "misses", "statuses"):
                     row[k] += getattr(m, k)
                 row["faints"] += m.fainted
+                gm_rows.append(OrderedDict([
+                    ("game", gid), ("player", p), ("pokemon", sp), ("led", int(m.led)), ("won", int(won)),
+                    ("kos", m.kos), ("damage", r6(m.damage)), ("taken", r6(m.taken)), ("faints", int(m.fainted)),
+                    ("turns_on_field", m.turns), ("sacrifices", m.sacrifices), ("friendly_fire", r6(m.friendly_fire)),
+                    ("crits", m.crits), ("super_effective", m.super_effective), ("misses", m.misses),
+                    ("statuses", m.statuses), ("hp", 0 if m.fainted else r6(m.frac)),
+                ]))
                 for mname, mm in m.moves.items():
+                    gmv_rows.append(OrderedDict([
+                        ("game", gid), ("player", p), ("pokemon", sp), ("move", mname),
+                        ("uses", mm["uses"]), ("kos", mm["kos"]), ("damage", r6(mm["damage"])),
+                    ]))
                     tmv[(p, sp, mname)] += mm["uses"]
                     x = mv[mname]
                     x["uses"] += mm["uses"]
@@ -287,7 +333,8 @@ def main():
         b = row["brought"]
         tg = team[p]["games"]
         mons.append(OrderedDict([
-            ("id", "%s|%s" % (p, sp)), ("player", p), ("pokemon", sp), ("team_games", int(tg)),
+            ("id", "%s|%s" % (p, sp)), ("player", p), ("pokemon", sp),
+            ("types", species_types(species_ref, sp)), ("team_games", int(tg)),
             ("brought", int(b)), ("bring_pct", round(b / tg, 3)),
             ("led", int(row["led"])), ("lead_pct", round(row["led"] / tg, 3)),
             ("win_pct_brought", round(row["brought_wins"] / b, 3) if b else None),
@@ -333,6 +380,8 @@ def main():
     save("mons", mons)
     save("moves", moves)
     save("teammoves", teammoves)
+    save("gamemons", gm_rows, compact=True)
+    save("gamemoves", gmv_rows, compact=True)
     save("indirect", indirect)
     save("weather", weather)
     for name, rows in aggregate_luck(games, out_games).items():

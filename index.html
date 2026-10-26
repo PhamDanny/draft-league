@@ -75,7 +75,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-tl { font-size: 12px; fill: var(--color-fg); font-family: var(--font-anthropic-sans); font-variant-numeric: tabular-nums; }
 .lx-legend { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-bottom: var(--cds-gap-xs); }
 .lx-sw { display: inline-block; width: 0.625rem; height: 0.625rem; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
-.lx-tip { position: absolute; display: none; pointer-events: none; z-index: 5; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; }
+.lx-tip { position: absolute; display: none; pointer-events: none; z-index: 5; width: max-content; max-width: calc(100vw - 1rem); background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); }
 .lx-tip-h { color: var(--cds-text-secondary); }
 .lx-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; margin-bottom: var(--cds-gap-sm); }
 .lx-controls select, .lx-controls input[type="search"] { font: inherit; font-size: var(--cds-font-size-body); color: var(--color-fg); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); }
@@ -108,8 +108,56 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
 .lx-fail { display: flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 6rem; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
 .lx-fail::before { content: ""; width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+.lx-bscroll { overflow-x: auto; padding-bottom: var(--cds-pad-xs); }
+.lx-bracket { display: grid; grid-template-columns: repeat(3, 12rem); grid-template-rows: auto 1fr 1fr; column-gap: 2rem; row-gap: 1rem; width: max-content; margin-inline: auto; }
+.lx-bh { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); }
+.lx-bcell { position: relative; display: flex; align-items: center; }
+.lx-bcell > .lx-bm { width: 100%; }
+.lx-bm { border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); background: var(--color-bg); overflow: hidden; }
+.lx-bs { display: flex; align-items: baseline; gap: var(--cds-gap-sm); padding: var(--cds-pad-sm) var(--cds-pad-md); font-size: var(--cds-font-size-body); min-height: 2.5rem; }
+.lx-bs + .lx-bs { border-top: 1px solid var(--color-border-line); }
+.lx-bs[data-tip] { cursor: pointer; }
+.lx-bseed { width: 1.25rem; flex: none; color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.lx-bname { flex: 1; min-width: 0; overflow-wrap: anywhere; font-weight: var(--cds-font-weight-medium); }
+.lx-brec { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.lx-bbye { color: var(--color-ok); font-size: 0.6875rem; }
+.lx-bph .lx-bname { color: var(--color-fg-muted); font-weight: normal; font-size: var(--cds-font-size-caption); }
+.lx-bcell.lx-bl::before, .lx-bcell.lx-br::after { content: ""; position: absolute; width: 1rem; top: 50%; border-top: 1px solid var(--cds-chart-muted); }
+.lx-bcell.lx-bl::before { right: 100%; }
+.lx-bcell.lx-br::after { left: 100%; }
+.lx-bcell.lx-bjt::after, .lx-bcell.lx-bjb::after { content: ""; position: absolute; left: 100%; width: 1rem; border-right: 1px solid var(--cds-chart-muted); }
+.lx-bcell.lx-bjt::after { top: 50%; bottom: -0.5rem; border-top: 1px solid var(--cds-chart-muted); }
+.lx-bcell.lx-bjb::after { top: -0.5rem; bottom: 50%; border-bottom: 1px solid var(--cds-chart-muted); }
+.lx-table tr.lx-cut2 td { border-bottom: 2px solid var(--color-fg-muted); }
+.lx-table tr.lx-cut6 td { border-bottom: 3px double var(--color-bad); }
 .lx-defs { margin: 0; padding-left: 1.1rem; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.6; }
 .lx-defs b { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.lx-pl { color: inherit; text-decoration: none; }
+.lx-pl:hover, .lx-pl:focus-visible { text-decoration: underline; }
+.lx-controls .lx-grow { flex: 1; }
+.lx-minis { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: var(--cds-gap-sm); }
+.lx-mini { display: flex; align-items: center; gap: var(--cds-gap-sm); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-sm); min-width: 0; }
+.lx-msp { width: 3rem; height: 3rem; object-fit: contain; flex: none; }
+.lx-mbody { min-width: 0; line-height: 1.4; }
+.lx-mname { font-weight: var(--cds-font-weight-medium); }
+.lx-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--cds-gap-lg); }
+@media (max-width: 40rem) { .lx-pair { grid-template-columns: minmax(0, 1fr); } }
+.lx-lrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--cds-gap-sm); padding: 2px 0; border-bottom: 1px solid var(--color-border-line); font-size: var(--cds-font-size-caption); }
+.lx-lt { margin-left: 0.25rem; }
+.lx-win { color: var(--color-ok); }
+.lx-loss { color: var(--color-bad); }
+.lx-more { margin-top: var(--cds-gap-sm); font: inherit; font-size: var(--cds-font-size-caption); color: var(--color-fg); background: none; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-md); cursor: pointer; }
+.lx-gl { margin: var(--cds-gap-sm) 0 0; padding-left: 1.1rem; font-size: var(--cds-font-size-caption); line-height: 1.6; }
+.lx-weeks { margin: calc(var(--cds-gap-sm) - var(--cds-gap-lg)) 0 var(--cds-gap-md); }
+.lx-weeks[hidden] { display: none; }
+.lx-weeks .lx-note { margin: 0; }
+.lx-controls .lx-more { margin-top: 0; }
+.lx-chips { display: inline-flex; flex-wrap: wrap; gap: 4px; vertical-align: middle; }
+.lx-chip { display: inline-block; font-size: 0.75rem; line-height: 1; padding: 4px 8px; border: 1px solid var(--color-border-line); border-radius: 999px; color: var(--color-fg); background: var(--color-bg); white-space: nowrap; }
+.lx-chip b { font-weight: var(--cds-font-weight-medium); margin-left: 5px; color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.lx-table tr.lx-risk td { background: color-mix(in srgb, var(--color-bad) 14%, var(--color-panel)); }
+.lx-cov { margin-bottom: var(--cds-gap-sm); }
+.lx-cov .lx-chips { margin: var(--cds-gap-xs) 0 var(--cds-gap-sm); }
 [data-dash-source-state="refreshing"] { opacity: .5; transition: opacity var(--cds-dur-slow); }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
@@ -129,8 +177,8 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <span data-source="league" data-field="top_mon_apps" data-row="0">—</span> games.
     The player who scores the first KO wins
     <span data-source="league" data-field="first_blood_win_pct" data-row="0" data-fmt="pct">—</span> of games.
-    Across <span data-source="league" data-field="games" data-row="0">—</span> games the average length is
-    <span data-source="league" data-field="avg_turns" data-row="0" data-fmt="d1">—</span> turns.
+    Games average <span data-source="league" data-field="avg_turns" data-row="0" data-fmt="d1">—</span> turns
+    (<span data-source="league" data-field="games" data-row="0">—</span> played).
   </p>
 
   <div class="lx-leaders">
@@ -190,12 +238,23 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 
   <div class="lx-tabs" role="tablist">
     <button class="lx-tab" role="tab" data-tab="teams" aria-selected="true">Players</button>
+    <button class="lx-tab" role="tab" data-tab="scout" aria-selected="false">Scout</button>
     <button class="lx-tab" role="tab" data-tab="pokemon" aria-selected="false">Pokémon</button>
     <button class="lx-tab" role="tab" data-tab="moves" aria-selected="false">Moves</button>
     <button class="lx-tab" role="tab" data-tab="luck" aria-selected="false">Luck</button>
     <button class="lx-tab" role="tab" data-tab="schedule" aria-selected="false">Schedule</button>
+    <button class="lx-tab" role="tab" data-tab="playoffs" aria-selected="false">Playoffs</button>
     <button class="lx-tab" role="tab" data-tab="games" aria-selected="false">Games</button>
     <button class="lx-tab" role="tab" data-tab="extras" aria-selected="false">Extras and definitions</button>
+  </div>
+
+  <div class="lx-weeks" id="lx-weeks" hidden>
+    <div class="lx-controls">
+      <label>Weeks from <select id="lx-wf" aria-label="From week"></select></label>
+      <label>to <select id="lx-wt" aria-label="To week"></select></label>
+      <button class="lx-more" id="lx-wreset" type="button" hidden>All weeks</button>
+    </div>
+    <p class="lx-note" id="lx-wnote" hidden></p>
   </div>
 
   <section class="lx-page" id="lx-teams" data-page="teams">
@@ -216,9 +275,9 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
             <th class="num" data-field="kos"><button class="lx-sort" type="button">KOs</button></th>
             <th class="num" data-field="damage"><button class="lx-sort" type="button">Damage dealt</button></th>
             <th class="num" data-field="taken"><button class="lx-sort" type="button">Damage taken</button></th>
-            <th class="num" data-field="lost_per_game"><button class="lx-sort" type="button">Lost / game</button></th>
+            <th class="num" data-field="lost_per_game"><button class="lx-sort" type="button">Pokémon lost / game</button></th>
             <th class="num" data-field="first_blood_pct"><button class="lx-sort" type="button">First KO %</button></th>
-            <th class="num" data-field="win_pct_after_first_blood"><button class="lx-sort" type="button">Win % after first KO</button></th>
+            <th class="num" data-field="win_pct_after_first_blood"><button class="lx-sort" type="button">Win % when scoring first KO</button></th>
             <th data-field="accounts"><button class="lx-sort" type="button">Showdown accounts</button></th>
           </tr></thead>
           <tbody></tbody>
@@ -227,14 +286,14 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Rosters</h2>
-      <p class="lx-note">Every Pokémon on each player's team. Faded sprites barely appeared; the percent under each is its bring rate. Hover for lead rate and KOs.</p>
+      <p class="lx-note">Every Pokémon on each player's team. The number under each sprite is how often it was brought. Faded ones rarely were. Hover or tap for lead rate and KOs.</p>
       <div class="lx-chart dash-skeleton lx-rosters" id="lx-c-rosters" data-source="mons"></div>
     </div>
     <div class="lx-grid">
       <div class="lx-card">
         <h2>Damage dealt vs taken per game</h2>
-        <p class="lx-note">Full HP bars per game. Longer bar for dealt, shorter for taken is the good side.</p>
-        <div class="lx-chart dash-skeleton" id="lx-c-rates" data-source="team_rates"></div>
+        <p class="lx-note">Full HP bars per game, sorted by the gap between dealt and taken. You want dealt longer than taken.</p>
+        <div class="lx-chart dash-skeleton" id="lx-c-rates" data-source="teams"></div>
       </div>
       <div class="lx-card">
         <h2>Pokémon lost per game</h2>
@@ -244,10 +303,75 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
   </section>
 
+  <section class="lx-page" id="lx-scout" data-page="scout" hidden>
+    <div class="lx-card">
+      <h2>Scout a player</h2>
+      <p class="lx-note">Pick a player to see their record, roster, leads and games. Pick a second player to compare the two before a matchup.</p>
+      <div class="lx-controls">
+        <label>Player <select id="lx-sc-p" aria-label="Player"></select></label>
+        <label>vs <select id="lx-sc-v" aria-label="Compare with"><option value="">Nobody</option></select></label>
+        <label><input id="lx-sc-unb" type="checkbox"> Include Pokémon that were never brought in type coverage</label>
+      </div>
+    </div>
+    <div id="lx-sc-top" class="dash-skeleton"></div>
+    <div class="lx-card">
+      <h2>Lead pairs <span class="lx-weeksub" id="lx-sc-n1"></span></h2>
+      <p class="lx-note">The two Pokémon sent out first. The same two in either order count as one pair.</p>
+      <div class="lx-scroll" style="max-height:none">
+        <table class="lx-table" id="lx-t-slead" data-source="games" data-row-key="id">
+          <thead><tr>
+            <th data-field="pair"><button class="lx-sort" type="button">Leads</button></th>
+            <th class="num" data-field="times"><button class="lx-sort" type="button">Used</button></th>
+            <th class="num" data-field="wins"><button class="lx-sort" type="button">Wins</button></th>
+            <th class="num" data-field="win_pct"><button class="lx-sort" type="button">Win %</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>Games <span class="lx-weeksub" id="lx-sc-n2"></span></h2>
+      <p class="lx-note">Newest week first. The replay number opens the Showdown replay.</p>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-sgames" data-source="games" data-row-key="id">
+          <thead><tr>
+            <th class="num" data-field="week"><button class="lx-sort" type="button">Week</button></th>
+            <th class="num" data-field="game"><button class="lx-sort" type="button">Game</button></th>
+            <th data-field="opp"><button class="lx-sort" type="button">Opponent</button></th>
+            <th data-field="result"><button class="lx-sort" type="button">Result</button></th>
+            <th class="num" data-field="turns"><button class="lx-sort" type="button">Turns</button></th>
+            <th data-field="mine"><button class="lx-sort" type="button">Leads</button></th>
+            <th data-field="theirs"><button class="lx-sort" type="button">Opponent leads</button></th>
+            <th data-field="id"><button class="lx-sort" type="button">Replay</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>Most common leads</h2>
+      <p class="lx-note">Every lead pair used in the league, with the player who used it.</p>
+      <div class="lx-scroll" style="max-height:none">
+        <table class="lx-table" id="lx-t-lleads" data-source="games" data-row-key="id">
+          <thead><tr>
+            <th data-field="pair"><button class="lx-sort" type="button">Leads</button></th>
+            <th data-field="player"><button class="lx-sort" type="button">Player</button></th>
+            <th class="num" data-field="times"><button class="lx-sort" type="button">Used</button></th>
+            <th class="num" data-field="wins"><button class="lx-sort" type="button">Wins</button></th>
+            <th class="num" data-field="win_pct"><button class="lx-sort" type="button">Win %</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <button class="lx-more" id="lx-ll-more" type="button" hidden></button>
+    </div>
+  </section>
+
   <section class="lx-page" id="lx-pokemon" data-page="pokemon" hidden>
     <div class="lx-controls">
       <select id="lx-team" aria-label="Player"><option value="">All players</option></select>
       <input id="lx-q-mons" type="search" placeholder="Search Pokémon" aria-label="Search Pokémon">
+      <label>Min. games <select id="lx-min" aria-label="Minimum games"><option>1</option><option>2</option><option>3</option><option>5</option></select></label>
       <label><input id="lx-unused" type="checkbox"> Include Pokémon that never appeared</label>
     </div>
     <div class="lx-grid">
@@ -264,7 +388,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Every Pokémon</h2>
-      <p class="lx-note">Bring % and lead % are out of that player's games. Select a row for its moves.</p>
+      <p class="lx-note">Bring % and lead % are out of that player's games. Select a row to see its moves below the table.</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-mons" data-source="mons" data-row-key="id">
           <thead><tr>
@@ -297,6 +421,9 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
   </section>
 
   <section class="lx-page" id="lx-moves" data-page="moves" hidden>
+    <div class="lx-controls">
+      <select id="lx-mp" aria-label="Player"><option value="">All players</option></select>
+    </div>
     <div class="lx-grid">
       <div class="lx-card">
         <h2>Most damage dealt by move</h2>
@@ -311,6 +438,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>All moves</h2>
+      <p class="lx-note" id="lx-mnote" hidden>KOs and damage are not tracked per player, so only uses are shown for a single player.</p>
       <div class="lx-controls"><input id="lx-q-moves" type="search" placeholder="Search moves" aria-label="Search moves"></div>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-moves" data-source="moves" data-row-key="move">
@@ -321,6 +449,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
             <th class="num" data-field="damage"><button class="lx-sort" type="button">Damage dealt</button></th>
             <th class="num" data-field="damage_per_use"><button class="lx-sort" type="button">Damage / use</button></th>
             <th class="num" data-field="kos_per_10_uses"><button class="lx-sort" type="button">KOs per 10 uses</button></th>
+            <th data-field="used_by"><button class="lx-sort" type="button">Used by</button></th>
           </tr></thead>
           <tbody></tbody>
         </table>
@@ -335,7 +464,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
       <div class="lx-ltext">
         <div class="lx-lname"><span data-source="luck_leaders" data-field="best_player" data-row="0">—</span></div>
         <div class="lx-tile-v"><span data-source="luck_leaders" data-field="best_score" data-row="0" data-fmt="s2">—</span> <span class="lx-tile-s">luck score</span></div>
-        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="best_net" data-row="0" data-fmt="s1">—</span> lucky events beyond the odds</div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="best_net" data-row="0" data-fmt="s1">—</span> net lucky events vs. the odds</div>
       </div>
     </div>
     <div class="lx-tile">
@@ -343,7 +472,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
       <div class="lx-ltext">
         <div class="lx-lname"><span data-source="luck_leaders" data-field="worst_player" data-row="0">—</span></div>
         <div class="lx-tile-v"><span data-source="luck_leaders" data-field="worst_score" data-row="0" data-fmt="s2">—</span> <span class="lx-tile-s">luck score</span></div>
-        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="worst_net" data-row="0" data-fmt="s1">—</span> lucky events beyond the odds</div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="worst_net" data-row="0" data-fmt="s1">—</span> net lucky events vs. the odds</div>
       </div>
     </div>
     <div class="lx-tile">
@@ -357,15 +486,14 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <div class="lx-tile">
       <div class="lx-tile-l">Luckier player won</div>
       <div class="lx-ltext">
-        <div class="lx-lname"><span data-source="luck_leaders" data-field="luckier_won" data-row="0">—</span> of <span data-source="luck_leaders" data-field="luckier_total" data-row="0">—</span></div>
-        <div class="lx-tile-v"></div>
-        <div class="lx-tile-s">games went to the player with the better luck</div>
+        <div class="lx-tile-v"><span data-source="luck_leaders" data-field="luckier_pct" data-row="0" data-fmt="pct">—</span></div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="luckier_won" data-row="0">—</span> of <span data-source="luck_leaders" data-field="luckier_total" data-row="0">—</span> games went to the luckier player</div>
       </div>
     </div>
   </div>
     <div class="lx-card">
       <h2>Luck score by player</h2>
-      <p class="lx-note">Every random event in every replay is compared with its odds. A score of 0 is average luck, +1 is one standard deviation luckier than chance usually gives, and every lucky event for one player is an unlucky one for the other. Hover for the breakdown.</p>
+      <p class="lx-note">Every random event in every replay is compared with its odds. A score of 0 is average luck, +1 is one standard deviation luckier than chance usually gives, and every lucky event for one player is an unlucky one for the other. Hover or tap for the breakdown.</p>
       <div class="lx-chart dash-skeleton" id="lx-c-luck" data-source="luck"></div>
     </div>
     <div class="lx-card">
@@ -441,7 +569,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Most improbable moments</h2>
-      <p class="lx-note">Non-crit events that went the way their odds said was unlikely, rarest first. Odds is the chance of exactly what happened.</p>
+      <p class="lx-note">Unlikely outcomes (crits excluded), rarest first. Odds is the chance of exactly that outcome.</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-lmom" data-source="luckmoments" data-row-key="id">
           <thead><tr>
@@ -461,11 +589,11 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <div class="lx-card">
       <h2>How luck is measured</h2>
       <ul class="lx-defs">
-        <li><b>Luck score:</b> for each random event, the outcome minus its odds. A 10% freeze that happens is +0.9 for the attacker and −0.9 for the target, and one that does not is −0.1 and +0.1. A player's net is the sum of those, and the score is the net divided by the spread chance alone would produce (the square root of the summed odds times one minus the odds). Zero is average and about two thirds of players should land between −1 and +1.</li>
+        <li><b>Luck score:</b> each random event is scored as its outcome minus its odds. A 10% freeze that happens is +0.9 for the attacker and −0.9 for the target, and one that does not is −0.1 and +0.1. A player's net is the sum of those. The score is the net divided by the spread chance alone would produce (the square root of the summed odds times one minus the odds). Zero is average, and about two thirds of players fall between −1 and +1.</li>
         <li><b>What is counted:</b> critical hits (1 in 16, 1 in 8 for high-crit moves, 1 in 4 after Focus Energy), accuracy of every move under 100%, secondary burns, freezes, paralysis, flinches, confusion and stat drops, full paralysis (25%), thawing (20% a turn), and hitting yourself in confusion (50%).</li>
         <li><b>Only real chances count:</b> a secondary effect is only counted when the target could have been affected, so not if it fainted, was behind a Substitute, already had a status, was immune by type, or (for flinches) had already moved. Frost Breath always crits, so it is left out, as are Fake Out flinches.</li>
         <li><b>Not counted:</b> damage rolls, speed ties, sleep length, repeated Protect, and anything the replay does not show, such as Serene Grace, Shield Dust, Compound Eyes, Sand Veil, Scope Lens, Wide Lens and evasion or accuracy boosts. Odds use each move's Gen 5 base values.</li>
-        <li><b>Small samples:</b> 33 games is not many random events, so a player a little above or below zero is within normal chance. Only the extremes mean much.</li>
+        <li><b>Small samples:</b> <span data-source="league" data-field="games" data-row="0">—</span> games is not many random events, so a player a little above or below zero is within normal chance. Only the extremes mean much.</li>
       </ul>
     </div>
   </section>
@@ -473,7 +601,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
   <section class="lx-page" id="lx-schedule" data-page="schedule" hidden>
     <div class="lx-card">
       <h2>Schedule</h2>
-      <p class="lx-note">All nine weeks. The score is game wins for the first player listed, and each game link opens its Showdown replay. Upcoming matches are dimmed.</p>
+      <p class="lx-note">Scores list the first player's game wins first, and each game link opens its Showdown replay. Upcoming matches are dimmed.</p>
       <div class="lx-controls">
         <select id="lx-sp" aria-label="Player"><option value="">All players</option></select>
         <select id="lx-ss" aria-label="Status"><option value="">Played and upcoming</option><option value="Played">Played</option><option value="Upcoming">Upcoming</option></select>
@@ -489,6 +617,33 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
             <th data-field="game1"><button class="lx-sort" type="button">Game 1</button></th>
             <th data-field="game2"><button class="lx-sort" type="button">Game 2</button></th>
             <th data-field="game3"><button class="lx-sort" type="button">Game 3</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="lx-page" id="lx-playoffs" data-page="playoffs" hidden>
+    <div class="lx-card">
+      <h2>Projected bracket</h2>
+      <p class="lx-note">If the season ended today. Seeds 1–2 get a bye; 3 plays 6 and 4 plays 5, then 1 plays the 4/5 winner and 2 plays the 3/6 winner. The bracket is fixed, with no reseeding.</p>
+      <div class="lx-chart" id="lx-c-bracket"><div class="lx-bscroll" id="lx-bracket"></div></div>
+    </div>
+    <div class="lx-card">
+      <h2>Playoff race</h2>
+      <p class="lx-note">Seeds go by series wins. Ties are broken by head-to-head series win %, then game win %, then game differential, then name. Head-to-head only counts when all the tied players have played each other. After a tie splits, the smaller group starts again at head-to-head. A coin flip is not modelled.</p>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-playoffs" data-source="playoffs" data-row-key="player">
+          <thead><tr>
+            <th class="num" data-field="seed"><button class="lx-sort" type="button">Seed</button></th>
+            <th data-field="player"><button class="lx-sort" type="button">Player</button></th>
+            <th data-field="series"><button class="lx-sort" type="button">Series</button></th>
+            <th data-field="games_wl"><button class="lx-sort" type="button">Games</button></th>
+            <th class="num" data-field="game_pct"><button class="lx-sort" type="button">Game win %</button></th>
+            <th class="num" data-field="left"><button class="lx-sort" type="button">Series left</button></th>
+            <th data-field="status"><button class="lx-sort" type="button">Status</button></th>
+            <th data-field="reason"><button class="lx-sort" type="button">Tiebreak</button></th>
           </tr></thead>
           <tbody></tbody>
         </table>
@@ -523,7 +678,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
             <th data-field="first_blood"><button class="lx-sort" type="button">First KO</button></th>
             <th class="num" data-field="damage1"><button class="lx-sort" type="button">Player 1 damage</button></th>
             <th class="num" data-field="damage2"><button class="lx-sort" type="button">Player 2 damage</button></th>
-            <th class="num" data-field="winner_mons_left"><button class="lx-sort" type="button">Winner left</button></th>
+            <th class="num" data-field="winner_mons_left"><button class="lx-sort" type="button">Winner's Pokémon left</button></th>
             <th data-field="weather"><button class="lx-sort" type="button">Weather</button></th>
           </tr></thead>
           <tbody></tbody>
@@ -562,7 +717,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
         <li><b>Sacrifices:</b> Final Gambit, Explosion and similar moves where the user faints on its own.</li>
         <li><b>Damage:</b> percent of HP removed from opposing Pokémon by the Pokémon's own attacks, in full HP bars. It is capped at the target's remaining HP, so overkill is not counted. Hits on a partner (spread moves) are tracked separately as friendly fire in the data.</li>
         <li><b>Player win % when brought:</b> how often the player won the games where that Pokémon appeared. Small samples swing a lot.</li>
-        <li><b>Players and accounts:</b> every Pokémon belongs to a player's team. Players who used more than one Showdown account have their accounts combined (see config/players.json).</li>
+        <li><b>Players and accounts:</b> every Pokémon belongs to a player's team. Players who used more than one Showdown account have their accounts combined.</li>
         <li><b>Source:</b> Pokémon Showdown replays of the Gen 5 Doubles Custom Game, parsed from each replay's battle log. Zoroark's Illusion can make its switch-ins show as another Pokémon.</li>
       </ul>
     </div>
@@ -627,15 +782,80 @@ dash.calc('league', {
   },
 });
 
-dash.calc('team_rates', {
-  inputs: ['teams'],
-  title: 'Damage per game',
-  description: 'Each team\'s damage dealt and taken divided by its games.',
-  fn: (teams) => teams.map((t) => ({
-    player: t.player,
-    dealt_per_game: Math.round((t.damage / t.games) * 100) / 100,
-    taken_per_game: Math.round((t.taken / t.games) * 100) / 100,
-  })),
+dash.calc('playoffs', {
+  inputs: ['teams', 'schedule'],
+  title: 'Projected playoffs',
+  description: 'Playoff seeds if the season ended today: series wins, then head-to-head, game win %, game differential and name.',
+  fn: (teams, sched) => {
+    const names = teams.map((t) => t.player).sort();
+    const by = Object.fromEntries(teams.map((t) => [t.player, t]));
+    const played = sched.filter((r) => r.status === 'Played' && r.winner);
+    const h2h = (g) => {
+      const m = Object.fromEntries(g.map((p) => [p, [0, 0]]));
+      played.forEach((r) => { if (m[r.player1] && m[r.player2]) { m[r.winner][0]++; m[r.winner === r.player1 ? r.player2 : r.player1][1]++; } });
+      return m;
+    };
+    const rec = (a) => a[0] + '–' + a[1];
+    const sgn = (n) => (n > 0 ? '+' : '') + n;
+    const STEPS = [
+      { rule: 'series', val: (p) => by[p].series_wins },
+      { rule: 'h2h', ok: (g, c) => g.every((p) => c.h[p][0] + c.h[p][1] === g.length - 1), val: (p, c) => c.h[p][0] / (c.h[p][0] + c.h[p][1]) },
+      { rule: 'gwp', val: (p) => by[p].wins / by[p].games, show: (p) => fmt.pct(by[p].wins / by[p].games) },
+      { rule: 'diff', val: (p) => by[p].wins - by[p].losses, show: (p) => sgn(by[p].wins - by[p].losses) },
+      { rule: 'name', val: (p) => -names.indexOf(p) },
+    ];
+    const above = {}, below = {};
+    const tied = {};
+    const order = (g, from) => {
+      if (g.length < 2) return g;
+      const c = { h: h2h(g) };
+      for (let i = from; i < STEPS.length; i++) {
+        const st = STEPS[i], v = (p) => Math.round(st.val(p, c) * 1e9);
+        if (st.ok && !st.ok(g, c)) continue;
+        const vs = [...new Set(g.map(v))].sort((x, y) => y - x);
+        if (vs.length < 2) continue;
+        if (i === 0) g.forEach((p) => { tied[p] = g.filter((q) => q !== p && v(q) === v(p)); });
+        const out = [];
+        vs.forEach((x) => {
+          const tier = order(g.filter((p) => v(p) === x), 1);
+          if (out.length) {
+            const a = out[out.length - 1], b = tier[0];
+            above[b] = { who: a, rule: st.rule, two: g.length === 2, own: st.show && st.show(b), other: st.show && st.show(a) };
+            below[a] = { who: b, rule: st.rule, two: g.length === 2, own: st.show && st.show(a), other: st.show && st.show(b) };
+          }
+          out.push(...tier);
+        });
+        return out;
+      }
+      return g;
+    };
+    const say = (p, tie) => {
+      const t = by[p], a = above[p], b = below[p];
+      const e = b && b.rule !== 'series' ? b : a && a.rule !== 'series' ? a : null;
+      const sr = rec([t.series_wins, t.series_losses]);
+      if (!e) return tie.length ? 'Tied at ' + sr : (b ? 'Ahead' : 'Behind') + ' on series wins';
+      const up = e === b, top = !(a && a.rule !== 'series');
+      const pre = 'Tied at ' + sr + (e.rule === 'h2h' && e.two ? ' with ' + e.who : '');
+      const how = e.rule === 'h2h' ? (e.two ? (up ? 'won their series' : 'lost their series') : up ? 'ahead in head-to-head' : 'behind in head-to-head')
+        : e.rule === 'gwp' ? (top ? 'best game win % (' + e.own + ')' : 'game win % ' + e.own + ' vs ' + e.other)
+        : e.rule === 'diff' ? (top ? 'best game differential (' + e.own + ')' : 'game differential ' + e.own + ' vs ' + e.other)
+        : up ? 'first by name' : 'later by name';
+      return pre + '; ' + how;
+    };
+    const ranked = order(names.slice(), 0);
+    return ranked.map((p, i) => {
+      const t = by[p];
+      return {
+        player: p, rank: i + 1, seed: i < 6 ? i + 1 : null,
+        series_wins: t.series_wins, series_losses: t.series_losses, series: rec([t.series_wins, t.series_losses]),
+        wins: t.wins, losses: t.losses, games_wl: rec([t.wins, t.losses]), game_pct: t.wins / t.games, diff: t.wins - t.losses,
+        left: sched.filter((r) => r.status === 'Upcoming' && (r.player1 === p || r.player2 === p)).length,
+        status: i < 2 ? 'Bye' : i < 6 ? 'Wild card' : 'Out',
+        reason: say(p, tied[p] || []),
+        reason_full: (tied[p] || []).length > 1 ? 'Tied with ' + tied[p].join(', ') : '',
+      };
+    });
+  },
 });
 
 dash.calc('leaders', {
@@ -671,15 +891,102 @@ dash.calc('luck_leaders', {
     const bySc = luck.slice().sort((a, b) => b.score - a.score);
     const hi = bySc[0], lo = bySc[bySc.length - 1];
     const eg = games.slice().sort((a, b) => b.edge - a.edge)[0];
+    const won = games.filter((g) => g.luckier_won === 'Yes').length;
     return [{
       best_player: hi.player, best_score: hi.score, best_net: hi.net,
       worst_player: lo.player, worst_score: lo.score, worst_net: lo.net,
       edge_matchup: eg.matchup, edge_value: eg.edge, edge_luckier: eg.luckier, edge_week: eg.week, edge_game: eg.game,
       edge_result: eg.luckier_won === 'Yes' ? 'won' : 'lost',
-      luckier_won: games.filter((g) => g.luckier_won === 'Yes').length, luckier_total: games.length,
+      luckier_won: won, luckier_total: games.length, luckier_pct: games.length ? won / games.length : null,
     }];
   },
 });
+
+
+/*agg*/
+function wkAgg(D, from, to) {
+  const rd = (x, n) => {
+    const [i, d] = x.toFixed(40).split('.');
+    if (/^50*$/.test(d.slice(n))) { const lo = Number(i + '.' + d.slice(0, n)); return Math.round(lo * 10 ** n) % 2 ? Number((lo + 10 ** -n).toFixed(n)) : lo; }
+    return Number(x.toFixed(n));
+  };
+  const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+  const sum = (a, f) => a.reduce((s, x) => s + f(x), 0);
+  const grp = (rows, kf) => { const m = new Map(); rows.forEach((r) => { const k = kf(r); if (!m.has(k)) m.set(k, []); m.get(k).push(r); }); return m; };
+  const inR = (w) => w >= from && w <= to;
+  const games = D.games.filter((g) => inR(g.week));
+  const ids = new Set(games.map((g) => g.id));
+  const gm = D.gamemons.filter((r) => ids.has(r.game)), gv = D.gamemoves.filter((r) => ids.has(r.game));
+  const byGame = grp(gm, (r) => r.game);
+  const T = new Map();
+  games.forEach((g) => {
+    const rows = byGame.get(g.id) || [];
+    [1, 2].forEach((n) => {
+      const p = g['player' + n], won = g.winner === p;
+      const mine = rows.filter((r) => r.player === p), theirs = rows.filter((r) => r.player !== p);
+      let t = T.get(p);
+      if (!t) T.set(p, t = { games: 0, wins: 0, losses: 0, turns: 0, kos: 0, damage: 0, taken: 0, lost: 0, fb: 0, fbw: 0, left: 0, hp: 0, acc: [], sp: new Set() });
+      t.games++; t.wins += won ? 1 : 0; t.losses += won ? 0 : 1; t.turns += g.turns;
+      t.kos += sum(mine, (r) => r.kos); t.damage += sum(mine, (r) => r.damage); t.taken += sum(theirs, (r) => r.damage); t.lost += sum(mine, (r) => r.faints);
+      if (g.first_blood === p) { t.fb++; t.fbw += won ? 1 : 0; }
+      if (won) { const up = mine.filter((r) => !r.faints); t.left += up.length; t.hp += sum(up, (r) => r.hp); }
+      const a = g['account' + n];
+      if (!t.acc.includes(a)) t.acc.push(a);
+      mine.forEach((r) => t.sp.add(r.pokemon));
+    });
+  });
+  const sw = {}, sl = {};
+  D.schedule.forEach((s) => {
+    if (!inR(s.week) || s.status !== 'Played' || !s.winner) return;
+    const l = s.winner === s.player1 ? s.player2 : s.player1;
+    sw[s.winner] = (sw[s.winner] || 0) + 1; sl[l] = (sl[l] || 0) + 1;
+  });
+  const teams = [...T].map(([player, t]) => {
+    const n = t.games;
+    return {
+      player, series_wins: sw[player] || 0, series_losses: sl[player] || 0, games: n, wins: t.wins, losses: t.losses,
+      win_pct: rd(t.wins / n, 3), avg_turns: rd(t.turns / n, 1), kos: t.kos, kos_per_game: rd(t.kos / n, 2),
+      damage: rd(t.damage, 1), taken: rd(t.taken, 1), mons_lost: t.lost, lost_per_game: rd(t.lost / n, 2),
+      first_blood_games: t.fb, first_blood_pct: rd(t.fb / n, 3), win_pct_after_first_blood: t.fb ? rd(t.fbw / t.fb, 3) : null,
+      avg_mons_left_in_wins: t.wins ? rd(t.left / t.wins, 2) : null, avg_hp_left_in_wins: t.wins ? rd(t.hp / t.wins, 2) : null,
+      mons_used: t.sp.size, accounts: t.acc.join(', '),
+    };
+  }).sort((a, b) => b.series_wins - a.series_wins || b.wins - a.wins || cmp(a.player, b.player));
+  const tg = {};
+  teams.forEach((t) => { tg[t.player] = t.games; });
+  const byMon = grp(gm, (r) => r.player + '|' + r.pokemon);
+  const mons = D.mons.map((b) => {
+    const rs = byMon.get(b.id) || [], n = tg[b.player] || 0, br = rs.length, led = sum(rs, (r) => r.led);
+    const s = (f) => sum(rs, (r) => r[f]), dmg = rd(s('damage'), 2);
+    return {
+      id: b.id, player: b.player, pokemon: b.pokemon, types: b.types, team_games: n,
+      brought: br, bring_pct: n ? rd(br / n, 3) : 0, led, lead_pct: n ? rd(led / n, 3) : 0,
+      win_pct_brought: br ? rd(sum(rs, (r) => r.won) / br, 3) : null, win_pct_led: led ? rd(sum(rs, (r) => r.won * r.led) / led, 3) : null,
+      kos: s('kos'), kos_per_app: br ? rd(s('kos') / br, 2) : null, damage: dmg, damage_per_app: br ? rd(dmg / br, 2) : null,
+      taken: rd(s('taken'), 2), faints: s('faints'), survival_pct: br ? rd(1 - s('faints') / br, 3) : null,
+      turns_on_field: s('turns_on_field'), sacrifices: s('sacrifices'), friendly_fire: rd(s('friendly_fire'), 2),
+      crits: s('crits'), super_effective: s('super_effective'), misses: s('misses'), statuses: s('statuses'),
+    };
+  });
+  const mv = new Map(), tm = new Map(), tot = new Map();
+  gv.forEach((r) => {
+    let o = mv.get(r.move);
+    if (!o) mv.set(r.move, o = { move: r.move, uses: 0, kos: 0, damage: 0 });
+    o.uses += r.uses; o.kos += r.kos; o.damage += r.damage;
+    const k = r.player + '|' + r.pokemon + '|' + r.move, q = r.player + '|' + r.pokemon;
+    let x = tm.get(k);
+    if (!x) tm.set(k, x = { id: k, player: r.player, pokemon: r.pokemon, move: r.move, uses: 0 });
+    x.uses += r.uses; tot.set(q, (tot.get(q) || 0) + r.uses);
+  });
+  const moves = [...mv.values()].map((o) => {
+    const d = rd(o.damage, 2), ok = o.damage && o.uses;
+    return { move: o.move, uses: o.uses, kos: o.kos, damage: d, damage_per_use: ok ? rd(d / o.uses, 2) : null, kos_per_10_uses: ok ? rd(10 * o.kos / o.uses, 2) : null };
+  }).sort((a, b) => b.uses - a.uses || cmp(a.move, b.move));
+  const teammoves = [...tm.values()].filter((x) => x.uses).map((x) => Object.assign(x, { share: rd(x.uses / tot.get(x.player + '|' + x.pokemon), 3) }))
+    .sort((a, b) => cmp(a.player, b.player) || cmp(a.pokemon, b.pokemon) || b.uses - a.uses || cmp(a.move, b.move));
+  return { games, teams, mons, moves, teammoves };
+}
+/*endagg*/
 
 const $ = (s, r) => (r || document).querySelector(s);
 const okAll = (ids) => ids.every((id) => dash.data(id).status === 'ok');
@@ -699,6 +1006,73 @@ function gate(el, ids) {
   return false;
 }
 const rowsOf = (id) => dash.data(id).data || [];
+const players = () => rowsOf('teams').map((t) => t.player).sort();
+
+const WK_TABS = ['teams', 'scout', 'pokemon', 'moves'];
+const WK_IDS = ['games', 'gamemons', 'gamemoves', 'mons', 'schedule'];
+function wkRange() {
+  const f = $('#lx-wf'), t = $('#lx-wt'), n = f.options.length;
+  if (n < 2 || (f.selectedIndex === 0 && t.selectedIndex === n - 1)) return null;
+  return { from: +f.value, to: +t.value };
+}
+const need = (ids) => (wkRange() ? ids.concat(WK_IDS) : ids);
+let wkMemo = { k: null, v: null };
+function wkData() {
+  const r = wkRange();
+  if (!r) return null;
+  if (!okAll(WK_IDS)) return { games: [], teams: [], mons: [], moves: [], teammoves: [] };
+  const k = r.from + '-' + r.to;
+  if (wkMemo.k !== k) wkMemo = { k, v: wkAgg({ games: rowsOf('games'), gamemons: rowsOf('gamemons'), gamemoves: rowsOf('gamemoves'), mons: rowsOf('mons'), schedule: rowsOf('schedule') }, r.from, r.to) };
+  return wkMemo.v;
+}
+const wkRows = (name) => { const w = wkData(); return w ? w[name] : rowsOf(name); };
+const teamsF = () => wkRows('teams'), monsF = () => wkRows('mons'), gamesF = () => wkRows('games');
+const movesF = () => wkRows('moves'), teammovesF = () => wkRows('teammoves');
+function fillWeeks() {
+  const f = $('#lx-wf'), t = $('#lx-wt');
+  if (f.options.length < 2 && okAll(['schedule', 'games'])) {
+    const ws = [...new Set(rowsOf('schedule').map((r) => r.week).concat(rowsOf('games').map((g) => g.week)))].sort((a, b) => a - b).map(String);
+    fillSel(f, ws); fillSel(t, ws);
+    if (f.selectedIndex < 0) f.selectedIndex = 0;
+    if (t.selectedIndex < 0 || !t.dataset.want) t.selectedIndex = t.options.length - 1;
+    wkClamp(f);
+  }
+}
+function wkClamp(changed) {
+  const f = $('#lx-wf'), t = $('#lx-wt');
+  if (+t.value < +f.value) (changed === f ? t : f).selectedIndex = (changed === f ? f : t).selectedIndex;
+}
+function renderWeeks() {
+  $('#lx-weeks').hidden = !WK_TABS.includes(tab);
+  fillWeeks();
+  const r = wkRange(), note = $('#lx-wnote');
+  note.hidden = $('#lx-wreset').hidden = !r;
+  if (!r) return;
+  const n = okAll(['games']) ? rowsOf('games').filter((g) => g.week >= r.from && g.week <= r.to).length : 0;
+  note.textContent = (r.from === r.to ? 'Showing week ' + r.from : 'Showing weeks ' + r.from + '–' + r.to) + ' (' + n + (n === 1 ? ' game)' : ' games)');
+}
+
+const TYPES = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel'];
+// Gen 5 chart: attacking type -> [2x, 0.5x, 0x] defending types. No Fairy, and Steel still resists Ghost and Dark.
+const CHART = {
+  Normal: ['', 'Rock Steel', 'Ghost'], Fire: ['Grass Ice Bug Steel', 'Fire Water Rock Dragon', ''], Water: ['Fire Ground Rock', 'Water Grass Dragon', ''],
+  Electric: ['Water Flying', 'Electric Grass Dragon', 'Ground'], Grass: ['Water Ground Rock', 'Fire Grass Poison Flying Bug Dragon Steel', ''],
+  Ice: ['Grass Ground Flying Dragon', 'Fire Water Ice Steel', ''], Fighting: ['Normal Ice Rock Dark Steel', 'Poison Flying Psychic Bug', 'Ghost'],
+  Poison: ['Grass', 'Poison Ground Rock Ghost', 'Steel'], Ground: ['Fire Electric Poison Rock Steel', 'Grass Bug', 'Flying'],
+  Flying: ['Grass Fighting Bug', 'Electric Rock Steel', ''], Psychic: ['Fighting Poison', 'Psychic Steel', 'Dark'],
+  Bug: ['Grass Psychic Dark', 'Fire Fighting Poison Flying Ghost Steel', ''], Rock: ['Fire Ice Flying Bug', 'Fighting Ground Steel', ''],
+  Ghost: ['Psychic Ghost', 'Dark Steel', 'Normal'], Dragon: ['Dragon', 'Steel', ''], Dark: ['Psychic Ghost', 'Fighting Dark Steel', ''],
+  Steel: ['Ice Rock', 'Fire Water Electric Steel', ''],
+};
+function typeMult(att, defs) {
+  const [se, nve, no] = CHART[att].map((x) => x.split(' '));
+  return defs.reduce((m, d) => m * (no.includes(d) ? 0 : se.includes(d) ? 2 : nve.includes(d) ? 0.5 : 1), 1);
+}
+function fillSel(sel, vals) {
+  if (!vals || sel.options.length > 1) return;
+  vals.forEach((v) => sel.appendChild(new Option(v, v)));
+  if (sel.dataset.want) sel.value = sel.dataset.want;
+}
 
 function showTip(el, ev, lines) {
   let t = el.querySelector('.lx-tip');
@@ -706,14 +1080,24 @@ function showTip(el, ev, lines) {
   t.textContent = '';
   lines.forEach((l, i) => { const d = document.createElement('div'); if (i === 0) d.className = 'lx-tip-h'; d.textContent = l; t.appendChild(d); });
   t.style.display = 'block';
+  t.style.left = '0px';
   const r = el.getBoundingClientRect();
+  const vw = document.documentElement.clientWidth, w = t.offsetWidth;
   let x = ev.clientX - r.left + 12;
-  const y = ev.clientY - r.top + 12;
-  if (x + t.offsetWidth > r.width) x = Math.max(0, ev.clientX - r.left - t.offsetWidth - 12);
+  if (r.left + x + w > vw - 8) x = ev.clientX - r.left - w - 12;
+  x = Math.max(8 - r.left, Math.min(x, vw - 8 - w - r.left));
   t.style.left = x + 'px';
-  t.style.top = y + 'px';
+  t.style.top = (ev.clientY - r.top + 12) + 'px';
 }
 function hideTip(el) { const t = el.querySelector('.lx-tip'); if (t) t.style.display = 'none'; }
+function hideTips() { document.querySelectorAll('.lx-tip').forEach((t) => { t.style.display = 'none'; }); }
+function tipOn(node, host, linesFn) {
+  node.setAttribute('data-tip', '');
+  node.addEventListener('pointermove', (ev) => { if (ev.pointerType === 'mouse') showTip(host, ev, linesFn()); });
+  node.addEventListener('pointerleave', (ev) => { if (ev.pointerType === 'mouse') hideTip(host); });
+  node.addEventListener('click', (ev) => { if (ev.pointerType !== 'mouse') { hideTips(); showTip(host, ev, linesFn()); } });
+}
+document.addEventListener('pointerdown', (ev) => { if (!ev.target.closest('[data-tip]')) hideTips(); });
 
 function hbar(el, rows, o) {
   el.textContent = '';
@@ -754,8 +1138,7 @@ function hbar(el, rows, o) {
       g.append('text').attr('class', 'lx-t').attr('x', left + x(v) + 6).attr('y', y + (bh - 1) / 2).attr('dominant-baseline', 'middle').text(lab);
     });
     g.append('rect').attr('x', 0).attr('y', 0).attr('width', w).attr('height', rowH).style('fill', 'transparent')
-      .on('mousemove', (ev) => showTip(el, ev, [o.label(r)].concat(series.map((s) => (series.length > 1 ? s.label + ': ' : '') + o.fmt(r[s.key] || 0)), o.tip ? o.tip(r) : [])))
-      .on('mouseleave', () => hideTip(el));
+      .each(function () { tipOn(this, el, () => [o.label(r)].concat(series.map((s) => (series.length > 1 ? s.label + ': ' : '') + o.fmt(r[s.key] || 0)), o.tip ? o.tip(r) : [])); });
   });
 }
 
@@ -781,7 +1164,7 @@ function divBars(el, rows, o) {
     svg.append('text').attr('class', 'lx-t').attr('x', v >= 0 ? x(v) + 6 : x(v) - 6).attr('y', y + rowH / 2).attr('text-anchor', v >= 0 ? 'start' : 'end')
       .attr('dominant-baseline', 'middle').text(o.fmt(v));
     svg.append('rect').attr('x', 0).attr('y', y).attr('width', w).attr('height', rowH).style('fill', 'transparent')
-      .on('mousemove', (ev) => showTip(el, ev, o.tip(r))).on('mouseleave', () => hideTip(el));
+      .each(function () { tipOn(this, el, () => o.tip(r)); });
   });
 }
 
@@ -799,10 +1182,20 @@ function turnBars(el, rows) {
   });
   rows.forEach((r) => {
     svg.append('rect').attr('x', x(r.id)).attr('y', y(r.turns)).attr('width', x.bandwidth()).attr('height', y(0) - y(r.turns)).attr('rx', 3).style('fill', dash.colors[0])
-      .on('mousemove', (ev) => showTip(el, ev, ['Week ' + r.week + ', game ' + r.game + ': ' + r.matchup, fmt.int(r.turns) + ' turns', 'Winner: ' + r.winner]))
-      .on('mouseleave', () => hideTip(el));
+      .each(function () { tipOn(this, el, () => ['Week ' + r.week + ', game ' + r.game + ': ' + r.matchup, fmt.int(r.turns) + ' turns', 'Winner: ' + r.winner]); });
   });
 }
+
+const scoutHref = (p, v) => {
+  const r = wkRange();
+  return '#scout?player=' + encodeURIComponent(p) + (v ? '&vs=' + encodeURIComponent(v) : '') + (r ? '&from=' + r.from + '&to=' + r.to : '');
+};
+function plink(p) {
+  const a = document.createElement('a');
+  a.className = 'lx-pl'; a.href = scoutHref(p); a.textContent = p; a.title = 'Scout ' + p;
+  return a;
+}
+const node = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
 
 function mkTable(id, cols, sort, key) {
   const el = $('#' + id);
@@ -819,13 +1212,14 @@ function mkTable(id, cols, sort, key) {
 }
 function draw(T) {
   const { f, dir } = T.sort;
-  const rows = T.rows.slice().sort((a, b) => {
+  const sorted = T.rows.slice().sort((a, b) => {
     const x = a[f], y = b[f];
     if (x == null && y == null) return 0;
     if (x == null) return 1;
     if (y == null) return -1;
     return dir * (typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y)));
   });
+  const rows = T.limit ? sorted.slice(0, T.limit) : sorted;
   T.shown = rows;
   const tb = T.el.tBodies[0];
   tb.textContent = '';
@@ -868,11 +1262,16 @@ function draw(T) {
       } else if (c.leads && v) {
         String(v).split(' + ').forEach((b) => { const im = spr(leadName(r[c.leads], b), 'lx-spr lx-spr-sm'); if (im) td.appendChild(im); });
         const tx = document.createElement('span'); tx.style.marginLeft = '0.25rem'; tx.textContent = String(v); td.appendChild(tx);
+      } else if (c.plink && v) {
+        td.appendChild(plink(v));
+      } else if (c.vs && r.player1 && r.player2) {
+        td.appendChild(plink(r.player1)); td.appendChild(document.createTextNode(' vs ')); td.appendChild(plink(r.player2));
       } else if (c.base && v != null) {
         const a = document.createElement('a'); a.href = c.base + v; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Game ' + c.f.slice(-1); td.appendChild(a);
       } else if (c.link && v != null) {
         const a = document.createElement('a'); a.href = r[c.link]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = String(v); td.appendChild(a);
       } else td.textContent = v == null ? '–' : fv(c.t, v);
+      if (c.tip && r[c.tip]) td.title = r[c.tip];
       if (c.t !== 'text') td.className = 'num';
       tr.appendChild(td);
     }
@@ -882,7 +1281,7 @@ function draw(T) {
 }
 
 const T_TEAMS = mkTable('lx-t-teams', [
-  { f: 'player', t: 'text' }, { f: 'series_wins', t: 'int' }, { f: 'series_losses', t: 'int' }, { f: 'games', t: 'int' }, { f: 'wins', t: 'int' }, { f: 'losses', t: 'int' }, { f: 'win_pct', t: 'pct' },
+  { f: 'player', t: 'text', plink: true }, { f: 'series_wins', t: 'int' }, { f: 'series_losses', t: 'int' }, { f: 'games', t: 'int' }, { f: 'wins', t: 'int' }, { f: 'losses', t: 'int' }, { f: 'win_pct', t: 'pct' },
   { f: 'avg_turns', t: 'd1' }, { f: 'kos', t: 'int' }, { f: 'damage', t: 'd1' }, { f: 'taken', t: 'd1' }, { f: 'lost_per_game', t: 'd2' },
   { f: 'first_blood_pct', t: 'pct' }, { f: 'win_pct_after_first_blood', t: 'pct' }, { f: 'accounts', t: 'text' },
 ], { f: 'series_wins', dir: -1 }, 'player');
@@ -893,27 +1292,32 @@ const T_MONS = mkTable('lx-t-mons', [
   { f: 'sacrifices', t: 'int' }, { f: 'crits', t: 'int' }, { f: 'super_effective', t: 'int' }, { f: 'misses', t: 'int' }, { f: 'statuses', t: 'int' },
 ], { f: 'kos', dir: -1 }, 'id');
 const T_MOVES = mkTable('lx-t-moves', [
-  { f: 'move', t: 'text' }, { f: 'uses', t: 'int' }, { f: 'kos', t: 'int' }, { f: 'damage', t: 'd1' }, { f: 'damage_per_use', t: 'd2' }, { f: 'kos_per_10_uses', t: 'd2' },
+  { f: 'move', t: 'text' }, { f: 'uses', t: 'int' }, { f: 'kos', t: 'int' }, { f: 'damage', t: 'd1' }, { f: 'damage_per_use', t: 'd2' }, { f: 'kos_per_10_uses', t: 'd2' }, { f: 'used_by', t: 'text', tip: 'used_by_full' },
 ], { f: 'uses', dir: -1 }, 'move');
 const T_GAMES = mkTable('lx-t-games', [
-  { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'game', t: 'int' }, { f: 'id', t: 'text', link: 'replay' }, { f: 'date', t: 'text' }, { f: 'winner', t: 'text' }, { f: 'turns', t: 'int' },
+  { f: 'matchup', t: 'text', vs: true }, { f: 'week', t: 'int' }, { f: 'game', t: 'int' }, { f: 'id', t: 'text', link: 'replay' }, { f: 'date', t: 'text' }, { f: 'winner', t: 'text', plink: true }, { f: 'turns', t: 'int' },
   { f: 'leads1', t: 'text', leads: 'player1' }, { f: 'leads2', t: 'text', leads: 'player2' }, { f: 'lost1', t: 'int' }, { f: 'lost2', t: 'int' }, { f: 'first_blood', t: 'text' },
   { f: 'damage1', t: 'd1' }, { f: 'damage2', t: 'd1' }, { f: 'winner_mons_left', t: 'int' }, { f: 'weather', t: 'text' },
 ], { f: 'week', dir: 1 }, 'id');
 const REPLAY = 'https://replay.pokemonshowdown.com/gen5doublescustomgame-';
 const T_SCHED = mkTable('lx-t-sched', [
-  { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'status', t: 'text' }, { f: 'winner', t: 'text' }, { f: 'score', t: 'text' },
+  { f: 'matchup', t: 'text', vs: true }, { f: 'week', t: 'int' }, { f: 'status', t: 'text' }, { f: 'winner', t: 'text', plink: true }, { f: 'score', t: 'text' },
   { f: 'game1', t: 'text', base: REPLAY }, { f: 'game2', t: 'text', base: REPLAY }, { f: 'game3', t: 'text', base: REPLAY },
 ], { f: 'week', dir: 1 }, 'id');
 T_SCHED.rowClass = (r) => (r.status === 'Upcoming' ? 'lx-up' : '');
 T_SCHED.weekHeaders = true;
+const T_PO = mkTable('lx-t-playoffs', [
+  { f: 'seed', t: 'int' }, { f: 'player', t: 'text', plink: true }, { f: 'series', t: 'text' }, { f: 'games_wl', t: 'text' }, { f: 'game_pct', t: 'pct' },
+  { f: 'left', t: 'int' }, { f: 'status', t: 'text' }, { f: 'reason', t: 'text', tip: 'reason_full' },
+], { f: 'rank', dir: 1 }, 'player');
+T_PO.rowClass = (r) => (T_PO.sort.f !== 'rank' || T_PO.sort.dir !== 1 ? '' : r.rank === 2 ? 'lx-cut2' : r.rank === 6 ? 'lx-cut6' : '');
 const T_LUCK = mkTable('lx-t-luck', [
-  { f: 'player', t: 'text' }, { f: 'score', t: 's2' }, { f: 'percentile', t: 'pct' }, { f: 'net', t: 's1' }, { f: 'crit_net', t: 's1' }, { f: 'acc_net', t: 's1' },
+  { f: 'player', t: 'text', plink: true }, { f: 'score', t: 's2' }, { f: 'percentile', t: 'pct' }, { f: 'net', t: 's1' }, { f: 'crit_net', t: 's1' }, { f: 'acc_net', t: 's1' },
   { f: 'brn_net', t: 's1' }, { f: 'frz_net', t: 's1' }, { f: 'par_net', t: 's1' }, { f: 'flinch_net', t: 's1' }, { f: 'other_net', t: 's1' }, { f: 'deny_net', t: 's1' },
   { f: 'crits_for', t: 'int' }, { f: 'crits_for_exp', t: 'd1' }, { f: 'crits_against', t: 'int' }, { f: 'crits_against_exp', t: 'd1' },
 ], { f: 'score', dir: -1 }, 'player');
 const T_LDET = mkTable('lx-t-ldet', [
-  { f: 'player', t: 'text' }, { f: 'event', t: 'text' }, { f: 'tries', t: 'int' }, { f: 'happened', t: 'int' }, { f: 'expected', t: 'd1' }, { f: 'luck', t: 's2' }, { f: 'score', t: 's2' },
+  { f: 'player', t: 'text', plink: true }, { f: 'event', t: 'text' }, { f: 'tries', t: 'int' }, { f: 'happened', t: 'int' }, { f: 'expected', t: 'd1' }, { f: 'luck', t: 's2' }, { f: 'score', t: 's2' },
 ], { f: 'luck', dir: -1 }, 'id');
 const T_LGAMES = mkTable('lx-t-lgames', [
   { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'game', t: 'int' }, { f: 'id', t: 'text', link: 'replay' }, { f: 'winner', t: 'text' }, { f: 'luckier', t: 'text' },
@@ -923,10 +1327,21 @@ const T_LMOM = mkTable('lx-t-lmom', [
   { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'gnum', t: 'int' }, { f: 'turn', t: 'int' }, { f: 'what', t: 'text' }, { f: 'odds', t: 'pct' },
   { f: 'lucky', t: 'text' }, { f: 'unlucky', t: 'text' },
 ], { f: 'odds', dir: 1 }, 'id');
+const T_SLEAD = mkTable('lx-t-slead', [
+  { f: 'pair', t: 'text', leads: 'player' }, { f: 'times', t: 'int' }, { f: 'wins', t: 'int' }, { f: 'win_pct', t: 'pct' },
+], { f: 'times', dir: -1 }, 'id');
+const T_SGAMES = mkTable('lx-t-sgames', [
+  { f: 'week', t: 'int' }, { f: 'game', t: 'int' }, { f: 'opp', t: 'text', plink: true }, { f: 'result', t: 'text' }, { f: 'turns', t: 'int' },
+  { f: 'mine', t: 'text', leads: 'me' }, { f: 'theirs', t: 'text', leads: 'opp' }, { f: 'id', t: 'text', link: 'replay' },
+], { f: 'week', dir: -1 }, 'id');
+const T_LLEADS = mkTable('lx-t-lleads', [
+  { f: 'pair', t: 'text', leads: 'player' }, { f: 'player', t: 'text', plink: true }, { f: 'times', t: 'int' }, { f: 'wins', t: 'int' }, { f: 'win_pct', t: 'pct' },
+], { f: 'times', dir: -1 }, 'id');
+T_LLEADS.limit = 15;
 const T_WX = mkTable('lx-t-weather', [{ f: 'weather', t: 'text' }, { f: 'games', t: 'int' }], { f: 'games', dir: -1 }, 'weather');
 
 let selMon = null;
-T_MONS.onPick = (r) => { selMon = r.id; renderDetail(r); };
+T_MONS.onPick = (r) => { selMon = r.id; renderDetail(r); syncHash(); };
 T_MONS.sel = null;
 
 let tab = 'teams';
@@ -954,32 +1369,33 @@ function renderHeader() {
 }
 
 function renderTeams() {
-  if (okAll(['teams'])) { T_TEAMS.rows = rowsOf('teams'); draw(T_TEAMS); }
+  if (okAll(need(['teams']))) { T_TEAMS.rows = teamsF(); draw(T_TEAMS); }
   const rates = $('#lx-c-rates');
-  if (!gate(rates, ['team_rates'])) {
-    const rows = rowsOf('team_rates').slice().sort((a, b) => (b.dealt_per_game - b.taken_per_game) - (a.dealt_per_game - a.taken_per_game));
+  if (!gate(rates, need(['teams']))) {
+    const r2 = (x) => Math.round(x * 100) / 100;
+    const rows = teamsF().map((t) => ({ player: t.player, dealt_per_game: r2(t.damage / t.games), taken_per_game: r2(t.taken / t.games) })).sort((a, b) => (b.dealt_per_game - b.taken_per_game) - (a.dealt_per_game - a.taken_per_game));
     hbar(rates, rows, {
       label: (r) => r.player, fmt: fmt.d1,
       series: [{ key: 'dealt_per_game', label: 'Dealt', color: dash.colors[0] }, { key: 'taken_per_game', label: 'Taken', color: 'var(--cds-chart-muted)' }],
     });
   }
   const ros = $('#lx-c-rosters');
-  if (!gate(ros, ['mons', 'teams'])) {
+  if (!gate(ros, need(['mons', 'teams']))) {
     ros.textContent = '';
-    const byTeam = d3.group(rowsOf('mons'), (r) => r.player);
-    const order = rowsOf('teams').slice().sort((a, b) => b.series_wins - a.series_wins || b.win_pct - a.win_pct || b.games - a.games).map((t) => t.player);
+    const byTeam = d3.group(monsF(), (r) => r.player);
+    const order = teamsF().slice().sort((a, b) => b.series_wins - a.series_wins || b.win_pct - a.win_pct || b.games - a.games).map((t) => t.player);
+    players().forEach((q) => { if (!order.includes(q)) order.push(q); });
     order.forEach((team) => {
       const rows = (byTeam.get(team) || []).slice().sort((a, b) => b.brought - a.brought || b.led - a.led || a.pokemon.localeCompare(b.pokemon));
       const wrap = document.createElement('div');
-      const nm = document.createElement('div'); nm.className = 'lx-rteam'; nm.textContent = team; wrap.appendChild(nm);
+      const nm = document.createElement('div'); nm.className = 'lx-rteam'; nm.appendChild(plink(team)); wrap.appendChild(nm);
       const row = document.createElement('div'); row.className = 'lx-rrow';
       rows.forEach((r) => {
         const cell = document.createElement('div'); cell.className = 'lx-rmon';
         const im = spr(r.pokemon, '');
         if (im) { im.style.opacity = String(0.3 + 0.7 * r.bring_pct); cell.appendChild(im); }
         const cap = document.createElement('span'); cap.textContent = fmt.pct(r.bring_pct); cell.appendChild(cap);
-        cell.addEventListener('mousemove', (ev) => showTip(ros, ev, [r.pokemon + ' · ' + team, 'Brought ' + fmt.int(r.brought) + ' of ' + fmt.int(r.team_games) + ' games (' + fmt.pct(r.bring_pct) + ')', 'Led ' + fmt.int(r.led) + ' (' + fmt.pct(r.lead_pct) + ')', fmt.int(r.kos) + ' KOs']));
-        cell.addEventListener('mouseleave', () => hideTip(ros));
+        tipOn(cell, ros, () => [r.pokemon + ' · ' + team, 'Brought ' + fmt.int(r.brought) + ' of ' + fmt.int(r.team_games) + ' games (' + fmt.pct(r.bring_pct) + ')', 'Led ' + fmt.int(r.led) + ' (' + fmt.pct(r.lead_pct) + ')', fmt.int(r.kos) + ' KOs']);
         row.appendChild(cell);
       });
       wrap.appendChild(row);
@@ -987,8 +1403,8 @@ function renderTeams() {
     });
   }
   const lost = $('#lx-c-lost');
-  if (!gate(lost, ['teams'])) {
-    const rows = rowsOf('teams').slice().sort((a, b) => a.lost_per_game - b.lost_per_game);
+  if (!gate(lost, need(['teams']))) {
+    const rows = teamsF().slice().sort((a, b) => a.lost_per_game - b.lost_per_game);
     hbar(lost, rows, { label: (r) => r.player, fmt: fmt.d2, series: [{ key: 'lost_per_game', label: 'Lost per game', color: dash.colors[1] }], note: (r) => r.wins + '–' + r.losses });
   }
 }
@@ -997,7 +1413,9 @@ function monFilter() {
   const team = $('#lx-team').value;
   const q = $('#lx-q-mons').value.trim().toLowerCase();
   const unused = $('#lx-unused').checked;
-  return rowsOf('mons').filter((r) => (unused || r.brought > 0) && (!team || r.player === team) && (!q || (r.pokemon + ' ' + r.player).toLowerCase().includes(q)));
+  const min = +$('#lx-min').value || 1;
+  $('#lx-min').disabled = unused;
+  return monsF().filter((r) => (unused || r.brought >= min) && (!team || r.player === team) && (!q || (r.pokemon + ' ' + r.player).toLowerCase().includes(q)));
 }
 
 function renderDetail(m) {
@@ -1010,7 +1428,7 @@ function renderDetail(m) {
   const tm = mark(document.createElement('span'), 'mons', 'player', where); tm.className = 'lx-dteam'; tm.textContent = m.player;
   const dim = spr(m.pokemon, 'lx-dspr');
   if (dim) head.appendChild(dim);
-  head.appendChild(nm); head.appendChild(tm); box.appendChild(head);
+  head.appendChild(nm); head.appendChild(tm); head.appendChild(typeChips(m.types)); box.appendChild(head);
   const stats = [['Bring %', 'bring_pct', 'pct'], ['Lead %', 'lead_pct', 'pct'], ['KOs', 'kos', 'int'], ['KOs / game', 'kos_per_app', 'd2'], ['Damage dealt', 'damage', 'd1'],
     ['Damage taken', 'taken', 'd1'], ['Survived %', 'survival_pct', 'pct'], ['Player win % when brought', 'win_pct_brought', 'pct'], ['Turns on field', 'turns_on_field', 'int']];
   const grid = document.createElement('div'); grid.className = 'lx-stats';
@@ -1024,16 +1442,237 @@ function renderDetail(m) {
   const h = document.createElement('h2'); h.textContent = 'Moves used'; box.appendChild(h);
   const note = document.createElement('p'); note.className = 'lx-note'; note.textContent = 'Times used across the games this Pokémon appeared in.'; box.appendChild(note);
   const ch = document.createElement('div'); ch.className = 'lx-chart'; ch.setAttribute('data-source', 'teammoves'); box.appendChild(ch);
-  const mv = rowsOf('teammoves').filter((r) => r.player === m.player && r.pokemon === m.pokemon).sort((a, b) => b.uses - a.uses);
+  const mv = teammovesF().filter((r) => r.player === m.player && r.pokemon === m.pokemon).sort((a, b) => b.uses - a.uses);
   hbar(ch, mv, { label: (r) => r.move, fmt: fmt.int, series: [{ key: 'uses', label: 'Uses', color: dash.colors[0] }], note: (r) => fmt.pct(r.share), empty: 'This Pokémon never appeared in a replay.' });
 }
 
+const pairOf = (s) => s.split(' + ').sort().join(' + ');
+const sv = (t, v) => (v == null ? '–' : fv(t, v));
+const sidesOf = (games, p) => games.filter((g) => g.player1 === p || g.player2 === p).map((g) => {
+  const one = g.player1 === p;
+  return { id: g.id, replay: g.replay, week: g.week, game: g.game, me: p, opp: one ? g.player2 : g.player1, won: g.winner === p, result: g.winner === p ? 'Won' : 'Lost', turns: g.turns,
+    mine: one ? g.leads1 : g.leads2, theirs: one ? g.leads2 : g.leads1 };
+}).sort((a, b) => a.week - b.week || a.game - b.game);
+function leadPairs(rows) {
+  const m = new Map();
+  rows.forEach((r) => {
+    if (!r.mine) return;
+    const pair = pairOf(r.mine), k = r.me + '|' + pair;
+    let o = m.get(k);
+    if (!o) m.set(k, o = { id: k, player: r.me, pair, times: 0, wins: 0 });
+    o.times++; if (r.won) o.wins++;
+  });
+  return [...m.values()].map((o) => Object.assign(o, { win_pct: o.wins / o.times })).sort((a, b) => b.times - a.times || b.wins - a.wins || a.pair.localeCompare(b.pair));
+}
+function leadsEl(team, s) {
+  const e = node('span');
+  s.split(' + ').forEach((b) => { const im = spr(leadName(team, b), 'lx-spr lx-spr-sm'); if (im) e.appendChild(im); });
+  e.appendChild(node('span', 'lx-lt', s));
+  return e;
+}
+const pairSeries = (sched, a, b) => sched.filter((r) => r.status === 'Played' && r.winner && ((r.player1 === a && r.player2 === b) || (r.player1 === b && r.player2 === a)));
+function seriesSay(r, p) {
+  const [x, y] = r.score.split('–').map(Number), one = r.player1 === p;
+  return (r.winner === p ? 'Won ' : 'Lost ') + (one ? x : y) + '–' + (one ? y : x);
+}
+function statBox(label, v) {
+  const s = node('div', 'lx-stat');
+  s.appendChild(node('span', 'lx-stat-l', label)); s.appendChild(node('span', 'lx-stat-v', v));
+  return s;
+}
+function plainTable(heads, rows) {
+  const w = node('div', 'lx-scroll'); w.style.maxHeight = 'none';
+  const t = node('table', 'lx-table'); w.appendChild(t);
+  const tr = t.createTHead().insertRow();
+  heads.forEach((h, i) => { const th = node('th'); th.appendChild(node('span', 'lx-sort', h)); th.firstChild.style.cursor = 'default'; tr.appendChild(th); });
+  const tb = t.createTBody();
+  rows.forEach((cells) => { const r = tb.insertRow(); cells.forEach((c) => { const td = r.insertCell(); if (c instanceof Node) td.appendChild(c); else td.textContent = c; }); });
+  return w;
+}
+
+function h2hCard(p, v, sched, games) {
+  const card = node('div', 'lx-card');
+  card.appendChild(node('h2', null, p + ' vs ' + v));
+  const ser = sched.filter((r) => (r.player1 === p && r.player2 === v) || (r.player1 === v && r.player2 === p)).sort((a, b) => a.week - b.week);
+  const played = pairSeries(sched, p, v), up = ser.filter((r) => r.status === 'Upcoming');
+  const gs = games.filter((g) => (g.player1 === p && g.player2 === v) || (g.player1 === v && g.player2 === p)).sort((a, b) => a.week - b.week || a.game - b.game);
+  const upTxt = up.length ? 'Scheduled for week ' + up.map((r) => r.week).join(' and ') + '.' : 'No series between them is scheduled.';
+  if (!played.length) {
+    card.appendChild(node('p', 'lx-take', "They haven't played each other this season. " + upTxt));
+  } else {
+    const sw = (x) => played.filter((r) => r.winner === x).length, gw = (x) => gs.filter((g) => g.winner === x).length;
+    const st = node('div', 'lx-stats');
+    st.appendChild(statBox('Series', p + ' ' + sw(p) + '–' + sw(v)));
+    st.appendChild(statBox('Games', p + ' ' + gw(p) + '–' + gw(v)));
+    card.appendChild(st);
+    const ul = node('ul', 'lx-gl');
+    gs.forEach((g) => {
+      const li = node('li', null, 'Week ' + g.week + ', game ' + g.game + ': ' + g.winner + ' won in ' + g.turns + ' turns · ');
+      const a = node('a', null, 'Replay ' + g.id); a.href = g.replay; a.target = '_blank'; a.rel = 'noopener';
+      li.appendChild(a); ul.appendChild(li);
+    });
+    card.appendChild(ul);
+    if (up.length) card.appendChild(node('p', 'lx-note', 'Rematch: ' + upTxt.charAt(0).toLowerCase() + upTxt.slice(1)));
+  }
+  const common = players().filter((o) => o !== p && o !== v).map((o) => [o, pairSeries(sched, p, o), pairSeries(sched, v, o)]).filter((x) => x[1].length && x[2].length);
+  card.appendChild(node('h2', null, 'Common opponents'));
+  if (!common.length) card.appendChild(node('p', 'lx-note', 'No opponent has played both of them yet.'));
+  else {
+    const cell = (rs, who) => { const e = node('span'); rs.forEach((r, i) => { const t = node('span', r.winner === who ? 'lx-win' : 'lx-loss', seriesSay(r, who)); if (i) e.appendChild(document.createTextNode(', ')); e.appendChild(t); }); return e; };
+    card.appendChild(plainTable(['Opponent', p, v], common.map(([o, a, b]) => [plink(o), cell(a, p), cell(b, v)])));
+  }
+  return card;
+}
+
+const typeChips = (types) => { const e = node('span', 'lx-chips'); (types || []).forEach((t) => e.appendChild(node('span', 'lx-chip', t))); return e; };
+
+function coverage(p, mons, unb) {
+  const rows = mons.filter((r) => r.player === p && (unb || r.brought > 0));
+  const count = {};
+  rows.forEach((r) => (r.types || []).forEach((t) => { count[t] = (count[t] || 0) + 1; }));
+  const att = TYPES.map((a) => {
+    const o = { type: a, weak: [], resist: [], immune: [] };
+    rows.forEach((r) => {
+      const m = typeMult(a, r.types || []);
+      if (m === 0) o.immune.push(r.pokemon); else if (m > 1) o.weak.push(r.pokemon + (m > 2 ? ' (4×)' : '')); else if (m < 1) o.resist.push(r.pokemon);
+    });
+    o.risk = o.weak.length >= 3 && o.resist.length + o.immune.length <= 1;
+    return o;
+  }).sort((a, b) => b.weak.length - a.weak.length || (a.resist.length + a.immune.length) - (b.resist.length + b.immune.length));
+  return { n: rows.length, count, att };
+}
+function coverageCol(p, mons, unb) {
+  const c = coverage(p, mons, unb), col = node('div', 'lx-cov');
+  col.appendChild(node('div', 'lx-rteam', p));
+  col.appendChild(node('div', 'lx-muted', c.n + ' Pokémon counted'));
+  const chips = node('span', 'lx-chips');
+  Object.entries(c.count).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).forEach(([t, n]) => { const e = node('span', 'lx-chip', t); e.appendChild(node('b', null, String(n))); chips.appendChild(e); });
+  col.appendChild(chips);
+  const cell = (list) => { const e = node('span', null, String(list.length)); if (list.length) e.title = list.join(', '); return e; };
+  const tbl = plainTable(['Attack type', 'Weak', 'Resist', 'Immune'], c.att.map((o) => [o.type, cell(o.weak), cell(o.resist), cell(o.immune)]));
+  tbl.querySelectorAll('tbody tr').forEach((tr, i) => {
+    if (c.att[i].risk) tr.classList.add('lx-risk');
+    for (let k = 1; k < 4; k++) { tr.cells[k].className = 'num'; tbl.querySelectorAll('thead th')[k].className = 'num'; }
+  });
+  col.appendChild(tbl);
+  return col;
+}
+function coverageCard(p, v, mons) {
+  const unb = $('#lx-sc-unb').checked, r = wkRange();
+  const card = node('div', 'lx-card');
+  card.appendChild(node('h2', null, 'Type coverage'));
+  card.appendChild(node('p', 'lx-note', (unb ? 'Every Pokémon on the roster' : 'Pokémon brought' + (r ? ' in the selected weeks' : '')) + '. Weak means 2× or 4× damage. Highlighted rows have 3 or more Pokémon weak and at most one that resists or is immune.'));
+  card.appendChild(node('p', 'lx-note', "Abilities such as Levitate aren't counted."));
+  const g = node('div', v ? 'lx-pair' : null);
+  g.appendChild(coverageCol(p, mons, unb));
+  if (v) g.appendChild(coverageCol(v, mons, unb));
+  card.appendChild(g);
+  return card;
+}
+
+function prepCol(p, games, mons) {
+  const col = node('div');
+  col.appendChild(node('div', 'lx-rteam', p));
+  col.appendChild(node('div', 'lx-muted', 'Top lead pairs'));
+  const lp = leadPairs(sidesOf(games, p)).slice(0, 5);
+  if (!lp.length) col.appendChild(node('div', 'lx-muted', 'No games yet.'));
+  lp.forEach((o) => { const r = node('div', 'lx-lrow'); r.appendChild(leadsEl(p, o.pair)); r.appendChild(node('span', 'lx-muted', o.times + '× · ' + o.wins + '–' + (o.times - o.wins))); col.appendChild(r); });
+  const m = node('div', 'lx-muted', 'Most brought'); m.style.marginTop = 'var(--cds-gap-sm)'; col.appendChild(m);
+  mons.filter((r) => r.player === p).sort((a, b) => b.bring_pct - a.bring_pct || b.led - a.led || a.pokemon.localeCompare(b.pokemon)).slice(0, 6).forEach((x) => {
+    const r = node('div', 'lx-lrow'); const l = node('span'); const im = spr(x.pokemon, 'lx-spr lx-spr-sm'); if (im) l.appendChild(im);
+    l.appendChild(node('span', 'lx-lt', x.pokemon)); r.appendChild(l); r.appendChild(node('span', 'lx-muted', fmt.pct(x.bring_pct) + ' brought')); col.appendChild(r);
+  });
+  return col;
+}
+
+function summaryCard(p, v) {
+  const t = teamsF().find((x) => x.player === p), lk = rowsOf('luck').find((x) => x.player === p), po = rowsOf('playoffs').find((x) => x.player === p);
+  const card = node('div', 'lx-card');
+  const head = node('div', 'lx-dhead');
+  head.appendChild(node('span', 'lx-dname', p));
+  if (t && t.accounts) head.appendChild(node('span', 'lx-dteam', t.accounts));
+  card.appendChild(head);
+  const st = node('div', 'lx-stats');
+  const seed = !po ? '–' : po.seed ? po.seed + (po.status === 'Bye' ? ' (bye)' : '') : 'Out';
+  [['Series', t ? t.series_wins + '–' + t.series_losses : '–'], ['Games', t ? t.wins + '–' + t.losses : '–'], ['Win %', sv('pct', t && t.win_pct)], ['Projected seed', seed],
+    ['Avg turns', sv('d1', t && t.avg_turns)], ['KOs / game', sv('d1', t && t.kos_per_game)], ['Pokémon lost / game', sv('d2', t && t.lost_per_game)],
+    ['First KO %', sv('pct', t && t.first_blood_pct)], ['Luck score', sv('s2', lk && lk.score)]].forEach(([l, x]) => st.appendChild(statBox(l, x)));
+  card.appendChild(st);
+  if (wkRange()) card.appendChild(node('p', 'lx-note', 'Luck score and projected seed are for the full season.'));
+  const nx = rowsOf('schedule').filter((r) => r.status === 'Upcoming' && (r.player1 === p || r.player2 === p)).sort((a, b) => a.week - b.week)[0];
+  const line = node('p', 'lx-take');
+  if (!nx) line.textContent = 'No upcoming series.';
+  else {
+    const o = nx.player1 === p ? nx.player2 : nx.player1;
+    line.appendChild(document.createTextNode('Next opponent: '));
+    line.appendChild(node('span', null, 'week ' + nx.week + ' vs ')); line.appendChild(plink(o));
+    if (o !== v) { line.appendChild(document.createTextNode(' · ')); const a = node('a', 'lx-pl', 'Compare with ' + o); a.href = scoutHref(p, o); a.style.textDecoration = 'underline'; line.appendChild(a); }
+  }
+  line.style.margin = '0';
+  card.appendChild(line);
+  return card;
+}
+
+function rosterCard(p, mons, tm) {
+  const card = node('div', 'lx-card');
+  card.appendChild(node('h2', null, 'Roster'));
+  card.appendChild(node('p', 'lx-note', "Sorted by bring %. Each move shows its share of that Pokémon's uses; the top four are listed."));
+  const grid = node('div', 'lx-minis');
+  mons.filter((r) => r.player === p).sort((a, b) => b.bring_pct - a.bring_pct || b.led - a.led || a.pokemon.localeCompare(b.pokemon)).forEach((r) => {
+    const c = node('div', 'lx-mini');
+    const im = spr(r.pokemon, 'lx-msp'); if (im) c.appendChild(im);
+    const b = node('div', 'lx-mbody');
+    b.appendChild(node('div', 'lx-mname', r.pokemon));
+    b.appendChild(node('div', 'lx-muted', 'Brought ' + sv('pct', r.bring_pct) + ' · Led ' + sv('pct', r.lead_pct) + ' · ' + r.kos + (r.kos === 1 ? ' KO' : ' KOs') + ' · Survived ' + sv('pct', r.survival_pct)));
+    const mv = tm.filter((m) => m.player === p && m.pokemon === r.pokemon).sort((a, b2) => b2.uses - a.uses || a.move.localeCompare(b2.move)).slice(0, 4);
+    b.appendChild(node('div', 'lx-muted', mv.length ? mv.map((m) => m.move + ' ' + fmt.pct(m.share)).join(' · ') : 'No moves recorded'));
+    c.appendChild(b); grid.appendChild(c);
+  });
+  card.appendChild(grid);
+  return card;
+}
+
+function renderScout() {
+  const ps = $('#lx-sc-p'), vsel = $('#lx-sc-v');
+  fillSel(ps, okAll(['teams']) && players());
+  fillSel(vsel, okAll(['teams']) && players());
+  const top = $('#lx-sc-top');
+  const ids = need(['teams', 'games', 'mons', 'teammoves', 'schedule', 'luck', 'playoffs']);
+  if (gate(top, ids)) return;
+  if (!ps.value) ps.value = ps.options[0].value;
+  if (vsel.value === ps.value) vsel.value = '';
+  const p = ps.value, v = vsel.value;
+  const all = rowsOf('games'), games = gamesF(), sched = rowsOf('schedule'), mons = monsF();
+  top.textContent = '';
+  if (v) top.appendChild(h2hCard(p, v, sched, all));
+  top.appendChild(summaryCard(p, v));
+  if (v) {
+    const c = node('div', 'lx-card');
+    c.appendChild(node('h2', null, 'Prep: ' + p + ' and ' + v));
+    c.appendChild(node('p', 'lx-note', 'Top lead pairs and most brought Pokémon for each player.'));
+    const g = node('div', 'lx-pair'); g.appendChild(prepCol(p, games, mons)); g.appendChild(prepCol(v, games, mons)); c.appendChild(g);
+    top.appendChild(c);
+  }
+  top.appendChild(rosterCard(p, mons, teammovesF()));
+  top.appendChild(coverageCard(p, v, mons));
+  const mine = sidesOf(games, p);
+  $('#lx-sc-n1').textContent = p; $('#lx-sc-n2').textContent = p;
+  T_SLEAD.rows = leadPairs(mine); draw(T_SLEAD);
+  T_SGAMES.rows = mine; draw(T_SGAMES);
+  const lead = leadPairs([].concat(...players().map((q) => sidesOf(games, q))));
+  T_LLEADS.rows = lead; draw(T_LLEADS);
+  const more = $('#lx-ll-more');
+  more.hidden = lead.length <= 15;
+  more.textContent = T_LLEADS.limit ? 'Show all ' + lead.length : 'Show top 15';
+}
+$('#lx-ll-more').addEventListener('click', () => { T_LLEADS.limit = T_LLEADS.limit ? null : 15; renderScout(); });
+
 function renderPokemon() {
   const sel = $('#lx-team');
-  if (okAll(['teams']) && sel.options.length <= 1) rowsOf('teams').map((t) => t.player).sort().forEach((t) => sel.appendChild(new Option(t, t)));
+  fillSel(sel, okAll(['teams']) && players());
   const kosC = $('#lx-c-kos'), dmgC = $('#lx-c-dmg');
-  const g1 = gate(kosC, ['mons']);
-  const g2 = gate(dmgC, ['mons']);
+  const g1 = gate(kosC, need(['mons']));
+  const g2 = gate(dmgC, need(['mons']));
   if (g1 || g2) return;
   const rows = monFilter();
   const lab = (r) => r.pokemon;
@@ -1046,14 +1685,34 @@ function renderPokemon() {
   T_MONS.sel = cur ? cur.id : null;
   selMon = T_MONS.sel;
   draw(T_MONS);
-  if (okAll(['teammoves'])) renderDetail(cur);
+  if (okAll(need(['teammoves']))) renderDetail(cur);
 }
 
 function renderMoves() {
   const a = $('#lx-c-mdmg'), b = $('#lx-c-muse');
-  const g1 = gate(a, ['moves']), g2 = gate(b, ['moves']);
+  const sel = $('#lx-mp');
+  fillSel(sel, okAll(['teams']) && players());
+  const g1 = gate(a, need(['moves', 'teammoves'])), g2 = gate(b, need(['moves', 'teammoves']));
   if (g1 || g2) return;
-  const rows = rowsOf('moves');
+  const p = sel.options.length > 1 ? sel.value : '';
+  const agg = new Map();
+  teammovesF().forEach((r) => {
+    if (p && r.player !== p) return;
+    let o = agg.get(r.move);
+    if (!o) agg.set(r.move, o = { uses: 0, by: new Map() });
+    const k = r.pokemon + (p ? '' : ' (' + r.player + ')');
+    o.uses += r.uses;
+    o.by.set(k, (o.by.get(k) || 0) + r.uses);
+  });
+  const usedBy = (m) => {
+    const o = agg.get(m);
+    if (!o) return {};
+    const l = [...o.by].sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0])).map((e) => e[0]);
+    return { used_by: l.slice(0, 3).join(', ') + (l.length > 3 ? ', +' + (l.length - 3) + ' more' : ''), used_by_full: l.join(', ') };
+  };
+  const rows = (p ? [...agg].map(([move, o]) => ({ move, uses: o.uses })) : movesF()).map((r) => Object.assign({}, r, usedBy(r.move)));
+  a.parentNode.hidden = !!p;
+  $('#lx-mnote').hidden = !p;
   hbar(a, rows.slice().sort((x, y) => y.damage - x.damage).slice(0, 12), { label: (r) => r.move, fmt: fmt.d1, series: [{ key: 'damage', label: 'Damage dealt', color: dash.colors[0] }], note: (r) => r.kos + ' KOs' });
   hbar(b, rows.slice().sort((x, y) => y.uses - x.uses).slice(0, 12), { label: (r) => r.move, fmt: fmt.int, series: [{ key: 'uses', label: 'Uses', color: dash.colors[1] }] });
   const q = $('#lx-q-moves').value.trim().toLowerCase();
@@ -1071,9 +1730,59 @@ function renderGames() {
   draw(T_GAMES);
 }
 
+function bracket(el, rows) {
+  const at = (n) => rows[n - 1];
+  const ph = (t) => ({ ph: t });
+  const slot = (x) => {
+    const d = document.createElement('div');
+    d.className = 'lx-bs' + (x.ph ? ' lx-bph' : '');
+    const s = document.createElement('span'); s.className = 'lx-bseed'; s.textContent = x.ph ? '' : x.seed;
+    const n = document.createElement('span'); n.className = 'lx-bname'; if (x.ph) n.textContent = x.ph; else n.appendChild(plink(x.player));
+    d.appendChild(s); d.appendChild(n);
+    if (!x.ph) {
+      if (x.bye) { const b = document.createElement('span'); b.className = 'lx-bbye'; b.textContent = 'Bye'; d.appendChild(b); }
+      const r = document.createElement('span'); r.className = 'lx-brec'; r.textContent = x.series; d.appendChild(r);
+      tipOn(d, el.parentNode, () => [x.player + ', seed ' + x.seed, 'Series ' + x.series + ', games ' + x.games_wl + ' (' + fmt.pct(x.game_pct) + ')', x.reason]);
+    }
+    return d;
+  };
+  const cell = (cls, a, b, col, row) => {
+    const c = document.createElement('div');
+    c.className = 'lx-bcell ' + cls;
+    c.style.gridColumn = col; c.style.gridRow = row;
+    const m = document.createElement('div'); m.className = 'lx-bm';
+    m.appendChild(slot(a)); m.appendChild(slot(b));
+    c.appendChild(m);
+    return c;
+  };
+  const hd = (t, col) => { const h = document.createElement('div'); h.className = 'lx-bh'; h.textContent = t; h.style.gridColumn = col; h.style.gridRow = 1; return h; };
+  const bye = (n) => Object.assign({}, at(n), { bye: true });
+  const g = document.createElement('div');
+  g.className = 'lx-bracket';
+  [['Wild card', 1], ['Semifinals', 2], ['Final', 3]].forEach(([t, c]) => g.appendChild(hd(t, c)));
+  g.appendChild(cell('lx-br', at(4), at(5), 1, 2));
+  g.appendChild(cell('lx-br', at(3), at(6), 1, 3));
+  g.appendChild(cell('lx-bl lx-bjt', bye(1), ph('Winner of 4 vs 5'), 2, 2));
+  g.appendChild(cell('lx-bl lx-bjb', bye(2), ph('Winner of 3 vs 6'), 2, 3));
+  const f = cell('lx-bl', ph('Winner of 1 vs 4/5'), ph('Winner of 2 vs 3/6'), 3, '2 / span 2');
+  g.appendChild(f);
+  el.textContent = '';
+  el.appendChild(g);
+}
+
+function renderPlayoffs() {
+  const c = $('#lx-bracket');
+  if (gate(c, ['playoffs'])) return;
+  const rows = rowsOf('playoffs');
+  if (rows.length < 6) { c.textContent = ''; const m = document.createElement('div'); m.className = 'lx-muted'; m.textContent = 'At least six players are needed for a bracket.'; c.appendChild(m); return; }
+  bracket(c, rows);
+  T_PO.rows = rows;
+  draw(T_PO);
+}
+
 function renderSchedule() {
   const sel = $('#lx-sp');
-  if (okAll(['teams']) && sel.options.length <= 1) rowsOf('teams').map((t) => t.player).sort().forEach((p) => sel.appendChild(new Option(p, p)));
+  fillSel(sel, okAll(['teams']) && players());
   if (!okAll(['schedule'])) return;
   const p = sel.value, st = $('#lx-ss').value;
   T_SCHED.rows = rowsOf('schedule').filter((r) => (!p || r.player1 === p || r.player2 === p) && (!st || r.status === st));
@@ -1086,14 +1795,14 @@ function renderLuck() {
     const rows = rowsOf('luck').slice().sort((a, b) => b.score - a.score);
     divBars(ch, rows, {
       key: 'score', label: (r) => r.player, fmt: fmt.s2,
-      tip: (r) => [r.player, 'Luck score ' + fmt.s2(r.score) + ' (' + fmt.pct(r.percentile) + ' percentile)', fmt.s1(r.net) + ' lucky events beyond the odds',
+      tip: (r) => [r.player, 'Luck score ' + fmt.s2(r.score) + ' (' + fmt.pct(r.percentile) + ' percentile)', fmt.s1(r.net) + ' net lucky events vs. the odds',
         'Crits ' + fmt.s1(r.crit_net) + ', accuracy ' + fmt.s1(r.acc_net), 'Burns ' + fmt.s1(r.brn_net) + ', freezes ' + fmt.s1(r.frz_net) + ', paralysis ' + fmt.s1(r.par_net) + ', flinches ' + fmt.s1(r.flinch_net),
         'Other effects ' + fmt.s1(r.other_net) + ', full para, thaw and confusion hits ' + fmt.s1(r.deny_net)],
     });
   }
   if (okAll(['luck'])) { T_LUCK.rows = rowsOf('luck'); draw(T_LUCK); }
   const sel = $('#lx-lp');
-  if (okAll(['luck']) && sel.options.length <= 1) rowsOf('luck').map((t) => t.player).sort().forEach((p) => sel.appendChild(new Option(p, p)));
+  fillSel(sel, okAll(['luck']) && rowsOf('luck').map((t) => t.player).sort());
   if (okAll(['luckdetail'])) { const p = sel.value; T_LDET.rows = rowsOf('luckdetail').filter((r) => !p || r.player === p); draw(T_LDET); }
   if (okAll(['luckgames'])) { T_LGAMES.rows = rowsOf('luckgames'); draw(T_LGAMES); }
   if (okAll(['luckmoments'])) { T_LMOM.rows = rowsOf('luckmoments'); draw(T_LMOM); }
@@ -1109,31 +1818,73 @@ function renderExtras() {
 
 function render() {
   renderHeader();
+  renderWeeks();
   if (tab === 'teams') renderTeams();
+  else if (tab === 'scout') renderScout();
   else if (tab === 'pokemon') renderPokemon();
   else if (tab === 'moves') renderMoves();
   else if (tab === 'luck') renderLuck();
   else if (tab === 'schedule') renderSchedule();
+  else if (tab === 'playoffs') renderPlayoffs();
   else if (tab === 'games') renderGames();
   else if (tab === 'extras') renderExtras();
+  syncHash();
 }
 
-function setTab(name, link) {
+const TABS = ['teams', 'scout', 'pokemon', 'moves', 'luck', 'schedule', 'playoffs', 'games', 'extras'];
+const selField = (id) => ({ get: () => { const e = $('#' + id); return e.options.length > 1 || !e.dataset.want ? e.value : e.dataset.want; }, set: (v) => { const e = $('#' + id); e.dataset.want = v; e.value = v; } });
+const wkField = (id, last) => ({
+  get: () => { const e = $('#' + id); return e.options.length < 2 ? e.dataset.want || '' : e.selectedIndex === (last ? e.options.length - 1 : 0) ? '' : e.value; },
+  set: (v) => { const e = $('#' + id); e.dataset.want = v; if (e.options.length > 1) { e.value = v; if (e.selectedIndex < 0) e.selectedIndex = last ? e.options.length - 1 : 0; } },
+});
+const WKH = { from: wkField('lx-wf', false), to: wkField('lx-wt', true) };
+const HASH_STATE = {
+  teams: WKH,
+  scout: Object.assign({ player: selField('lx-sc-p'), vs: selField('lx-sc-v'), types: { get: () => ($('#lx-sc-unb').checked ? 'all' : ''), set: (v) => { $('#lx-sc-unb').checked = v === 'all'; } } }, WKH),
+  pokemon: Object.assign({ player: selField('lx-team'), min: selField('lx-min'), mon: { get: () => selMon || '', set: (v) => { selMon = v || null; } } }, WKH),
+  moves: Object.assign({ player: selField('lx-mp') }, WKH),
+  luck: { player: selField('lx-lp') },
+  schedule: { player: selField('lx-sp'), status: selField('lx-ss') },
+};
+function readHash() {
+  const [name, qs] = location.hash.replace(/^#(lx-)?/, '').split('?');
+  return { tab: TABS.includes(name) ? name : null, params: Object.fromEntries(new URLSearchParams(qs || '')) };
+}
+function writeHash(t, params) {
+  const q = new URLSearchParams();
+  Object.entries(params).forEach(([k, v]) => { if (v) q.set(k, v); });
+  const qs = q.toString();
+  const h = '#' + t + (qs ? '?' + qs : '');
+  if (location.hash !== h && (location.hash || t !== 'teams' || qs)) history.replaceState(null, '', h);
+}
+function syncHash() {
+  const p = {};
+  Object.entries(HASH_STATE[tab] || {}).forEach(([k, h]) => { p[k] = h.get(); });
+  writeHash(tab, p);
+}
+function applyHash(h) {
+  if (h.tab) tab = h.tab;
+  Object.entries(HASH_STATE[tab] || {}).forEach(([k, s]) => s.set(h.params[k] || ''));
+}
+
+function setTab(name) {
   tab = name;
   document.querySelectorAll('.lx-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === name)));
   document.querySelectorAll('.lx-page').forEach((p) => { p.hidden = p.dataset.page !== name; });
-  if (link) dash.setLink('lx-' + name);
   render();
 }
 
-document.querySelectorAll('.lx-tab').forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab, true)));
-['lx-team', 'lx-q-mons', 'lx-unused', 'lx-q-moves', 'lx-q-games', 'lx-sp', 'lx-ss', 'lx-lp'].forEach((id) => {
+document.querySelectorAll('.lx-tab').forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab)));
+['lx-sc-p', 'lx-sc-v', 'lx-sc-unb', 'lx-team', 'lx-min', 'lx-q-mons', 'lx-unused', 'lx-mp', 'lx-q-moves', 'lx-q-games', 'lx-sp', 'lx-ss', 'lx-lp'].forEach((id) => {
   const el = $('#' + id);
   el.addEventListener(el.type === 'search' ? 'input' : 'change', render);
 });
 
-const wanted = location.hash.replace('#lx-', '');
-if (['teams', 'pokemon', 'moves', 'luck', 'schedule', 'games', 'extras'].includes(wanted)) tab = wanted;
+[$('#lx-wf'), $('#lx-wt')].forEach((e) => e.addEventListener('change', () => { wkClamp(e); render(); }));
+$('#lx-wreset').addEventListener('click', () => { const f = $('#lx-wf'), t = $('#lx-wt'); f.selectedIndex = 0; t.selectedIndex = t.options.length - 1; render(); });
+
+applyHash(readHash());
+addEventListener('hashchange', () => { applyHash(readHash()); setTab(tab); });
 dash.onData(() => {
   document.querySelectorAll('.lx-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
   document.querySelectorAll('.lx-page').forEach((p) => { p.hidden = p.dataset.page !== tab; });

@@ -3,6 +3,10 @@
   "id": "Alex|Cradily",
   "player": "Alex",
   "pokemon": "Cradily",
+  "types": [
+   "Rock",
+   "Grass"
+  ],
   "team_games": 8,
   "brought": 1,
   "bring_pct": 0.125,
@@ -29,6 +33,10 @@
   "id": "Alex|Crobat",
   "player": "Alex",
   "pokemon": "Crobat",
+  "types": [
+   "Poison",
+   "Flying"
+  ],
   "team_games": 8,
   "brought": 8,
   "bring_pct": 1.0,
@@ -55,6 +63,9 @@
   "id": "Alex|Gothitelle",
   "player": "Alex",
   "pokemon": "Gothitelle",
+  "types": [
+   "Psychic"
+  ],
   "team_games": 8,
   "brought": 0,
   "bring_pct": 0.0,
@@ -81,6 +92,9 @@
   "id": "Alex|Gurdurr",
   "player": "Alex",
   "pokemon": "Gurdurr",
+  "types": [
+   "Fighting"
+  ],
   "team_games": 8,
   "brought": 3,
   "bring_pct": 0.375,
@@ -107,6 +121,9 @@
   "id": "Alex|Kangaskhan",
   "player": "Alex",
   "pokemon": "Kangaskhan",
+  "types": [
+   "Normal"
+  ],
   "team_games": 8,
   "brought": 3,
   "bring_pct": 0.375,
@@ -133,6 +150,10 @@
   "id": "Alex|Keldeo",
   "player": "Alex",
   "pokemon": "Keldeo",
+  "types": [
+   "Water",
+   "Fighting"
+  ],
   "team_games": 8,
   "brought": 7,
   "bring_pct": 0.875,
@@ -159,6 +180,10 @@
   "id": "Alex|Metagross",
   "player": "Alex",
   "pokemon": "Metagross",
+  "types": [
+   "Steel",
+   "Psychic"
+  ],
   "team_games": 8,
   "brought": 7,
   "bring_pct": 0.875,
@@ -185,6 +210,10 @@
   "id": "Alex|Piloswine",
   "player": "Alex",
   "pokemon": "Piloswine",
+  "types": [
+   "Ice",
+   "Ground"
+  ],
   "team_games": 8,
   "brought": 0,
   "bring_pct": 0.0,
@@ -211,6 +240,10 @@
   "id": "Alex|Rotom-Wash",
   "player": "Alex",
   "pokemon": "Rotom-Wash",
+  "types": [
+   "Electric",
+   "Water"
+  ],
   "team_games": 8,
   "brought": 5,
   "bring_pct": 0.625,
@@ -237,6 +270,9 @@
   "id": "Alex|Stoutland",
   "player": "Alex",
   "pokemon": "Stoutland",
+  "types": [
+   "Normal"
+  ],
   "team_games": 8,
   "brought": 6,
   "bring_pct": 0.75,
@@ -263,6 +299,9 @@
   "id": "Alex|Tangrowth",
   "player": "Alex",
   "pokemon": "Tangrowth",
+  "types": [
+   "Grass"
+  ],
   "team_games": 8,
   "brought": 1,
   "bring_pct": 0.125,
@@ -289,6 +328,10 @@
   "id": "Alex|Tyranitar",
   "player": "Alex",
   "pokemon": "Tyranitar",
+  "types": [
+   "Rock",
+   "Dark"
+  ],
   "team_games": 8,
   "brought": 6,
   "bring_pct": 0.75,
@@ -315,6 +358,9 @@
   "id": "Bo|Arceus",
   "player": "Bo",
   "pokemon": "Arceus",
+  "types": [
+   "Normal"
+  ],
   "team_games": 7,
   "brought": 0,
   "bring_pct": 0.0,
@@ -341,6 +387,10 @@
   "id": "Bo|Chandelure",
   "player": "Bo",
   "pokemon": "Chandelure",
+  "types": [
+   "Ghost",
+   "Fire"
+  ],
   "team_games": 7,
   "brought": 7,
   "bring_pct": 1.0,
@@ -367,6 +417,9 @@
   "id": "Bo|Darmanitan",
   "player": "Bo",
   "pokemon": "Darmanitan",
+  "types": [
+   "Fire"
+  ],
   "team_games": 7,
   "brought": 5,
   "bring_pct": 0.714,
@@ -393,6 +446,9 @@
   "id": "Bo|Eelektrik",
   "player": "Bo",
   "pokemon": "Eelektrik",
+  "types": [
+   "Electric"
+  ],
   "team_games": 7,
   "brought": 1,
   "bring_pct": 0.143,
@@ -419,6 +475,10 @@
   "id": "Bo|Galvantula",
   "player": "Bo",
   "pokemon": "Galvantula",
+  "types": [
+   "Bug",
+   "Electric"
+  ],
   "team_games": 7,
   "brought": 1,
   "bring_pct": 0.143,
@@ -445,6 +505,9 @@
   "id": "Bo|Haxorus",
   "player": "Bo",
   "pokemon": "Haxorus",
+  "types": [
+   "Dragon"
+  ],
   "team_games": 7,
   "brought": 7,
   "bring_pct": 1.0,
@@ -471,6 +534,10 @@
   "id": "Bo|Hydreigon",
   "player": "Bo",
   "pokemon": "Hydreigon",
+  "types": [
+   "Dark",
+   "Dragon"
+  ],
   "team_games": 7,
   "brought": 6,
   "bring_pct": 0.857,
@@ -497,6 +564,10 @@
   "id": "Bo|Lucario",
   "player": "Bo",
   "pokemon": "Lucario",
+  "types": [
+   "Fighting",
+   "Steel"
+  ],
   "team_games": 7,
   "brought": 5,
   "bring_pct": 0.714,
@@ -523,6 +594,10 @@
   "id": "Bo|Mandibuzz",
   "player": "Bo",
   "pokemon": "Mandibuzz",
+  "types": [
+   "Dark",
+   "Flying"
+  ],
   "team_games": 7,
   "brought": 2,
   "bring_pct": 0.286,
@@ -549,6 +624,9 @@
   "id": "Bo|Pikachu",
   "player": "Bo",
   "pokemon": "Pikachu",
+  "types": [
+   "Electric"
+  ],
   "team_games": 7,
   "brought": 1,
   "bring_pct": 0.143,
@@ -575,6 +653,10 @@
   "id": "Bo|Scolipede",
   "player": "Bo",
   "pokemon": "Scolipede",
+  "types": [
+   "Bug",
+   "Poison"
+  ],
   "team_games": 7,
   "brought": 0,
   "bring_pct": 0.0,
@@ -601,6 +683,10 @@
   "id": "Bo|Seismitoad",
   "player": "Bo",
   "pokemon": "Seismitoad",
+  "types": [
+   "Water",
+   "Ground"
+  ],
   "team_games": 7,
   "brought": 7,
   "bring_pct": 1.0,
@@ -627,6 +713,10 @@
   "id": "Bo|Sigilyph",
   "player": "Bo",
   "pokemon": "Sigilyph",
+  "types": [
+   "Psychic",
+   "Flying"
+  ],
   "team_games": 7,
   "brought": 0,
   "bring_pct": 0.0,
@@ -653,6 +743,10 @@
   "id": "Brayden|Celebi",
   "player": "Brayden",
   "pokemon": "Celebi",
+  "types": [
+   "Psychic",
+   "Grass"
+  ],
   "team_games": 7,
   "brought": 2,
   "bring_pct": 0.286,
@@ -679,6 +773,9 @@
   "id": "Brayden|Entei",
   "player": "Brayden",
   "pokemon": "Entei",
+  "types": [
+   "Fire"
+  ],
   "team_games": 7,
   "brought": 2,
   "bring_pct": 0.286,
@@ -705,6 +802,10 @@
   "id": "Brayden|Excadrill",
   "player": "Brayden",
   "pokemon": "Excadrill",
+  "types": [
+   "Ground",
+   "Steel"
+  ],
   "team_games": 7,
   "brought": 5,
   "bring_pct": 0.714,
@@ -731,6 +832,10 @@
   "id": "Brayden|Gligar",
   "player": "Brayden",
   "pokemon": "Gligar",
+  "types": [
+   "Ground",
+   "Flying"
+  ],
   "team_games": 7,
   "brought": 0,
   "bring_pct": 0.0,
@@ -757,6 +862,9 @@
   "id": "Brayden|Hippowdon",
   "player": "Brayden",
   "pokemon": "Hippowdon",
+  "types": [
+   "Ground"
+  ],
   "team_games": 7,
   "brought": 7,
   "bring_pct": 1.0,
@@ -783,6 +891,10 @@
   "id": "Brayden|Honchkrow",
   "player": "Brayden",
   "pokemon": "Honchkrow",
+  "types": [
+   "Dark",
+   "Flying"
+  ],
   "team_games": 7,
   "brought": 3,
   "bring_pct": 0.429,
@@ -809,6 +921,9 @@
   "id": "Brayden|Mienshao",
   "player": "Brayden",
   "pokemon": "Mienshao",
+  "types": [
+   "Fighting"
+  ],
   "team_games": 7,
   "brought": 5,
   "bring_pct": 0.714,
@@ -835,6 +950,9 @@
   "id": "Brayden|Milotic",
   "player": "Brayden",
   "pokemon": "Milotic",
+  "types": [
+   "Water"
+  ],
   "team_games": 7,
   "brought": 5,
   "bring_pct": 0.714,
@@ -861,6 +979,10 @@
   "id": "Brayden|Salamence",
   "player": "Brayden",
   "pokemon": "Salamence",
+  "types": [
+   "Dragon",
+   "Flying"
+  ],
   "team_games": 7,
   "brought": 3,
   "bring_pct": 0.429,
@@ -887,6 +1009,10 @@
   "id": "Brayden|Thundurus-Therian",
   "player": "Brayden",
   "pokemon": "Thundurus-Therian",
+  "types": [
+   "Electric",
+   "Flying"
+  ],
   "team_games": 7,
   "brought": 4,
   "bring_pct": 0.571,
@@ -913,6 +1039,9 @@
   "id": "Brayden|Uxie",
   "player": "Brayden",
   "pokemon": "Uxie",
+  "types": [
+   "Psychic"
+  ],
   "team_games": 7,
   "brought": 4,
   "bring_pct": 0.571,
@@ -939,6 +1068,9 @@
   "id": "Brayden|Vulpix",
   "player": "Brayden",
   "pokemon": "Vulpix",
+  "types": [
+   "Fire"
+  ],
   "team_games": 7,
   "brought": 0,
   "bring_pct": 0.0,
@@ -965,6 +1097,9 @@
   "id": "Connor|Beartic",
   "player": "Connor",
   "pokemon": "Beartic",
+  "types": [
+   "Ice"
+  ],
   "team_games": 8,
   "brought": 0,
   "bring_pct": 0.0,
@@ -991,6 +1126,9 @@
   "id": "Connor|Chansey",
   "player": "Connor",
   "pokemon": "Chansey",
+  "types": [
+   "Normal"
+  ],
   "team_games": 8,
   "brought": 5,
   "bring_pct": 0.625,
@@ -1017,6 +1155,9 @@
   "id": "Connor|Dusclops",
   "player": "Connor",
   "pokemon": "Dusclops",
+  "types": [
+   "Ghost"
+  ],
   "team_games": 8,
   "brought": 2,
   "bring_pct": 0.25,
@@ -1043,6 +1184,9 @@
   "id": "Connor|Eelektross",
   "player": "Connor",
   "pokemon": "Eelektross",
+  "types": [
+   "Electric"
+  ],
   "team_games": 8,
   "brought": 4,
   "bring_pct": 0.5,
@@ -1069,6 +1213,10 @@
   "id": "Connor|Genesect",
   "player": "Connor",
   "pokemon": "Genesect",
+  "types": [
+   "Bug",
+   "Steel"
+  ],
   "team_games": 8,
   "brought": 6,
   "bring_pct": 0.75,
@@ -1095,6 +1243,10 @@
   "id": "Connor|Landorus-Therian",
   "player": "Connor",
   "pokemon": "Landorus-Therian",
+  "types": [
+   "Ground",
+   "Flying"
+  ],
   "team_games": 8,
   "brought": 4,
   "bring_pct": 0.5,
@@ -1121,6 +1273,10 @@
   "id": "Connor|Latios",
   "player": "Connor",
   "pokemon": "Latios",
+  "types": [
+   "Dragon",
+   "Psychic"
+  ],
   "team_games": 8,
   "brought": 5,
   "bring_pct": 0.625,
@@ -1147,6 +1303,9 @@
   "id": "Connor|Machamp",
   "player": "Connor",
   "pokemon": "Machamp",
+  "types": [
+   "Fighting"
+  ],
   "team_games": 8,
   "brought": 2,
   "bring_pct": 0.25,
@@ -1173,6 +1332,9 @@
   "id": "Connor|Magmar",
   "player": "Connor",
   "pokemon": "Magmar",
+  "types": [
+   "Fire"
+  ],
   "team_games": 8,
   "brought": 4,
   "bring_pct": 0.5,
@@ -1199,6 +1361,10 @@
   "id": "Connor|Rotom-Heat",
   "player": "Connor",
   "pokemon": "Rotom-Heat",
+  "types": [
+   "Electric",
+   "Fire"
+  ],
   "team_games": 8,
   "brought": 5,
   "bring_pct": 0.625,
@@ -1225,6 +1391,10 @@
   "id": "Connor|Scrafty",
   "player": "Connor",
   "pokemon": "Scrafty",
+  "types": [
+   "Dark",
+   "Fighting"
+  ],
   "team_games": 8,
   "brought": 4,
   "bring_pct": 0.5,
@@ -1251,6 +1421,9 @@
   "id": "Connor|Suicune",
   "player": "Connor",
   "pokemon": "Suicune",
+  "types": [
+   "Water"
+  ],
   "team_games": 8,
   "brought": 5,
   "bring_pct": 0.625,
@@ -1277,6 +1450,10 @@
   "id": "Danny|Cobalion",
   "player": "Danny",
   "pokemon": "Cobalion",
+  "types": [
+   "Steel",
+   "Fighting"
+  ],
   "team_games": 6,
   "brought": 0,
   "bring_pct": 0.0,
@@ -1303,6 +1480,10 @@
   "id": "Danny|Golbat",
   "player": "Danny",
   "pokemon": "Golbat",
+  "types": [
+   "Poison",
+   "Flying"
+  ],
   "team_games": 6,
   "brought": 1,
   "bring_pct": 0.167,
@@ -1329,6 +1510,10 @@
   "id": "Danny|Heatran",
   "player": "Danny",
   "pokemon": "Heatran",
+  "types": [
+   "Fire",
+   "Steel"
+  ],
   "team_games": 6,
   "brought": 2,
   "bring_pct": 0.333,
@@ -1355,6 +1540,9 @@
   "id": "Danny|Hitmonlee",
   "player": "Danny",
   "pokemon": "Hitmonlee",
+  "types": [
+   "Fighting"
+  ],
   "team_games": 6,
   "brought": 3,
   "bring_pct": 0.5,
@@ -1381,6 +1569,10 @@
   "id": "Danny|Kyurem-Black",
   "player": "Danny",
   "pokemon": "Kyurem-Black",
+  "types": [
+   "Dragon",
+   "Ice"
+  ],
   "team_games": 6,
   "brought": 4,
   "bring_pct": 0.667,
@@ -1407,6 +1599,10 @@
   "id": "Danny|Latias",
   "player": "Danny",
   "pokemon": "Latias",
+  "types": [
+   "Dragon",
+   "Psychic"
+  ],
   "team_games": 6,
   "brought": 4,
   "bring_pct": 0.667,
@@ -1433,6 +1629,9 @@
   "id": "Danny|Manaphy",
   "player": "Danny",
   "pokemon": "Manaphy",
+  "types": [
+   "Water"
+  ],
   "team_games": 6,
   "brought": 3,
   "bring_pct": 0.5,
@@ -1459,6 +1658,10 @@
   "id": "Danny|Rhydon",
   "player": "Danny",
   "pokemon": "Rhydon",
+  "types": [
+   "Ground",
+   "Rock"
+  ],
   "team_games": 6,
   "brought": 2,
   "bring_pct": 0.333,
@@ -1485,6 +1688,10 @@
   "id": "Danny|Slowbro",
   "player": "Danny",
   "pokemon": "Slowbro",
+  "types": [
+   "Water",
+   "Psychic"
+  ],
   "team_games": 6,
   "brought": 0,
   "bring_pct": 0.0,
@@ -1511,6 +1718,10 @@
   "id": "Danny|Staraptor",
   "player": "Danny",
   "pokemon": "Staraptor",
+  "types": [
+   "Normal",
+   "Flying"
+  ],
   "team_games": 6,
   "brought": 5,
   "bring_pct": 0.833,
@@ -1537,6 +1748,10 @@
   "id": "Danny|Thundurus",
   "player": "Danny",
   "pokemon": "Thundurus",
+  "types": [
+   "Electric",
+   "Flying"
+  ],
   "team_games": 6,
   "brought": 5,
   "bring_pct": 0.833,
@@ -1563,6 +1778,10 @@
   "id": "Danny|Virizion",
   "player": "Danny",
   "pokemon": "Virizion",
+  "types": [
+   "Grass",
+   "Fighting"
+  ],
   "team_games": 6,
   "brought": 4,
   "bring_pct": 0.667,
@@ -1589,6 +1808,9 @@
   "id": "David Kim|Blastoise",
   "player": "David Kim",
   "pokemon": "Blastoise",
+  "types": [
+   "Water"
+  ],
   "team_games": 9,
   "brought": 9,
   "bring_pct": 1.0,
@@ -1615,6 +1837,10 @@
   "id": "David Kim|Escavalier",
   "player": "David Kim",
   "pokemon": "Escavalier",
+  "types": [
+   "Bug",
+   "Steel"
+  ],
   "team_games": 9,
   "brought": 2,
   "bring_pct": 0.222,
@@ -1641,6 +1867,10 @@
   "id": "David Kim|Ferrothorn",
   "player": "David Kim",
   "pokemon": "Ferrothorn",
+  "types": [
+   "Grass",
+   "Steel"
+  ],
   "team_games": 9,
   "brought": 7,
   "bring_pct": 0.778,
@@ -1667,6 +1897,10 @@
   "id": "David Kim|Kingdra",
   "player": "David Kim",
   "pokemon": "Kingdra",
+  "types": [
+   "Water",
+   "Dragon"
+  ],
   "team_games": 9,
   "brought": 7,
   "bring_pct": 0.778,
@@ -1693,6 +1927,10 @@
   "id": "David Kim|Lapras",
   "player": "David Kim",
   "pokemon": "Lapras",
+  "types": [
+   "Water",
+   "Ice"
+  ],
   "team_games": 9,
   "brought": 0,
   "bring_pct": 0.0,
@@ -1719,6 +1957,10 @@
   "id": "David Kim|Magneton",
   "player": "David Kim",
   "pokemon": "Magneton",
+  "types": [
+   "Electric",
+   "Steel"
+  ],
   "team_games": 9,
   "brought": 2,
   "bring_pct": 0.222,
@@ -1745,6 +1987,9 @@
   "id": "David Kim|Politoed",
   "player": "David Kim",
   "pokemon": "Politoed",
+  "types": [
+   "Water"
+  ],
   "team_games": 9,
   "brought": 9,
   "bring_pct": 1.0,
@@ -1771,6 +2016,10 @@
   "id": "David Kim|Quagsire",
   "player": "David Kim",
   "pokemon": "Quagsire",
+  "types": [
+   "Water",
+   "Ground"
+  ],
   "team_games": 9,
   "brought": 0,
   "bring_pct": 0.0,
@@ -1797,6 +2046,9 @@
   "id": "David Kim|Raikou",
   "player": "David Kim",
   "pokemon": "Raikou",
+  "types": [
+   "Electric"
+  ],
   "team_games": 9,
   "brought": 7,
   "bring_pct": 0.778,
@@ -1823,6 +2075,10 @@
   "id": "David Kim|Rhyperior",
   "player": "David Kim",
   "pokemon": "Rhyperior",
+  "types": [
+   "Ground",
+   "Rock"
+  ],
   "team_games": 9,
   "brought": 1,
   "bring_pct": 0.111,
@@ -1849,6 +2105,9 @@
   "id": "David Kim|Tangela",
   "player": "David Kim",
   "pokemon": "Tangela",
+  "types": [
+   "Grass"
+  ],
   "team_games": 9,
   "brought": 3,
   "bring_pct": 0.333,
@@ -1875,6 +2134,9 @@
   "id": "David Kim|Tornadus",
   "player": "David Kim",
   "pokemon": "Tornadus",
+  "types": [
+   "Flying"
+  ],
   "team_games": 9,
   "brought": 7,
   "bring_pct": 0.778,
@@ -1901,6 +2163,9 @@
   "id": "Dennis|Cresselia",
   "player": "Dennis",
   "pokemon": "Cresselia",
+  "types": [
+   "Psychic"
+  ],
   "team_games": 6,
   "brought": 4,
   "bring_pct": 0.667,
@@ -1927,6 +2192,9 @@
   "id": "Dennis|Darkrai",
   "player": "Dennis",
   "pokemon": "Darkrai",
+  "types": [
+   "Dark"
+  ],
   "team_games": 6,
   "brought": 5,
   "bring_pct": 0.833,
@@ -1953,6 +2221,9 @@
   "id": "Dennis|Dusknoir",
   "player": "Dennis",
   "pokemon": "Dusknoir",
+  "types": [
+   "Ghost"
+  ],
   "team_games": 6,
   "brought": 2,
   "bring_pct": 0.333,
@@ -1979,6 +2250,9 @@
   "id": "Dennis|Hitmontop",
   "player": "Dennis",
   "pokemon": "Hitmontop",
+  "types": [
+   "Fighting"
+  ],
   "team_games": 6,
   "brought": 6,
   "bring_pct": 1.0,
@@ -2005,6 +2279,10 @@
   "id": "Dennis|Lampent",
   "player": "Dennis",
   "pokemon": "Lampent",
+  "types": [
+   "Ghost",
+   "Fire"
+  ],
   "team_games": 6,
   "brought": 0,
   "bring_pct": 0.0,
@@ -2031,6 +2309,10 @@
   "id": "Dennis|Landorus",
   "player": "Dennis",
   "pokemon": "Landorus",
+  "types": [
+   "Ground",
+   "Flying"
+  ],
   "team_games": 6,
   "brought": 5,
   "bring_pct": 0.833,
@@ -2057,6 +2339,10 @@
   "id": "Dennis|Lanturn",
   "player": "Dennis",
   "pokemon": "Lanturn",
+  "types": [
+   "Water",
+   "Electric"
+  ],
   "team_games": 6,
   "brought": 0,
   "bring_pct": 0.0,
@@ -2083,6 +2369,10 @@
   "id": "Dennis|Moltres",
   "player": "Dennis",
   "pokemon": "Moltres",
+  "types": [
+   "Fire",
+   "Flying"
+  ],
   "team_games": 6,
   "brought": 0,
   "bring_pct": 0.0,
@@ -2109,6 +2399,10 @@
   "id": "Dennis|Scizor",
   "player": "Dennis",
   "pokemon": "Scizor",
+  "types": [
+   "Bug",
+   "Steel"
+  ],
   "team_games": 6,
   "brought": 5,
   "bring_pct": 0.833,
@@ -2135,6 +2429,9 @@
   "id": "Dennis|Snorlax",
   "player": "Dennis",
   "pokemon": "Snorlax",
+  "types": [
+   "Normal"
+  ],
   "team_games": 6,
   "brought": 2,
   "bring_pct": 0.333,
@@ -2161,6 +2458,10 @@
   "id": "Dennis|Togetic",
   "player": "Dennis",
   "pokemon": "Togetic",
+  "types": [
+   "Normal",
+   "Flying"
+  ],
   "team_games": 6,
   "brought": 2,
   "bring_pct": 0.333,
@@ -2187,6 +2488,9 @@
   "id": "Dennis|Tornadus-Therian",
   "player": "Dennis",
   "pokemon": "Tornadus-Therian",
+  "types": [
+   "Flying"
+  ],
   "team_games": 6,
   "brought": 3,
   "bring_pct": 0.5,
@@ -2213,6 +2517,10 @@
   "id": "Dzzy|Amoonguss",
   "player": "Dzzy",
   "pokemon": "Amoonguss",
+  "types": [
+   "Grass",
+   "Poison"
+  ],
   "team_games": 8,
   "brought": 3,
   "bring_pct": 0.375,
@@ -2239,6 +2547,10 @@
   "id": "Dzzy|Bisharp",
   "player": "Dzzy",
   "pokemon": "Bisharp",
+  "types": [
+   "Dark",
+   "Steel"
+  ],
   "team_games": 8,
   "brought": 4,
   "bring_pct": 0.5,
@@ -2265,6 +2577,9 @@
   "id": "Dzzy|Boldore",
   "player": "Dzzy",
   "pokemon": "Boldore",
+  "types": [
+   "Rock"
+  ],
   "team_games": 8,
   "brought": 3,
   "bring_pct": 0.375,
@@ -2291,6 +2606,9 @@
   "id": "Dzzy|Clefairy",
   "player": "Dzzy",
   "pokemon": "Clefairy",
+  "types": [
+   "Normal"
+  ],
   "team_games": 8,
   "brought": 2,
   "bring_pct": 0.25,
@@ -2317,6 +2635,10 @@
   "id": "Dzzy|Drifblim",
   "player": "Dzzy",
   "pokemon": "Drifblim",
+  "types": [
+   "Ghost",
+   "Flying"
+  ],
   "team_games": 8,
   "brought": 3,
   "bring_pct": 0.375,
@@ -2343,6 +2665,10 @@
   "id": "Dzzy|Jellicent",
   "player": "Dzzy",
   "pokemon": "Jellicent",
+  "types": [
+   "Water",
+   "Ghost"
+  ],
   "team_games": 8,
   "brought": 8,
   "bring_pct": 1.0,
@@ -2369,6 +2695,10 @@
   "id": "Dzzy|Krookodile",
   "player": "Dzzy",
   "pokemon": "Krookodile",
+  "types": [
+   "Ground",
+   "Dark"
+  ],
   "team_games": 8,
   "brought": 3,
   "bring_pct": 0.375,
@@ -2395,6 +2725,10 @@
   "id": "Dzzy|Kyurem",
   "player": "Dzzy",
   "pokemon": "Kyurem",
+  "types": [
+   "Dragon",
+   "Ice"
+  ],
   "team_games": 8,
   "brought": 4,
   "bring_pct": 0.5,
@@ -2421,6 +2755,9 @@
   "id": "Dzzy|Lickilicky",
   "player": "Dzzy",
   "pokemon": "Lickilicky",
+  "types": [
+   "Normal"
+  ],
   "team_games": 8,
   "brought": 4,
   "bring_pct": 0.5,
@@ -2447,6 +2784,9 @@
   "id": "Dzzy|Manectric",
   "player": "Dzzy",
   "pokemon": "Manectric",
+  "types": [
+   "Electric"
+  ],
   "team_games": 8,
   "brought": 2,
   "bring_pct": 0.25,
@@ -2473,6 +2813,9 @@
   "id": "Dzzy|Mew",
   "player": "Dzzy",
   "pokemon": "Mew",
+  "types": [
+   "Psychic"
+  ],
   "team_games": 8,
   "brought": 5,
   "bring_pct": 0.625,
@@ -2499,6 +2842,10 @@
   "id": "Dzzy|Terrakion",
   "player": "Dzzy",
   "pokemon": "Terrakion",
+  "types": [
+   "Rock",
+   "Fighting"
+  ],
   "team_games": 8,
   "brought": 3,
   "bring_pct": 0.375,
@@ -2525,6 +2872,9 @@
   "id": "Ethan|Alakazam",
   "player": "Ethan",
   "pokemon": "Alakazam",
+  "types": [
+   "Psychic"
+  ],
   "team_games": 8,
   "brought": 3,
   "bring_pct": 0.375,
@@ -2551,6 +2901,9 @@
   "id": "Ethan|Blissey",
   "player": "Ethan",
   "pokemon": "Blissey",
+  "types": [
+   "Normal"
+  ],
   "team_games": 8,
   "brought": 7,
   "bring_pct": 0.875,
@@ -2577,6 +2930,9 @@
   "id": "Ethan|Deoxys-Speed",
   "player": "Ethan",
   "pokemon": "Deoxys-Speed",
+  "types": [
+   "Psychic"
+  ],
   "team_games": 8,
   "brought": 4,
   "bring_pct": 0.5,
@@ -2603,6 +2959,10 @@
   "id": "Ethan|Emboar",
   "player": "Ethan",
   "pokemon": "Emboar",
+  "types": [
+   "Fire",
+   "Fighting"
+  ],
   "team_games": 8,
   "brought": 5,
   "bring_pct": 0.625,
@@ -2629,6 +2989,10 @@
   "id": "Ethan|Garchomp",
   "player": "Ethan",
   "pokemon": "Garchomp",
+  "types": [
+   "Dragon",
+   "Ground"
+  ],
   "team_games": 8,
   "brought": 3,
   "bring_pct": 0.375,
@@ -2655,6 +3019,10 @@
   "id": "Ethan|Gastrodon",
   "player": "Ethan",
   "pokemon": "Gastrodon",
+  "types": [
+   "Water",
+   "Ground"
+  ],
   "team_games": 8,
   "brought": 6,
   "bring_pct": 0.75,
@@ -2681,6 +3049,10 @@
   "id": "Ethan|Haunter",
   "player": "Ethan",
   "pokemon": "Haunter",
+  "types": [
+   "Ghost",
+   "Poison"
+  ],
   "team_games": 8,
   "brought": 0,
   "bring_pct": 0.0,
@@ -2707,6 +3079,10 @@
   "id": "Ethan|Magnezone",
   "player": "Ethan",
   "pokemon": "Magnezone",
+  "types": [
+   "Electric",
+   "Steel"
+  ],
   "team_games": 8,
   "brought": 7,
   "bring_pct": 0.875,
@@ -2733,6 +3109,10 @@
   "id": "Ethan|Starmie",
   "player": "Ethan",
   "pokemon": "Starmie",
+  "types": [
+   "Water",
+   "Psychic"
+  ],
   "team_games": 8,
   "brought": 5,
   "bring_pct": 0.625,
@@ -2759,6 +3139,10 @@
   "id": "Ethan|Yanma",
   "player": "Ethan",
   "pokemon": "Yanma",
+  "types": [
+   "Bug",
+   "Flying"
+  ],
   "team_games": 8,
   "brought": 0,
   "bring_pct": 0.0,
@@ -2785,6 +3169,10 @@
   "id": "Ethan|Zapdos",
   "player": "Ethan",
   "pokemon": "Zapdos",
+  "types": [
+   "Electric",
+   "Flying"
+  ],
   "team_games": 8,
   "brought": 8,
   "bring_pct": 1.0,
@@ -2811,6 +3199,9 @@
   "id": "Ethan|Zoroark",
   "player": "Ethan",
   "pokemon": "Zoroark",
+  "types": [
+   "Dark"
+  ],
   "team_games": 8,
   "brought": 0,
   "bring_pct": 0.0,
@@ -2837,6 +3228,9 @@
   "id": "Max|Alomomola",
   "player": "Max",
   "pokemon": "Alomomola",
+  "types": [
+   "Water"
+  ],
   "team_games": 9,
   "brought": 1,
   "bring_pct": 0.111,
@@ -2863,6 +3257,10 @@
   "id": "Max|Bronzong",
   "player": "Max",
   "pokemon": "Bronzong",
+  "types": [
+   "Steel",
+   "Psychic"
+  ],
   "team_games": 9,
   "brought": 9,
   "bring_pct": 1.0,
@@ -2889,6 +3287,10 @@
   "id": "Max|Camerupt",
   "player": "Max",
   "pokemon": "Camerupt",
+  "types": [
+   "Fire",
+   "Ground"
+  ],
   "team_games": 9,
   "brought": 2,
   "bring_pct": 0.222,
@@ -2915,6 +3317,9 @@
   "id": "Max|Hariyama",
   "player": "Max",
   "pokemon": "Hariyama",
+  "types": [
+   "Fighting"
+  ],
   "team_games": 9,
   "brought": 7,
   "bring_pct": 0.778,
@@ -2941,6 +3346,9 @@
   "id": "Max|Ninetales",
   "player": "Max",
   "pokemon": "Ninetales",
+  "types": [
+   "Fire"
+  ],
   "team_games": 9,
   "brought": 3,
   "bring_pct": 0.333,
@@ -2967,6 +3375,9 @@
   "id": "Max|Porygon2",
   "player": "Max",
   "pokemon": "Porygon2",
+  "types": [
+   "Normal"
+  ],
   "team_games": 9,
   "brought": 9,
   "bring_pct": 1.0,
@@ -2993,6 +3404,9 @@
   "id": "Max|Rampardos",
   "player": "Max",
   "pokemon": "Rampardos",
+  "types": [
+   "Rock"
+  ],
   "team_games": 9,
   "brought": 3,
   "bring_pct": 0.333,
@@ -3019,6 +3433,9 @@
   "id": "Max|Shaymin",
   "player": "Max",
   "pokemon": "Shaymin",
+  "types": [
+   "Grass"
+  ],
   "team_games": 9,
   "brought": 6,
   "bring_pct": 0.667,
@@ -3045,6 +3462,10 @@
   "id": "Max|Swampert",
   "player": "Max",
   "pokemon": "Swampert",
+  "types": [
+   "Water",
+   "Ground"
+  ],
   "team_games": 9,
   "brought": 8,
   "bring_pct": 0.889,
@@ -3071,6 +3492,10 @@
   "id": "Max|Vileplume",
   "player": "Max",
   "pokemon": "Vileplume",
+  "types": [
+   "Grass",
+   "Poison"
+  ],
   "team_games": 9,
   "brought": 0,
   "bring_pct": 0.0,
@@ -3097,6 +3522,10 @@
   "id": "Max|Volcarona",
   "player": "Max",
   "pokemon": "Volcarona",
+  "types": [
+   "Bug",
+   "Fire"
+  ],
   "team_games": 9,
   "brought": 3,
   "bring_pct": 0.333,
@@ -3123,6 +3552,9 @@
   "id": "Max|Wartortle",
   "player": "Max",
   "pokemon": "Wartortle",
+  "types": [
+   "Water"
+  ],
   "team_games": 9,
   "brought": 2,
   "bring_pct": 0.222,
