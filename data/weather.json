@@ -1,0 +1,14 @@
+[
+ {
+  "weather": "Rain",
+  "games": 9
+ },
+ {
+  "weather": "Sandstorm",
+  "games": 8
+ },
+ {
+  "weather": "Sun",
+  "games": 7
+ }
+]

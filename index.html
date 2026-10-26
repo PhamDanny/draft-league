@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Draft League Stats</title>
+<style>
+:root {
+  --color-bg: #faf9f5; --color-panel: #ffffff; --color-fg: #1f1e1d; --color-fg-muted: #6b6a68;
+  --color-border-line: #e6e3da; --color-ok: #2f7d4f; --color-warn: #b7791f; --color-bad: #c0392b;
+  --cds-chart-grid: #ece9e0; --cds-chart-muted: #b9b6ad; --cds-text-secondary: #6b6a68;
+  --cds-surface-popover: #ffffff; --cds-shadow-popover: 0 6px 20px rgba(0,0,0,.14); --cds-border: #e6e3da;
+  --cds-radius: .625rem; --cds-dur-slow: .3s; --cds-font-weight-medium: 600;
+  --cds-font-size-caption: .8125rem; --cds-font-size-body: .9375rem; --cds-font-size-heading: 1.125rem; --cds-font-size-title: 1.75rem;
+  --cds-gap-xs: .25rem; --cds-gap-sm: .5rem; --cds-gap-md: 1rem; --cds-gap-lg: 1.5rem;
+  --cds-pad-xs: .25rem; --cds-pad-sm: .5rem; --cds-pad-md: .75rem; --cds-pad-lg: 1.125rem;
+  --font-anthropic-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-anthropic-serif: Georgia, "Times New Roman", serif;
+  --dash-0: #3b6fd4; --dash-1: #d4683b; --dash-2: #3f9d6b; --dash-3: #8c5bc4; --dash-4: #c9a227; --dash-5: #2a9db5; --dash-6: #c44f86; --dash-7: #6d7078;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1c1b19; --color-panel: #262522; --color-fg: #f0eee8; --color-fg-muted: #a09d94;
+    --color-border-line: #3a3834; --color-ok: #5fbf85; --color-warn: #e0a84a; --color-bad: #ee7b6c;
+    --cds-chart-grid: #34322e; --cds-chart-muted: #5d5a54; --cds-text-secondary: #a09d94;
+    --cds-surface-popover: #2e2d2a; --cds-shadow-popover: 0 6px 20px rgba(0,0,0,.5); --cds-border: #3a3834;
+    --dash-0: #6f98ee; --dash-1: #ee8f63; --dash-2: #66c293; --dash-3: #b48be6; --dash-4: #e3c04f; --dash-5: #5cc3d8; --dash-6: #e579a9; --dash-7: #9a9da6;
+    color-scheme: dark;
+  }
+}
+html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); }
+#dash-root { padding: 1.5rem 1rem 3rem; }
+.dash-skeleton { min-height: 6rem; background: linear-gradient(90deg, transparent, var(--color-border-line), transparent); background-size: 200% 100%; animation: dash-sk 1.4s linear infinite; border-radius: var(--cds-radius); }
+@keyframes dash-sk { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.site-foot { max-width: 1240px; margin: 2rem auto 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+</style>
+<style>
+.lx { font-family: var(--font-anthropic-sans); color: var(--color-fg); max-width: 1240px; margin-inline: auto; }
+.lx * { box-sizing: border-box; }
+.lx-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0 0 var(--cds-gap-xs); }
+.lx-take { margin: 0 0 var(--cds-gap-md); color: var(--color-fg-muted); font-size: var(--cds-font-size-body); line-height: 1.5; max-width: 70ch; }
+.lx-take span { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.lx-leaders { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--cds-gap-md); margin-bottom: var(--cds-gap-lg); }
+.lx-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-height: 8.5rem; }
+.lx-lbody { display: flex; align-items: center; gap: var(--cds-gap-md); margin-top: var(--cds-gap-xs); }
+.lx-lbody .lx-ltext { min-width: 0; }
+.lx-lspr { width: 4.5rem; height: 4.5rem; object-fit: contain; flex: none; }
+.lx-lname { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin-top: var(--cds-gap-xs); overflow-wrap: anywhere; }
+.lx-lbody .lx-lname { margin-top: 0; }
+.lx-spr { width: 2rem; height: 2rem; object-fit: contain; vertical-align: middle; margin-right: 0.375rem; }
+.lx-spr-sm { width: 1.75rem; height: 1.75rem; margin-right: 0.125rem; }
+.lx-rosters { display: grid; gap: var(--cds-gap-md); }
+.lx-rteam { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); margin-bottom: 2px; }
+.lx-rrow { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); }
+.lx-rmon { width: 3.25rem; text-align: center; }
+.lx-rmon img { width: 2.75rem; height: 2.75rem; object-fit: contain; display: block; margin: 0 auto; }
+.lx-rmon span { display: block; font-size: 0.6875rem; color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.lx-dspr { width: 4.5rem; height: 4.5rem; object-fit: contain; align-self: center; }
+.lx-tile-l { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.lx-tile-v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; margin-top: var(--cds-gap-xs); }
+.lx-tile-s { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin-top: 2px; }
+.lx-tabs { display: flex; gap: var(--cds-gap-xs); flex-wrap: wrap; border-bottom: 1px solid var(--color-border-line); margin-bottom: var(--cds-gap-lg); }
+.lx-tab { font: inherit; font-size: var(--cds-font-size-body); background: none; border: 0; border-bottom: 2px solid transparent; color: var(--color-fg-muted); padding: var(--cds-pad-sm) var(--cds-pad-md); cursor: pointer; margin-bottom: -1px; }
+.lx-tab[aria-selected="true"] { color: var(--color-fg); border-bottom-color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.lx-page[hidden] { display: none; }
+.lx-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); margin-bottom: var(--cds-gap-md); }
+.lx-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; margin-bottom: var(--cds-gap-md); }
+.lx-grid .lx-card { margin-bottom: 0; }
+.lx-card h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.lx-note { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: 2px 0 var(--cds-gap-sm); line-height: 1.45; }
+.lx-chart { position: relative; min-height: 8rem; }
+.lx-chart svg { overflow: visible; }
+.lx-t { font-size: 12px; fill: var(--color-fg-muted); font-family: var(--font-anthropic-sans); }
+.lx-tl { font-size: 12px; fill: var(--color-fg); font-family: var(--font-anthropic-sans); font-variant-numeric: tabular-nums; }
+.lx-legend { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-bottom: var(--cds-gap-xs); }
+.lx-sw { display: inline-block; width: 0.625rem; height: 0.625rem; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.lx-tip { position: absolute; display: none; pointer-events: none; z-index: 5; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; }
+.lx-tip-h { color: var(--cds-text-secondary); }
+.lx-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; margin-bottom: var(--cds-gap-sm); }
+.lx-controls select, .lx-controls input[type="search"] { font: inherit; font-size: var(--cds-font-size-body); color: var(--color-fg); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); }
+.lx-controls label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); display: inline-flex; gap: 6px; align-items: center; }
+.lx-scroll { overflow: auto; max-height: 34rem; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.lx-table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.lx-table th { position: sticky; top: 0; background: var(--color-panel); text-align: left; padding: 0; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; z-index: 1; }
+.lx-sort { font: inherit; font-weight: var(--cds-font-weight-medium); color: var(--color-fg); background: none; border: 0; padding: var(--cds-pad-xs) var(--cds-pad-sm); cursor: pointer; width: 100%; text-align: inherit; }
+.lx-table th[aria-sort="ascending"] .lx-sort::after { content: " ▲"; font-size: 0.7em; }
+.lx-table th[aria-sort="descending"] .lx-sort::after { content: " ▼"; font-size: 0.7em; }
+.lx-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.lx-table td.num, .lx-table th.num { text-align: right; }
+.lx-table tbody tr:last-child td { border-bottom: 0; }
+.lx-table tr[data-pick] { cursor: pointer; }
+.lx-table tr.lx-sel td { background: var(--color-bg); font-weight: var(--cds-font-weight-medium); }
+.lx-table a { color: inherit; }
+.lx-table th:first-child, .lx-table td:first-child { position: sticky; left: 0; background: var(--color-panel); z-index: 2; box-shadow: 1px 0 0 var(--color-border-line); }
+.lx-table th:first-child { z-index: 3; }
+.lx-up td { color: var(--color-fg-muted); }
+.lx-dhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--cds-gap-sm); margin-bottom: var(--cds-gap-sm); }
+.lx-dname { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); }
+.lx-dteam { color: var(--color-fg-muted); font-size: var(--cds-font-size-body); }
+.lx-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr)); gap: var(--cds-gap-sm); margin-bottom: var(--cds-gap-md); }
+.lx-stat { border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-sm); }
+.lx-stat-l { display: block; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.lx-stat-v { display: block; font-size: var(--cds-font-size-heading); font-variant-numeric: tabular-nums; }
+.lx-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.lx-fail { display: flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 6rem; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.lx-fail::before { content: ""; width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+.lx-defs { margin: 0; padding-left: 1.1rem; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.6; }
+.lx-defs b { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+[data-dash-source-state="refreshing"] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+</head>
+<body>
+<div id="dash-root">
+
+
+<div class="lx" id="lx-top">
+  <h1 class="lx-title">Draft League Stats</h1>
+  <p class="lx-take">
+    <span data-source="league" data-field="best_player" data-row="0">—</span> leads the league with a series record of
+    <span data-source="league" data-field="best_record" data-row="0">—</span>.
+    <span data-source="league" data-field="top_mon" data-row="0">—</span>
+    (<span data-source="league" data-field="top_mon_player" data-row="0">—</span>) has the most KOs:
+    <span data-source="league" data-field="top_mon_kos" data-row="0">—</span> in
+    <span data-source="league" data-field="top_mon_apps" data-row="0">—</span> games.
+    The player who scores the first KO wins
+    <span data-source="league" data-field="first_blood_win_pct" data-row="0" data-fmt="pct">—</span> of games.
+    Across <span data-source="league" data-field="games" data-row="0">—</span> games the average length is
+    <span data-source="league" data-field="avg_turns" data-row="0" data-fmt="d1">—</span> turns.
+  </p>
+
+  <div class="lx-leaders">
+    <div class="lx-tile">
+      <div class="lx-tile-l">Best series record</div>
+      <div class="lx-ltext">
+        <div class="lx-lname"><span data-source="league" data-field="best_player" data-row="0">—</span></div>
+        <div class="lx-tile-v"><span data-source="league" data-field="best_record" data-row="0">—</span> <span class="lx-tile-s">series</span></div>
+        <div class="lx-tile-s"><span data-source="league" data-field="best_games" data-row="0">—</span> in games</div>
+      </div>
+    </div>
+    <div class="lx-tile">
+      <div class="lx-tile-l">Most KOs</div>
+      <div class="lx-lbody"><img class="lx-lspr" id="lx-spr-ko" alt="" hidden>
+        <div class="lx-ltext">
+          <div class="lx-lname"><span data-source="leaders" data-field="ko_mon" data-row="0">—</span></div>
+          <div class="lx-tile-v"><span data-source="leaders" data-field="ko_value" data-row="0">—</span> <span class="lx-tile-s">KOs</span></div>
+          <div class="lx-tile-s"><span data-source="leaders" data-field="ko_player" data-row="0">—</span> · <span data-source="leaders" data-field="ko_apps" data-row="0">—</span> games</div>
+          <div class="lx-tile-s"><span data-source="leaders" data-field="ko_tie" data-row="0"></span></div>
+        </div></div>
+    </div>
+    <div class="lx-tile">
+      <div class="lx-tile-l">Most damage dealt</div>
+      <div class="lx-lbody"><img class="lx-lspr" id="lx-spr-dmg" alt="" hidden>
+        <div class="lx-ltext">
+          <div class="lx-lname"><span data-source="leaders" data-field="dmg_mon" data-row="0">—</span></div>
+          <div class="lx-tile-v"><span data-source="leaders" data-field="dmg_value" data-row="0" data-fmt="d1">—</span> <span class="lx-tile-s">HP bars</span></div>
+          <div class="lx-tile-s"><span data-source="leaders" data-field="dmg_player" data-row="0">—</span> · <span data-source="leaders" data-field="dmg_apps" data-row="0">—</span> games</div>
+        </div></div>
+    </div>
+    <div class="lx-tile">
+      <div class="lx-tile-l">Most turns on the field</div>
+      <div class="lx-lbody"><img class="lx-lspr" id="lx-spr-tof" alt="" hidden>
+        <div class="lx-ltext">
+          <div class="lx-lname"><span data-source="leaders" data-field="tof_mon" data-row="0">—</span></div>
+          <div class="lx-tile-v"><span data-source="leaders" data-field="tof_value" data-row="0">—</span> <span class="lx-tile-s">turns</span></div>
+          <div class="lx-tile-s"><span data-source="leaders" data-field="tof_player" data-row="0">—</span> · <span data-source="leaders" data-field="tof_apps" data-row="0">—</span> games</div>
+        </div></div>
+    </div>
+    <div class="lx-tile">
+      <div class="lx-tile-l">Deadliest move</div>
+      <div class="lx-ltext">
+        <div class="lx-lname"><span data-source="leaders" data-field="move_name" data-row="0">—</span></div>
+        <div class="lx-tile-v"><span data-source="leaders" data-field="move_kos" data-row="0">—</span> <span class="lx-tile-s">KOs</span></div>
+        <div class="lx-tile-s">from <span data-source="leaders" data-field="move_uses" data-row="0">—</span> uses</div>
+      </div>
+    </div>
+    <div class="lx-tile">
+      <div class="lx-tile-l">Longest game</div>
+      <div class="lx-ltext">
+        <div class="lx-lname"><span data-source="leaders" data-field="longest_matchup" data-row="0">—</span></div>
+        <div class="lx-tile-v"><span data-source="leaders" data-field="longest_turns" data-row="0">—</span> <span class="lx-tile-s">turns</span></div>
+        <div class="lx-tile-s"><span data-source="leaders" data-field="longest_winner" data-row="0">—</span> won</div>
+      </div>
+    </div>
+    <div class="lx-tile">
+      <div class="lx-tile-l">Most dominant win</div>
+      <div class="lx-ltext">
+        <div class="lx-lname"><span data-source="leaders" data-field="dom_winner" data-row="0">—</span></div>
+        <div class="lx-tile-v"><span data-source="leaders" data-field="dom_hp" data-row="0" data-fmt="d1">—</span> <span class="lx-tile-s">HP bars left</span></div>
+        <div class="lx-tile-s"><span data-source="leaders" data-field="dom_left" data-row="0">—</span> Pokémon left, <span data-source="leaders" data-field="dom_matchup" data-row="0">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lx-tabs" role="tablist">
+    <button class="lx-tab" role="tab" data-tab="teams" aria-selected="true">Players</button>
+    <button class="lx-tab" role="tab" data-tab="pokemon" aria-selected="false">Pokémon</button>
+    <button class="lx-tab" role="tab" data-tab="moves" aria-selected="false">Moves</button>
+    <button class="lx-tab" role="tab" data-tab="luck" aria-selected="false">Luck</button>
+    <button class="lx-tab" role="tab" data-tab="schedule" aria-selected="false">Schedule</button>
+    <button class="lx-tab" role="tab" data-tab="games" aria-selected="false">Games</button>
+    <button class="lx-tab" role="tab" data-tab="extras" aria-selected="false">Extras and definitions</button>
+  </div>
+
+  <section class="lx-page" id="lx-teams" data-page="teams">
+    <div class="lx-card">
+      <h2>Standings and results</h2>
+      <p class="lx-note">Series are the weekly best-of-three matches. Players with more than one Showdown account are combined. Damage is in full HP bars: one bar is one Pokémon's whole HP.</p>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-teams" data-source="teams" data-row-key="player">
+          <thead><tr>
+            <th data-field="player"><button class="lx-sort" type="button">Player</button></th>
+            <th class="num" data-field="series_wins"><button class="lx-sort" type="button">Series W</button></th>
+            <th class="num" data-field="series_losses"><button class="lx-sort" type="button">Series L</button></th>
+            <th class="num" data-field="games"><button class="lx-sort" type="button">Games</button></th>
+            <th class="num" data-field="wins"><button class="lx-sort" type="button">Game W</button></th>
+            <th class="num" data-field="losses"><button class="lx-sort" type="button">Game L</button></th>
+            <th class="num" data-field="win_pct"><button class="lx-sort" type="button">Win %</button></th>
+            <th class="num" data-field="avg_turns"><button class="lx-sort" type="button">Avg turns</button></th>
+            <th class="num" data-field="kos"><button class="lx-sort" type="button">KOs</button></th>
+            <th class="num" data-field="damage"><button class="lx-sort" type="button">Damage dealt</button></th>
+            <th class="num" data-field="taken"><button class="lx-sort" type="button">Damage taken</button></th>
+            <th class="num" data-field="lost_per_game"><button class="lx-sort" type="button">Lost / game</button></th>
+            <th class="num" data-field="first_blood_pct"><button class="lx-sort" type="button">First KO %</button></th>
+            <th class="num" data-field="win_pct_after_first_blood"><button class="lx-sort" type="button">Win % after first KO</button></th>
+            <th data-field="accounts"><button class="lx-sort" type="button">Showdown accounts</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>Rosters</h2>
+      <p class="lx-note">Every Pokémon on each player's team. Faded sprites barely appeared; the percent under each is its bring rate. Hover for lead rate and KOs.</p>
+      <div class="lx-chart dash-skeleton lx-rosters" id="lx-c-rosters" data-source="mons"></div>
+    </div>
+    <div class="lx-grid">
+      <div class="lx-card">
+        <h2>Damage dealt vs taken per game</h2>
+        <p class="lx-note">Full HP bars per game. Longer bar for dealt, shorter for taken is the good side.</p>
+        <div class="lx-chart dash-skeleton" id="lx-c-rates" data-source="team_rates"></div>
+      </div>
+      <div class="lx-card">
+        <h2>Pokémon lost per game</h2>
+        <p class="lx-note">Fewer is better.</p>
+        <div class="lx-chart dash-skeleton" id="lx-c-lost" data-source="teams"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lx-page" id="lx-pokemon" data-page="pokemon" hidden>
+    <div class="lx-controls">
+      <select id="lx-team" aria-label="Player"><option value="">All players</option></select>
+      <input id="lx-q-mons" type="search" placeholder="Search Pokémon" aria-label="Search Pokémon">
+      <label><input id="lx-unused" type="checkbox"> Include Pokémon that never appeared</label>
+    </div>
+    <div class="lx-grid">
+      <div class="lx-card">
+        <h2>Most KOs</h2>
+        <p class="lx-note">KOs credited to the last attack that hit the fainted Pokémon.</p>
+        <div class="lx-chart dash-skeleton" id="lx-c-kos" data-source="mons"></div>
+      </div>
+      <div class="lx-card">
+        <h2>Most damage dealt</h2>
+        <p class="lx-note">Full HP bars taken from opponents by this Pokémon's attacks.</p>
+        <div class="lx-chart dash-skeleton" id="lx-c-dmg" data-source="mons"></div>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>Every Pokémon</h2>
+      <p class="lx-note">Bring % and lead % are out of that player's games. Select a row for its moves.</p>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-mons" data-source="mons" data-row-key="id">
+          <thead><tr>
+            <th data-field="pokemon"><button class="lx-sort" type="button">Pokémon</button></th>
+            <th data-field="player"><button class="lx-sort" type="button">Player</button></th>
+            <th class="num" data-field="bring_pct"><button class="lx-sort" type="button">Bring %</button></th>
+            <th class="num" data-field="lead_pct"><button class="lx-sort" type="button">Lead %</button></th>
+            <th class="num" data-field="brought"><button class="lx-sort" type="button">Brought</button></th>
+            <th class="num" data-field="led"><button class="lx-sort" type="button">Led</button></th>
+            <th class="num" data-field="kos"><button class="lx-sort" type="button">KOs</button></th>
+            <th class="num" data-field="kos_per_app"><button class="lx-sort" type="button">KOs / game</button></th>
+            <th class="num" data-field="damage"><button class="lx-sort" type="button">Damage dealt</button></th>
+            <th class="num" data-field="damage_per_app"><button class="lx-sort" type="button">Dealt / game</button></th>
+            <th class="num" data-field="taken"><button class="lx-sort" type="button">Damage taken</button></th>
+            <th class="num" data-field="faints"><button class="lx-sort" type="button">Fainted</button></th>
+            <th class="num" data-field="survival_pct"><button class="lx-sort" type="button">Survived %</button></th>
+            <th class="num" data-field="win_pct_brought"><button class="lx-sort" type="button">Player win % when brought</button></th>
+            <th class="num" data-field="turns_on_field"><button class="lx-sort" type="button">Turns on field</button></th>
+            <th class="num" data-field="sacrifices"><button class="lx-sort" type="button">Sacrifices</button></th>
+            <th class="num" data-field="crits"><button class="lx-sort" type="button">Crits</button></th>
+            <th class="num" data-field="super_effective"><button class="lx-sort" type="button">Super effective hits</button></th>
+            <th class="num" data-field="misses"><button class="lx-sort" type="button">Misses</button></th>
+            <th class="num" data-field="statuses"><button class="lx-sort" type="button">Statuses inflicted</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="lx-card" id="lx-detail"></div>
+  </section>
+
+  <section class="lx-page" id="lx-moves" data-page="moves" hidden>
+    <div class="lx-grid">
+      <div class="lx-card">
+        <h2>Most damage dealt by move</h2>
+        <p class="lx-note">Full HP bars dealt across all games, with KOs beside each bar.</p>
+        <div class="lx-chart dash-skeleton" id="lx-c-mdmg" data-source="moves"></div>
+      </div>
+      <div class="lx-card">
+        <h2>Most used moves</h2>
+        <p class="lx-note">Times used, including support moves like Protect.</p>
+        <div class="lx-chart dash-skeleton" id="lx-c-muse" data-source="moves"></div>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>All moves</h2>
+      <div class="lx-controls"><input id="lx-q-moves" type="search" placeholder="Search moves" aria-label="Search moves"></div>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-moves" data-source="moves" data-row-key="move">
+          <thead><tr>
+            <th data-field="move"><button class="lx-sort" type="button">Move</button></th>
+            <th class="num" data-field="uses"><button class="lx-sort" type="button">Uses</button></th>
+            <th class="num" data-field="kos"><button class="lx-sort" type="button">KOs</button></th>
+            <th class="num" data-field="damage"><button class="lx-sort" type="button">Damage dealt</button></th>
+            <th class="num" data-field="damage_per_use"><button class="lx-sort" type="button">Damage / use</button></th>
+            <th class="num" data-field="kos_per_10_uses"><button class="lx-sort" type="button">KOs per 10 uses</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="lx-page" id="lx-luck" data-page="luck" hidden>
+  <div class="lx-leaders">
+    <div class="lx-tile">
+      <div class="lx-tile-l">Luckiest player</div>
+      <div class="lx-ltext">
+        <div class="lx-lname"><span data-source="luck_leaders" data-field="best_player" data-row="0">—</span></div>
+        <div class="lx-tile-v"><span data-source="luck_leaders" data-field="best_score" data-row="0" data-fmt="s2">—</span> <span class="lx-tile-s">luck score</span></div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="best_net" data-row="0" data-fmt="s1">—</span> lucky events beyond the odds</div>
+      </div>
+    </div>
+    <div class="lx-tile">
+      <div class="lx-tile-l">Unluckiest player</div>
+      <div class="lx-ltext">
+        <div class="lx-lname"><span data-source="luck_leaders" data-field="worst_player" data-row="0">—</span></div>
+        <div class="lx-tile-v"><span data-source="luck_leaders" data-field="worst_score" data-row="0" data-fmt="s2">—</span> <span class="lx-tile-s">luck score</span></div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="worst_net" data-row="0" data-fmt="s1">—</span> lucky events beyond the odds</div>
+      </div>
+    </div>
+    <div class="lx-tile">
+      <div class="lx-tile-l">Biggest luck edge in a game</div>
+      <div class="lx-ltext">
+        <div class="lx-lname"><span data-source="luck_leaders" data-field="edge_matchup" data-row="0">—</span></div>
+        <div class="lx-tile-v"><span data-source="luck_leaders" data-field="edge_value" data-row="0" data-fmt="d1">—</span> <span class="lx-tile-s">events</span></div>
+        <div class="lx-tile-s">Week <span data-source="luck_leaders" data-field="edge_week" data-row="0">—</span>, game <span data-source="luck_leaders" data-field="edge_game" data-row="0">—</span>. <span data-source="luck_leaders" data-field="edge_luckier" data-row="0">—</span> was luckier and <span data-source="luck_leaders" data-field="edge_result" data-row="0">—</span>.</div>
+      </div>
+    </div>
+    <div class="lx-tile">
+      <div class="lx-tile-l">Luckier player won</div>
+      <div class="lx-ltext">
+        <div class="lx-lname"><span data-source="luck_leaders" data-field="luckier_won" data-row="0">—</span> of <span data-source="luck_leaders" data-field="luckier_total" data-row="0">—</span></div>
+        <div class="lx-tile-v"></div>
+        <div class="lx-tile-s">games went to the player with the better luck</div>
+      </div>
+    </div>
+  </div>
+    <div class="lx-card">
+      <h2>Luck score by player</h2>
+      <p class="lx-note">Every random event in every replay is compared with its odds. A score of 0 is average luck, +1 is one standard deviation luckier than chance usually gives, and every lucky event for one player is an unlucky one for the other. Hover for the breakdown.</p>
+      <div class="lx-chart dash-skeleton" id="lx-c-luck" data-source="luck"></div>
+    </div>
+    <div class="lx-card">
+      <h2>Where the luck came from</h2>
+      <p class="lx-note">Each column is lucky events beyond the odds: positive means more good outcomes than the odds predicted, negative means fewer. Crits are also shown as actual against expected.</p>
+      <div class="lx-scroll" style="max-height:none">
+        <table class="lx-table" id="lx-t-luck" data-source="luck" data-row-key="player">
+          <thead><tr>
+            <th data-field="player"><button class="lx-sort" type="button">Player</button></th>
+            <th class="num" data-field="score"><button class="lx-sort" type="button">Luck score</button></th>
+            <th class="num" data-field="percentile"><button class="lx-sort" type="button">Luck percentile</button></th>
+            <th class="num" data-field="net"><button class="lx-sort" type="button">Net lucky events</button></th>
+            <th class="num" data-field="crit_net"><button class="lx-sort" type="button">Crits</button></th>
+            <th class="num" data-field="acc_net"><button class="lx-sort" type="button">Accuracy</button></th>
+            <th class="num" data-field="brn_net"><button class="lx-sort" type="button">Burns</button></th>
+            <th class="num" data-field="frz_net"><button class="lx-sort" type="button">Freezes</button></th>
+            <th class="num" data-field="par_net"><button class="lx-sort" type="button">Paralysis</button></th>
+            <th class="num" data-field="flinch_net"><button class="lx-sort" type="button">Flinches</button></th>
+            <th class="num" data-field="other_net"><button class="lx-sort" type="button">Confusion and stat drops</button></th>
+            <th class="num" data-field="deny_net"><button class="lx-sort" type="button">Full para, thaw, confusion hits</button></th>
+            <th class="num" data-field="crits_for"><button class="lx-sort" type="button">Crits landed</button></th>
+            <th class="num" data-field="crits_for_exp"><button class="lx-sort" type="button">Crits expected</button></th>
+            <th class="num" data-field="crits_against"><button class="lx-sort" type="button">Crits taken</button></th>
+            <th class="num" data-field="crits_against_exp"><button class="lx-sort" type="button">Crits taken expected</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>Every kind of event</h2>
+      <p class="lx-note">Tries is how many times the event could have happened, happened is how many times it did, and expected is what the odds predicted. Luck is positive when the outcome favored that player.</p>
+      <div class="lx-controls">
+        <select id="lx-lp" aria-label="Player"><option value="">All players</option></select>
+      </div>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-ldet" data-source="luckdetail" data-row-key="id">
+          <thead><tr>
+            <th data-field="player"><button class="lx-sort" type="button">Player</button></th>
+            <th data-field="event"><button class="lx-sort" type="button">Event</button></th>
+            <th class="num" data-field="tries"><button class="lx-sort" type="button">Tries</button></th>
+            <th class="num" data-field="happened"><button class="lx-sort" type="button">Happened</button></th>
+            <th class="num" data-field="expected"><button class="lx-sort" type="button">Expected</button></th>
+            <th class="num" data-field="luck"><button class="lx-sort" type="button">Luck</button></th>
+            <th class="num" data-field="score"><button class="lx-sort" type="button">Score</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>Luck by game</h2>
+      <p class="lx-note">The edge is how many lucky events beyond the odds the luckier player had in that game. The replay number opens the Showdown replay.</p>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-lgames" data-source="luckgames" data-row-key="id">
+          <thead><tr>
+            <th data-field="matchup"><button class="lx-sort" type="button">Matchup</button></th>
+            <th class="num" data-field="week"><button class="lx-sort" type="button">Week</button></th>
+            <th class="num" data-field="game"><button class="lx-sort" type="button">Game</button></th>
+            <th data-field="id"><button class="lx-sort" type="button">Replay</button></th>
+            <th data-field="winner"><button class="lx-sort" type="button">Winner</button></th>
+            <th data-field="luckier"><button class="lx-sort" type="button">Luckier player</button></th>
+            <th class="num" data-field="edge"><button class="lx-sort" type="button">Luck edge</button></th>
+            <th class="num" data-field="edge_score"><button class="lx-sort" type="button">Edge score</button></th>
+            <th data-field="luckier_won"><button class="lx-sort" type="button">Luckier player won</button></th>
+            <th class="num" data-field="crits1"><button class="lx-sort" type="button">Player 1 crits</button></th>
+            <th class="num" data-field="crits2"><button class="lx-sort" type="button">Player 2 crits</button></th>
+            <th class="num" data-field="turns"><button class="lx-sort" type="button">Turns</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>Most improbable moments</h2>
+      <p class="lx-note">Non-crit events that went the way their odds said was unlikely, rarest first. Odds is the chance of exactly what happened.</p>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-lmom" data-source="luckmoments" data-row-key="id">
+          <thead><tr>
+            <th data-field="matchup"><button class="lx-sort" type="button">Matchup</button></th>
+            <th class="num" data-field="week"><button class="lx-sort" type="button">Week</button></th>
+            <th class="num" data-field="gnum"><button class="lx-sort" type="button">Game</button></th>
+            <th class="num" data-field="turn"><button class="lx-sort" type="button">Turn</button></th>
+            <th data-field="what"><button class="lx-sort" type="button">What happened</button></th>
+            <th class="num" data-field="odds"><button class="lx-sort" type="button">Odds</button></th>
+            <th data-field="lucky"><button class="lx-sort" type="button">Lucky player</button></th>
+            <th data-field="unlucky"><button class="lx-sort" type="button">Unlucky player</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>How luck is measured</h2>
+      <ul class="lx-defs">
+        <li><b>Luck score:</b> for each random event, the outcome minus its odds. A 10% freeze that happens is +0.9 for the attacker and −0.9 for the target, and one that does not is −0.1 and +0.1. A player's net is the sum of those, and the score is the net divided by the spread chance alone would produce (the square root of the summed odds times one minus the odds). Zero is average and about two thirds of players should land between −1 and +1.</li>
+        <li><b>What is counted:</b> critical hits (1 in 16, 1 in 8 for high-crit moves, 1 in 4 after Focus Energy), accuracy of every move under 100%, secondary burns, freezes, paralysis, flinches, confusion and stat drops, full paralysis (25%), thawing (20% a turn), and hitting yourself in confusion (50%).</li>
+        <li><b>Only real chances count:</b> a secondary effect is only counted when the target could have been affected, so not if it fainted, was behind a Substitute, already had a status, was immune by type, or (for flinches) had already moved. Frost Breath always crits, so it is left out, as are Fake Out flinches.</li>
+        <li><b>Not counted:</b> damage rolls, speed ties, sleep length, repeated Protect, and anything the replay does not show, such as Serene Grace, Shield Dust, Compound Eyes, Sand Veil, Scope Lens, Wide Lens and evasion or accuracy boosts. Odds use each move's Gen 5 base values.</li>
+        <li><b>Small samples:</b> 33 games is not many random events, so a player a little above or below zero is within normal chance. Only the extremes mean much.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="lx-page" id="lx-schedule" data-page="schedule" hidden>
+    <div class="lx-card">
+      <h2>Schedule</h2>
+      <p class="lx-note">All nine weeks. The score is game wins for the first player listed, and each game link opens its Showdown replay. Upcoming matches are dimmed.</p>
+      <div class="lx-controls">
+        <select id="lx-sp" aria-label="Player"><option value="">All players</option></select>
+        <select id="lx-ss" aria-label="Status"><option value="">Played and upcoming</option><option value="Played">Played</option><option value="Upcoming">Upcoming</option></select>
+      </div>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-sched" data-source="schedule" data-row-key="id">
+          <thead><tr>
+            <th data-field="matchup"><button class="lx-sort" type="button">Matchup</button></th>
+            <th class="num" data-field="week"><button class="lx-sort" type="button">Week</button></th>
+            <th data-field="status"><button class="lx-sort" type="button">Status</button></th>
+            <th data-field="winner"><button class="lx-sort" type="button">Winner</button></th>
+            <th data-field="score"><button class="lx-sort" type="button">Score</button></th>
+            <th data-field="game1"><button class="lx-sort" type="button">Game 1</button></th>
+            <th data-field="game2"><button class="lx-sort" type="button">Game 2</button></th>
+            <th data-field="game3"><button class="lx-sort" type="button">Game 3</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="lx-page" id="lx-games" data-page="games" hidden>
+    <div class="lx-card">
+      <h2>Game length</h2>
+      <p class="lx-note">One bar per game in schedule order. Hover for the week, matchup and winner.</p>
+      <div class="lx-chart dash-skeleton" id="lx-c-len" data-source="games"></div>
+    </div>
+    <div class="lx-card">
+      <h2>Game log</h2>
+      <p class="lx-note">The replay number opens the Showdown replay. Player 1 is the first player in the matchup.</p>
+      <div class="lx-controls"><input id="lx-q-games" type="search" placeholder="Search players, accounts or Pokémon" aria-label="Search games"></div>
+      <div class="lx-scroll">
+        <table class="lx-table" id="lx-t-games" data-source="games" data-row-key="id">
+          <thead><tr>
+            <th data-field="matchup"><button class="lx-sort" type="button">Matchup</button></th>
+            <th class="num" data-field="week"><button class="lx-sort" type="button">Week</button></th>
+            <th class="num" data-field="game"><button class="lx-sort" type="button">Game</button></th>
+            <th data-field="id"><button class="lx-sort" type="button">Replay</button></th>
+            <th data-field="date"><button class="lx-sort" type="button">Date</button></th>
+            <th data-field="winner"><button class="lx-sort" type="button">Winner</button></th>
+            <th class="num" data-field="turns"><button class="lx-sort" type="button">Turns</button></th>
+            <th data-field="leads1"><button class="lx-sort" type="button">Player 1 leads</button></th>
+            <th data-field="leads2"><button class="lx-sort" type="button">Player 2 leads</button></th>
+            <th class="num" data-field="lost1"><button class="lx-sort" type="button">Player 1 lost</button></th>
+            <th class="num" data-field="lost2"><button class="lx-sort" type="button">Player 2 lost</button></th>
+            <th data-field="first_blood"><button class="lx-sort" type="button">First KO</button></th>
+            <th class="num" data-field="damage1"><button class="lx-sort" type="button">Player 1 damage</button></th>
+            <th class="num" data-field="damage2"><button class="lx-sort" type="button">Player 2 damage</button></th>
+            <th class="num" data-field="winner_mons_left"><button class="lx-sort" type="button">Winner left</button></th>
+            <th data-field="weather"><button class="lx-sort" type="button">Weather</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="lx-page" id="lx-extras" data-page="extras" hidden>
+    <div class="lx-grid">
+      <div class="lx-card">
+        <h2>Damage from sources other than attacks</h2>
+        <p class="lx-note">Full HP bars lost to status, weather, hazards and recoil, with the Pokémon each one fainted beside the bar.</p>
+        <div class="lx-chart dash-skeleton" id="lx-c-ind" data-source="indirect"></div>
+      </div>
+      <div class="lx-card">
+        <h2>Weather</h2>
+        <p class="lx-note">Games where each weather was active at some point.</p>
+        <div class="lx-scroll" style="max-height:none">
+          <table class="lx-table" id="lx-t-weather" data-source="weather" data-row-key="weather">
+            <thead><tr>
+              <th data-field="weather"><button class="lx-sort" type="button">Weather</button></th>
+              <th class="num" data-field="games"><button class="lx-sort" type="button">Games</button></th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="lx-card">
+      <h2>How the numbers are defined</h2>
+      <ul class="lx-defs">
+        <li><b>Brought:</b> the Pokémon appeared in battle at least once. A Pokémon that was picked but never sent out can't be seen in a replay, so it counts as not brought.</li>
+        <li><b>Bring % and lead %:</b> out of the player's games. A lead is one of the two Pokémon on the field at the start.</li>
+        <li><b>KOs:</b> credited to the last attack that damaged the Pokémon before it fainted. Burn, poison, sandstorm, Life Orb recoil, hazards and other indirect faints are not credited to anyone.</li>
+        <li><b>Sacrifices:</b> Final Gambit, Explosion and similar moves where the user faints on its own.</li>
+        <li><b>Damage:</b> percent of HP removed from opposing Pokémon by the Pokémon's own attacks, in full HP bars. It is capped at the target's remaining HP, so overkill is not counted. Hits on a partner (spread moves) are tracked separately as friendly fire in the data.</li>
+        <li><b>Player win % when brought:</b> how often the player won the games where that Pokémon appeared. Small samples swing a lot.</li>
+        <li><b>Players and accounts:</b> every Pokémon belongs to a player's team. Players who used more than one Showdown account have their accounts combined (see config/players.json).</li>
+        <li><b>Source:</b> Pokémon Showdown replays of the Gen 5 Doubles Custom Game, parsed from each replay's battle log. Zoroark's Illusion can make its switch-ins show as another Pokémon.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+
+<p class="site-foot" id="site-foot"></p>
+</div>
+<script src="sprites1.js"></script>
+<script src="sprites2.js"></script>
+<script src="dash-shim.js"></script>
+<script>
+
+const fmt = { int: d3.format(','), pct: d3.format('.0%'), d1: d3.format(',.1f'), d2: d3.format(',.2f'), s1: d3.format('+,.1f'), s2: d3.format('+,.2f') };
+const fv = (t, v) => (t === 'text' ? String(v) : fmt[t](v));
+const SP = window.SPR || {};
+const baseName = (s) => s.split('-')[0];
+const toid = (s) => String(s).toLowerCase().replace(/[^a-z0-9]/g, '');
+const sprUrl = (name) => SP[name] || (name ? 'https://play.pokemonshowdown.com/sprites/gen5/' + toid(name) + '.png' : null);
+function spr(name, cls) {
+  const u = sprUrl(name);
+  if (!u) return null;
+  const i = document.createElement('img');
+  i.src = u; i.alt = ''; i.className = cls || 'lx-spr';
+  i.onerror = () => { i.style.visibility = 'hidden'; };
+  return i;
+}
+let monIdx = null, monIdxN = -1;
+function leadName(team, b) {
+  const rows = (dash.data('mons').data || []);
+  if (monIdxN !== rows.length) { monIdx = {}; rows.forEach((r) => { monIdx[r.player + '|' + baseName(r.pokemon)] = r.pokemon; }); monIdxN = rows.length; }
+  return monIdx[team + '|' + b] || b;
+}
+
+dash.calc('league', {
+  inputs: ['teams', 'games', 'mons'],
+  title: 'League summary',
+  description: 'Headline totals across every game, worked out from the team, game and Pokémon sources.',
+  fn: (teams, games, mons) => {
+    const sum = (a, f) => a.reduce((s, x) => s + f(x), 0);
+    const top = mons.slice().sort((a, b) => b.kos - a.kos || (b.kos_per_app || 0) - (a.kos_per_app || 0))[0];
+    const best = teams.slice().sort((a, b) => b.series_wins - a.series_wins || b.win_pct - a.win_pct || b.games - a.games)[0];
+    const longest = games.slice().sort((a, b) => b.turns - a.turns)[0];
+    const fbg = games.filter((g) => g.first_blood);
+    const fbw = fbg.filter((g) => g.first_blood === g.winner);
+    return [{
+      games: games.length,
+      avg_turns: Math.round((sum(games, (g) => g.turns) / games.length) * 10) / 10,
+      total_kos: sum(teams, (t) => t.kos),
+      first_blood_win_pct: fbg.length ? fbw.length / fbg.length : null,
+      longest_turns: longest.turns,
+      longest_matchup: longest.matchup,
+      top_mon: top.pokemon,
+      top_mon_player: top.player,
+      top_mon_kos: top.kos,
+      top_mon_apps: top.brought,
+      best_player: best.player,
+      best_record: best.series_wins + '–' + best.series_losses,
+      best_games: best.wins + '–' + best.losses,
+    }];
+  },
+});
+
+dash.calc('team_rates', {
+  inputs: ['teams'],
+  title: 'Damage per game',
+  description: 'Each team\'s damage dealt and taken divided by its games.',
+  fn: (teams) => teams.map((t) => ({
+    player: t.player,
+    dealt_per_game: Math.round((t.damage / t.games) * 100) / 100,
+    taken_per_game: Math.round((t.taken / t.games) * 100) / 100,
+  })),
+});
+
+dash.calc('leaders', {
+  inputs: ['mons', 'moves', 'games'],
+  title: 'League leaders',
+  description: 'The top Pokémon, move and games by KOs, damage, turns on the field, length and margin of victory.',
+  fn: (mons, moves, games) => {
+    const best = (a, f) => a.slice().sort((x, y) => f(y) - f(x))[0];
+    const ko = mons.slice().sort((a, b) => b.kos - a.kos || (b.kos_per_app || 0) - (a.kos_per_app || 0));
+    const k = ko[0];
+    const ties = ko.slice(1).filter((m) => m.kos === k.kos).map((m) => m.pokemon);
+    const dmg = best(mons, (m) => m.damage);
+    const tof = best(mons, (m) => m.turns_on_field);
+    const mv = moves.slice().sort((a, b) => b.kos - a.kos || b.damage - a.damage)[0];
+    const lg = best(games, (g) => g.turns);
+    const dom = games.slice().sort((a, b) => b.winner_mons_left - a.winner_mons_left || b.winner_hp_left - a.winner_hp_left)[0];
+    return [{
+      ko_mon: k.pokemon, ko_player: k.player, ko_value: k.kos, ko_apps: k.brought, ko_tie: ties.length ? 'Ties: ' + ties.join(', ') : '',
+      dmg_mon: dmg.pokemon, dmg_player: dmg.player, dmg_value: dmg.damage, dmg_apps: dmg.brought,
+      tof_mon: tof.pokemon, tof_player: tof.player, tof_value: tof.turns_on_field, tof_apps: tof.brought,
+      move_name: mv.move, move_kos: mv.kos, move_uses: mv.uses,
+      longest_matchup: lg.matchup, longest_turns: lg.turns, longest_winner: lg.winner,
+      dom_winner: dom.winner, dom_hp: dom.winner_hp_left, dom_left: dom.winner_mons_left, dom_matchup: dom.matchup,
+    }];
+  },
+});
+
+dash.calc('luck_leaders', {
+  inputs: ['luck', 'luckgames'],
+  title: 'Luck leaders',
+  description: 'The luckiest and unluckiest player, the biggest luck edge in one game, and how often the luckier player won.',
+  fn: (luck, games) => {
+    const bySc = luck.slice().sort((a, b) => b.score - a.score);
+    const hi = bySc[0], lo = bySc[bySc.length - 1];
+    const eg = games.slice().sort((a, b) => b.edge - a.edge)[0];
+    return [{
+      best_player: hi.player, best_score: hi.score, best_net: hi.net,
+      worst_player: lo.player, worst_score: lo.score, worst_net: lo.net,
+      edge_matchup: eg.matchup, edge_value: eg.edge, edge_luckier: eg.luckier, edge_week: eg.week, edge_game: eg.game,
+      edge_result: eg.luckier_won === 'Yes' ? 'won' : 'lost',
+      luckier_won: games.filter((g) => g.luckier_won === 'Yes').length, luckier_total: games.length,
+    }];
+  },
+});
+
+const $ = (s, r) => (r || document).querySelector(s);
+const okAll = (ids) => ids.every((id) => dash.data(id).status === 'ok');
+const badAny = (ids) => ids.some((id) => ['error', 'connect', 'declined', 'missing'].includes(dash.data(id).status));
+function gate(el, ids) {
+  if (badAny(ids)) {
+    el.classList.remove('dash-skeleton');
+    el.textContent = '';
+    const d = document.createElement('div');
+    d.className = 'lx-fail';
+    d.textContent = 'Failed to load';
+    el.appendChild(d);
+    return true;
+  }
+  if (!okAll(ids)) { el.classList.add('dash-skeleton'); return true; }
+  el.classList.remove('dash-skeleton');
+  return false;
+}
+const rowsOf = (id) => dash.data(id).data || [];
+
+function showTip(el, ev, lines) {
+  let t = el.querySelector('.lx-tip');
+  if (!t) { t = document.createElement('div'); t.className = 'lx-tip'; el.appendChild(t); }
+  t.textContent = '';
+  lines.forEach((l, i) => { const d = document.createElement('div'); if (i === 0) d.className = 'lx-tip-h'; d.textContent = l; t.appendChild(d); });
+  t.style.display = 'block';
+  const r = el.getBoundingClientRect();
+  let x = ev.clientX - r.left + 12;
+  const y = ev.clientY - r.top + 12;
+  if (x + t.offsetWidth > r.width) x = Math.max(0, ev.clientX - r.left - t.offsetWidth - 12);
+  t.style.left = x + 'px';
+  t.style.top = y + 'px';
+}
+function hideTip(el) { const t = el.querySelector('.lx-tip'); if (t) t.style.display = 'none'; }
+
+function hbar(el, rows, o) {
+  el.textContent = '';
+  if (!rows.length) {
+    const m = document.createElement('div'); m.className = 'lx-muted'; m.textContent = o.empty || 'Nothing to show.'; el.appendChild(m); return;
+  }
+  const series = o.series;
+  if (series.length > 1) {
+    const lg = document.createElement('div'); lg.className = 'lx-legend';
+    series.forEach((s) => { const i = document.createElement('span'); const sw = document.createElement('span'); sw.className = 'lx-sw'; sw.style.background = s.color; i.appendChild(sw); i.appendChild(document.createTextNode(s.label)); lg.appendChild(i); });
+    el.appendChild(lg);
+  }
+  const w = Math.max(280, el.clientWidth || 600);
+  const rowH = series.length > 1 ? 32 : 24;
+  const pad = 4;
+  const h = rows.length * rowH + pad * 2;
+  const svg = d3.select(el).append('svg').attr('width', '100%').attr('height', h).attr('viewBox', `0 0 ${w} ${h}`).style('display', 'block');
+  const probe = svg.append('text').attr('class', 'lx-tl');
+  const meas = (s) => { probe.text(s); return probe.node().getComputedTextLength(); };
+  const sz = o.sprite ? rowH - 2 : 0;
+  const left = Math.ceil(d3.max(rows, (r) => meas(o.label(r)))) + 10 + (sz ? sz + 6 : 0);
+  const vmax = d3.max(rows, (r) => d3.max(series, (s) => r[s.key] || 0)) || 1;
+  const right = Math.ceil(d3.max(rows, (r) => d3.max(series, (s) => meas(o.fmt(r[s.key] || 0))) + (o.note ? meas(o.note(r)) + 8 : 0))) + 10;
+  probe.remove();
+  const x = d3.scaleLinear([0, vmax], [0, Math.max(40, w - left - right)]);
+  const bh = Math.min(14, (rowH - 8) / series.length);
+  rows.forEach((r, i) => {
+    const g = svg.append('g').attr('transform', `translate(0,${pad + i * rowH})`);
+    const sprUrl = sz ? SP[o.sprite(r)] : null;
+    if (sz && sprUrl) g.append('image').attr('href', sprUrl).attr('x', 0).attr('y', (rowH - sz) / 2).attr('width', sz).attr('height', sz);
+    if (sz) g.append('text').attr('class', 'lx-tl').attr('x', sz + 6).attr('y', rowH / 2).attr('dominant-baseline', 'middle').text(o.label(r));
+    else g.append('text').attr('class', 'lx-tl').attr('x', left - 8).attr('y', rowH / 2).attr('text-anchor', 'end').attr('dominant-baseline', 'middle').text(o.label(r));
+    series.forEach((s, j) => {
+      const v = r[s.key] || 0;
+      const y = (rowH - bh * series.length) / 2 + j * bh;
+      g.append('rect').attr('x', left).attr('y', y).attr('height', bh - (series.length > 1 ? 1 : 0)).attr('width', Math.max(v > 0 ? 2 : 0, x(v))).attr('rx', 4).style('fill', s.color);
+      const lab = o.fmt(v) + (j === 0 && o.note ? '  ' + o.note(r) : '');
+      g.append('text').attr('class', 'lx-t').attr('x', left + x(v) + 6).attr('y', y + (bh - 1) / 2).attr('dominant-baseline', 'middle').text(lab);
+    });
+    g.append('rect').attr('x', 0).attr('y', 0).attr('width', w).attr('height', rowH).style('fill', 'transparent')
+      .on('mousemove', (ev) => showTip(el, ev, [o.label(r)].concat(series.map((s) => (series.length > 1 ? s.label + ': ' : '') + o.fmt(r[s.key] || 0)), o.tip ? o.tip(r) : [])))
+      .on('mouseleave', () => hideTip(el));
+  });
+}
+
+function divBars(el, rows, o) {
+  el.textContent = '';
+  if (!rows.length) { const m = document.createElement('div'); m.className = 'lx-muted'; m.textContent = 'Nothing to show.'; el.appendChild(m); return; }
+  const w = Math.max(280, el.clientWidth || 600);
+  const rowH = 28, pad = 4, h = rows.length * rowH + pad * 2;
+  const svg = d3.select(el).append('svg').attr('width', '100%').attr('height', h).attr('viewBox', `0 0 ${w} ${h}`).style('display', 'block');
+  const probe = svg.append('text').attr('class', 'lx-tl');
+  const meas = (t) => { probe.text(t); return probe.node().getComputedTextLength(); };
+  const left = Math.ceil(d3.max(rows, (r) => meas(o.label(r)))) + 12;
+  const vlab = Math.ceil(d3.max(rows, (r) => meas(o.fmt(r[o.key])))) + 10;
+  probe.remove();
+  const vmax = Math.max(1, d3.max(rows, (r) => Math.abs(r[o.key])));
+  const x = d3.scaleLinear([-vmax, vmax], [left + vlab, w - vlab]);
+  svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', 0).attr('y2', h).style('stroke', 'var(--cds-chart-grid)');
+  rows.forEach((r, i) => {
+    const y = pad + i * rowH, v = r[o.key];
+    svg.append('text').attr('class', 'lx-tl').attr('x', 0).attr('y', y + rowH / 2).attr('dominant-baseline', 'middle').text(o.label(r));
+    svg.append('rect').attr('x', Math.min(x(0), x(v))).attr('y', y + 5).attr('width', Math.max(2, Math.abs(x(v) - x(0)))).attr('height', rowH - 10).attr('rx', 4)
+      .style('fill', v >= 0 ? dash.colors[0] : dash.colors[1]);
+    svg.append('text').attr('class', 'lx-t').attr('x', v >= 0 ? x(v) + 6 : x(v) - 6).attr('y', y + rowH / 2).attr('text-anchor', v >= 0 ? 'start' : 'end')
+      .attr('dominant-baseline', 'middle').text(o.fmt(v));
+    svg.append('rect').attr('x', 0).attr('y', y).attr('width', w).attr('height', rowH).style('fill', 'transparent')
+      .on('mousemove', (ev) => showTip(el, ev, o.tip(r))).on('mouseleave', () => hideTip(el));
+  });
+}
+
+function turnBars(el, rows) {
+  el.textContent = '';
+  const w = Math.max(280, el.clientWidth || 600);
+  const h = 220;
+  const m = { l: 30, r: 6, t: 8, b: 8 };
+  const svg = d3.select(el).append('svg').attr('width', '100%').attr('height', h).attr('viewBox', `0 0 ${w} ${h}`).style('display', 'block');
+  const x = d3.scaleBand(rows.map((r) => r.id), [m.l, w - m.r]).padding(0.2);
+  const y = d3.scaleLinear([0, d3.max(rows, (r) => r.turns)], [h - m.b, m.t]).nice();
+  y.ticks(5).forEach((t) => {
+    svg.append('line').attr('x1', m.l).attr('x2', w - m.r).attr('y1', y(t)).attr('y2', y(t)).style('stroke', 'var(--cds-chart-grid)');
+    svg.append('text').attr('class', 'lx-t').attr('x', m.l - 6).attr('y', y(t)).attr('text-anchor', 'end').attr('dominant-baseline', 'middle').text(t);
+  });
+  rows.forEach((r) => {
+    svg.append('rect').attr('x', x(r.id)).attr('y', y(r.turns)).attr('width', x.bandwidth()).attr('height', y(0) - y(r.turns)).attr('rx', 3).style('fill', dash.colors[0])
+      .on('mousemove', (ev) => showTip(el, ev, ['Week ' + r.week + ', game ' + r.game + ': ' + r.matchup, fmt.int(r.turns) + ' turns', 'Winner: ' + r.winner]))
+      .on('mouseleave', () => hideTip(el));
+  });
+}
+
+function mkTable(id, cols, sort, key) {
+  const el = $('#' + id);
+  const T = { el, cols, sort, key, rows: [], onPick: null, sel: null };
+  el.querySelectorAll('th[data-field] .lx-sort').forEach((b) => {
+    b.addEventListener('click', () => {
+      const f = b.parentNode.dataset.field;
+      const c = cols.find((x) => x.f === f);
+      if (T.sort.f === f) T.sort.dir = -T.sort.dir; else { T.sort.f = f; T.sort.dir = c && c.t === 'text' ? 1 : -1; }
+      draw(T);
+    });
+  });
+  return T;
+}
+function draw(T) {
+  const { f, dir } = T.sort;
+  const rows = T.rows.slice().sort((a, b) => {
+    const x = a[f], y = b[f];
+    if (x == null && y == null) return 0;
+    if (x == null) return 1;
+    if (y == null) return -1;
+    return dir * (typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y)));
+  });
+  T.shown = rows;
+  const tb = T.el.tBodies[0];
+  tb.textContent = '';
+  for (const r of rows) {
+    const tr = document.createElement('tr');
+    tr.dataset.key = r[T.key];
+    if (T.rowClass) { const k = T.rowClass(r); if (k) tr.classList.add(k); }
+    if (T.onPick) {
+      tr.setAttribute('data-pick', '');
+      tr.tabIndex = 0;
+      if (T.sel === r[T.key]) tr.classList.add('lx-sel');
+      const pick = () => { T.sel = r[T.key]; T.onPick(r); draw(T); };
+      tr.addEventListener('click', pick);
+      tr.addEventListener('keydown', (e) => { if (e.key === 'Enter') pick(); });
+    }
+    for (const c of T.cols) {
+      const td = document.createElement('td');
+      const v = r[c.f];
+      if (c.spr && v != null) {
+        const im = spr(v, 'lx-spr');
+        if (im) td.appendChild(im);
+        td.appendChild(document.createTextNode(String(v)));
+      } else if (c.leads && v) {
+        String(v).split(' + ').forEach((b) => { const im = spr(leadName(r[c.leads], b), 'lx-spr lx-spr-sm'); if (im) td.appendChild(im); });
+        const tx = document.createElement('span'); tx.style.marginLeft = '0.25rem'; tx.textContent = String(v); td.appendChild(tx);
+      } else if (c.base && v != null) {
+        const a = document.createElement('a'); a.href = c.base + v; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Game ' + c.f.slice(-1); td.appendChild(a);
+      } else if (c.link && v != null) {
+        const a = document.createElement('a'); a.href = r[c.link]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = String(v); td.appendChild(a);
+      } else td.textContent = v == null ? '–' : fv(c.t, v);
+      if (c.t !== 'text') td.className = 'num';
+      tr.appendChild(td);
+    }
+    tb.appendChild(tr);
+  }
+  T.el.querySelectorAll('th[data-field]').forEach((th) => th.setAttribute('aria-sort', th.dataset.field === f ? (dir > 0 ? 'ascending' : 'descending') : 'none'));
+}
+
+const T_TEAMS = mkTable('lx-t-teams', [
+  { f: 'player', t: 'text' }, { f: 'series_wins', t: 'int' }, { f: 'series_losses', t: 'int' }, { f: 'games', t: 'int' }, { f: 'wins', t: 'int' }, { f: 'losses', t: 'int' }, { f: 'win_pct', t: 'pct' },
+  { f: 'avg_turns', t: 'd1' }, { f: 'kos', t: 'int' }, { f: 'damage', t: 'd1' }, { f: 'taken', t: 'd1' }, { f: 'lost_per_game', t: 'd2' },
+  { f: 'first_blood_pct', t: 'pct' }, { f: 'win_pct_after_first_blood', t: 'pct' }, { f: 'accounts', t: 'text' },
+], { f: 'series_wins', dir: -1 }, 'player');
+const T_MONS = mkTable('lx-t-mons', [
+  { f: 'pokemon', t: 'text', spr: true }, { f: 'player', t: 'text' }, { f: 'bring_pct', t: 'pct' }, { f: 'lead_pct', t: 'pct' }, { f: 'brought', t: 'int' }, { f: 'led', t: 'int' },
+  { f: 'kos', t: 'int' }, { f: 'kos_per_app', t: 'd2' }, { f: 'damage', t: 'd1' }, { f: 'damage_per_app', t: 'd2' }, { f: 'taken', t: 'd1' },
+  { f: 'faints', t: 'int' }, { f: 'survival_pct', t: 'pct' }, { f: 'win_pct_brought', t: 'pct' }, { f: 'turns_on_field', t: 'int' },
+  { f: 'sacrifices', t: 'int' }, { f: 'crits', t: 'int' }, { f: 'super_effective', t: 'int' }, { f: 'misses', t: 'int' }, { f: 'statuses', t: 'int' },
+], { f: 'kos', dir: -1 }, 'id');
+const T_MOVES = mkTable('lx-t-moves', [
+  { f: 'move', t: 'text' }, { f: 'uses', t: 'int' }, { f: 'kos', t: 'int' }, { f: 'damage', t: 'd1' }, { f: 'damage_per_use', t: 'd2' }, { f: 'kos_per_10_uses', t: 'd2' },
+], { f: 'uses', dir: -1 }, 'move');
+const T_GAMES = mkTable('lx-t-games', [
+  { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'game', t: 'int' }, { f: 'id', t: 'text', link: 'replay' }, { f: 'date', t: 'text' }, { f: 'winner', t: 'text' }, { f: 'turns', t: 'int' },
+  { f: 'leads1', t: 'text', leads: 'player1' }, { f: 'leads2', t: 'text', leads: 'player2' }, { f: 'lost1', t: 'int' }, { f: 'lost2', t: 'int' }, { f: 'first_blood', t: 'text' },
+  { f: 'damage1', t: 'd1' }, { f: 'damage2', t: 'd1' }, { f: 'winner_mons_left', t: 'int' }, { f: 'weather', t: 'text' },
+], { f: 'week', dir: 1 }, 'id');
+const REPLAY = 'https://replay.pokemonshowdown.com/gen5doublescustomgame-';
+const T_SCHED = mkTable('lx-t-sched', [
+  { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'status', t: 'text' }, { f: 'winner', t: 'text' }, { f: 'score', t: 'text' },
+  { f: 'game1', t: 'text', base: REPLAY }, { f: 'game2', t: 'text', base: REPLAY }, { f: 'game3', t: 'text', base: REPLAY },
+], { f: 'week', dir: 1 }, 'id');
+T_SCHED.rowClass = (r) => (r.status === 'Upcoming' ? 'lx-up' : '');
+const T_LUCK = mkTable('lx-t-luck', [
+  { f: 'player', t: 'text' }, { f: 'score', t: 's2' }, { f: 'percentile', t: 'pct' }, { f: 'net', t: 's1' }, { f: 'crit_net', t: 's1' }, { f: 'acc_net', t: 's1' },
+  { f: 'brn_net', t: 's1' }, { f: 'frz_net', t: 's1' }, { f: 'par_net', t: 's1' }, { f: 'flinch_net', t: 's1' }, { f: 'other_net', t: 's1' }, { f: 'deny_net', t: 's1' },
+  { f: 'crits_for', t: 'int' }, { f: 'crits_for_exp', t: 'd1' }, { f: 'crits_against', t: 'int' }, { f: 'crits_against_exp', t: 'd1' },
+], { f: 'score', dir: -1 }, 'player');
+const T_LDET = mkTable('lx-t-ldet', [
+  { f: 'player', t: 'text' }, { f: 'event', t: 'text' }, { f: 'tries', t: 'int' }, { f: 'happened', t: 'int' }, { f: 'expected', t: 'd1' }, { f: 'luck', t: 's2' }, { f: 'score', t: 's2' },
+], { f: 'luck', dir: -1 }, 'id');
+const T_LGAMES = mkTable('lx-t-lgames', [
+  { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'game', t: 'int' }, { f: 'id', t: 'text', link: 'replay' }, { f: 'winner', t: 'text' }, { f: 'luckier', t: 'text' },
+  { f: 'edge', t: 'd2' }, { f: 'edge_score', t: 'd2' }, { f: 'luckier_won', t: 'text' }, { f: 'crits1', t: 'int' }, { f: 'crits2', t: 'int' }, { f: 'turns', t: 'int' },
+], { f: 'edge', dir: -1 }, 'id');
+const T_LMOM = mkTable('lx-t-lmom', [
+  { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'gnum', t: 'int' }, { f: 'turn', t: 'int' }, { f: 'what', t: 'text' }, { f: 'odds', t: 'pct' },
+  { f: 'lucky', t: 'text' }, { f: 'unlucky', t: 'text' },
+], { f: 'odds', dir: 1 }, 'id');
+const T_WX = mkTable('lx-t-weather', [{ f: 'weather', t: 'text' }, { f: 'games', t: 'int' }], { f: 'games', dir: -1 }, 'weather');
+
+let selMon = null;
+T_MONS.onPick = (r) => { selMon = r.id; renderDetail(r); };
+T_MONS.sel = null;
+
+let tab = 'teams';
+
+function mark(el, source, field, where) {
+  el.setAttribute('data-source', source);
+  el.setAttribute('data-field', field);
+  el.setAttribute('data-where', where);
+  return el;
+}
+
+function renderHeader() {
+  document.querySelectorAll('[data-source="league"][data-field], [data-source="leaders"][data-field], [data-source="luck_leaders"][data-field]').forEach((el) => {
+    const D = dash.data(el.dataset.source);
+    const row = D.status === 'ok' ? D.data[0] : null;
+    const v = row ? row[el.dataset.field] : null;
+    el.textContent = v == null ? (row ? '' : '—') : el.dataset.fmt ? fmt[el.dataset.fmt](v) : String(v);
+  });
+  const Ld = dash.data('leaders');
+  [['ko', 'ko_mon'], ['dmg', 'dmg_mon'], ['tof', 'tof_mon']].forEach(([k, f]) => {
+    const img = $('#lx-spr-' + k);
+    const u = Ld.status === 'ok' ? sprUrl(Ld.data[0][f]) : null;
+    if (u) { img.src = u; img.hidden = false; } else img.hidden = true;
+  });
+}
+
+function renderTeams() {
+  if (okAll(['teams'])) { T_TEAMS.rows = rowsOf('teams'); draw(T_TEAMS); }
+  const rates = $('#lx-c-rates');
+  if (!gate(rates, ['team_rates'])) {
+    const rows = rowsOf('team_rates').slice().sort((a, b) => (b.dealt_per_game - b.taken_per_game) - (a.dealt_per_game - a.taken_per_game));
+    hbar(rates, rows, {
+      label: (r) => r.player, fmt: fmt.d1,
+      series: [{ key: 'dealt_per_game', label: 'Dealt', color: dash.colors[0] }, { key: 'taken_per_game', label: 'Taken', color: 'var(--cds-chart-muted)' }],
+    });
+  }
+  const ros = $('#lx-c-rosters');
+  if (!gate(ros, ['mons', 'teams'])) {
+    ros.textContent = '';
+    const byTeam = d3.group(rowsOf('mons'), (r) => r.player);
+    const order = rowsOf('teams').slice().sort((a, b) => b.series_wins - a.series_wins || b.win_pct - a.win_pct || b.games - a.games).map((t) => t.player);
+    order.forEach((team) => {
+      const rows = (byTeam.get(team) || []).slice().sort((a, b) => b.brought - a.brought || b.led - a.led || a.pokemon.localeCompare(b.pokemon));
+      const wrap = document.createElement('div');
+      const nm = document.createElement('div'); nm.className = 'lx-rteam'; nm.textContent = team; wrap.appendChild(nm);
+      const row = document.createElement('div'); row.className = 'lx-rrow';
+      rows.forEach((r) => {
+        const cell = document.createElement('div'); cell.className = 'lx-rmon';
+        const im = spr(r.pokemon, '');
+        if (im) { im.style.opacity = String(0.3 + 0.7 * r.bring_pct); cell.appendChild(im); }
+        const cap = document.createElement('span'); cap.textContent = fmt.pct(r.bring_pct); cell.appendChild(cap);
+        cell.addEventListener('mousemove', (ev) => showTip(ros, ev, [r.pokemon + ' · ' + team, 'Brought ' + fmt.int(r.brought) + ' of ' + fmt.int(r.team_games) + ' games (' + fmt.pct(r.bring_pct) + ')', 'Led ' + fmt.int(r.led) + ' (' + fmt.pct(r.lead_pct) + ')', fmt.int(r.kos) + ' KOs']));
+        cell.addEventListener('mouseleave', () => hideTip(ros));
+        row.appendChild(cell);
+      });
+      wrap.appendChild(row);
+      ros.appendChild(wrap);
+    });
+  }
+  const lost = $('#lx-c-lost');
+  if (!gate(lost, ['teams'])) {
+    const rows = rowsOf('teams').slice().sort((a, b) => a.lost_per_game - b.lost_per_game);
+    hbar(lost, rows, { label: (r) => r.player, fmt: fmt.d2, series: [{ key: 'lost_per_game', label: 'Lost per game', color: dash.colors[1] }], note: (r) => r.wins + '–' + r.losses });
+  }
+}
+
+function monFilter() {
+  const team = $('#lx-team').value;
+  const q = $('#lx-q-mons').value.trim().toLowerCase();
+  const unused = $('#lx-unused').checked;
+  return rowsOf('mons').filter((r) => (unused || r.brought > 0) && (!team || r.player === team) && (!q || (r.pokemon + ' ' + r.player).toLowerCase().includes(q)));
+}
+
+function renderDetail(m) {
+  const box = $('#lx-detail');
+  box.textContent = '';
+  if (!m) { const d = document.createElement('div'); d.className = 'lx-muted'; d.textContent = 'No Pokémon match the filters.'; box.appendChild(d); return; }
+  const where = 'id=' + encodeURIComponent(m.id);
+  const head = document.createElement('div'); head.className = 'lx-dhead';
+  const nm = mark(document.createElement('span'), 'mons', 'pokemon', where); nm.className = 'lx-dname'; nm.textContent = m.pokemon;
+  const tm = mark(document.createElement('span'), 'mons', 'player', where); tm.className = 'lx-dteam'; tm.textContent = m.player;
+  const dim = spr(m.pokemon, 'lx-dspr');
+  if (dim) head.appendChild(dim);
+  head.appendChild(nm); head.appendChild(tm); box.appendChild(head);
+  const stats = [['Bring %', 'bring_pct', 'pct'], ['Lead %', 'lead_pct', 'pct'], ['KOs', 'kos', 'int'], ['KOs / game', 'kos_per_app', 'd2'], ['Damage dealt', 'damage', 'd1'],
+    ['Damage taken', 'taken', 'd1'], ['Survived %', 'survival_pct', 'pct'], ['Player win % when brought', 'win_pct_brought', 'pct'], ['Turns on field', 'turns_on_field', 'int']];
+  const grid = document.createElement('div'); grid.className = 'lx-stats';
+  for (const [label, f, t] of stats) {
+    const s = document.createElement('div'); s.className = 'lx-stat';
+    const l = document.createElement('span'); l.className = 'lx-stat-l'; l.textContent = label;
+    const v = mark(document.createElement('span'), 'mons', f, where); v.className = 'lx-stat-v'; v.textContent = m[f] == null ? '–' : fv(t, m[f]);
+    s.appendChild(l); s.appendChild(v); grid.appendChild(s);
+  }
+  box.appendChild(grid);
+  const h = document.createElement('h2'); h.textContent = 'Moves used'; box.appendChild(h);
+  const note = document.createElement('p'); note.className = 'lx-note'; note.textContent = 'Times used across the games this Pokémon appeared in.'; box.appendChild(note);
+  const ch = document.createElement('div'); ch.className = 'lx-chart'; ch.setAttribute('data-source', 'teammoves'); box.appendChild(ch);
+  const mv = rowsOf('teammoves').filter((r) => r.player === m.player && r.pokemon === m.pokemon).sort((a, b) => b.uses - a.uses);
+  hbar(ch, mv, { label: (r) => r.move, fmt: fmt.int, series: [{ key: 'uses', label: 'Uses', color: dash.colors[0] }], note: (r) => fmt.pct(r.share), empty: 'This Pokémon never appeared in a replay.' });
+}
+
+function renderPokemon() {
+  const sel = $('#lx-team');
+  if (okAll(['teams']) && sel.options.length <= 1) rowsOf('teams').map((t) => t.player).sort().forEach((t) => sel.appendChild(new Option(t, t)));
+  const kosC = $('#lx-c-kos'), dmgC = $('#lx-c-dmg');
+  const g1 = gate(kosC, ['mons']);
+  const g2 = gate(dmgC, ['mons']);
+  if (g1 || g2) return;
+  const rows = monFilter();
+  const lab = (r) => r.pokemon;
+  const byKos = rows.slice().sort((a, b) => b.kos - a.kos || (b.kos_per_app || 0) - (a.kos_per_app || 0)).slice(0, 10);
+  hbar(kosC, byKos, { sprite: (r) => r.pokemon, label: lab, fmt: fmt.int, series: [{ key: 'kos', label: 'KOs', color: dash.colors[0] }], note: (r) => r.player, tip: (r) => [fmt.int(r.brought) + ' games', fmt.d2(r.kos_per_app || 0) + ' KOs per game'] });
+  const byDmg = rows.slice().sort((a, b) => b.damage - a.damage).slice(0, 10);
+  hbar(dmgC, byDmg, { sprite: (r) => r.pokemon, label: lab, fmt: fmt.d1, series: [{ key: 'damage', label: 'Damage dealt', color: dash.colors[1] }], note: (r) => r.player, tip: (r) => [fmt.int(r.brought) + ' games', fmt.d2(r.damage_per_app || 0) + ' per game'] });
+  T_MONS.rows = rows;
+  const cur = rows.find((r) => r.id === selMon) || byKos[0] || null;
+  T_MONS.sel = cur ? cur.id : null;
+  selMon = T_MONS.sel;
+  draw(T_MONS);
+  if (okAll(['teammoves'])) renderDetail(cur);
+}
+
+function renderMoves() {
+  const a = $('#lx-c-mdmg'), b = $('#lx-c-muse');
+  const g1 = gate(a, ['moves']), g2 = gate(b, ['moves']);
+  if (g1 || g2) return;
+  const rows = rowsOf('moves');
+  hbar(a, rows.slice().sort((x, y) => y.damage - x.damage).slice(0, 12), { label: (r) => r.move, fmt: fmt.d1, series: [{ key: 'damage', label: 'Damage dealt', color: dash.colors[0] }], note: (r) => r.kos + ' KOs' });
+  hbar(b, rows.slice().sort((x, y) => y.uses - x.uses).slice(0, 12), { label: (r) => r.move, fmt: fmt.int, series: [{ key: 'uses', label: 'Uses', color: dash.colors[1] }] });
+  const q = $('#lx-q-moves').value.trim().toLowerCase();
+  T_MOVES.rows = rows.filter((r) => !q || r.move.toLowerCase().includes(q));
+  draw(T_MOVES);
+}
+
+function renderGames() {
+  const c = $('#lx-c-len');
+  if (gate(c, ['games'])) return;
+  const rows = rowsOf('games').slice().sort((a, b) => a.week - b.week || a.game - b.game || a.id.localeCompare(b.id));
+  turnBars(c, rows);
+  const q = $('#lx-q-games').value.trim().toLowerCase();
+  T_GAMES.rows = rows.filter((r) => !q || (r.matchup + ' ' + r.account1 + ' ' + r.account2 + ' ' + r.leads1 + ' ' + r.leads2).toLowerCase().includes(q));
+  draw(T_GAMES);
+}
+
+function renderSchedule() {
+  const sel = $('#lx-sp');
+  if (okAll(['teams']) && sel.options.length <= 1) rowsOf('teams').map((t) => t.player).sort().forEach((p) => sel.appendChild(new Option(p, p)));
+  if (!okAll(['schedule'])) return;
+  const p = sel.value, st = $('#lx-ss').value;
+  T_SCHED.rows = rowsOf('schedule').filter((r) => (!p || r.player1 === p || r.player2 === p) && (!st || r.status === st));
+  draw(T_SCHED);
+}
+
+function renderLuck() {
+  const ch = $('#lx-c-luck');
+  if (!gate(ch, ['luck'])) {
+    const rows = rowsOf('luck').slice().sort((a, b) => b.score - a.score);
+    divBars(ch, rows, {
+      key: 'score', label: (r) => r.player, fmt: fmt.s2,
+      tip: (r) => [r.player, 'Luck score ' + fmt.s2(r.score) + ' (' + fmt.pct(r.percentile) + ' percentile)', fmt.s1(r.net) + ' lucky events beyond the odds',
+        'Crits ' + fmt.s1(r.crit_net) + ', accuracy ' + fmt.s1(r.acc_net), 'Burns ' + fmt.s1(r.brn_net) + ', freezes ' + fmt.s1(r.frz_net) + ', paralysis ' + fmt.s1(r.par_net) + ', flinches ' + fmt.s1(r.flinch_net),
+        'Other effects ' + fmt.s1(r.other_net) + ', full para, thaw and confusion hits ' + fmt.s1(r.deny_net)],
+    });
+  }
+  if (okAll(['luck'])) { T_LUCK.rows = rowsOf('luck'); draw(T_LUCK); }
+  const sel = $('#lx-lp');
+  if (okAll(['luck']) && sel.options.length <= 1) rowsOf('luck').map((t) => t.player).sort().forEach((p) => sel.appendChild(new Option(p, p)));
+  if (okAll(['luckdetail'])) { const p = sel.value; T_LDET.rows = rowsOf('luckdetail').filter((r) => !p || r.player === p); draw(T_LDET); }
+  if (okAll(['luckgames'])) { T_LGAMES.rows = rowsOf('luckgames'); draw(T_LGAMES); }
+  if (okAll(['luckmoments'])) { T_LMOM.rows = rowsOf('luckmoments'); draw(T_LMOM); }
+}
+
+function renderExtras() {
+  const c = $('#lx-c-ind');
+  if (!gate(c, ['indirect'])) {
+    hbar(c, rowsOf('indirect'), { label: (r) => r.source, fmt: fmt.d1, series: [{ key: 'damage', label: 'Damage', color: dash.colors[2] }], note: (r) => r.faints + ' fainted' });
+  }
+  if (okAll(['weather'])) { T_WX.rows = rowsOf('weather'); draw(T_WX); }
+}
+
+function render() {
+  renderHeader();
+  if (tab === 'teams') renderTeams();
+  else if (tab === 'pokemon') renderPokemon();
+  else if (tab === 'moves') renderMoves();
+  else if (tab === 'luck') renderLuck();
+  else if (tab === 'schedule') renderSchedule();
+  else if (tab === 'games') renderGames();
+  else if (tab === 'extras') renderExtras();
+}
+
+function setTab(name, link) {
+  tab = name;
+  document.querySelectorAll('.lx-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === name)));
+  document.querySelectorAll('.lx-page').forEach((p) => { p.hidden = p.dataset.page !== name; });
+  if (link) dash.setLink('lx-' + name);
+  render();
+}
+
+document.querySelectorAll('.lx-tab').forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab, true)));
+['lx-team', 'lx-q-mons', 'lx-unused', 'lx-q-moves', 'lx-q-games', 'lx-sp', 'lx-ss', 'lx-lp'].forEach((id) => {
+  const el = $('#' + id);
+  el.addEventListener(el.type === 'search' ? 'input' : 'change', render);
+});
+
+const wanted = location.hash.replace('#lx-', '');
+if (['teams', 'pokemon', 'moves', 'luck', 'schedule', 'games', 'extras'].includes(wanted)) tab = wanted;
+dash.onData(() => {
+  document.querySelectorAll('.lx-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
+  document.querySelectorAll('.lx-page').forEach((p) => { p.hidden = p.dataset.page !== tab; });
+  render();
+});
+
+</script>
+</body>
+</html>

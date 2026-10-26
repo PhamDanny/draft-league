@@ -1,0 +1,227 @@
+[
+ {
+  "week": 1,
+  "player1": "Ethan",
+  "player2": "David Kim"
+ },
+ {
+  "week": 1,
+  "player1": "Alex",
+  "player2": "Danny"
+ },
+ {
+  "week": 1,
+  "player1": "Connor",
+  "player2": "Max"
+ },
+ {
+  "week": 1,
+  "player1": "Dennis",
+  "player2": "Dzzy"
+ },
+ {
+  "week": 1,
+  "player1": "Brayden",
+  "player2": "Bo"
+ },
+ {
+  "week": 2,
+  "player1": "Ethan",
+  "player2": "Alex"
+ },
+ {
+  "week": 2,
+  "player1": "Connor",
+  "player2": "David Kim"
+ },
+ {
+  "week": 2,
+  "player1": "Dennis",
+  "player2": "Danny"
+ },
+ {
+  "week": 2,
+  "player1": "Brayden",
+  "player2": "Max"
+ },
+ {
+  "week": 2,
+  "player1": "Bo",
+  "player2": "Dzzy"
+ },
+ {
+  "week": 3,
+  "player1": "Ethan",
+  "player2": "Danny"
+ },
+ {
+  "week": 3,
+  "player1": "David Kim",
+  "player2": "Max"
+ },
+ {
+  "week": 3,
+  "player1": "Alex",
+  "player2": "Dzzy"
+ },
+ {
+  "week": 3,
+  "player1": "Connor",
+  "player2": "Bo"
+ },
+ {
+  "week": 3,
+  "player1": "Dennis",
+  "player2": "Brayden"
+ },
+ {
+  "week": 4,
+  "player1": "Ethan",
+  "player2": "Dennis"
+ },
+ {
+  "week": 4,
+  "player1": "Brayden",
+  "player2": "Connor"
+ },
+ {
+  "week": 4,
+  "player1": "Bo",
+  "player2": "Alex"
+ },
+ {
+  "week": 4,
+  "player1": "Dzzy",
+  "player2": "David Kim"
+ },
+ {
+  "week": 4,
+  "player1": "Max",
+  "player2": "Danny"
+ },
+ {
+  "week": 5,
+  "player1": "Ethan",
+  "player2": "Bo"
+ },
+ {
+  "week": 5,
+  "player1": "Dzzy",
+  "player2": "Brayden"
+ },
+ {
+  "week": 5,
+  "player1": "Max",
+  "player2": "Dennis"
+ },
+ {
+  "week": 5,
+  "player1": "Danny",
+  "player2": "Connor"
+ },
+ {
+  "week": 5,
+  "player1": "David Kim",
+  "player2": "Alex"
+ },
+ {
+  "week": 6,
+  "player1": "Ethan",
+  "player2": "Dzzy"
+ },
+ {
+  "week": 6,
+  "player1": "Max",
+  "player2": "Bo"
+ },
+ {
+  "week": 6,
+  "player1": "Danny",
+  "player2": "Brayden"
+ },
+ {
+  "week": 6,
+  "player1": "David Kim",
+  "player2": "Dennis"
+ },
+ {
+  "week": 6,
+  "player1": "Alex",
+  "player2": "Connor"
+ },
+ {
+  "week": 7,
+  "player1": "Ethan",
+  "player2": "Brayden"
+ },
+ {
+  "week": 7,
+  "player1": "Bo",
+  "player2": "Dennis"
+ },
+ {
+  "week": 7,
+  "player1": "Dzzy",
+  "player2": "Connor"
+ },
+ {
+  "week": 7,
+  "player1": "Max",
+  "player2": "Alex"
+ },
+ {
+  "week": 7,
+  "player1": "Danny",
+  "player2": "David Kim"
+ },
+ {
+  "week": 8,
+  "player1": "Ethan",
+  "player2": "Max"
+ },
+ {
+  "week": 8,
+  "player1": "Danny",
+  "player2": "Dzzy"
+ },
+ {
+  "week": 8,
+  "player1": "David Kim",
+  "player2": "Bo"
+ },
+ {
+  "week": 8,
+  "player1": "Alex",
+  "player2": "Brayden"
+ },
+ {
+  "week": 8,
+  "player1": "Connor",
+  "player2": "Dennis"
+ },
+ {
+  "week": 9,
+  "player1": "Ethan",
+  "player2": "Connor"
+ },
+ {
+  "week": 9,
+  "player1": "Dennis",
+  "player2": "Alex"
+ },
+ {
+  "week": 9,
+  "player1": "Brayden",
+  "player2": "David Kim"
+ },
+ {
+  "week": 9,
+  "player1": "Bo",
+  "player2": "Danny"
+ },
+ {
+  "week": 9,
+  "player1": "Dzzy",
+  "player2": "Max"
+ }
+]
