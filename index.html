@@ -68,6 +68,12 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-table td.lx-dc { color: #3a3835; }
 @media (prefers-color-scheme: dark) { .lx-dt-ou { background: #6e3f3b; } .lx-dt-uu { background: #6b5636; } .lx-dt-nfe { background: #675f3a; } .lx-dt { color: #f0eee8; } .lx-table td.lx-dc { color: #f0eee8; } }
 .lx-table td.lx-dc.lx-dt-ou, .lx-table td.lx-dc.lx-dt-uu, .lx-table td.lx-dc.lx-dt-nfe { border-bottom-color: var(--color-panel); }
+.lx-dp-grid { stroke: var(--color-border-line); stroke-width: 1; }
+.lx-dp-band { fill: var(--color-bg); }
+.lx-dp-dot.lx-dt-ou { fill: #e8b4ae; } .lx-dp-dot.lx-dt-uu { fill: #f0cfa3; } .lx-dp-dot.lx-dt-nfe { fill: #efe3ae; }
+@media (prefers-color-scheme: dark) { .lx-dp-dot.lx-dt-ou { fill: #6e3f3b; } .lx-dp-dot.lx-dt-uu { fill: #6b5636; } .lx-dp-dot.lx-dt-nfe { fill: #675f3a; } }
+.lx-dp-pt { cursor: pointer; } .lx-dp-pt:hover .lx-dp-dot, .lx-dp-pt:focus .lx-dp-dot { stroke: var(--color-fg); stroke-width: 1.5; } .lx-dp-pt:focus { outline: none; }
+.lx-dp-pt.lx-dp-off { opacity: .4; }
 .lx-board { table-layout: fixed; }
 .lx-board td, .lx-board th { overflow: hidden; text-overflow: ellipsis; padding-inline: 2px; font-size: 0.75rem; white-space: normal; }
 .lx-board .lx-spr { display: none; }@media (min-width: 1100px) { .lx-board .lx-spr { display: inline; } }
@@ -480,6 +486,12 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
       <p class="lx-note">Snake draft, 12 rounds. Each player took 3 OU, 7 UU and 2 NFE Pokémon. Hover a Pokémon for its season stats.</p>
       <div class="lx-dlegend"><span class="lx-dt lx-dt-ou">OU</span><span class="lx-dt lx-dt-uu">UU</span><span class="lx-dt lx-dt-nfe">NFE</span></div>
       <div class="lx-scroll lx-tall" id="lx-d-board"></div>
+    </div>
+    <div class="lx-card">
+      <h2>Value by pick</h2>
+      <p class="lx-note">Each sprite is one pick. Later picks sit further right, and the shaded bands are rounds. Hover or tap a sprite for details. Pokémon that were never brought sit faded along the bottom.</p>
+      <div class="lx-dlegend"><span class="lx-dt lx-dt-ou">OU</span><span class="lx-dt lx-dt-uu">UU</span><span class="lx-dt lx-dt-nfe">NFE</span></div>
+      <div class="lx-chart" id="lx-d-plot"></div>
     </div>
     <div class="lx-card">
       <h2>Most valuable pick in each round</h2>
@@ -1903,6 +1915,44 @@ function dTable(el, heads, rows, cells, left) {
 }
 const dNum = (t) => node('td', 'num', t);
 const dPick = (r) => { const td = monCell(r); td.appendChild(node('small', 'lx-muted', ' ' + r.player + ' · #' + r.pick)); return td; };
+
+const SVGNS = 'http://www.w3.org/2000/svg';
+const svgEl = (tag, attrs, parent) => { const e = document.createElementNS(SVGNS, tag); Object.entries(attrs || {}).forEach(([k, v]) => e.setAttribute(k, v)); if (parent) parent.appendChild(e); return e; };
+function drawDraftPlot(el, rows) {
+  el.textContent = '';
+  const w = 900, h = 440, m = { l: 44, r: 16, t: 14, b: 34 }, R = 15;
+  const maxPick = Math.max(...rows.map((r) => r.pick)), maxV = Math.max(...rows.map((r) => r.value));
+  const step = maxV > 4 ? 1 : 0.5, yMax = Math.ceil((maxV * 1.06) / step) * step;
+  const X = (p) => m.l + R + ((p - 0.5) / maxPick) * (w - m.l - m.r - 2 * R);
+  const Y = (v) => h - m.b - R - (v / yMax) * (h - m.t - m.b - 2 * R);
+  const svg = svgEl('svg', { viewBox: '0 0 ' + w + ' ' + h, width: '100%', role: 'img', 'aria-label': 'Draft pick number against value' }, el);
+  svg.style.display = 'block';
+  const perRound = rows.filter((r) => r.round === 1).length;
+  const rounds = Math.ceil(maxPick / perRound);
+  const label = (attrs, text) => { const t = svgEl('text', Object.assign({ class: 'lx-tl', 'font-size': 11 }, attrs), svg); t.textContent = text; t.style.fill = 'var(--color-fg-muted)'; };
+  for (let rd = 1; rd <= rounds; rd++) {
+    const x0 = X((rd - 1) * perRound + 0.5), x1 = X(rd * perRound + 0.5);
+    if (rd % 2) svgEl('rect', { class: 'lx-dp-band', x: x0, y: m.t, width: x1 - x0, height: h - m.t - m.b }, svg);
+    label({ x: (x0 + x1) / 2, y: h - m.b + 18, 'text-anchor': 'middle' }, 'R' + rd);
+  }
+  for (let v = 0; v <= yMax + 1e-9; v += step) {
+    svgEl('line', { class: 'lx-dp-grid', x1: m.l, x2: w - m.r, y1: Y(v), y2: Y(v) }, svg);
+    label({ x: m.l - 6, y: Y(v) + 4, 'text-anchor': 'end' }, fmt.d1(v));
+  }
+  const cy = (m.t + h - m.b) / 2;
+  label({ x: 12, y: cy, 'text-anchor': 'middle', transform: 'rotate(-90 12 ' + cy + ')' }, 'Value per game');
+  label({ x: (m.l + w - m.r) / 2, y: h - 2, 'text-anchor': 'middle' }, 'Pick number');
+  rows.slice().sort((a, b) => a.value - b.value).forEach((r) => {
+    const g = svgEl('g', { class: 'lx-dp-pt' + (r.brought ? '' : ' lx-dp-off'), tabindex: 0, transform: 'translate(' + X(r.pick) + ' ' + Y(r.value) + ')' }, svg);
+    svgEl('circle', { class: 'lx-dp-dot ' + dTier(r.tier), r: R }, g);
+    const u = sprUrl(r.pokemon);
+    if (u) { const im = svgEl('image', { x: -R, y: -R, width: 2 * R, height: 2 * R, href: u }, g); im.addEventListener('error', () => { im.style.visibility = 'hidden'; }); }
+    const lines = () => [r.pokemon + ' (' + r.tier + ')', r.player + ' · pick ' + r.pick + ', round ' + r.round, 'Value ' + fmt.d2(r.value) + ' per game', fmt.d1(r.damage) + ' damage, ' + r.turns + ' turns on field', r.brought ? 'Brought in ' + r.brought + ' of ' + r.games + ' games' + (r.winPct != null ? ', won ' + fmt.pct(r.winPct) : '') : 'Never brought'];
+    tipOn(g, el, lines);
+    g.addEventListener('focus', () => { const b = g.getBoundingClientRect(); showTip(el, { clientX: b.right, clientY: b.top }, lines()); });
+    g.addEventListener('blur', () => hideTip(el));
+  });
+}
 function renderDraft() {
   const board = $('#lx-d-board');
   if (gate(board, need(['draft', 'mons']))) return;
@@ -1927,6 +1977,8 @@ function renderDraft() {
     tb.appendChild(tr);
   });
   board.textContent = ''; board.appendChild(tbl);
+
+  drawDraftPlot($('#lx-d-plot'), rows);
 
   const best = rounds.map((rd) => {
     const all = rows.filter((r) => r.round === rd);
