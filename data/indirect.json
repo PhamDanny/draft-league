@@ -1,14 +1,14 @@
 [
  {
   "source": "Sandstorm",
-  "hits": 232,
-  "damage": 13.84,
-  "faints": 13
+  "hits": 264,
+  "damage": 15.74,
+  "faints": 14
  },
  {
   "source": "Stealth Rock",
-  "hits": 84,
-  "damage": 10.39,
+  "hits": 89,
+  "damage": 10.95,
   "faints": 2
  },
  {
@@ -19,14 +19,14 @@
  },
  {
   "source": "Burn",
-  "hits": 75,
-  "damage": 9.08,
+  "hits": 78,
+  "damage": 9.46,
   "faints": 7
  },
  {
   "source": "Poison",
-  "hits": 62,
-  "damage": 6.57,
+  "hits": 67,
+  "damage": 7.12,
   "faints": 6
  },
  {
