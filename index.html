@@ -515,7 +515,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
       <div class="lx-ltext">
         <div class="lx-lname"><span data-source="luck_leaders" data-field="best_player" data-row="0">—</span></div>
         <div class="lx-tile-v"><span data-source="luck_leaders" data-field="best_score" data-row="0" data-fmt="s2">—</span> <span class="lx-tile-s">luck score</span></div>
-        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="best_net" data-row="0" data-fmt="s1">—</span> net lucky events vs. the odds</div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="best_verdict" data-row="0">—</span>, <span data-source="luck_leaders" data-field="best_driver" data-row="0">—</span></div>
       </div>
     </div>
     <div class="lx-tile">
@@ -523,52 +523,46 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
       <div class="lx-ltext">
         <div class="lx-lname"><span data-source="luck_leaders" data-field="worst_player" data-row="0">—</span></div>
         <div class="lx-tile-v"><span data-source="luck_leaders" data-field="worst_score" data-row="0" data-fmt="s2">—</span> <span class="lx-tile-s">luck score</span></div>
-        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="worst_net" data-row="0" data-fmt="s1">—</span> net lucky events vs. the odds</div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="worst_verdict" data-row="0">—</span>, <span data-source="luck_leaders" data-field="worst_driver" data-row="0">—</span></div>
       </div>
     </div>
     <div class="lx-tile">
-      <div class="lx-tile-l">Biggest luck edge in a game</div>
+      <div class="lx-tile-l">Biggest luck swing in a game</div>
       <div class="lx-ltext">
         <div class="lx-lname"><span data-source="luck_leaders" data-field="edge_matchup" data-row="0">—</span></div>
-        <div class="lx-tile-v"><span data-source="luck_leaders" data-field="edge_value" data-row="0" data-fmt="d1">—</span> <span class="lx-tile-s">events</span></div>
-        <div class="lx-tile-s">Week <span data-source="luck_leaders" data-field="edge_week" data-row="0">—</span>, game <span data-source="luck_leaders" data-field="edge_game" data-row="0">—</span>. <span data-source="luck_leaders" data-field="edge_luckier" data-row="0">—</span> was luckier and <span data-source="luck_leaders" data-field="edge_result" data-row="0">—</span>.</div>
+        <div class="lx-tile-v"><span data-source="luck_leaders" data-field="edge_value" data-row="0" data-fmt="d1">—</span> <span class="lx-tile-s">extra lucky events</span></div>
+        <div class="lx-tile-s">Week <span data-source="luck_leaders" data-field="edge_week" data-row="0">—</span>, game <span data-source="luck_leaders" data-field="edge_game" data-row="0">—</span>. <span data-source="luck_leaders" data-field="edge_luckier" data-row="0">—</span> was luckier and <span data-source="luck_leaders" data-field="edge_result" data-row="0">—</span>. Events count equally, so a big edge didn't necessarily decide the game.</div>
       </div>
     </div>
     <div class="lx-tile">
       <div class="lx-tile-l">Luckier player won</div>
       <div class="lx-ltext">
         <div class="lx-tile-v"><span data-source="luck_leaders" data-field="luckier_pct" data-row="0" data-fmt="pct">—</span></div>
-        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="luckier_won" data-row="0">—</span> of <span data-source="luck_leaders" data-field="luckier_total" data-row="0">—</span> games went to the luckier player</div>
+        <div class="lx-tile-s"><span data-source="luck_leaders" data-field="luckier_won" data-row="0">—</span> of <span data-source="luck_leaders" data-field="luckier_total" data-row="0">—</span> games, close to a coin flip. When one player was clearly luckier (edge score above 1), they won <span data-source="luck_leaders" data-field="clear_won" data-row="0">—</span> of <span data-source="luck_leaders" data-field="clear_total" data-row="0">—</span>.</div>
       </div>
     </div>
   </div>
     <div class="lx-card">
       <h2>Luck score by player</h2>
-      <p class="lx-note">Every random event in every replay is compared with its odds. A score of 0 is average luck, +1 is one standard deviation luckier than chance usually gives, and every lucky event for one player is an unlucky one for the other. Hover or tap for the breakdown.</p>
+      <p class="lx-note">Every random event in every replay is compared with its odds. A score near 0 is normal; about ±1 is still ordinary, and beyond ±2 is rare. Luck is zero-sum: every lucky event for one player is an unlucky one for the other, and with this few games only the extremes mean much. Hover or tap for the breakdown.</p>
       <div class="lx-chart dash-skeleton" id="lx-c-luck" data-source="luck"></div>
     </div>
     <div class="lx-card">
       <h2>Where the luck came from</h2>
-      <p class="lx-note">Each column is lucky events beyond the odds: positive means more good outcomes than the odds predicted, negative means fewer. Crits are also shown as actual against expected.</p>
+      <p class="lx-note">Each column is lucky events beyond the odds: positive means more good outcomes than the odds predicted, negative means fewer. Hover a row in the chart above for crits landed and taken against expected.</p>
       <div class="lx-scroll" style="max-height:none">
         <table class="lx-table" id="lx-t-luck" data-source="luck" data-row-key="player">
           <thead><tr>
             <th data-field="player"><button class="lx-sort" type="button">Player</button></th>
             <th class="num" data-field="score"><button class="lx-sort" type="button">Luck score</button></th>
-            <th class="num" data-field="percentile"><button class="lx-sort" type="button">Luck percentile</button></th>
+            <th data-field="verdict"><button class="lx-sort" type="button">Verdict</button></th>
             <th class="num" data-field="net"><button class="lx-sort" type="button">Net lucky events</button></th>
             <th class="num" data-field="crit_net"><button class="lx-sort" type="button">Crits</button></th>
             <th class="num" data-field="acc_net"><button class="lx-sort" type="button">Accuracy</button></th>
-            <th class="num" data-field="brn_net"><button class="lx-sort" type="button">Burns</button></th>
-            <th class="num" data-field="frz_net"><button class="lx-sort" type="button">Freezes</button></th>
-            <th class="num" data-field="par_net"><button class="lx-sort" type="button">Paralysis</button></th>
+            <th class="num" data-field="status_net"><button class="lx-sort" type="button">Burns, freezes, paralysis</button></th>
             <th class="num" data-field="flinch_net"><button class="lx-sort" type="button">Flinches</button></th>
-            <th class="num" data-field="other_net"><button class="lx-sort" type="button">Confusion and stat drops</button></th>
-            <th class="num" data-field="deny_net"><button class="lx-sort" type="button">Full para, thaw, confusion hits</button></th>
-            <th class="num" data-field="crits_for"><button class="lx-sort" type="button">Crits landed</button></th>
-            <th class="num" data-field="crits_for_exp"><button class="lx-sort" type="button">Crits expected</button></th>
-            <th class="num" data-field="crits_against"><button class="lx-sort" type="button">Crits taken</button></th>
-            <th class="num" data-field="crits_against_exp"><button class="lx-sort" type="button">Crits taken expected</button></th>
+            <th class="num" data-field="lost_net"><button class="lx-sort" type="button">Lost turns (full para, confusion hits, frozen)</button></th>
+            <th class="num" data-field="minor_net"><button class="lx-sort" type="button">Minor (stat drops, confusion, poison)</button></th>
           </tr></thead>
           <tbody></tbody>
         </table>
@@ -597,7 +591,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Luck by game</h2>
-      <p class="lx-note">The edge is how many lucky events beyond the odds the luckier player had in that game. The replay number opens the Showdown replay.</p>
+      <p class="lx-note">Luck edge is how many lucky events beyond the odds the luckier player had in that game. Edge score puts that in standard deviations, and "Big swing" marks a score of 2 or more. The replay number opens the Showdown replay.</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-lgames" data-source="luckgames" data-row-key="id">
           <thead><tr>
@@ -607,8 +601,9 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
             <th data-field="id"><button class="lx-sort" type="button">Replay</button></th>
             <th data-field="winner"><button class="lx-sort" type="button">Winner</button></th>
             <th data-field="luckier"><button class="lx-sort" type="button">Luckier player</button></th>
-            <th class="num" data-field="edge"><button class="lx-sort" type="button">Luck edge</button></th>
+            <th class="num" data-field="edge"><button class="lx-sort" type="button">Extra lucky events</button></th>
             <th class="num" data-field="edge_score"><button class="lx-sort" type="button">Edge score</button></th>
+            <th data-field="swing"><button class="lx-sort" type="button">Flag</button></th>
             <th data-field="luckier_won"><button class="lx-sort" type="button">Luckier player won</button></th>
             <th class="num" data-field="crits1"><button class="lx-sort" type="button">Player 1 crits</button></th>
             <th class="num" data-field="crits2"><button class="lx-sort" type="button">Player 2 crits</button></th>
@@ -620,7 +615,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Most improbable moments</h2>
-      <p class="lx-note">Unlikely outcomes (crits excluded), rarest first. Odds is the chance of exactly that outcome.</p>
+      <p class="lx-note">Unlikely outcomes, rarest first. Crits are included only when they knocked out the target. Odds is the chance of exactly that outcome.</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-lmom" data-source="luckmoments" data-row-key="id">
           <thead><tr>
@@ -628,6 +623,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
             <th class="num" data-field="week"><button class="lx-sort" type="button">Week</button></th>
             <th class="num" data-field="gnum"><button class="lx-sort" type="button">Game</button></th>
             <th class="num" data-field="turn"><button class="lx-sort" type="button">Turn</button></th>
+            <th data-field="game"><button class="lx-sort" type="button">Replay</button></th>
             <th data-field="what"><button class="lx-sort" type="button">What happened</button></th>
             <th class="num" data-field="odds"><button class="lx-sort" type="button">Odds</button></th>
             <th data-field="lucky"><button class="lx-sort" type="button">Lucky player</button></th>
@@ -640,10 +636,10 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     <div class="lx-card">
       <h2>How luck is measured</h2>
       <ul class="lx-defs">
-        <li><b>Luck score:</b> each random event is scored as its outcome minus its odds. A 10% freeze that happens is +0.9 for the attacker and −0.9 for the target, and one that does not is −0.1 and +0.1. A player's net is the sum of those. The score is the net divided by the spread chance alone would produce (the square root of the summed odds times one minus the odds). Zero is average, and about two thirds of players fall between −1 and +1.</li>
-        <li><b>What is counted:</b> critical hits (1 in 16, 1 in 8 for high-crit moves, 1 in 4 after Focus Energy), accuracy of every move under 100%, secondary burns, freezes, paralysis, flinches, confusion and stat drops, full paralysis (25%), thawing (20% a turn), and hitting yourself in confusion (50%).</li>
+        <li><b>Luck score:</b> each random event is scored as its outcome minus its odds. A 10% freeze that happens is +0.9 for the attacker and −0.9 for the target, and one that does not is −0.1 and +0.1. A player's net is the sum of those. The score is the net divided by the spread chance alone would produce (the square root of the summed odds times one minus the odds). Zero is average, and about two thirds of players fall between −1 and +1, and beyond ±2 is rare. Every event counts the same however much it mattered: a crit on a bulky Pokémon weighs as much as one that KOs your sweeper.</li>
+        <li><b>What is counted:</b> critical hits (1 in 16, 1 in 8 for high-crit moves, 1 in 4 after Focus Energy), accuracy of every move under 100%, secondary burns, freezes, paralysis, flinches, confusion, poison and stat drops, full paralysis (25%), thawing (20% a turn), and hitting yourself in confusion (50%).</li>
         <li><b>Only real chances count:</b> a secondary effect is only counted when the target could have been affected, so not if it fainted, was behind a Substitute, already had a status, was immune by type, or (for flinches) had already moved. Frost Breath always crits, so it is left out, as are Fake Out flinches.</li>
-        <li><b>Not counted:</b> damage rolls, speed ties, sleep length, repeated Protect, and anything the replay does not show, such as Serene Grace, Shield Dust, Compound Eyes, Sand Veil, Scope Lens, Wide Lens and evasion or accuracy boosts. Odds use each move's Gen 5 base values.</li>
+        <li><b>Not counted:</b> damage rolls, speed ties, sleep length, repeated Protect, and anything the replay does not show, such as Serene Grace, Shield Dust, Compound Eyes, Sand Veil, Scope Lens, and Wide Lens. Accuracy and evasion stages and weather are counted. Odds use each move's Gen 5 base values.</li>
         <li><b>Small samples:</b> <span data-source="league" data-field="games" data-row="0">—</span> games is not many random events, so a player a little above or below zero is within normal chance. Only the extremes mean much.</li>
       </ul>
     </div>
@@ -943,9 +939,11 @@ dash.calc('luck_leaders', {
     const hi = bySc[0], lo = bySc[bySc.length - 1];
     const eg = games.slice().sort((a, b) => b.edge - a.edge)[0];
     const won = games.filter((g) => g.luckier_won === 'Yes').length;
+    const clear = games.filter((g) => g.edge_score > 1 && g.luckier_won !== 'n/a');
     return [{
-      best_player: hi.player, best_score: hi.score, best_net: hi.net,
-      worst_player: lo.player, worst_score: lo.score, worst_net: lo.net,
+      best_player: hi.player, best_score: hi.score, best_verdict: hi.verdict, best_driver: hi.driver,
+      worst_player: lo.player, worst_score: lo.score, worst_verdict: lo.verdict, worst_driver: lo.driver,
+      clear_total: clear.length, clear_won: clear.filter((g) => g.luckier_won === 'Yes').length,
       edge_matchup: eg.matchup, edge_value: eg.edge, edge_luckier: eg.luckier, edge_week: eg.week, edge_game: eg.game,
       edge_result: eg.luckier_won === 'Yes' ? 'won' : 'lost',
       luckier_won: won, luckier_total: games.length, luckier_pct: games.length ? won / games.length : null,
@@ -1363,19 +1361,18 @@ const T_PO = mkTable('lx-t-playoffs', [
 ], { f: 'rank', dir: 1 }, 'player');
 T_PO.rowClass = (r) => (T_PO.sort.f !== 'rank' || T_PO.sort.dir !== 1 ? '' : r.rank === 2 ? 'lx-cut2' : r.rank === 6 ? 'lx-cut6' : '');
 const T_LUCK = mkTable('lx-t-luck', [
-  { f: 'player', t: 'text', plink: true }, { f: 'score', t: 's2' }, { f: 'percentile', t: 'pct' }, { f: 'net', t: 's1' }, { f: 'crit_net', t: 's1' }, { f: 'acc_net', t: 's1' },
-  { f: 'brn_net', t: 's1' }, { f: 'frz_net', t: 's1' }, { f: 'par_net', t: 's1' }, { f: 'flinch_net', t: 's1' }, { f: 'other_net', t: 's1' }, { f: 'deny_net', t: 's1' },
-  { f: 'crits_for', t: 'int' }, { f: 'crits_for_exp', t: 'd1' }, { f: 'crits_against', t: 'int' }, { f: 'crits_against_exp', t: 'd1' },
+  { f: 'player', t: 'text', plink: true }, { f: 'score', t: 's2' }, { f: 'verdict', t: 'text' }, { f: 'net', t: 's1' }, { f: 'crit_net', t: 's1' }, { f: 'acc_net', t: 's1' },
+  { f: 'status_net', t: 's1' }, { f: 'flinch_net', t: 's1' }, { f: 'lost_net', t: 's1' }, { f: 'minor_net', t: 's1' },
 ], { f: 'score', dir: -1 }, 'player');
 const T_LDET = mkTable('lx-t-ldet', [
   { f: 'player', t: 'text', plink: true }, { f: 'event', t: 'text' }, { f: 'tries', t: 'int' }, { f: 'happened', t: 'int' }, { f: 'expected', t: 'd1' }, { f: 'luck', t: 's2' }, { f: 'score', t: 's2' },
 ], { f: 'luck', dir: -1 }, 'id');
 const T_LGAMES = mkTable('lx-t-lgames', [
   { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'game', t: 'int' }, { f: 'id', t: 'text', link: 'replay' }, { f: 'winner', t: 'text' }, { f: 'luckier', t: 'text' },
-  { f: 'edge', t: 'd2' }, { f: 'edge_score', t: 'd2' }, { f: 'luckier_won', t: 'text' }, { f: 'crits1', t: 'int' }, { f: 'crits2', t: 'int' }, { f: 'turns', t: 'int' },
+  { f: 'edge', t: 'd2' }, { f: 'edge_score', t: 'd2' }, { f: 'swing', t: 'text' }, { f: 'luckier_won', t: 'text' }, { f: 'crits1', t: 'int' }, { f: 'crits2', t: 'int' }, { f: 'turns', t: 'int' },
 ], { f: 'edge', dir: -1 }, 'id');
 const T_LMOM = mkTable('lx-t-lmom', [
-  { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'gnum', t: 'int' }, { f: 'turn', t: 'int' }, { f: 'what', t: 'text' }, { f: 'odds', t: 'pct' },
+  { f: 'matchup', t: 'text' }, { f: 'week', t: 'int' }, { f: 'gnum', t: 'int' }, { f: 'turn', t: 'int' }, { f: 'game', t: 'text', link: 'replay' }, { f: 'what', t: 'text' }, { f: 'odds', t: 'pct' },
   { f: 'lucky', t: 'text' }, { f: 'unlucky', t: 'text' },
 ], { f: 'odds', dir: 1 }, 'id');
 const T_SLEAD = mkTable('lx-t-slead', [
@@ -1846,9 +1843,10 @@ function renderLuck() {
     const rows = rowsOf('luck').slice().sort((a, b) => b.score - a.score);
     divBars(ch, rows, {
       key: 'score', label: (r) => r.player, fmt: fmt.s2,
-      tip: (r) => [r.player, 'Luck score ' + fmt.s2(r.score) + ' (' + fmt.pct(r.percentile) + ' percentile)', fmt.s1(r.net) + ' net lucky events vs. the odds',
-        'Crits ' + fmt.s1(r.crit_net) + ', accuracy ' + fmt.s1(r.acc_net), 'Burns ' + fmt.s1(r.brn_net) + ', freezes ' + fmt.s1(r.frz_net) + ', paralysis ' + fmt.s1(r.par_net) + ', flinches ' + fmt.s1(r.flinch_net),
-        'Other effects ' + fmt.s1(r.other_net) + ', full para, thaw and confusion hits ' + fmt.s1(r.deny_net)],
+      tip: (r) => [r.player, 'Luck score ' + fmt.s2(r.score) + ' (' + r.verdict + ')', fmt.s1(r.net) + ' net lucky events vs. the odds, ' + r.driver,
+        'Crits landed ' + r.crits_for + ' vs. ' + fmt.d1(r.crits_for_exp) + ' expected; taken ' + r.crits_against + ' vs. ' + fmt.d1(r.crits_against_exp) + ' expected',
+        'Accuracy ' + fmt.s1(r.acc_net) + ', burns/freezes/paralysis ' + fmt.s1(r.status_net) + ', flinches ' + fmt.s1(r.flinch_net),
+        'Lost turns ' + fmt.s1(r.lost_net) + ', minor effects ' + fmt.s1(r.minor_net)],
     });
   }
   if (okAll(['luck'])) { T_LUCK.rows = rowsOf('luck'); draw(T_LUCK); }

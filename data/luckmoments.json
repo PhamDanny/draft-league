@@ -1,75 +1,211 @@
 [
  {
-  "game": "2695413030",
+  "game": "2694197473",
   "week": 1,
-  "gnum": 1,
-  "matchup": "Brayden vs Bo",
+  "gnum": 2,
+  "matchup": "Dennis vs Dzzy",
   "turn": 7,
-  "what": "Hydreigon's Draco Meteor missed Hippowdon (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Brayden",
-  "unlucky": "Bo",
+  "what": "Darkrai's Ice Beam was a critical hit on Mew",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2694197473",
+  "lucky": "Dennis",
+  "unlucky": "Dzzy",
   "id": "m0"
  },
  {
-  "game": "2695413030",
+  "game": "2694197473",
   "week": 1,
-  "gnum": 1,
-  "matchup": "Brayden vs Bo",
-  "turn": 9,
-  "what": "Chandelure's Heat Wave missed Hippowdon (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Brayden",
-  "unlucky": "Bo",
+  "gnum": 2,
+  "matchup": "Dennis vs Dzzy",
+  "turn": 8,
+  "what": "Lickilicky's Explosion was a critical hit on Darkrai",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2694197473",
+  "lucky": "Dzzy",
+  "unlucky": "Dennis",
   "id": "m1"
  },
  {
-  "game": "2699305959",
-  "week": 2,
-  "gnum": 1,
-  "matchup": "Dzzy vs Bo",
-  "turn": 5,
-  "what": "Boldore's Rock Slide missed Lucario (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Bo",
+  "game": "2694197473",
+  "week": 1,
+  "gnum": 2,
+  "matchup": "Dennis vs Dzzy",
+  "turn": 10,
+  "what": "Tornadus-Therian's Focus Blast was a critical hit on Kyurem",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2694197473",
+  "lucky": "Dennis",
   "unlucky": "Dzzy",
   "id": "m2"
  },
  {
+  "game": "2695413030",
+  "week": 1,
+  "gnum": 1,
+  "matchup": "Brayden vs Bo",
+  "turn": 1,
+  "what": "Thundurus-Therian's Grass Knot was a critical hit on Seismitoad",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695413030",
+  "lucky": "Brayden",
+  "unlucky": "Bo",
+  "id": "m3"
+ },
+ {
+  "game": "2695413030",
+  "week": 1,
+  "gnum": 1,
+  "matchup": "Brayden vs Bo",
+  "turn": 5,
+  "what": "Galvantula's Hidden Power was a critical hit on Salamence",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695413030",
+  "lucky": "Bo",
+  "unlucky": "Brayden",
+  "id": "m4"
+ },
+ {
+  "game": "2695413030",
+  "week": 1,
+  "gnum": 1,
+  "matchup": "Brayden vs Bo",
+  "turn": 10,
+  "what": "Galvantula's Hidden Power was a critical hit on Hippowdon",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695413030",
+  "lucky": "Bo",
+  "unlucky": "Brayden",
+  "id": "m5"
+ },
+ {
+  "game": "2695417408",
+  "week": 1,
+  "gnum": 2,
+  "matchup": "Brayden vs Bo",
+  "turn": 4,
+  "what": "Hippowdon's Ice Fang was a critical hit on Haxorus",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695417408",
+  "lucky": "Brayden",
+  "unlucky": "Bo",
+  "id": "m6"
+ },
+ {
+  "game": "2695897212",
+  "week": 1,
+  "gnum": 3,
+  "matchup": "Connor vs Max",
+  "turn": 10,
+  "what": "Genesect's U-turn was a critical hit on Bronzong",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695897212",
+  "lucky": "Connor",
+  "unlucky": "Max",
+  "id": "m7"
+ },
+ {
+  "game": "2696363795",
+  "week": 1,
+  "gnum": 1,
+  "matchup": "Ethan vs David Kim",
+  "turn": 9,
+  "what": "Kingdra's Hydro Pump was a critical hit on Magnezone",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696363795",
+  "lucky": "David Kim",
+  "unlucky": "Ethan",
+  "id": "m8"
+ },
+ {
+  "game": "2696374950",
+  "week": 1,
+  "gnum": 3,
+  "matchup": "David Kim vs Ethan",
+  "turn": 5,
+  "what": "Kingdra's Draco Meteor was a critical hit on Gastrodon",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696374950",
+  "lucky": "David Kim",
+  "unlucky": "Ethan",
+  "id": "m9"
+ },
+ {
+  "game": "2696464582",
+  "week": 1,
+  "gnum": 1,
+  "matchup": "Danny vs Alex",
+  "turn": 5,
+  "what": "Thundurus's Thunderbolt was a critical hit on Keldeo",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696464582",
+  "lucky": "Danny",
+  "unlucky": "Alex",
+  "id": "m10"
+ },
+ {
+  "game": "2696468150",
+  "week": 1,
+  "gnum": 2,
+  "matchup": "Danny vs Alex",
+  "turn": 7,
+  "what": "Kyurem-Black's Earth Power was a critical hit on Metagross",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696468150",
+  "lucky": "Danny",
+  "unlucky": "Alex",
+  "id": "m11"
+ },
+ {
   "game": "2699305959",
   "week": 2,
   "gnum": 1,
   "matchup": "Dzzy vs Bo",
-  "turn": 8,
-  "what": "Mew's Frost Breath missed Haxorus (90% accurate)",
-  "odds": 0.1,
+  "turn": 10,
+  "what": "Haxorus's Rock Slide was a critical hit on Mew",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2699305959",
   "lucky": "Bo",
   "unlucky": "Dzzy",
-  "id": "m3"
+  "id": "m12"
  },
  {
-  "game": "2700176469",
+  "game": "2699309491",
   "week": 2,
-  "gnum": 3,
-  "matchup": "Connor vs David Kim",
-  "turn": 6,
-  "what": "Ferrothorn's Toxic missed Chansey (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Connor",
-  "unlucky": "David Kim",
-  "id": "m4"
+  "gnum": 2,
+  "matchup": "Dzzy vs Bo",
+  "turn": 9,
+  "what": "Kyurem's Draco Meteor was a critical hit on Seismitoad",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2699309491",
+  "lucky": "Dzzy",
+  "unlucky": "Bo",
+  "id": "m13"
  },
  {
-  "game": "2700176469",
+  "game": "2700079479",
   "week": 2,
-  "gnum": 3,
+  "gnum": 2,
   "matchup": "Connor vs David Kim",
-  "turn": 20,
-  "what": "Ferrothorn's Leech Seed missed Genesect (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Connor",
-  "unlucky": "David Kim",
-  "id": "m5"
+  "turn": 5,
+  "what": "Blastoise's Water Spout was a critical hit on Latios",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700079479",
+  "lucky": "David Kim",
+  "unlucky": "Connor",
+  "id": "m14"
+ },
+ {
+  "game": "2700271309",
+  "week": 2,
+  "gnum": 1,
+  "matchup": "Danny vs Dennis",
+  "turn": 9,
+  "what": "Heatran's Heat Wave was a critical hit on Cresselia",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700271309",
+  "lucky": "Danny",
+  "unlucky": "Dennis",
+  "id": "m15"
  },
  {
   "game": "2700271309",
@@ -77,239 +213,90 @@
   "gnum": 1,
   "matchup": "Danny vs Dennis",
   "turn": 16,
-  "what": "Heatran's Heat Wave missed Scizor (90% accurate)",
-  "odds": 0.1,
+  "what": "Scizor's Bug Bite was a critical hit on Thundurus",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700271309",
   "lucky": "Dennis",
   "unlucky": "Danny",
-  "id": "m6"
- },
- {
-  "game": "2703145418",
-  "week": 3,
-  "gnum": 1,
-  "matchup": "Connor vs Bo",
-  "turn": 5,
-  "what": "Haxorus's Rock Slide missed Scrafty (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Connor",
-  "unlucky": "Bo",
-  "id": "m7"
- },
- {
-  "game": "2703145418",
-  "week": 3,
-  "gnum": 1,
-  "matchup": "Connor vs Bo",
-  "turn": 6,
-  "what": "Haxorus's Rock Slide missed Landorus-Therian (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Connor",
-  "unlucky": "Bo",
-  "id": "m8"
- },
- {
-  "game": "2703149394",
-  "week": 3,
-  "gnum": 2,
-  "matchup": "Connor vs Bo",
-  "turn": 9,
-  "what": "Eelektrik's Super Fang missed Landorus-Therian (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Connor",
-  "unlucky": "Bo",
-  "id": "m9"
- },
- {
-  "game": "2703157167",
-  "week": 3,
-  "gnum": 2,
-  "matchup": "Max vs David Kim",
-  "turn": 18,
-  "what": "Ferrothorn's Leech Seed missed Volcarona (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Max",
-  "unlucky": "David Kim",
-  "id": "m10"
- },
- {
-  "game": "2704696809",
-  "week": 3,
-  "gnum": 1,
-  "matchup": "Dzzy vs Alex",
-  "turn": 5,
-  "what": "Metagross's Zen Headbutt missed Terrakion (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Dzzy",
-  "unlucky": "Alex",
-  "id": "m11"
- },
- {
-  "game": "2704703137",
-  "week": 3,
-  "gnum": 3,
-  "matchup": "Dzzy vs Alex",
-  "turn": 10,
-  "what": "Tyranitar's Rock Slide missed Amoonguss (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Dzzy",
-  "unlucky": "Alex",
-  "id": "m12"
- },
- {
-  "game": "2706590747",
-  "week": 4,
-  "gnum": 1,
-  "matchup": "Connor vs Brayden",
-  "turn": 12,
-  "what": "Rotom-Heat's Overheat missed Mienshao (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Brayden",
-  "unlucky": "Connor",
-  "id": "m13"
- },
- {
-  "game": "2706626343",
-  "week": 4,
-  "gnum": 2,
-  "matchup": "Connor vs Brayden",
-  "turn": 15,
-  "what": "Excadrill's Rock Slide missed Rotom-Heat (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Connor",
-  "unlucky": "Brayden",
-  "id": "m14"
- },
- {
-  "game": "2706632014",
-  "week": 4,
-  "gnum": 3,
-  "matchup": "Connor vs Brayden",
-  "turn": 2,
-  "what": "Mienshao's Rock Slide missed Magmar (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Connor",
-  "unlucky": "Brayden",
-  "id": "m15"
- },
- {
-  "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
-  "week": 4,
-  "gnum": 2,
-  "matchup": "Danny vs Max",
-  "turn": 11,
-  "what": "Heatran's Heat Wave missed Porygon2 (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Max",
-  "unlucky": "Danny",
   "id": "m16"
- },
- {
-  "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
-  "week": 4,
-  "gnum": 2,
-  "matchup": "Danny vs Max",
-  "turn": 12,
-  "what": "Heatran's Heat Wave missed Hariyama (90% accurate)",
-  "odds": 0.1,
-  "lucky": "Max",
-  "unlucky": "Danny",
-  "id": "m17"
- },
- {
-  "game": "2695417408",
-  "week": 1,
-  "gnum": 2,
-  "matchup": "Brayden vs Bo",
-  "turn": 2,
-  "what": "Hippowdon's Ice Fang froze Hydreigon (10%)",
-  "odds": 0.1,
-  "lucky": "Brayden",
-  "unlucky": "Bo",
-  "id": "m18"
- },
- {
-  "game": "2695417408",
-  "week": 1,
-  "gnum": 2,
-  "matchup": "Brayden vs Bo",
-  "turn": 9,
-  "what": "Chandelure's Heat Wave burned Thundurus-Therian (10%)",
-  "odds": 0.1,
-  "lucky": "Bo",
-  "unlucky": "Brayden",
-  "id": "m19"
- },
- {
-  "game": "2700271309",
-  "week": 2,
-  "gnum": 1,
-  "matchup": "Danny vs Dennis",
-  "turn": 8,
-  "what": "Heatran's Heat Wave burned Cresselia (10%)",
-  "odds": 0.1,
-  "lucky": "Danny",
-  "unlucky": "Dennis",
-  "id": "m20"
- },
- {
-  "game": "2700807864",
-  "week": 2,
-  "gnum": 2,
-  "matchup": "Brayden vs Max",
-  "turn": 3,
-  "what": "Uxie's Psychic lowered the stats of Hariyama (10%)",
-  "odds": 0.1,
-  "lucky": "Brayden",
-  "unlucky": "Max",
-  "id": "m21"
- },
- {
-  "game": "2700807864",
-  "week": 2,
-  "gnum": 2,
-  "matchup": "Brayden vs Max",
-  "turn": 10,
-  "what": "Uxie's Psychic lowered the stats of Porygon2 (10%)",
-  "odds": 0.1,
-  "lucky": "Brayden",
-  "unlucky": "Max",
-  "id": "m22"
  },
  {
   "game": "2700817133",
   "week": 2,
   "gnum": 3,
   "matchup": "Max vs Brayden",
-  "turn": 1,
-  "what": "Entei's Flamethrower burned Bronzong (10%)",
-  "odds": 0.1,
-  "lucky": "Brayden",
-  "unlucky": "Max",
-  "id": "m23"
+  "turn": 4,
+  "what": "Porygon2's Ice Beam was a critical hit on Celebi",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700817133",
+  "lucky": "Max",
+  "unlucky": "Brayden",
+  "id": "m17"
  },
  {
   "game": "2700853719",
   "week": 2,
   "gnum": 1,
   "matchup": "Ethan vs Alex",
-  "turn": 4,
-  "what": "Zapdos's Thunderbolt paralyzed Crobat (10%)",
-  "odds": 0.1,
-  "lucky": "Ethan",
-  "unlucky": "Alex",
-  "id": "m24"
+  "turn": 3,
+  "what": "Tyranitar's Earthquake was a critical hit on Magnezone",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700853719",
+  "lucky": "Alex",
+  "unlucky": "Ethan",
+  "id": "m18"
  },
  {
   "game": "2700859652",
   "week": 2,
   "gnum": 2,
   "matchup": "Ethan vs Alex",
-  "turn": 4,
-  "what": "Stoutland's Ice Fang froze Zapdos (10%)",
-  "odds": 0.1,
+  "turn": 3,
+  "what": "Zapdos's Thunderbolt was a critical hit on Crobat",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700859652",
+  "lucky": "Ethan",
+  "unlucky": "Alex",
+  "id": "m19"
+ },
+ {
+  "game": "2700859652",
+  "week": 2,
+  "gnum": 2,
+  "matchup": "Ethan vs Alex",
+  "turn": 6,
+  "what": "Stoutland's Ice Fang was a critical hit on Zapdos",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700859652",
   "lucky": "Alex",
   "unlucky": "Ethan",
-  "id": "m25"
+  "id": "m20"
+ },
+ {
+  "game": "2700859652",
+  "week": 2,
+  "gnum": 2,
+  "matchup": "Ethan vs Alex",
+  "turn": 7,
+  "what": "Starmie's Psychic was a critical hit on Keldeo-Resolute",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700859652",
+  "lucky": "Ethan",
+  "unlucky": "Alex",
+  "id": "m21"
+ },
+ {
+  "game": "2700864865",
+  "week": 2,
+  "gnum": 3,
+  "matchup": "Ethan vs Alex",
+  "turn": 3,
+  "what": "Tyranitar's Rock Slide was a critical hit on Zapdos",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700864865",
+  "lucky": "Alex",
+  "unlucky": "Ethan",
+  "id": "m22"
  },
  {
   "game": "2703148857",
@@ -317,22 +304,63 @@
   "gnum": 1,
   "matchup": "Max vs David Kim",
   "turn": 4,
-  "what": "Volcarona's Flamethrower burned Blastoise (10%)",
-  "odds": 0.1,
+  "what": "Porygon2's Thunderbolt was a critical hit on Politoed",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703148857",
+  "lucky": "Max",
+  "unlucky": "David Kim",
+  "id": "m23"
+ },
+ {
+  "game": "2703149394",
+  "week": 3,
+  "gnum": 2,
+  "matchup": "Connor vs Bo",
+  "turn": 4,
+  "what": "Landorus-Therian's Earthquake was a critical hit on Haxorus",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703149394",
+  "lucky": "Connor",
+  "unlucky": "Bo",
+  "id": "m24"
+ },
+ {
+  "game": "2703149394",
+  "week": 3,
+  "gnum": 2,
+  "matchup": "Connor vs Bo",
+  "turn": 10,
+  "what": "Genesect's Ice Beam was a critical hit on Mandibuzz",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703149394",
+  "lucky": "Connor",
+  "unlucky": "Bo",
+  "id": "m25"
+ },
+ {
+  "game": "2703157167",
+  "week": 3,
+  "gnum": 2,
+  "matchup": "Max vs David Kim",
+  "turn": 23,
+  "what": "Shaymin's Giga Drain was a critical hit on Raikou",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703157167",
   "lucky": "Max",
   "unlucky": "David Kim",
   "id": "m26"
  },
  {
-  "game": "2703717005",
+  "game": "2703169361",
   "week": 3,
-  "gnum": 1,
-  "matchup": "Danny vs Ethan",
-  "turn": 4,
-  "what": "Latias's Energy Ball lowered the stats of Gastrodon (10%)",
-  "odds": 0.1,
-  "lucky": "Danny",
-  "unlucky": "Ethan",
+  "gnum": 3,
+  "matchup": "Max vs David Kim",
+  "turn": 12,
+  "what": "Politoed's Scald was a critical hit on Porygon2",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703169361",
+  "lucky": "David Kim",
+  "unlucky": "Max",
   "id": "m27"
  },
  {
@@ -340,47 +368,51 @@
   "week": 3,
   "gnum": 1,
   "matchup": "Danny vs Ethan",
-  "turn": 7,
-  "what": "Starmie's Ice Beam froze Latias (10%)",
-  "odds": 0.1,
+  "turn": 1,
+  "what": "Zapdos's Thunderbolt was a critical hit on Thundurus",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703717005",
   "lucky": "Ethan",
   "unlucky": "Danny",
   "id": "m28"
  },
  {
-  "game": "2703719604",
+  "game": "2704648705",
   "week": 3,
   "gnum": 2,
-  "matchup": "Danny vs Ethan",
-  "turn": 7,
-  "what": "Magnezone's Flash Cannon lowered the stats of Kyurem-Black (10%)",
-  "odds": 0.1,
-  "lucky": "Ethan",
-  "unlucky": "Danny",
+  "matchup": "Dennis vs Brayden",
+  "turn": 2,
+  "what": "Mienshao's Rock Slide was a critical hit on Darkrai",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704648705",
+  "lucky": "Brayden",
+  "unlucky": "Dennis",
   "id": "m29"
  },
  {
-  "game": "2703719604",
+  "game": "2704700254",
   "week": 3,
   "gnum": 2,
-  "matchup": "Danny vs Ethan",
-  "turn": 10,
-  "what": "Zapdos's Heat Wave burned Golbat (10%)",
-  "odds": 0.1,
-  "lucky": "Ethan",
-  "unlucky": "Danny",
+  "matchup": "Dzzy vs Alex",
+  "turn": 5,
+  "what": "Bisharp's Low Kick was a critical hit on Stoutland",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704700254",
+  "lucky": "Dzzy",
+  "unlucky": "Alex",
   "id": "m30"
  },
  {
-  "game": "2706590747",
-  "week": 4,
-  "gnum": 1,
-  "matchup": "Connor vs Brayden",
-  "turn": 3,
-  "what": "Hippowdon's Ice Fang froze Scrafty (10%)",
-  "odds": 0.1,
-  "lucky": "Brayden",
-  "unlucky": "Connor",
+  "game": "2704700254",
+  "week": 3,
+  "gnum": 2,
+  "matchup": "Dzzy vs Alex",
+  "turn": 7,
+  "what": "Drifblim's Acrobatics was a critical hit on Gurdurr",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704700254",
+  "lucky": "Dzzy",
+  "unlucky": "Alex",
   "id": "m31"
  },
  {
@@ -388,9 +420,10 @@
   "week": 4,
   "gnum": 2,
   "matchup": "Connor vs Brayden",
-  "turn": 2,
-  "what": "Hippowdon's Ice Fang froze Dusclops (10%)",
-  "odds": 0.1,
+  "turn": 11,
+  "what": "Excadrill's Earthquake was a critical hit on Dusclops",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706626343",
   "lucky": "Brayden",
   "unlucky": "Connor",
   "id": "m32"
@@ -400,9 +433,10 @@
   "week": 4,
   "gnum": 3,
   "matchup": "Connor vs Brayden",
-  "turn": 11,
-  "what": "Hippowdon's Ice Fang froze Suicune (10%)",
-  "odds": 0.1,
+  "turn": 20,
+  "what": "Honchkrow's Sucker Punch was a critical hit on Rotom-Heat",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
   "id": "m33"
@@ -412,12 +446,468 @@
   "week": 4,
   "gnum": 1,
   "matchup": "Danny vs Max",
-  "turn": 5,
-  "what": "Heatran's Heat Wave burned Porygon2 (10%)",
-  "odds": 0.1,
+  "turn": 8,
+  "what": "Heatran's Heat Wave was a critical hit on Porygon2",
+  "odds": 0.06,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706573984-d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
   "lucky": "Danny",
   "unlucky": "Max",
   "id": "m34"
+ },
+ {
+  "game": "2695413030",
+  "week": 1,
+  "gnum": 1,
+  "matchup": "Brayden vs Bo",
+  "turn": 7,
+  "what": "Hydreigon's Draco Meteor missed Hippowdon (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695413030",
+  "lucky": "Brayden",
+  "unlucky": "Bo",
+  "id": "m35"
+ },
+ {
+  "game": "2695413030",
+  "week": 1,
+  "gnum": 1,
+  "matchup": "Brayden vs Bo",
+  "turn": 9,
+  "what": "Chandelure's Heat Wave missed Hippowdon (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695413030",
+  "lucky": "Brayden",
+  "unlucky": "Bo",
+  "id": "m36"
+ },
+ {
+  "game": "2699305959",
+  "week": 2,
+  "gnum": 1,
+  "matchup": "Dzzy vs Bo",
+  "turn": 5,
+  "what": "Boldore's Rock Slide missed Lucario (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2699305959",
+  "lucky": "Bo",
+  "unlucky": "Dzzy",
+  "id": "m37"
+ },
+ {
+  "game": "2699305959",
+  "week": 2,
+  "gnum": 1,
+  "matchup": "Dzzy vs Bo",
+  "turn": 8,
+  "what": "Mew's Frost Breath missed Haxorus (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2699305959",
+  "lucky": "Bo",
+  "unlucky": "Dzzy",
+  "id": "m38"
+ },
+ {
+  "game": "2700176469",
+  "week": 2,
+  "gnum": 3,
+  "matchup": "Connor vs David Kim",
+  "turn": 6,
+  "what": "Ferrothorn's Toxic missed Chansey (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700176469",
+  "lucky": "Connor",
+  "unlucky": "David Kim",
+  "id": "m39"
+ },
+ {
+  "game": "2700176469",
+  "week": 2,
+  "gnum": 3,
+  "matchup": "Connor vs David Kim",
+  "turn": 20,
+  "what": "Ferrothorn's Leech Seed missed Genesect (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700176469",
+  "lucky": "Connor",
+  "unlucky": "David Kim",
+  "id": "m40"
+ },
+ {
+  "game": "2700271309",
+  "week": 2,
+  "gnum": 1,
+  "matchup": "Danny vs Dennis",
+  "turn": 16,
+  "what": "Heatran's Heat Wave missed Scizor (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700271309",
+  "lucky": "Dennis",
+  "unlucky": "Danny",
+  "id": "m41"
+ },
+ {
+  "game": "2703145418",
+  "week": 3,
+  "gnum": 1,
+  "matchup": "Connor vs Bo",
+  "turn": 5,
+  "what": "Haxorus's Rock Slide missed Scrafty (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703145418",
+  "lucky": "Connor",
+  "unlucky": "Bo",
+  "id": "m42"
+ },
+ {
+  "game": "2703145418",
+  "week": 3,
+  "gnum": 1,
+  "matchup": "Connor vs Bo",
+  "turn": 6,
+  "what": "Haxorus's Rock Slide missed Landorus-Therian (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703145418",
+  "lucky": "Connor",
+  "unlucky": "Bo",
+  "id": "m43"
+ },
+ {
+  "game": "2703149394",
+  "week": 3,
+  "gnum": 2,
+  "matchup": "Connor vs Bo",
+  "turn": 9,
+  "what": "Eelektrik's Super Fang missed Landorus-Therian (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703149394",
+  "lucky": "Connor",
+  "unlucky": "Bo",
+  "id": "m44"
+ },
+ {
+  "game": "2703157167",
+  "week": 3,
+  "gnum": 2,
+  "matchup": "Max vs David Kim",
+  "turn": 18,
+  "what": "Ferrothorn's Leech Seed missed Volcarona (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703157167",
+  "lucky": "Max",
+  "unlucky": "David Kim",
+  "id": "m45"
+ },
+ {
+  "game": "2704696809",
+  "week": 3,
+  "gnum": 1,
+  "matchup": "Dzzy vs Alex",
+  "turn": 5,
+  "what": "Metagross's Zen Headbutt missed Terrakion (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704696809",
+  "lucky": "Dzzy",
+  "unlucky": "Alex",
+  "id": "m46"
+ },
+ {
+  "game": "2704703137",
+  "week": 3,
+  "gnum": 3,
+  "matchup": "Dzzy vs Alex",
+  "turn": 10,
+  "what": "Tyranitar's Rock Slide missed Amoonguss (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704703137",
+  "lucky": "Dzzy",
+  "unlucky": "Alex",
+  "id": "m47"
+ },
+ {
+  "game": "2706590747",
+  "week": 4,
+  "gnum": 1,
+  "matchup": "Connor vs Brayden",
+  "turn": 12,
+  "what": "Rotom-Heat's Overheat missed Mienshao (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706590747",
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m48"
+ },
+ {
+  "game": "2706626343",
+  "week": 4,
+  "gnum": 2,
+  "matchup": "Connor vs Brayden",
+  "turn": 15,
+  "what": "Excadrill's Rock Slide missed Rotom-Heat (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706626343",
+  "lucky": "Connor",
+  "unlucky": "Brayden",
+  "id": "m49"
+ },
+ {
+  "game": "2706632014",
+  "week": 4,
+  "gnum": 3,
+  "matchup": "Connor vs Brayden",
+  "turn": 2,
+  "what": "Mienshao's Rock Slide missed Magmar (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
+  "lucky": "Connor",
+  "unlucky": "Brayden",
+  "id": "m50"
+ },
+ {
+  "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
+  "week": 4,
+  "gnum": 2,
+  "matchup": "Danny vs Max",
+  "turn": 11,
+  "what": "Heatran's Heat Wave missed Porygon2 (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706578313-kbus6lnon4epfaxnhvit9ketljxqec1pw",
+  "lucky": "Max",
+  "unlucky": "Danny",
+  "id": "m51"
+ },
+ {
+  "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
+  "week": 4,
+  "gnum": 2,
+  "matchup": "Danny vs Max",
+  "turn": 12,
+  "what": "Heatran's Heat Wave missed Hariyama (90% accurate)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706578313-kbus6lnon4epfaxnhvit9ketljxqec1pw",
+  "lucky": "Max",
+  "unlucky": "Danny",
+  "id": "m52"
+ },
+ {
+  "game": "2695417408",
+  "week": 1,
+  "gnum": 2,
+  "matchup": "Brayden vs Bo",
+  "turn": 2,
+  "what": "Hippowdon's Ice Fang froze Hydreigon (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695417408",
+  "lucky": "Brayden",
+  "unlucky": "Bo",
+  "id": "m53"
+ },
+ {
+  "game": "2695417408",
+  "week": 1,
+  "gnum": 2,
+  "matchup": "Brayden vs Bo",
+  "turn": 9,
+  "what": "Chandelure's Heat Wave burned Thundurus-Therian (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695417408",
+  "lucky": "Bo",
+  "unlucky": "Brayden",
+  "id": "m54"
+ },
+ {
+  "game": "2700271309",
+  "week": 2,
+  "gnum": 1,
+  "matchup": "Danny vs Dennis",
+  "turn": 8,
+  "what": "Heatran's Heat Wave burned Cresselia (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700271309",
+  "lucky": "Danny",
+  "unlucky": "Dennis",
+  "id": "m55"
+ },
+ {
+  "game": "2700807864",
+  "week": 2,
+  "gnum": 2,
+  "matchup": "Brayden vs Max",
+  "turn": 3,
+  "what": "Uxie's Psychic lowered the stats of Hariyama (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700807864",
+  "lucky": "Brayden",
+  "unlucky": "Max",
+  "id": "m56"
+ },
+ {
+  "game": "2700807864",
+  "week": 2,
+  "gnum": 2,
+  "matchup": "Brayden vs Max",
+  "turn": 10,
+  "what": "Uxie's Psychic lowered the stats of Porygon2 (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700807864",
+  "lucky": "Brayden",
+  "unlucky": "Max",
+  "id": "m57"
+ },
+ {
+  "game": "2700817133",
+  "week": 2,
+  "gnum": 3,
+  "matchup": "Max vs Brayden",
+  "turn": 1,
+  "what": "Entei's Flamethrower burned Bronzong (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700817133",
+  "lucky": "Brayden",
+  "unlucky": "Max",
+  "id": "m58"
+ },
+ {
+  "game": "2700853719",
+  "week": 2,
+  "gnum": 1,
+  "matchup": "Ethan vs Alex",
+  "turn": 4,
+  "what": "Zapdos's Thunderbolt paralyzed Crobat (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700853719",
+  "lucky": "Ethan",
+  "unlucky": "Alex",
+  "id": "m59"
+ },
+ {
+  "game": "2700859652",
+  "week": 2,
+  "gnum": 2,
+  "matchup": "Ethan vs Alex",
+  "turn": 4,
+  "what": "Stoutland's Ice Fang froze Zapdos (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700859652",
+  "lucky": "Alex",
+  "unlucky": "Ethan",
+  "id": "m60"
+ },
+ {
+  "game": "2703148857",
+  "week": 3,
+  "gnum": 1,
+  "matchup": "Max vs David Kim",
+  "turn": 4,
+  "what": "Volcarona's Flamethrower burned Blastoise (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703148857",
+  "lucky": "Max",
+  "unlucky": "David Kim",
+  "id": "m61"
+ },
+ {
+  "game": "2703717005",
+  "week": 3,
+  "gnum": 1,
+  "matchup": "Danny vs Ethan",
+  "turn": 4,
+  "what": "Latias's Energy Ball lowered the stats of Gastrodon (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703717005",
+  "lucky": "Danny",
+  "unlucky": "Ethan",
+  "id": "m62"
+ },
+ {
+  "game": "2703717005",
+  "week": 3,
+  "gnum": 1,
+  "matchup": "Danny vs Ethan",
+  "turn": 7,
+  "what": "Starmie's Ice Beam froze Latias (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703717005",
+  "lucky": "Ethan",
+  "unlucky": "Danny",
+  "id": "m63"
+ },
+ {
+  "game": "2703719604",
+  "week": 3,
+  "gnum": 2,
+  "matchup": "Danny vs Ethan",
+  "turn": 7,
+  "what": "Magnezone's Flash Cannon lowered the stats of Kyurem-Black (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703719604",
+  "lucky": "Ethan",
+  "unlucky": "Danny",
+  "id": "m64"
+ },
+ {
+  "game": "2703719604",
+  "week": 3,
+  "gnum": 2,
+  "matchup": "Danny vs Ethan",
+  "turn": 10,
+  "what": "Zapdos's Heat Wave burned Golbat (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703719604",
+  "lucky": "Ethan",
+  "unlucky": "Danny",
+  "id": "m65"
+ },
+ {
+  "game": "2706590747",
+  "week": 4,
+  "gnum": 1,
+  "matchup": "Connor vs Brayden",
+  "turn": 3,
+  "what": "Hippowdon's Ice Fang froze Scrafty (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706590747",
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m66"
+ },
+ {
+  "game": "2706626343",
+  "week": 4,
+  "gnum": 2,
+  "matchup": "Connor vs Brayden",
+  "turn": 2,
+  "what": "Hippowdon's Ice Fang froze Dusclops (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706626343",
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m67"
+ },
+ {
+  "game": "2706632014",
+  "week": 4,
+  "gnum": 3,
+  "matchup": "Connor vs Brayden",
+  "turn": 11,
+  "what": "Hippowdon's Ice Fang froze Suicune (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m68"
+ },
+ {
+  "game": "d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
+  "week": 4,
+  "gnum": 1,
+  "matchup": "Danny vs Max",
+  "turn": 5,
+  "what": "Heatran's Heat Wave burned Porygon2 (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706573984-d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
+  "lucky": "Danny",
+  "unlucky": "Max",
+  "id": "m69"
  },
  {
   "game": "d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
@@ -427,9 +917,10 @@
   "turn": 10,
   "what": "Shaymin's Psychic lowered the stats of Slowbro (10%)",
   "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706573984-d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
   "lucky": "Max",
   "unlucky": "Danny",
-  "id": "m35"
+  "id": "m70"
  },
  {
   "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
@@ -439,9 +930,23 @@
   "turn": 13,
   "what": "Heatran's Heat Wave burned Porygon2 (10%)",
   "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706578313-kbus6lnon4epfaxnhvit9ketljxqec1pw",
   "lucky": "Danny",
   "unlucky": "Max",
-  "id": "m36"
+  "id": "m71"
+ },
+ {
+  "game": "2696468150",
+  "week": 1,
+  "gnum": 2,
+  "matchup": "Danny vs Alex",
+  "turn": 8,
+  "what": "Virizion's Leaf Blade was a critical hit on Rotom-Wash",
+  "odds": 0.12,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696468150",
+  "lucky": "Danny",
+  "unlucky": "Alex",
+  "id": "m72"
  },
  {
   "game": "2703148857",
@@ -451,9 +956,10 @@
   "turn": 9,
   "what": "Blastoise's Whirlpool missed Porygon2 (85% accurate)",
   "odds": 0.15,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703148857",
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m37"
+  "id": "m73"
  },
  {
   "game": "2703169361",
@@ -463,9 +969,10 @@
   "turn": 13,
   "what": "Blastoise's Whirlpool missed Shaymin (85% accurate)",
   "odds": 0.15,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703169361",
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m38"
+  "id": "m74"
  },
  {
   "game": "2703719604",
@@ -475,9 +982,10 @@
   "turn": 5,
   "what": "Starmie's Hydro Pump missed Latias (80% accurate)",
   "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703719604",
   "lucky": "Danny",
   "unlucky": "Ethan",
-  "id": "m39"
+  "id": "m75"
  },
  {
   "game": "2695417408",
@@ -487,9 +995,10 @@
   "turn": 3,
   "what": "Hydreigon thawed out",
   "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695417408",
   "lucky": "Bo",
   "unlucky": "Brayden",
-  "id": "m40"
+  "id": "m76"
  },
  {
   "game": "2700807864",
@@ -499,9 +1008,10 @@
   "turn": 14,
   "what": "Hippowdon's Crunch lowered the stats of Porygon2 (20%)",
   "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700807864",
   "lucky": "Brayden",
   "unlucky": "Max",
-  "id": "m41"
+  "id": "m77"
  },
  {
   "game": "2700817133",
@@ -511,9 +1021,10 @@
   "turn": 6,
   "what": "Porygon2's Shadow Ball lowered the stats of Uxie (20%)",
   "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700817133",
   "lucky": "Max",
   "unlucky": "Brayden",
-  "id": "m42"
+  "id": "m78"
  },
  {
   "game": "2700817133",
@@ -523,21 +1034,10 @@
   "turn": 11,
   "what": "Hippowdon's Crunch lowered the stats of Porygon2 (20%)",
   "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700817133",
   "lucky": "Brayden",
   "unlucky": "Max",
-  "id": "m43"
- },
- {
-  "game": "2703717005",
-  "week": 3,
-  "gnum": 1,
-  "matchup": "Danny vs Ethan",
-  "turn": 7,
-  "what": "Latias thawed out",
-  "odds": 0.2,
-  "lucky": "Danny",
-  "unlucky": "Ethan",
-  "id": "m44"
+  "id": "m79"
  },
  {
   "game": "2704645206",
@@ -547,9 +1047,10 @@
   "turn": 4,
   "what": "Hippowdon's Crunch lowered the stats of Cresselia (20%)",
   "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704645206",
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m45"
+  "id": "m80"
  },
  {
   "game": "2704645206",
@@ -559,9 +1060,10 @@
   "turn": 5,
   "what": "Hippowdon's Crunch lowered the stats of Dusknoir (20%)",
   "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704645206",
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m46"
+  "id": "m81"
  },
  {
   "game": "2704703137",
@@ -571,9 +1073,10 @@
   "turn": 6,
   "what": "Stoutland's Crunch lowered the stats of Clefairy (20%)",
   "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704703137",
   "lucky": "Alex",
   "unlucky": "Dzzy",
-  "id": "m47"
+  "id": "m82"
  },
  {
   "game": "2696363795",
@@ -583,9 +1086,10 @@
   "turn": 3,
   "what": "Blastoise was fully paralyzed",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696363795",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m48"
+  "id": "m83"
  },
  {
   "game": "2696363795",
@@ -595,9 +1099,10 @@
   "turn": 8,
   "what": "Blastoise was fully paralyzed",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696363795",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m49"
+  "id": "m84"
  },
  {
   "game": "2696363795",
@@ -607,9 +1112,10 @@
   "turn": 9,
   "what": "Blastoise was fully paralyzed",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696363795",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m50"
+  "id": "m85"
  },
  {
   "game": "2696369469",
@@ -619,9 +1125,10 @@
   "turn": 7,
   "what": "Blastoise was fully paralyzed",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696369469",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m51"
+  "id": "m86"
  },
  {
   "game": "2696369469",
@@ -631,9 +1138,10 @@
   "turn": 8,
   "what": "Blastoise was fully paralyzed",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696369469",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m52"
+  "id": "m87"
  },
  {
   "game": "2696374950",
@@ -643,9 +1151,10 @@
   "turn": 6,
   "what": "Kingdra was fully paralyzed",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696374950",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m53"
+  "id": "m88"
  },
  {
   "game": "2699305959",
@@ -655,9 +1164,10 @@
   "turn": 3,
   "what": "Jellicent's Will-O-Wisp missed Lucario (75% accurate)",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2699305959",
   "lucky": "Bo",
   "unlucky": "Dzzy",
-  "id": "m54"
+  "id": "m89"
  },
  {
   "game": "2700859652",
@@ -667,9 +1177,10 @@
   "turn": 6,
   "what": "Blissey was fully paralyzed",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700859652",
   "lucky": "Alex",
   "unlucky": "Ethan",
-  "id": "m55"
+  "id": "m90"
  },
  {
   "game": "2700859652",
@@ -679,9 +1190,23 @@
   "turn": 13,
   "what": "Rotom-Wash was fully paralyzed",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700859652",
   "lucky": "Ethan",
   "unlucky": "Alex",
-  "id": "m56"
+  "id": "m91"
+ },
+ {
+  "game": "2703157167",
+  "week": 3,
+  "gnum": 2,
+  "matchup": "Max vs David Kim",
+  "turn": 3,
+  "what": "Kingdra's Draco Meteor was a critical hit on Porygon2",
+  "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703157167",
+  "lucky": "David Kim",
+  "unlucky": "Max",
+  "id": "m92"
  },
  {
   "game": "2704703137",
@@ -691,9 +1216,10 @@
   "turn": 6,
   "what": "Jellicent's Will-O-Wisp missed Stoutland (75% accurate)",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704703137",
   "lucky": "Alex",
   "unlucky": "Dzzy",
-  "id": "m57"
+  "id": "m93"
  },
  {
   "game": "2706632014",
@@ -703,9 +1229,10 @@
   "turn": 11,
   "what": "Dusclops's Will-O-Wisp missed Mienshao (75% accurate)",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m58"
+  "id": "m94"
  },
  {
   "game": "2706632014",
@@ -715,9 +1242,10 @@
   "turn": 12,
   "what": "Dusclops's Will-O-Wisp missed Thundurus-Therian (75% accurate)",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m59"
+  "id": "m95"
  },
  {
   "game": "2706632014",
@@ -727,9 +1255,10 @@
   "turn": 21,
   "what": "Dusclops's Will-O-Wisp missed Honchkrow (75% accurate)",
   "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m60"
+  "id": "m96"
  },
  {
   "game": "2695875340",
@@ -739,9 +1268,10 @@
   "turn": 12,
   "what": "Suicune's Scald burned Bronzong (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695875340",
   "lucky": "Connor",
   "unlucky": "Max",
-  "id": "m61"
+  "id": "m97"
  },
  {
   "game": "2695897212",
@@ -751,9 +1281,10 @@
   "turn": 9,
   "what": "Suicune's Scald burned Swampert (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695897212",
   "lucky": "Connor",
   "unlucky": "Max",
-  "id": "m62"
+  "id": "m98"
  },
  {
   "game": "2696363795",
@@ -763,9 +1294,10 @@
   "turn": 1,
   "what": "Politoed's Scald burned Deoxys-Speed (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696363795",
   "lucky": "David Kim",
   "unlucky": "Ethan",
-  "id": "m63"
+  "id": "m99"
  },
  {
   "game": "2696369469",
@@ -775,9 +1307,10 @@
   "turn": 14,
   "what": "Politoed's Scald burned Blissey (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696369469",
   "lucky": "David Kim",
   "unlucky": "Ethan",
-  "id": "m64"
+  "id": "m100"
  },
  {
   "game": "2696374950",
@@ -787,9 +1320,10 @@
   "turn": 9,
   "what": "Magneton's Thunder paralyzed Alakazam (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696374950",
   "lucky": "David Kim",
   "unlucky": "Ethan",
-  "id": "m65"
+  "id": "m101"
  },
  {
   "game": "2700072500",
@@ -799,9 +1333,10 @@
   "turn": 10,
   "what": "Blastoise's Scald burned Chansey (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700072500",
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m66"
+  "id": "m102"
  },
  {
   "game": "2700079479",
@@ -811,9 +1346,10 @@
   "turn": 2,
   "what": "Raikou's Thunder paralyzed Eelektross (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700079479",
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m67"
+  "id": "m103"
  },
  {
   "game": "2700079479",
@@ -823,9 +1359,10 @@
   "turn": 10,
   "what": "Politoed's Scald burned Suicune (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700079479",
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m68"
+  "id": "m104"
  },
  {
   "game": "2700079479",
@@ -835,9 +1372,10 @@
   "turn": 14,
   "what": "Politoed's Scald burned Suicune (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700079479",
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m69"
+  "id": "m105"
  },
  {
   "game": "2703157167",
@@ -847,9 +1385,10 @@
   "turn": 6,
   "what": "Shaymin's Air Slash flinched Ferrothorn (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703157167",
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m70"
+  "id": "m106"
  },
  {
   "game": "2703157167",
@@ -859,9 +1398,10 @@
   "turn": 14,
   "what": "Shaymin's Air Slash flinched Blastoise (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703157167",
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m71"
+  "id": "m107"
  },
  {
   "game": "2704645206",
@@ -871,9 +1411,10 @@
   "turn": 6,
   "what": "Milotic's Scald burned Hitmontop (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704645206",
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m72"
+  "id": "m108"
  },
  {
   "game": "2704648705",
@@ -883,9 +1424,10 @@
   "turn": 2,
   "what": "Mienshao's Rock Slide flinched Landorus (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704648705",
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m73"
+  "id": "m109"
  },
  {
   "game": "2706590747",
@@ -895,9 +1437,10 @@
   "turn": 7,
   "what": "Milotic's Scald burned Suicune (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706590747",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m74"
+  "id": "m110"
  },
  {
   "game": "2706632014",
@@ -907,9 +1450,10 @@
   "turn": 3,
   "what": "Mienshao's Rock Slide flinched Magmar (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m75"
+  "id": "m111"
  },
  {
   "game": "2706632014",
@@ -919,9 +1463,10 @@
   "turn": 4,
   "what": "Mienshao's Rock Slide flinched Dusclops (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m76"
+  "id": "m112"
  },
  {
   "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
@@ -931,8 +1476,9 @@
   "turn": 6,
   "what": "Slowbro's Scald burned Bronzong (30%)",
   "odds": 0.3,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706578313-kbus6lnon4epfaxnhvit9ketljxqec1pw",
   "lucky": "Danny",
   "unlucky": "Max",
-  "id": "m77"
+  "id": "m113"
  }
 ]
