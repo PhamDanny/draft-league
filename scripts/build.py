@@ -378,6 +378,7 @@ def main():
     save("schedule", sched)
     save("teams", teams)
     save("mons", mons)
+    save("draft", load(os.path.join(CONFIG, "draft.json"), []))
     save("moves", moves)
     save("teammoves", teammoves)
     save("gamemons", gm_rows, compact=True)
