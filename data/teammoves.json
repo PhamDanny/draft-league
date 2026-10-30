@@ -1172,8 +1172,16 @@
   "player": "Danny",
   "pokemon": "Heatran",
   "move": "Heat Wave",
-  "uses": 9,
-  "share": 0.75
+  "uses": 20,
+  "share": 0.8
+ },
+ {
+  "id": "Danny|Heatran|Substitute",
+  "player": "Danny",
+  "pokemon": "Heatran",
+  "move": "Substitute",
+  "uses": 3,
+  "share": 0.12
  },
  {
   "id": "Danny|Heatran|Protect",
@@ -1181,23 +1189,15 @@
   "pokemon": "Heatran",
   "move": "Protect",
   "uses": 2,
-  "share": 0.167
- },
- {
-  "id": "Danny|Heatran|Substitute",
-  "player": "Danny",
-  "pokemon": "Heatran",
-  "move": "Substitute",
-  "uses": 1,
-  "share": 0.083
+  "share": 0.08
  },
  {
   "id": "Danny|Hitmonlee|Fake Out",
   "player": "Danny",
   "pokemon": "Hitmonlee",
   "move": "Fake Out",
-  "uses": 2,
-  "share": 0.667
+  "uses": 3,
+  "share": 0.6
  },
  {
   "id": "Danny|Hitmonlee|Close Combat",
@@ -1205,15 +1205,23 @@
   "pokemon": "Hitmonlee",
   "move": "Close Combat",
   "uses": 1,
-  "share": 0.333
+  "share": 0.2
+ },
+ {
+  "id": "Danny|Hitmonlee|Superpower",
+  "player": "Danny",
+  "pokemon": "Hitmonlee",
+  "move": "Superpower",
+  "uses": 1,
+  "share": 0.2
  },
  {
   "id": "Danny|Kyurem-Black|Ice Beam",
   "player": "Danny",
   "pokemon": "Kyurem-Black",
   "move": "Ice Beam",
-  "uses": 5,
-  "share": 0.294
+  "uses": 6,
+  "share": 0.3
  },
  {
   "id": "Danny|Kyurem-Black|Outrage",
@@ -1221,7 +1229,7 @@
   "pokemon": "Kyurem-Black",
   "move": "Outrage",
   "uses": 4,
-  "share": 0.235
+  "share": 0.2
  },
  {
   "id": "Danny|Kyurem-Black|Dragon Claw",
@@ -1229,15 +1237,15 @@
   "pokemon": "Kyurem-Black",
   "move": "Dragon Claw",
   "uses": 3,
-  "share": 0.176
+  "share": 0.15
  },
  {
   "id": "Danny|Kyurem-Black|Earth Power",
   "player": "Danny",
   "pokemon": "Kyurem-Black",
   "move": "Earth Power",
-  "uses": 2,
-  "share": 0.118
+  "uses": 3,
+  "share": 0.15
  },
  {
   "id": "Danny|Kyurem-Black|Protect",
@@ -1245,7 +1253,15 @@
   "pokemon": "Kyurem-Black",
   "move": "Protect",
   "uses": 2,
-  "share": 0.118
+  "share": 0.1
+ },
+ {
+  "id": "Danny|Kyurem-Black|Draco Meteor",
+  "player": "Danny",
+  "pokemon": "Kyurem-Black",
+  "move": "Draco Meteor",
+  "uses": 1,
+  "share": 0.05
  },
  {
   "id": "Danny|Kyurem-Black|Fusion Bolt",
@@ -1253,15 +1269,31 @@
   "pokemon": "Kyurem-Black",
   "move": "Fusion Bolt",
   "uses": 1,
-  "share": 0.059
+  "share": 0.05
  },
  {
   "id": "Danny|Latias|Draco Meteor",
   "player": "Danny",
   "pokemon": "Latias",
   "move": "Draco Meteor",
-  "uses": 4,
-  "share": 0.444
+  "uses": 5,
+  "share": 0.333
+ },
+ {
+  "id": "Danny|Latias|Protect",
+  "player": "Danny",
+  "pokemon": "Latias",
+  "move": "Protect",
+  "uses": 3,
+  "share": 0.2
+ },
+ {
+  "id": "Danny|Latias|Psychic",
+  "player": "Danny",
+  "pokemon": "Latias",
+  "move": "Psychic",
+  "uses": 2,
+  "share": 0.133
  },
  {
   "id": "Danny|Latias|Energy Ball",
@@ -1269,7 +1301,7 @@
   "pokemon": "Latias",
   "move": "Energy Ball",
   "uses": 1,
-  "share": 0.111
+  "share": 0.067
  },
  {
   "id": "Danny|Latias|Ice Beam",
@@ -1277,15 +1309,7 @@
   "pokemon": "Latias",
   "move": "Ice Beam",
   "uses": 1,
-  "share": 0.111
- },
- {
-  "id": "Danny|Latias|Protect",
-  "player": "Danny",
-  "pokemon": "Latias",
-  "move": "Protect",
-  "uses": 1,
-  "share": 0.111
+  "share": 0.067
  },
  {
   "id": "Danny|Latias|Psyshock",
@@ -1293,7 +1317,15 @@
   "pokemon": "Latias",
   "move": "Psyshock",
   "uses": 1,
-  "share": 0.111
+  "share": 0.067
+ },
+ {
+  "id": "Danny|Latias|Roar",
+  "player": "Danny",
+  "pokemon": "Latias",
+  "move": "Roar",
+  "uses": 1,
+  "share": 0.067
  },
  {
   "id": "Danny|Latias|Tailwind",
@@ -1301,7 +1333,7 @@
   "pokemon": "Latias",
   "move": "Tailwind",
   "uses": 1,
-  "share": 0.111
+  "share": 0.067
  },
  {
   "id": "Danny|Manaphy|Scald",
@@ -1352,12 +1384,44 @@
   "share": 0.286
  },
  {
+  "id": "Danny|Slowbro|Psyshock",
+  "player": "Danny",
+  "pokemon": "Slowbro",
+  "move": "Psyshock",
+  "uses": 3,
+  "share": 0.273
+ },
+ {
+  "id": "Danny|Slowbro|Scald",
+  "player": "Danny",
+  "pokemon": "Slowbro",
+  "move": "Scald",
+  "uses": 3,
+  "share": 0.273
+ },
+ {
+  "id": "Danny|Slowbro|Trick Room",
+  "player": "Danny",
+  "pokemon": "Slowbro",
+  "move": "Trick Room",
+  "uses": 3,
+  "share": 0.273
+ },
+ {
+  "id": "Danny|Slowbro|Protect",
+  "player": "Danny",
+  "pokemon": "Slowbro",
+  "move": "Protect",
+  "uses": 2,
+  "share": 0.182
+ },
+ {
   "id": "Danny|Staraptor|Final Gambit",
   "player": "Danny",
   "pokemon": "Staraptor",
   "move": "Final Gambit",
-  "uses": 4,
-  "share": 0.5
+  "uses": 5,
+  "share": 0.556
  },
  {
   "id": "Danny|Staraptor|Brave Bird",
@@ -1365,7 +1429,7 @@
   "pokemon": "Staraptor",
   "move": "Brave Bird",
   "uses": 2,
-  "share": 0.25
+  "share": 0.222
  },
  {
   "id": "Danny|Staraptor|Tailwind",
@@ -1373,7 +1437,7 @@
   "pokemon": "Staraptor",
   "move": "Tailwind",
   "uses": 1,
-  "share": 0.125
+  "share": 0.111
  },
  {
   "id": "Danny|Staraptor|U-turn",
@@ -1381,7 +1445,7 @@
   "pokemon": "Staraptor",
   "move": "U-turn",
   "uses": 1,
-  "share": 0.125
+  "share": 0.111
  },
  {
   "id": "Danny|Thundurus|Thunderbolt",
@@ -1420,8 +1484,8 @@
   "player": "Danny",
   "pokemon": "Virizion",
   "move": "Leaf Blade",
-  "uses": 5,
-  "share": 0.455
+  "uses": 6,
+  "share": 0.5
  },
  {
   "id": "Danny|Virizion|Close Combat",
@@ -1429,7 +1493,7 @@
   "pokemon": "Virizion",
   "move": "Close Combat",
   "uses": 4,
-  "share": 0.364
+  "share": 0.333
  },
  {
   "id": "Danny|Virizion|Protect",
@@ -1437,7 +1501,7 @@
   "pokemon": "Virizion",
   "move": "Protect",
   "uses": 1,
-  "share": 0.091
+  "share": 0.083
  },
  {
   "id": "Danny|Virizion|Sacred Sword",
@@ -1445,7 +1509,7 @@
   "pokemon": "Virizion",
   "move": "Sacred Sword",
   "uses": 1,
-  "share": 0.091
+  "share": 0.083
  },
  {
   "id": "David Kim|Blastoise|Fake Out",
@@ -2836,23 +2900,23 @@
   "player": "Max",
   "pokemon": "Bronzong",
   "move": "Gyro Ball",
-  "uses": 16,
-  "share": 0.39
+  "uses": 21,
+  "share": 0.429
  },
  {
   "id": "Max|Bronzong|Stealth Rock",
   "player": "Max",
   "pokemon": "Bronzong",
   "move": "Stealth Rock",
-  "uses": 9,
-  "share": 0.22
+  "uses": 10,
+  "share": 0.204
  },
  {
   "id": "Max|Bronzong|Trick Room",
   "player": "Max",
   "pokemon": "Bronzong",
   "move": "Trick Room",
-  "uses": 5,
+  "uses": 6,
   "share": 0.122
  },
  {
@@ -2860,8 +2924,8 @@
   "player": "Max",
   "pokemon": "Bronzong",
   "move": "Protect",
-  "uses": 4,
-  "share": 0.098
+  "uses": 5,
+  "share": 0.102
  },
  {
   "id": "Max|Bronzong|Sunny Day",
@@ -2869,7 +2933,7 @@
   "pokemon": "Bronzong",
   "move": "Sunny Day",
   "uses": 3,
-  "share": 0.073
+  "share": 0.061
  },
  {
   "id": "Max|Bronzong|Light Screen",
@@ -2877,7 +2941,7 @@
   "pokemon": "Bronzong",
   "move": "Light Screen",
   "uses": 2,
-  "share": 0.049
+  "share": 0.041
  },
  {
   "id": "Max|Bronzong|Toxic",
@@ -2885,7 +2949,7 @@
   "pokemon": "Bronzong",
   "move": "Toxic",
   "uses": 2,
-  "share": 0.049
+  "share": 0.041
  },
  {
   "id": "Max|Camerupt|Eruption",
@@ -2916,32 +2980,32 @@
   "player": "Max",
   "pokemon": "Hariyama",
   "move": "Fake Out",
-  "uses": 6,
-  "share": 0.333
- },
- {
-  "id": "Max|Hariyama|Ice Punch",
-  "player": "Max",
-  "pokemon": "Hariyama",
-  "move": "Ice Punch",
-  "uses": 6,
-  "share": 0.333
+  "uses": 9,
+  "share": 0.346
  },
  {
   "id": "Max|Hariyama|Detect",
   "player": "Max",
   "pokemon": "Hariyama",
   "move": "Detect",
-  "uses": 4,
-  "share": 0.222
+  "uses": 7,
+  "share": 0.269
+ },
+ {
+  "id": "Max|Hariyama|Ice Punch",
+  "player": "Max",
+  "pokemon": "Hariyama",
+  "move": "Ice Punch",
+  "uses": 7,
+  "share": 0.269
  },
  {
   "id": "Max|Hariyama|Close Combat",
   "player": "Max",
   "pokemon": "Hariyama",
   "move": "Close Combat",
-  "uses": 2,
-  "share": 0.111
+  "uses": 3,
+  "share": 0.115
  },
  {
   "id": "Max|Ninetales|Calm Mind",
@@ -2972,8 +3036,16 @@
   "player": "Max",
   "pokemon": "Porygon2",
   "move": "Ice Beam",
-  "uses": 15,
-  "share": 0.375
+  "uses": 16,
+  "share": 0.348
+ },
+ {
+  "id": "Max|Porygon2|Thunderbolt",
+  "player": "Max",
+  "pokemon": "Porygon2",
+  "move": "Thunderbolt",
+  "uses": 9,
+  "share": 0.196
  },
  {
   "id": "Max|Porygon2|Recover",
@@ -2981,7 +3053,7 @@
   "pokemon": "Porygon2",
   "move": "Recover",
   "uses": 7,
-  "share": 0.175
+  "share": 0.152
  },
  {
   "id": "Max|Porygon2|Shadow Ball",
@@ -2989,23 +3061,15 @@
   "pokemon": "Porygon2",
   "move": "Shadow Ball",
   "uses": 6,
-  "share": 0.15
- },
- {
-  "id": "Max|Porygon2|Thunderbolt",
-  "player": "Max",
-  "pokemon": "Porygon2",
-  "move": "Thunderbolt",
-  "uses": 5,
-  "share": 0.125
+  "share": 0.13
  },
  {
   "id": "Max|Porygon2|Trick Room",
   "player": "Max",
   "pokemon": "Porygon2",
   "move": "Trick Room",
-  "uses": 4,
-  "share": 0.1
+  "uses": 5,
+  "share": 0.109
  },
  {
   "id": "Max|Porygon2|Discharge",
@@ -3013,7 +3077,7 @@
   "pokemon": "Porygon2",
   "move": "Discharge",
   "uses": 3,
-  "share": 0.075
+  "share": 0.065
  },
  {
   "id": "Max|Rampardos|Earthquake",
@@ -3029,7 +3093,7 @@
   "pokemon": "Shaymin",
   "move": "Giga Drain",
   "uses": 13,
-  "share": 0.333
+  "share": 0.31
  },
  {
   "id": "Max|Shaymin|Air Slash",
@@ -3037,7 +3101,15 @@
   "pokemon": "Shaymin",
   "move": "Air Slash",
   "uses": 8,
-  "share": 0.205
+  "share": 0.19
+ },
+ {
+  "id": "Max|Shaymin|Protect",
+  "player": "Max",
+  "pokemon": "Shaymin",
+  "move": "Protect",
+  "uses": 8,
+  "share": 0.19
  },
  {
   "id": "Max|Shaymin|Leech Seed",
@@ -3045,15 +3117,7 @@
   "pokemon": "Shaymin",
   "move": "Leech Seed",
   "uses": 7,
-  "share": 0.179
- },
- {
-  "id": "Max|Shaymin|Protect",
-  "player": "Max",
-  "pokemon": "Shaymin",
-  "move": "Protect",
-  "uses": 7,
-  "share": 0.179
+  "share": 0.167
  },
  {
   "id": "Max|Shaymin|Seed Flare",
@@ -3061,7 +3125,23 @@
   "pokemon": "Shaymin",
   "move": "Seed Flare",
   "uses": 4,
-  "share": 0.103
+  "share": 0.095
+ },
+ {
+  "id": "Max|Shaymin|Psychic",
+  "player": "Max",
+  "pokemon": "Shaymin",
+  "move": "Psychic",
+  "uses": 2,
+  "share": 0.048
+ },
+ {
+  "id": "Max|Swampert|Earth Power",
+  "player": "Max",
+  "pokemon": "Swampert",
+  "move": "Earth Power",
+  "uses": 9,
+  "share": 0.237
  },
  {
   "id": "Max|Swampert|Earthquake",
@@ -3069,15 +3149,7 @@
   "pokemon": "Swampert",
   "move": "Earthquake",
   "uses": 9,
-  "share": 0.273
- },
- {
-  "id": "Max|Swampert|Earth Power",
-  "player": "Max",
-  "pokemon": "Swampert",
-  "move": "Earth Power",
-  "uses": 8,
-  "share": 0.242
+  "share": 0.237
  },
  {
   "id": "Max|Swampert|Scald",
@@ -3085,7 +3157,15 @@
   "pokemon": "Swampert",
   "move": "Scald",
   "uses": 8,
-  "share": 0.242
+  "share": 0.211
+ },
+ {
+  "id": "Max|Swampert|Protect",
+  "player": "Max",
+  "pokemon": "Swampert",
+  "move": "Protect",
+  "uses": 6,
+  "share": 0.158
  },
  {
   "id": "Max|Swampert|Ice Beam",
@@ -3093,15 +3173,7 @@
   "pokemon": "Swampert",
   "move": "Ice Beam",
   "uses": 3,
-  "share": 0.091
- },
- {
-  "id": "Max|Swampert|Protect",
-  "player": "Max",
-  "pokemon": "Swampert",
-  "move": "Protect",
-  "uses": 3,
-  "share": 0.091
+  "share": 0.079
  },
  {
   "id": "Max|Swampert|Stealth Rock",
@@ -3109,7 +3181,7 @@
   "pokemon": "Swampert",
   "move": "Stealth Rock",
   "uses": 1,
-  "share": 0.03
+  "share": 0.026
  },
  {
   "id": "Max|Swampert|Waterfall",
@@ -3117,7 +3189,15 @@
   "pokemon": "Swampert",
   "move": "Waterfall",
   "uses": 1,
-  "share": 0.03
+  "share": 0.026
+ },
+ {
+  "id": "Max|Swampert|Yawn",
+  "player": "Max",
+  "pokemon": "Swampert",
+  "move": "Yawn",
+  "uses": 1,
+  "share": 0.026
  },
  {
   "id": "Max|Volcarona|Flamethrower",
@@ -3125,7 +3205,7 @@
   "pokemon": "Volcarona",
   "move": "Flamethrower",
   "uses": 4,
-  "share": 0.364
+  "share": 0.286
  },
  {
   "id": "Max|Volcarona|Giga Drain",
@@ -3133,7 +3213,15 @@
   "pokemon": "Volcarona",
   "move": "Giga Drain",
   "uses": 4,
-  "share": 0.364
+  "share": 0.286
+ },
+ {
+  "id": "Max|Volcarona|Protect",
+  "player": "Max",
+  "pokemon": "Volcarona",
+  "move": "Protect",
+  "uses": 3,
+  "share": 0.214
  },
  {
   "id": "Max|Volcarona|Bug Buzz",
@@ -3141,15 +3229,15 @@
   "pokemon": "Volcarona",
   "move": "Bug Buzz",
   "uses": 2,
-  "share": 0.182
+  "share": 0.143
  },
  {
-  "id": "Max|Volcarona|Protect",
+  "id": "Max|Volcarona|Rage Powder",
   "player": "Max",
   "pokemon": "Volcarona",
-  "move": "Protect",
+  "move": "Rage Powder",
   "uses": 1,
-  "share": 0.091
+  "share": 0.071
  },
  {
   "id": "Max|Wartortle|Fake Out",

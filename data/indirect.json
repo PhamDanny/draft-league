@@ -7,20 +7,20 @@
  },
  {
   "source": "Stealth Rock",
-  "hits": 80,
-  "damage": 9.89,
+  "hits": 84,
+  "damage": 10.39,
   "faints": 2
  },
  {
   "source": "Life Orb recoil",
-  "hits": 99,
-  "damage": 9.47,
+  "hits": 104,
+  "damage": 9.97,
   "faints": 5
  },
  {
   "source": "Burn",
-  "hits": 62,
-  "damage": 7.48,
+  "hits": 75,
+  "damage": 9.08,
   "faints": 7
  },
  {

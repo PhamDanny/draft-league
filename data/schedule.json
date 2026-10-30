@@ -252,11 +252,11 @@
   "matchup": "Max vs Danny",
   "player1": "Max",
   "player2": "Danny",
-  "status": "Upcoming",
-  "winner": null,
-  "score": null,
-  "game1": null,
-  "game2": null,
+  "status": "Played",
+  "winner": "Danny",
+  "score": "0–2",
+  "game1": "d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
+  "game2": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
   "game3": null
  },
  {

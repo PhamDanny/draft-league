@@ -682,5 +682,41 @@
   "crits1": 0,
   "crits2": 1,
   "events": 37
+ },
+ {
+  "id": "d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706573984-d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
+  "week": 4,
+  "game": 1,
+  "matchup": "Danny vs Max",
+  "player1": "Danny",
+  "player2": "Max",
+  "winner": "Danny",
+  "turns": 12,
+  "luckier": "Danny",
+  "edge": 4.55,
+  "edge_score": 2.61,
+  "luckier_won": "Yes",
+  "crits1": 4,
+  "crits2": 0,
+  "events": 40
+ },
+ {
+  "id": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706578313-kbus6lnon4epfaxnhvit9ketljxqec1pw",
+  "week": 4,
+  "game": 2,
+  "matchup": "Danny vs Max",
+  "player1": "Danny",
+  "player2": "Max",
+  "winner": "Danny",
+  "turns": 13,
+  "luckier": "Danny",
+  "edge": 0.25,
+  "edge_score": 0.16,
+  "luckier_won": "Yes",
+  "crits1": 0,
+  "crits2": 0,
+  "events": 31
  }
 ]
