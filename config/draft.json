@@ -1,0 +1,842 @@
+[
+ {
+  "round": 1,
+  "pick": 1,
+  "player": "Ethan",
+  "pokemon": "Garchomp",
+  "tier": "OU"
+ },
+ {
+  "round": 1,
+  "pick": 2,
+  "player": "Danny",
+  "pokemon": "Thundurus",
+  "tier": "OU"
+ },
+ {
+  "round": 1,
+  "pick": 3,
+  "player": "David Kim",
+  "pokemon": "Politoed",
+  "tier": "OU"
+ },
+ {
+  "round": 1,
+  "pick": 4,
+  "player": "Alex",
+  "pokemon": "Tyranitar",
+  "tier": "OU"
+ },
+ {
+  "round": 1,
+  "pick": 5,
+  "player": "Connor",
+  "pokemon": "Landorus-Therian",
+  "tier": "OU"
+ },
+ {
+  "round": 1,
+  "pick": 6,
+  "player": "Dennis",
+  "pokemon": "Cresselia",
+  "tier": "OU"
+ },
+ {
+  "round": 1,
+  "pick": 7,
+  "player": "Brayden",
+  "pokemon": "Thundurus-Therian",
+  "tier": "OU"
+ },
+ {
+  "round": 1,
+  "pick": 8,
+  "player": "Bo",
+  "pokemon": "Lucario",
+  "tier": "OU"
+ },
+ {
+  "round": 1,
+  "pick": 9,
+  "player": "Dzzy",
+  "pokemon": "Amoonguss",
+  "tier": "OU"
+ },
+ {
+  "round": 1,
+  "pick": 10,
+  "player": "Max",
+  "pokemon": "Ninetales",
+  "tier": "OU"
+ },
+ {
+  "round": 2,
+  "pick": 11,
+  "player": "Max",
+  "pokemon": "Bronzong",
+  "tier": "OU"
+ },
+ {
+  "round": 2,
+  "pick": 12,
+  "player": "Dzzy",
+  "pokemon": "Jellicent",
+  "tier": "OU"
+ },
+ {
+  "round": 2,
+  "pick": 13,
+  "player": "Bo",
+  "pokemon": "Galvantula",
+  "tier": "UU"
+ },
+ {
+  "round": 2,
+  "pick": 14,
+  "player": "Brayden",
+  "pokemon": "Excadrill",
+  "tier": "OU"
+ },
+ {
+  "round": 2,
+  "pick": 15,
+  "player": "Dennis",
+  "pokemon": "Hitmontop",
+  "tier": "OU"
+ },
+ {
+  "round": 2,
+  "pick": 16,
+  "player": "Connor",
+  "pokemon": "Latios",
+  "tier": "OU"
+ },
+ {
+  "round": 2,
+  "pick": 17,
+  "player": "Alex",
+  "pokemon": "Metagross",
+  "tier": "OU"
+ },
+ {
+  "round": 2,
+  "pick": 18,
+  "player": "David Kim",
+  "pokemon": "Kingdra",
+  "tier": "OU"
+ },
+ {
+  "round": 2,
+  "pick": 19,
+  "player": "Danny",
+  "pokemon": "Heatran",
+  "tier": "OU"
+ },
+ {
+  "round": 2,
+  "pick": 20,
+  "player": "Ethan",
+  "pokemon": "Gastrodon",
+  "tier": "OU"
+ },
+ {
+  "round": 3,
+  "pick": 21,
+  "player": "Ethan",
+  "pokemon": "Zapdos",
+  "tier": "OU"
+ },
+ {
+  "round": 3,
+  "pick": 22,
+  "player": "Danny",
+  "pokemon": "Kyurem-Black",
+  "tier": "OU"
+ },
+ {
+  "round": 3,
+  "pick": 23,
+  "player": "David Kim",
+  "pokemon": "Ferrothorn",
+  "tier": "OU"
+ },
+ {
+  "round": 3,
+  "pick": 24,
+  "player": "Alex",
+  "pokemon": "Rotom-Wash",
+  "tier": "OU"
+ },
+ {
+  "round": 3,
+  "pick": 25,
+  "player": "Connor",
+  "pokemon": "Scrafty",
+  "tier": "UU"
+ },
+ {
+  "round": 3,
+  "pick": 26,
+  "player": "Dennis",
+  "pokemon": "Scizor",
+  "tier": "OU"
+ },
+ {
+  "round": 3,
+  "pick": 27,
+  "player": "Brayden",
+  "pokemon": "Salamence",
+  "tier": "OU"
+ },
+ {
+  "round": 3,
+  "pick": 28,
+  "player": "Bo",
+  "pokemon": "Haxorus",
+  "tier": "UU"
+ },
+ {
+  "round": 3,
+  "pick": 29,
+  "player": "Dzzy",
+  "pokemon": "Terrakion",
+  "tier": "OU"
+ },
+ {
+  "round": 3,
+  "pick": 30,
+  "player": "Max",
+  "pokemon": "Alomomola",
+  "tier": "UU"
+ },
+ {
+  "round": 4,
+  "pick": 31,
+  "player": "Max",
+  "pokemon": "Hariyama",
+  "tier": "UU"
+ },
+ {
+  "round": 4,
+  "pick": 32,
+  "player": "Dzzy",
+  "pokemon": "Bisharp",
+  "tier": "UU"
+ },
+ {
+  "round": 4,
+  "pick": 33,
+  "player": "Bo",
+  "pokemon": "Chandelure",
+  "tier": "OU"
+ },
+ {
+  "round": 4,
+  "pick": 34,
+  "player": "Brayden",
+  "pokemon": "Celebi",
+  "tier": "UU"
+ },
+ {
+  "round": 4,
+  "pick": 35,
+  "player": "Dennis",
+  "pokemon": "Darkrai",
+  "tier": "UU"
+ },
+ {
+  "round": 4,
+  "pick": 36,
+  "player": "Connor",
+  "pokemon": "Suicune",
+  "tier": "UU"
+ },
+ {
+  "round": 4,
+  "pick": 37,
+  "player": "Alex",
+  "pokemon": "Keldeo",
+  "tier": "UU"
+ },
+ {
+  "round": 4,
+  "pick": 38,
+  "player": "David Kim",
+  "pokemon": "Tornadus",
+  "tier": "UU"
+ },
+ {
+  "round": 4,
+  "pick": 39,
+  "player": "Danny",
+  "pokemon": "Latias",
+  "tier": "UU"
+ },
+ {
+  "round": 4,
+  "pick": 40,
+  "player": "Ethan",
+  "pokemon": "Starmie",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 41,
+  "player": "Ethan",
+  "pokemon": "Alakazam",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 42,
+  "player": "Danny",
+  "pokemon": "Staraptor",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 43,
+  "player": "David Kim",
+  "pokemon": "Escavalier",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 44,
+  "player": "Alex",
+  "pokemon": "Crobat",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 45,
+  "player": "Connor",
+  "pokemon": "Rotom-Heat",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 46,
+  "player": "Dennis",
+  "pokemon": "Landorus",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 47,
+  "player": "Brayden",
+  "pokemon": "Milotic",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 48,
+  "player": "Bo",
+  "pokemon": "Seismitoad",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 49,
+  "player": "Dzzy",
+  "pokemon": "Kyurem",
+  "tier": "UU"
+ },
+ {
+  "round": 5,
+  "pick": 50,
+  "player": "Max",
+  "pokemon": "Shaymin",
+  "tier": "UU"
+ },
+ {
+  "round": 6,
+  "pick": 51,
+  "player": "Max",
+  "pokemon": "Porygon2",
+  "tier": "NFE"
+ },
+ {
+  "round": 6,
+  "pick": 52,
+  "player": "Dzzy",
+  "pokemon": "Krookodile",
+  "tier": "UU"
+ },
+ {
+  "round": 6,
+  "pick": 53,
+  "player": "Bo",
+  "pokemon": "Hydreigon",
+  "tier": "OU"
+ },
+ {
+  "round": 6,
+  "pick": 54,
+  "player": "Brayden",
+  "pokemon": "Mienshao",
+  "tier": "UU"
+ },
+ {
+  "round": 6,
+  "pick": 55,
+  "player": "Dennis",
+  "pokemon": "Moltres",
+  "tier": "UU"
+ },
+ {
+  "round": 6,
+  "pick": 56,
+  "player": "Connor",
+  "pokemon": "Chansey",
+  "tier": "NFE"
+ },
+ {
+  "round": 6,
+  "pick": 57,
+  "player": "Alex",
+  "pokemon": "Tangrowth",
+  "tier": "UU"
+ },
+ {
+  "round": 6,
+  "pick": 58,
+  "player": "David Kim",
+  "pokemon": "Raikou",
+  "tier": "UU"
+ },
+ {
+  "round": 6,
+  "pick": 59,
+  "player": "Danny",
+  "pokemon": "Manaphy",
+  "tier": "UU"
+ },
+ {
+  "round": 6,
+  "pick": 60,
+  "player": "Ethan",
+  "pokemon": "Magnezone",
+  "tier": "UU"
+ },
+ {
+  "round": 7,
+  "pick": 61,
+  "player": "Ethan",
+  "pokemon": "Emboar",
+  "tier": "UU"
+ },
+ {
+  "round": 7,
+  "pick": 62,
+  "player": "Danny",
+  "pokemon": "Hitmonlee",
+  "tier": "UU"
+ },
+ {
+  "round": 7,
+  "pick": 63,
+  "player": "David Kim",
+  "pokemon": "Lapras",
+  "tier": "UU"
+ },
+ {
+  "round": 7,
+  "pick": 64,
+  "player": "Alex",
+  "pokemon": "Kangaskhan",
+  "tier": "UU"
+ },
+ {
+  "round": 7,
+  "pick": 65,
+  "player": "Connor",
+  "pokemon": "Machamp",
+  "tier": "UU"
+ },
+ {
+  "round": 7,
+  "pick": 66,
+  "player": "Dennis",
+  "pokemon": "Snorlax",
+  "tier": "UU"
+ },
+ {
+  "round": 7,
+  "pick": 67,
+  "player": "Brayden",
+  "pokemon": "Hippowdon",
+  "tier": "UU"
+ },
+ {
+  "round": 7,
+  "pick": 68,
+  "player": "Bo",
+  "pokemon": "Darmanitan",
+  "tier": "UU"
+ },
+ {
+  "round": 7,
+  "pick": 69,
+  "player": "Dzzy",
+  "pokemon": "Clefairy",
+  "tier": "NFE"
+ },
+ {
+  "round": 7,
+  "pick": 70,
+  "player": "Max",
+  "pokemon": "Swampert",
+  "tier": "UU"
+ },
+ {
+  "round": 8,
+  "pick": 71,
+  "player": "Max",
+  "pokemon": "Wartortle",
+  "tier": "NFE"
+ },
+ {
+  "round": 8,
+  "pick": 72,
+  "player": "Dzzy",
+  "pokemon": "Mew",
+  "tier": "UU"
+ },
+ {
+  "round": 8,
+  "pick": 73,
+  "player": "Bo",
+  "pokemon": "Mandibuzz",
+  "tier": "UU"
+ },
+ {
+  "round": 8,
+  "pick": 74,
+  "player": "Brayden",
+  "pokemon": "Uxie",
+  "tier": "UU"
+ },
+ {
+  "round": 8,
+  "pick": 75,
+  "player": "Dennis",
+  "pokemon": "Dusknoir",
+  "tier": "UU"
+ },
+ {
+  "round": 8,
+  "pick": 76,
+  "player": "Connor",
+  "pokemon": "Dusclops",
+  "tier": "NFE"
+ },
+ {
+  "round": 8,
+  "pick": 77,
+  "player": "Alex",
+  "pokemon": "Gothitelle",
+  "tier": "UU"
+ },
+ {
+  "round": 8,
+  "pick": 78,
+  "player": "David Kim",
+  "pokemon": "Quagsire",
+  "tier": "UU"
+ },
+ {
+  "round": 8,
+  "pick": 79,
+  "player": "Danny",
+  "pokemon": "Cobalion",
+  "tier": "UU"
+ },
+ {
+  "round": 8,
+  "pick": 80,
+  "player": "Ethan",
+  "pokemon": "Zoroark",
+  "tier": "UU"
+ },
+ {
+  "round": 9,
+  "pick": 81,
+  "player": "Ethan",
+  "pokemon": "Blissey",
+  "tier": "UU"
+ },
+ {
+  "round": 9,
+  "pick": 82,
+  "player": "Danny",
+  "pokemon": "Virizion",
+  "tier": "UU"
+ },
+ {
+  "round": 9,
+  "pick": 83,
+  "player": "David Kim",
+  "pokemon": "Blastoise",
+  "tier": "UU"
+ },
+ {
+  "round": 9,
+  "pick": 84,
+  "player": "Alex",
+  "pokemon": "Stoutland",
+  "tier": "UU"
+ },
+ {
+  "round": 9,
+  "pick": 85,
+  "player": "Connor",
+  "pokemon": "Magmar",
+  "tier": "NFE"
+ },
+ {
+  "round": 9,
+  "pick": 86,
+  "player": "Dennis",
+  "pokemon": "Lanturn",
+  "tier": "UU"
+ },
+ {
+  "round": 9,
+  "pick": 87,
+  "player": "Brayden",
+  "pokemon": "Entei",
+  "tier": "UU"
+ },
+ {
+  "round": 9,
+  "pick": 88,
+  "player": "Bo",
+  "pokemon": "Scolipede",
+  "tier": "UU"
+ },
+ {
+  "round": 9,
+  "pick": 89,
+  "player": "Dzzy",
+  "pokemon": "Manectric",
+  "tier": "UU"
+ },
+ {
+  "round": 9,
+  "pick": 90,
+  "player": "Max",
+  "pokemon": "Vileplume",
+  "tier": "UU"
+ },
+ {
+  "round": 10,
+  "pick": 91,
+  "player": "Max",
+  "pokemon": "Camerupt",
+  "tier": "UU"
+ },
+ {
+  "round": 10,
+  "pick": 92,
+  "player": "Dzzy",
+  "pokemon": "Lickilicky",
+  "tier": "UU"
+ },
+ {
+  "round": 10,
+  "pick": 93,
+  "player": "Bo",
+  "pokemon": "Sigilyph",
+  "tier": "UU"
+ },
+ {
+  "round": 10,
+  "pick": 94,
+  "player": "Brayden",
+  "pokemon": "Gligar",
+  "tier": "NFE"
+ },
+ {
+  "round": 10,
+  "pick": 95,
+  "player": "Dennis",
+  "pokemon": "Tornadus-Therian",
+  "tier": "UU"
+ },
+ {
+  "round": 10,
+  "pick": 96,
+  "player": "Connor",
+  "pokemon": "Eelektross",
+  "tier": "UU"
+ },
+ {
+  "round": 10,
+  "pick": 97,
+  "player": "Alex",
+  "pokemon": "Gurdurr",
+  "tier": "NFE"
+ },
+ {
+  "round": 10,
+  "pick": 98,
+  "player": "David Kim",
+  "pokemon": "Rhyperior",
+  "tier": "UU"
+ },
+ {
+  "round": 10,
+  "pick": 99,
+  "player": "Danny",
+  "pokemon": "Rhydon",
+  "tier": "NFE"
+ },
+ {
+  "round": 10,
+  "pick": 100,
+  "player": "Ethan",
+  "pokemon": "Deoxys-Speed",
+  "tier": "UU"
+ },
+ {
+  "round": 11,
+  "pick": 101,
+  "player": "Ethan",
+  "pokemon": "Haunter",
+  "tier": "NFE"
+ },
+ {
+  "round": 11,
+  "pick": 102,
+  "player": "Danny",
+  "pokemon": "Golbat",
+  "tier": "NFE"
+ },
+ {
+  "round": 11,
+  "pick": 103,
+  "player": "David Kim",
+  "pokemon": "Tangela",
+  "tier": "NFE"
+ },
+ {
+  "round": 11,
+  "pick": 104,
+  "player": "Alex",
+  "pokemon": "Cradily",
+  "tier": "UU"
+ },
+ {
+  "round": 11,
+  "pick": 105,
+  "player": "Connor",
+  "pokemon": "Beartic",
+  "tier": "UU"
+ },
+ {
+  "round": 11,
+  "pick": 106,
+  "player": "Dennis",
+  "pokemon": "Togetic",
+  "tier": "NFE"
+ },
+ {
+  "round": 11,
+  "pick": 107,
+  "player": "Brayden",
+  "pokemon": "Vulpix",
+  "tier": "NFE"
+ },
+ {
+  "round": 11,
+  "pick": 108,
+  "player": "Bo",
+  "pokemon": "Eelektrik",
+  "tier": "NFE"
+ },
+ {
+  "round": 11,
+  "pick": 109,
+  "player": "Dzzy",
+  "pokemon": "Drifblim",
+  "tier": "UU"
+ },
+ {
+  "round": 11,
+  "pick": 110,
+  "player": "Max",
+  "pokemon": "Rampardos",
+  "tier": "UU"
+ },
+ {
+  "round": 12,
+  "pick": 111,
+  "player": "Max",
+  "pokemon": "Volcarona",
+  "tier": "OU"
+ },
+ {
+  "round": 12,
+  "pick": 112,
+  "player": "Dzzy",
+  "pokemon": "Boldore",
+  "tier": "NFE"
+ },
+ {
+  "round": 12,
+  "pick": 113,
+  "player": "Bo",
+  "pokemon": "Pikachu",
+  "tier": "NFE"
+ },
+ {
+  "round": 12,
+  "pick": 114,
+  "player": "Brayden",
+  "pokemon": "Honchkrow",
+  "tier": "UU"
+ },
+ {
+  "round": 12,
+  "pick": 115,
+  "player": "Dennis",
+  "pokemon": "Lampent",
+  "tier": "NFE"
+ },
+ {
+  "round": 12,
+  "pick": 116,
+  "player": "Connor",
+  "pokemon": "Genesect",
+  "tier": "OU"
+ },
+ {
+  "round": 12,
+  "pick": 117,
+  "player": "Alex",
+  "pokemon": "Piloswine",
+  "tier": "NFE"
+ },
+ {
+  "round": 12,
+  "pick": 118,
+  "player": "David Kim",
+  "pokemon": "Magneton",
+  "tier": "NFE"
+ },
+ {
+  "round": 12,
+  "pick": 119,
+  "player": "Danny",
+  "pokemon": "Slowbro",
+  "tier": "UU"
+ },
+ {
+  "round": 12,
+  "pick": 120,
+  "player": "Ethan",
+  "pokemon": "Yanma",
+  "tier": "NFE"
+ }
+]
