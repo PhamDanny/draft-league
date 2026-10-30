@@ -63,10 +63,17 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-sub { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0 0 var(--cds-gap-sm); }
 .lx-scroll.lx-tall { max-height: none; }
 .lx-dlegend { display: flex; gap: var(--cds-gap-sm); margin-bottom: var(--cds-gap-md); }
-.lx-dt { color: #1f1e1d; font-size: var(--cds-font-size-caption); padding: 2px .6rem; border-radius: 999px; }
-.lx-dt-ou { background: #e06666; } .lx-dt-uu { background: #ff9900; } .lx-dt-nfe { background: #ffd966; }
-.lx-table td.lx-dc { color: #1f1e1d; }
-.lx-table td.lx-dc.lx-dt-ou, .lx-table td.lx-dc.lx-dt-uu, .lx-table td.lx-dc.lx-dt-nfe { border-bottom-color: #fff8; }
+.lx-dt { color: #3a3835; font-size: var(--cds-font-size-caption); padding: 2px .6rem; border-radius: 999px; }
+.lx-dt-ou { background: #e8b4ae; } .lx-dt-uu { background: #f0cfa3; } .lx-dt-nfe { background: #efe3ae; }
+.lx-table td.lx-dc { color: #3a3835; }
+@media (prefers-color-scheme: dark) { .lx-dt-ou { background: #6e3f3b; } .lx-dt-uu { background: #6b5636; } .lx-dt-nfe { background: #675f3a; } .lx-dt { color: #f0eee8; } .lx-table td.lx-dc { color: #f0eee8; } }
+.lx-table td.lx-dc.lx-dt-ou, .lx-table td.lx-dc.lx-dt-uu, .lx-table td.lx-dc.lx-dt-nfe { border-bottom-color: var(--color-panel); }
+.lx-board { table-layout: fixed; }
+.lx-board td, .lx-board th { overflow: hidden; text-overflow: ellipsis; padding-inline: 2px; font-size: 0.75rem; white-space: normal; }
+.lx-board .lx-spr { display: none; }@media (min-width: 1100px) { .lx-board .lx-spr { display: inline; } }
+.lx-board td.lx-dr, .lx-board th:first-child { width: 4.25rem; }
+.lx-board .lx-spr { width: 1.25rem; height: 1.25rem; margin-right: 1px; }
+@media (max-width: 900px) { .lx-board { table-layout: auto; } }
 .lx-table td.lx-dc small { display: block; font-size: 0.6875rem; opacity: .7; }
 .lx-table td.lx-dr { color: var(--color-fg-muted); }
 .lx-tabs { display: flex; gap: var(--cds-gap-xs); flex-wrap: wrap; border-bottom: 1px solid var(--color-border-line); margin-bottom: var(--cds-gap-lg); }
@@ -476,7 +483,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Most valuable pick in each round</h2>
-      <p class="lx-note">Value is KOs plus HP bars of damage dealt, per game the owner played, so a Pokémon that was never brought scores 0. Both stats are in units of one Pokémon, so a value of 1.0 means about one Pokémon's worth of work every game. Small samples swing a lot.</p>
+      <p class="lx-note">Value is HP bars of damage dealt plus a tenth of a bar for every turn on the field, per game the owner played. Damage rewards hitting hard and turns rewards staying in, so Pokémon that support or tank still score. Pokémon that were never brought are not ranked and are listed on the right. The 0.1 is a judgment call. Small samples swing a lot.</p>
       <div class="lx-scroll lx-tall"><table class="lx-table" id="lx-d-rounds"></table></div>
     </div>
     <div class="lx-grid">
@@ -493,7 +500,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Steals and busts</h2>
-      <p class="lx-note">Value compared with the average pick in the same round, in the same units. Positive means a steal.</p>
+      <p class="lx-note">Value compared with the average pick that played in the same round. Positive means a steal.</p>
       <div class="lx-grid">
         <div><h3 class="lx-sub">Biggest steals</h3><div class="lx-scroll lx-tall"><table class="lx-table" id="lx-d-steals"></table></div></div>
         <div><h3 class="lx-sub">Biggest busts</h3><div class="lx-scroll lx-tall"><table class="lx-table" id="lx-d-busts"></table></div></div>
@@ -1862,6 +1869,7 @@ function renderExtras() {
 
 // ---- Draft tab ----
 const D_TIERS = ['OU', 'UU', 'NFE'];
+const D_TURN_W = 0.1; // HP bars of credit per turn on the field
 const dTier = (t) => 'lx-dt-' + t.toLowerCase();
 let draftMemo = null;
 function draftRows() {
@@ -1871,11 +1879,11 @@ function draftRows() {
   const rows = picks.map((p) => {
     const m = by.get(p.player + '|' + p.pokemon) || {};
     const g = m.team_games || 0;
-    return Object.assign({}, p, { games: g, brought: m.brought || 0, kos: m.kos || 0, damage: m.damage || 0, winPct: m.win_pct_brought, value: g ? ((m.kos || 0) + (m.damage || 0)) / g : 0 });
+    return Object.assign({}, p, { games: g, brought: m.brought || 0, kos: m.kos || 0, damage: m.damage || 0, winPct: m.win_pct_brought, turns: m.turns_on_field || 0, value: g ? ((m.damage || 0) + D_TURN_W * (m.turns_on_field || 0)) / g : 0 });
   });
   const avg = {};
-  rows.forEach((r) => { (avg[r.round] = avg[r.round] || []).push(r.value); });
-  rows.forEach((r) => { const a = avg[r.round]; r.vsRound = r.value - a.reduce((x, y) => x + y, 0) / a.length; });
+  rows.forEach((r) => { if (r.brought) (avg[r.round] = avg[r.round] || []).push(r.value); });
+  rows.forEach((r) => { const a = avg[r.round] || []; r.vsRound = r.brought && a.length ? r.value - a.reduce((x, y) => x + y, 0) / a.length : null; });
   draftMemo = { n: mons.length, m: picks.length, rows };
   return rows;
 }
@@ -1902,18 +1910,18 @@ function renderDraft() {
   const ps = [...new Map(rows.map((r) => [r.pick, r.player])).values()].slice(0, 10);
   const cell = new Map(rows.map((r) => [r.round + '|' + r.player, r]));
   const rounds = [...new Set(rows.map((r) => r.round))].sort((a, b) => a - b);
-  const tbl = node('table', 'lx-table');
-  const hr = node('tr'); hr.appendChild(node('th', null, 'Round')).style.padding = 'var(--cds-pad-xs) var(--cds-pad-sm)';
+  const tbl = node('table', 'lx-table lx-board');
+  const hr = node('tr'); hr.appendChild(node('th', null, 'Rd')).style.padding = 'var(--cds-pad-xs) var(--cds-pad-sm)';
   ps.forEach((p) => { const th = node('th'); th.style.padding = 'var(--cds-pad-xs) var(--cds-pad-sm)'; th.appendChild(plink(p)); hr.appendChild(th); });
   tbl.appendChild(node('thead')).appendChild(hr);
   const tb = tbl.appendChild(node('tbody'));
   rounds.forEach((rd) => {
-    const tr = node('tr'); tr.appendChild(node('td', 'lx-dr', 'Round ' + rd + (rd % 2 ? ' →' : ' ←')));
+    const tr = node('tr'); tr.appendChild(node('td', 'lx-dr', 'R' + rd + (rd % 2 ? ' →' : ' ←')));
     ps.forEach((p) => {
       const r = cell.get(rd + '|' + p);
       const td = monCell(r, 'lx-dc ' + dTier(r.tier));
       td.appendChild(node('small', null, '#' + r.pick));
-      td.title = r.pokemon + ' (' + r.tier + '), pick ' + r.pick + '\n' + r.brought + ' of ' + r.games + ' games brought, ' + r.kos + ' KOs, ' + fmt.d1(r.damage) + ' damage\nValue ' + fmt.d2(r.value) + ' per game';
+      td.title = r.pokemon + ' (' + r.tier + '), pick ' + r.pick + '\n' + r.brought + ' of ' + r.games + ' games brought, ' + fmt.d1(r.damage) + ' damage, ' + r.turns + ' turns on field\nValue ' + fmt.d2(r.value) + ' per game';
       tr.appendChild(td);
     });
     tb.appendChild(tr);
@@ -1921,13 +1929,14 @@ function renderDraft() {
   board.textContent = ''; board.appendChild(tbl);
 
   const best = rounds.map((rd) => {
-    const rs = rows.filter((r) => r.round === rd).sort((a, b) => b.value - a.value || b.kos - a.kos);
-    return { rd, best: rs[0], worst: rs[rs.length - 1], avg: rs.reduce((x, r) => x + r.value, 0) / rs.length };
+    const all = rows.filter((r) => r.round === rd);
+    const rs = all.filter((r) => r.brought).sort((a, b) => b.value - a.value || b.damage - a.damage);
+    return { rd, best: rs[0], worst: rs[rs.length - 1], avg: rs.reduce((x, r) => x + r.value, 0) / (rs.length || 1), unused: all.filter((r) => !r.brought).map((r) => r.pokemon).join(', ') };
   });
-  dTable($('#lx-d-rounds'), ['Round', 'Best pick', 'Value', 'KOs', 'Brought', 'Round avg', 'Weakest pick', 'Value'], best, (b) => [
-    node('td', 'lx-dr', 'Round ' + b.rd), dPick(b.best), dNum(fmt.d2(b.best.value)), dNum(fmt.int(b.best.kos)), dNum(b.best.brought + '/' + b.best.games),
-    dNum(fmt.d2(b.avg)), dPick(b.worst), dNum(fmt.d2(b.worst.value)),
-  ], [0, 1, 6]);
+  dTable($('#lx-d-rounds'), ['Round', 'Best pick', 'Value', 'Damage', 'Turns', 'Round avg', 'Weakest pick', 'Value', 'Not brought'], best, (b) => [
+    node('td', 'lx-dr', 'Round ' + b.rd), dPick(b.best), dNum(fmt.d2(b.best.value)), dNum(fmt.d1(b.best.damage)), dNum(fmt.int(b.best.turns)),
+    dNum(fmt.d2(b.avg)), dPick(b.worst), dNum(fmt.d2(b.worst.value)), node('td', 'lx-muted', b.unused || '–'),
+  ], [0, 1, 6, 8]);
 
   const tiers = D_TIERS.map((t) => { const rs = rows.filter((r) => r.tier === t); return { t, n: rs.length, v: rs.reduce((x, r) => x + r.value, 0) / (rs.length || 1), br: rs.reduce((x, r) => x + (r.games ? r.brought / r.games : 0), 0) / (rs.length || 1) }; });
   dTable($('#lx-d-tiers'), ['Tier', 'Picks', 'Avg value', 'Avg bring %'], tiers, (t) => {
@@ -1945,8 +1954,8 @@ function renderDraft() {
   }, [0, 2]);
 
   const mk = (el, list) => dTable(el, ['Pick', 'Round', 'Value', 'vs round'], list, (r) => [dPick(r), dNum(String(r.round)), dNum(fmt.d2(r.value)), dNum(fmt.s2(r.vsRound))], [0]);
-  mk($('#lx-d-steals'), rows.slice().sort((a, b) => b.vsRound - a.vsRound).slice(0, 8));
-  mk($('#lx-d-busts'), rows.slice().sort((a, b) => a.vsRound - b.vsRound).slice(0, 8));
+  mk($('#lx-d-steals'), rows.filter((r) => r.vsRound != null).sort((a, b) => b.vsRound - a.vsRound).slice(0, 8));
+  mk($('#lx-d-busts'), rows.filter((r) => r.vsRound != null).sort((a, b) => a.vsRound - b.vsRound).slice(0, 8));
 }
 
 function render() {
