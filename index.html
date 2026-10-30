@@ -1866,6 +1866,8 @@ function renderExtras() {
 }
 
 // ---- Draft tab ----
+// The draft was a snake with a three round reversal: rounds 2 and 3 both ran last to first, then it alternated again.
+const D_FWD = [1, 4, 6, 8, 10, 12];
 const D_TIERS = ['OU', 'UU', 'NFE'];
 const D_TURN_W = 0.1; // HP bars of credit per turn on the field
 const dTier = (t) => 'lx-dt-' + t.toLowerCase();
@@ -1914,7 +1916,7 @@ function renderDraft() {
   tbl.appendChild(node('thead')).appendChild(hr);
   const tb = tbl.appendChild(node('tbody'));
   rounds.forEach((rd) => {
-    const tr = node('tr'); tr.appendChild(node('td', 'lx-dr', 'R' + rd + (rd % 2 ? ' →' : ' ←')));
+    const tr = node('tr'); tr.appendChild(node('td', 'lx-dr', 'R' + rd + (D_FWD.includes(rd) ? ' →' : ' ←')));
     ps.forEach((p) => {
       const r = cell.get(rd + '|' + p);
       const td = monCell(r, 'lx-dc ' + dTier(r.tier));
