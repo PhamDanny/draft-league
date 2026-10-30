@@ -720,6 +720,24 @@
   "events": 47
  },
  {
+  "id": "2706632014",
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
+  "week": 4,
+  "game": 3,
+  "matchup": "Connor vs Brayden",
+  "player1": "Connor",
+  "player2": "Brayden",
+  "winner": "Connor",
+  "turns": 24,
+  "luckier": "Brayden",
+  "edge": 3.85,
+  "edge_score": 1.64,
+  "luckier_won": "No",
+  "crits1": 0,
+  "crits2": 2,
+  "events": 61
+ },
+ {
   "id": "d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706573984-d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
   "week": 4,

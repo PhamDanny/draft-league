@@ -180,6 +180,18 @@
   "id": "m14"
  },
  {
+  "game": "2706632014",
+  "week": 4,
+  "gnum": 3,
+  "matchup": "Connor vs Brayden",
+  "turn": 2,
+  "what": "Mienshao's Rock Slide missed Magmar (90% accurate)",
+  "odds": 0.1,
+  "lucky": "Connor",
+  "unlucky": "Brayden",
+  "id": "m15"
+ },
+ {
   "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
   "week": 4,
   "gnum": 2,
@@ -189,7 +201,7 @@
   "odds": 0.1,
   "lucky": "Max",
   "unlucky": "Danny",
-  "id": "m15"
+  "id": "m16"
  },
  {
   "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
@@ -201,7 +213,7 @@
   "odds": 0.1,
   "lucky": "Max",
   "unlucky": "Danny",
-  "id": "m16"
+  "id": "m17"
  },
  {
   "game": "2695417408",
@@ -213,7 +225,7 @@
   "odds": 0.1,
   "lucky": "Brayden",
   "unlucky": "Bo",
-  "id": "m17"
+  "id": "m18"
  },
  {
   "game": "2695417408",
@@ -225,7 +237,7 @@
   "odds": 0.1,
   "lucky": "Bo",
   "unlucky": "Brayden",
-  "id": "m18"
+  "id": "m19"
  },
  {
   "game": "2700271309",
@@ -237,7 +249,7 @@
   "odds": 0.1,
   "lucky": "Danny",
   "unlucky": "Dennis",
-  "id": "m19"
+  "id": "m20"
  },
  {
   "game": "2700807864",
@@ -249,7 +261,7 @@
   "odds": 0.1,
   "lucky": "Brayden",
   "unlucky": "Max",
-  "id": "m20"
+  "id": "m21"
  },
  {
   "game": "2700807864",
@@ -261,7 +273,7 @@
   "odds": 0.1,
   "lucky": "Brayden",
   "unlucky": "Max",
-  "id": "m21"
+  "id": "m22"
  },
  {
   "game": "2700817133",
@@ -273,7 +285,7 @@
   "odds": 0.1,
   "lucky": "Brayden",
   "unlucky": "Max",
-  "id": "m22"
+  "id": "m23"
  },
  {
   "game": "2700853719",
@@ -285,7 +297,7 @@
   "odds": 0.1,
   "lucky": "Ethan",
   "unlucky": "Alex",
-  "id": "m23"
+  "id": "m24"
  },
  {
   "game": "2700859652",
@@ -297,7 +309,7 @@
   "odds": 0.1,
   "lucky": "Alex",
   "unlucky": "Ethan",
-  "id": "m24"
+  "id": "m25"
  },
  {
   "game": "2703148857",
@@ -309,7 +321,7 @@
   "odds": 0.1,
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m25"
+  "id": "m26"
  },
  {
   "game": "2703717005",
@@ -321,7 +333,7 @@
   "odds": 0.1,
   "lucky": "Danny",
   "unlucky": "Ethan",
-  "id": "m26"
+  "id": "m27"
  },
  {
   "game": "2703717005",
@@ -333,7 +345,7 @@
   "odds": 0.1,
   "lucky": "Ethan",
   "unlucky": "Danny",
-  "id": "m27"
+  "id": "m28"
  },
  {
   "game": "2703719604",
@@ -345,7 +357,7 @@
   "odds": 0.1,
   "lucky": "Ethan",
   "unlucky": "Danny",
-  "id": "m28"
+  "id": "m29"
  },
  {
   "game": "2703719604",
@@ -357,7 +369,7 @@
   "odds": 0.1,
   "lucky": "Ethan",
   "unlucky": "Danny",
-  "id": "m29"
+  "id": "m30"
  },
  {
   "game": "2706590747",
@@ -369,7 +381,7 @@
   "odds": 0.1,
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m30"
+  "id": "m31"
  },
  {
   "game": "2706626343",
@@ -381,7 +393,19 @@
   "odds": 0.1,
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m31"
+  "id": "m32"
+ },
+ {
+  "game": "2706632014",
+  "week": 4,
+  "gnum": 3,
+  "matchup": "Connor vs Brayden",
+  "turn": 11,
+  "what": "Hippowdon's Ice Fang froze Suicune (10%)",
+  "odds": 0.1,
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m33"
  },
  {
   "game": "d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
@@ -393,7 +417,7 @@
   "odds": 0.1,
   "lucky": "Danny",
   "unlucky": "Max",
-  "id": "m32"
+  "id": "m34"
  },
  {
   "game": "d8a1foi3lxecbntyycdvmhn6p7vtmnepw",
@@ -405,7 +429,7 @@
   "odds": 0.1,
   "lucky": "Max",
   "unlucky": "Danny",
-  "id": "m33"
+  "id": "m35"
  },
  {
   "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
@@ -417,7 +441,7 @@
   "odds": 0.1,
   "lucky": "Danny",
   "unlucky": "Max",
-  "id": "m34"
+  "id": "m36"
  },
  {
   "game": "2703148857",
@@ -429,7 +453,7 @@
   "odds": 0.15,
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m35"
+  "id": "m37"
  },
  {
   "game": "2703169361",
@@ -441,7 +465,7 @@
   "odds": 0.15,
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m36"
+  "id": "m38"
  },
  {
   "game": "2703719604",
@@ -453,7 +477,7 @@
   "odds": 0.2,
   "lucky": "Danny",
   "unlucky": "Ethan",
-  "id": "m37"
+  "id": "m39"
  },
  {
   "game": "2695417408",
@@ -465,7 +489,7 @@
   "odds": 0.2,
   "lucky": "Bo",
   "unlucky": "Brayden",
-  "id": "m38"
+  "id": "m40"
  },
  {
   "game": "2700807864",
@@ -477,7 +501,7 @@
   "odds": 0.2,
   "lucky": "Brayden",
   "unlucky": "Max",
-  "id": "m39"
+  "id": "m41"
  },
  {
   "game": "2700817133",
@@ -489,7 +513,7 @@
   "odds": 0.2,
   "lucky": "Max",
   "unlucky": "Brayden",
-  "id": "m40"
+  "id": "m42"
  },
  {
   "game": "2700817133",
@@ -501,7 +525,7 @@
   "odds": 0.2,
   "lucky": "Brayden",
   "unlucky": "Max",
-  "id": "m41"
+  "id": "m43"
  },
  {
   "game": "2703717005",
@@ -513,7 +537,7 @@
   "odds": 0.2,
   "lucky": "Danny",
   "unlucky": "Ethan",
-  "id": "m42"
+  "id": "m44"
  },
  {
   "game": "2704645206",
@@ -525,7 +549,7 @@
   "odds": 0.2,
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m43"
+  "id": "m45"
  },
  {
   "game": "2704645206",
@@ -537,7 +561,7 @@
   "odds": 0.2,
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m44"
+  "id": "m46"
  },
  {
   "game": "2704703137",
@@ -549,7 +573,7 @@
   "odds": 0.2,
   "lucky": "Alex",
   "unlucky": "Dzzy",
-  "id": "m45"
+  "id": "m47"
  },
  {
   "game": "2696363795",
@@ -561,7 +585,7 @@
   "odds": 0.25,
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m46"
+  "id": "m48"
  },
  {
   "game": "2696363795",
@@ -573,7 +597,7 @@
   "odds": 0.25,
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m47"
+  "id": "m49"
  },
  {
   "game": "2696363795",
@@ -585,7 +609,7 @@
   "odds": 0.25,
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m48"
+  "id": "m50"
  },
  {
   "game": "2696369469",
@@ -597,7 +621,7 @@
   "odds": 0.25,
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m49"
+  "id": "m51"
  },
  {
   "game": "2696369469",
@@ -609,7 +633,7 @@
   "odds": 0.25,
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m50"
+  "id": "m52"
  },
  {
   "game": "2696374950",
@@ -621,7 +645,7 @@
   "odds": 0.25,
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m51"
+  "id": "m53"
  },
  {
   "game": "2699305959",
@@ -633,7 +657,7 @@
   "odds": 0.25,
   "lucky": "Bo",
   "unlucky": "Dzzy",
-  "id": "m52"
+  "id": "m54"
  },
  {
   "game": "2700859652",
@@ -645,7 +669,7 @@
   "odds": 0.25,
   "lucky": "Alex",
   "unlucky": "Ethan",
-  "id": "m53"
+  "id": "m55"
  },
  {
   "game": "2700859652",
@@ -657,7 +681,7 @@
   "odds": 0.25,
   "lucky": "Ethan",
   "unlucky": "Alex",
-  "id": "m54"
+  "id": "m56"
  },
  {
   "game": "2704703137",
@@ -669,7 +693,43 @@
   "odds": 0.25,
   "lucky": "Alex",
   "unlucky": "Dzzy",
-  "id": "m55"
+  "id": "m57"
+ },
+ {
+  "game": "2706632014",
+  "week": 4,
+  "gnum": 3,
+  "matchup": "Connor vs Brayden",
+  "turn": 11,
+  "what": "Dusclops's Will-O-Wisp missed Mienshao (75% accurate)",
+  "odds": 0.25,
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m58"
+ },
+ {
+  "game": "2706632014",
+  "week": 4,
+  "gnum": 3,
+  "matchup": "Connor vs Brayden",
+  "turn": 12,
+  "what": "Dusclops's Will-O-Wisp missed Thundurus-Therian (75% accurate)",
+  "odds": 0.25,
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m59"
+ },
+ {
+  "game": "2706632014",
+  "week": 4,
+  "gnum": 3,
+  "matchup": "Connor vs Brayden",
+  "turn": 21,
+  "what": "Dusclops's Will-O-Wisp missed Honchkrow (75% accurate)",
+  "odds": 0.25,
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m60"
  },
  {
   "game": "2695875340",
@@ -681,7 +741,7 @@
   "odds": 0.3,
   "lucky": "Connor",
   "unlucky": "Max",
-  "id": "m56"
+  "id": "m61"
  },
  {
   "game": "2695897212",
@@ -693,7 +753,7 @@
   "odds": 0.3,
   "lucky": "Connor",
   "unlucky": "Max",
-  "id": "m57"
+  "id": "m62"
  },
  {
   "game": "2696363795",
@@ -705,7 +765,7 @@
   "odds": 0.3,
   "lucky": "David Kim",
   "unlucky": "Ethan",
-  "id": "m58"
+  "id": "m63"
  },
  {
   "game": "2696369469",
@@ -717,7 +777,7 @@
   "odds": 0.3,
   "lucky": "David Kim",
   "unlucky": "Ethan",
-  "id": "m59"
+  "id": "m64"
  },
  {
   "game": "2696374950",
@@ -729,7 +789,7 @@
   "odds": 0.3,
   "lucky": "David Kim",
   "unlucky": "Ethan",
-  "id": "m60"
+  "id": "m65"
  },
  {
   "game": "2700072500",
@@ -741,7 +801,7 @@
   "odds": 0.3,
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m61"
+  "id": "m66"
  },
  {
   "game": "2700079479",
@@ -753,7 +813,7 @@
   "odds": 0.3,
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m62"
+  "id": "m67"
  },
  {
   "game": "2700079479",
@@ -765,7 +825,7 @@
   "odds": 0.3,
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m63"
+  "id": "m68"
  },
  {
   "game": "2700079479",
@@ -777,7 +837,7 @@
   "odds": 0.3,
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m64"
+  "id": "m69"
  },
  {
   "game": "2703157167",
@@ -789,7 +849,7 @@
   "odds": 0.3,
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m65"
+  "id": "m70"
  },
  {
   "game": "2703157167",
@@ -801,7 +861,7 @@
   "odds": 0.3,
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m66"
+  "id": "m71"
  },
  {
   "game": "2704645206",
@@ -813,7 +873,7 @@
   "odds": 0.3,
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m67"
+  "id": "m72"
  },
  {
   "game": "2704648705",
@@ -825,7 +885,7 @@
   "odds": 0.3,
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m68"
+  "id": "m73"
  },
  {
   "game": "2706590747",
@@ -837,7 +897,31 @@
   "odds": 0.3,
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m69"
+  "id": "m74"
+ },
+ {
+  "game": "2706632014",
+  "week": 4,
+  "gnum": 3,
+  "matchup": "Connor vs Brayden",
+  "turn": 3,
+  "what": "Mienshao's Rock Slide flinched Magmar (30%)",
+  "odds": 0.3,
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m75"
+ },
+ {
+  "game": "2706632014",
+  "week": 4,
+  "gnum": 3,
+  "matchup": "Connor vs Brayden",
+  "turn": 4,
+  "what": "Mienshao's Rock Slide flinched Dusclops (30%)",
+  "odds": 0.3,
+  "lucky": "Brayden",
+  "unlucky": "Connor",
+  "id": "m76"
  },
  {
   "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
@@ -849,6 +933,6 @@
   "odds": 0.3,
   "lucky": "Danny",
   "unlucky": "Max",
-  "id": "m70"
+  "id": "m77"
  }
 ]

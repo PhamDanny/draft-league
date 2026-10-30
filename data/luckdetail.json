@@ -301,44 +301,44 @@
   "player": "Brayden",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 129,
-  "happened": 8,
-  "expected": 8.06,
-  "luck": -0.06,
-  "score": -0.02
+  "tries": 156,
+  "happened": 10,
+  "expected": 9.75,
+  "luck": 0.25,
+  "score": 0.08
  },
  {
   "id": "Brayden|crit|vic",
   "player": "Brayden",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 75,
+  "tries": 82,
   "happened": 4,
-  "expected": 4.75,
-  "luck": 0.75,
-  "score": 0.36
+  "expected": 5.19,
+  "luck": 1.19,
+  "score": 0.54
  },
  {
   "id": "Brayden|acc|ben",
   "player": "Brayden",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 24,
-  "happened": 23,
-  "expected": 22.0,
-  "luck": 1.0,
-  "score": 0.74
+  "tries": 33,
+  "happened": 31,
+  "expected": 30.15,
+  "luck": 0.85,
+  "score": 0.53
  },
  {
   "id": "Brayden|acc|vic",
   "player": "Brayden",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 17,
-  "happened": 13,
-  "expected": 14.25,
-  "luck": 1.25,
-  "score": 0.84
+  "tries": 26,
+  "happened": 19,
+  "expected": 21.6,
+  "luck": 2.6,
+  "score": 1.39
  },
  {
   "id": "Brayden|brn|ben",
@@ -367,11 +367,11 @@
   "player": "Brayden",
   "event": "Freezes you inflicted",
   "kind": "Freezes",
-  "tries": 9,
-  "happened": 3,
-  "expected": 0.9,
-  "luck": 2.1,
-  "score": 2.33
+  "tries": 10,
+  "happened": 4,
+  "expected": 1.0,
+  "luck": 3.0,
+  "score": 3.16
  },
  {
   "id": "Brayden|frz|vic",
@@ -411,22 +411,22 @@
   "player": "Brayden",
   "event": "Flinches you caused",
   "kind": "Flinches",
-  "tries": 4,
-  "happened": 1,
-  "expected": 1.0,
-  "luck": -0.0,
-  "score": -0.0
+  "tries": 6,
+  "happened": 3,
+  "expected": 1.6,
+  "luck": 1.4,
+  "score": 1.31
  },
  {
   "id": "Brayden|drop|ben",
   "player": "Brayden",
   "event": "Stat drops you caused",
   "kind": "Stat drops",
-  "tries": 23,
+  "tries": 27,
   "happened": 6,
-  "expected": 3.7,
-  "luck": 2.3,
-  "score": 1.32
+  "expected": 4.5,
+  "luck": 1.5,
+  "score": 0.78
  },
  {
   "id": "Brayden|drop|vic",
@@ -444,55 +444,55 @@
   "player": "Brayden",
   "event": "Opponent's Pokémon thawing out",
   "kind": "Thawing",
-  "tries": 9,
+  "tries": 11,
   "happened": 1,
-  "expected": 1.8,
-  "luck": 0.8,
-  "score": 0.67
+  "expected": 2.2,
+  "luck": 1.2,
+  "score": 0.9
  },
  {
   "id": "Connor|crit|ben",
   "player": "Connor",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 83,
+  "tries": 90,
   "happened": 7,
-  "expected": 5.25,
-  "luck": 1.75,
-  "score": 0.79
+  "expected": 5.69,
+  "luck": 1.31,
+  "score": 0.57
  },
  {
   "id": "Connor|crit|vic",
   "player": "Connor",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 112,
-  "happened": 6,
-  "expected": 7.0,
-  "luck": 1.0,
-  "score": 0.39
+  "tries": 139,
+  "happened": 8,
+  "expected": 8.69,
+  "luck": 0.69,
+  "score": 0.24
  },
  {
   "id": "Connor|acc|ben",
   "player": "Connor",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 27,
-  "happened": 26,
-  "expected": 22.95,
-  "luck": 3.05,
-  "score": 1.77
+  "tries": 36,
+  "happened": 32,
+  "expected": 30.3,
+  "luck": 1.7,
+  "score": 0.82
  },
  {
   "id": "Connor|acc|vic",
   "player": "Connor",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 29,
-  "happened": 23,
-  "expected": 25.65,
-  "luck": 2.65,
-  "score": 1.56
+  "tries": 38,
+  "happened": 31,
+  "expected": 33.8,
+  "luck": 2.8,
+  "score": 1.47
  },
  {
   "id": "Connor|brn|ben",
@@ -532,11 +532,11 @@
   "player": "Connor",
   "event": "Freezes you took",
   "kind": "Freezes",
-  "tries": 9,
-  "happened": 2,
-  "expected": 0.9,
-  "luck": -1.1,
-  "score": -1.22
+  "tries": 10,
+  "happened": 3,
+  "expected": 1.0,
+  "luck": -2.0,
+  "score": -2.11
  },
  {
   "id": "Connor|par|ben",
@@ -576,11 +576,11 @@
   "player": "Connor",
   "event": "Flinches you took",
   "kind": "Flinches",
-  "tries": 3,
-  "happened": 0,
-  "expected": 0.6,
-  "luck": 0.6,
-  "score": 0.88
+  "tries": 5,
+  "happened": 2,
+  "expected": 1.2,
+  "luck": -0.8,
+  "score": -0.85
  },
  {
   "id": "Connor|drop|ben",
@@ -598,11 +598,11 @@
   "player": "Connor",
   "event": "Stat drops you took",
   "kind": "Stat drops",
-  "tries": 6,
+  "tries": 10,
   "happened": 1,
-  "expected": 1.5,
-  "luck": 0.5,
-  "score": 0.49
+  "expected": 2.3,
+  "luck": 1.3,
+  "score": 1.0
  },
  {
   "id": "Connor|conf|vic",
@@ -631,11 +631,11 @@
   "player": "Connor",
   "event": "Your Pokémon thawing out",
   "kind": "Thawing",
-  "tries": 8,
+  "tries": 10,
   "happened": 0,
-  "expected": 1.6,
-  "luck": -1.6,
-  "score": -1.41
+  "expected": 2.0,
+  "luck": -2.0,
+  "score": -1.58
  },
  {
   "id": "Danny|crit|ben",
