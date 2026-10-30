@@ -2,10 +2,10 @@
 
 For each event with odds p (0 < p < 1) and outcome x (1 if it happened, else 0), the side the
 outcome favours gains (x - p) "lucky events" and the other side loses the same amount. A player's
-score is their net divided by sqrt(sum p(1-p)), i.e. a z-score, and the percentile is the normal CDF.
+score is their net divided by sqrt(sum p(1-p)), i.e. a z-score, and the verdict bands it (about ±1 normal, beyond ±2 rare).
 
-Modelled: critical hits, accuracy, secondary burn/freeze/paralysis/flinch/stat-drop/other effects,
-full paralysis and thawing. Not modelled (not visible in a replay): hidden items and abilities such
+Modelled: critical hits, accuracy (including accuracy/evasion stages and weather), secondary
+burn/freeze/paralysis/flinch/stat-drop/other effects, full paralysis, thawing and confusion. Not modelled (not visible in a replay): hidden items and abilities such
 as Scope Lens, Serene Grace or Compound Eyes; speed ties; confusion; sleep length; damage rolls.
 """
 import json
@@ -43,9 +43,12 @@ KINDS = OrderedDict([
     ("cself", ("Confusion self-hits", "Opponent hit itself in confusion", "You hit yourself in confusion")),
     ("thaw", ("Thawing", "Your Pokémon thawing out", "Opponent's Pokémon thawing out")),
 ])
-NET_COLUMN = {"crit": "crit_net", "acc": "acc_net", "brn": "brn_net", "frz": "frz_net", "par": "par_net",
-              "flinch": "flinch_net", "drop": "other_net", "other": "other_net", "conf": "other_net",
-              "fpar": "deny_net", "cself": "deny_net", "thaw": "deny_net"}
+NET_COLUMN = {"crit": "crit_net", "acc": "acc_net", "brn": "status_net", "frz": "status_net",
+              "par": "status_net", "flinch": "flinch_net", "drop": "minor_net", "other": "minor_net",
+              "conf": "minor_net", "fpar": "lost_net", "cself": "lost_net", "thaw": "lost_net"}
+NET_COLUMNS = ("crit_net", "acc_net", "status_net", "flinch_net", "lost_net", "minor_net")
+NET_LABEL = {"crit_net": "crits", "acc_net": "accuracy", "status_net": "burns, freezes and paralysis",
+             "flinch_net": "flinches", "lost_net": "lost turns", "minor_net": "minor effects"}
 
 
 
@@ -102,10 +105,13 @@ class _Parser:
         if w:
             self.status[w] = st
 
-    def cure(self, pos, st, tags):
+    def cure(self, pos, st, tags, prev=None):
         w = self.lookup(pos)
         if w and self.status.get(w) == st:
-            if st == "frz" and not any(x.startswith("[from]") for x in tags):
+            # a thaw right after the target took damage came from a Fire move, not the 20% roll
+            hit_thaw = bool(prev and len(prev) > 2 and prev[1] == "-damage" and prev[2] == pos
+                            and not any(x.startswith("[from]") for x in prev[3:]))
+            if st == "frz" and not hit_thaw and not any(x.startswith("[from]") for x in tags):
                 self.add("thaw", w[0], 0.2, 1, "%s thawed out" % w[1])
             self.status.pop(w, None)
 
@@ -143,7 +149,7 @@ class _Parser:
             elif t == "-status":
                 self.set_status(p[2], p[3])
             elif t == "-curestatus":
-                self.cure(p[2], p[3], p[4:])
+                self.cure(p[2], p[3], p[4:], self.log[self.i - 2].split("|") if self.i >= 2 else None)
             elif t == "-start" and len(p) > 3 and p[3] == "move: Focus Energy":
                 self.focus.add(p[2])
             elif t == "-start" and len(p) > 3 and p[3] == "confusion":
@@ -151,7 +157,7 @@ class _Parser:
             elif t == "-end" and len(p) > 3 and p[3] == "confusion":
                 self.confused.discard(p[2])
             elif t == "-activate" and len(p) > 3 and p[3] == "confusion":
-                self.add("cself", opp(p[2][:2]), 0.5, 1, "%s hit itself in confusion" % self.species(p[2]))
+                self.confusion_check(p[2], self.log[self.i].split("|") if self.i < len(self.log) else None)
             elif t in ("-boost", "-unboost") and len(p) > 4 and p[3] in ("accuracy", "evasion"):
                 self.boosts[p[2]][p[3]] += int(p[4]) * (1 if t == "-boost" else -1)
             elif t in ("-clearallboost",):
@@ -161,6 +167,15 @@ class _Parser:
             elif t == "move":
                 self.on_move(p)
         return self.events
+
+    def confusion_check(self, pos, nxt):
+        """Showdown logs -activate|confusion on every confused attempt; only a following -damage
+        [from] confusion means the Pokémon hit itself (50%)."""
+        hit = bool(nxt and len(nxt) > 2 and nxt[1] == "-damage" and nxt[2] == pos
+                   and any(x == "[from] confusion" for x in nxt[3:]))
+        self.add("cself", opp(pos[:2]), 0.5, hit,
+                 "%s hit itself in confusion" % self.species(pos) if hit
+                 else "%s attacked through confusion" % self.species(pos))
 
     def on_cant(self, p):
         pos = p[2]
@@ -189,8 +204,6 @@ class _Parser:
         if pf:
             self.events.append(pf)
         self.moved.add(pos[:3])
-        if not indirect and pos in self.confused:
-            self.add("cself", opp(side), 0.5, 0, "%s attacked through confusion" % self.species(pos))
         if not indirect and self.status.get(self.nick[pos]) == "par":
             self.add("fpar", opp(side), 0.25, 0, "%s moved despite paralysis" % self.species(pos))
         seg = []
@@ -205,13 +218,16 @@ class _Parser:
         self.apply_segment_state(pos, seg)
 
     def apply_segment_state(self, pos, seg):
-        for q in seg:
+        for j, q in enumerate(seg):
             if len(q) < 3:
                 continue
-            if q[1] == "-status":
+            if q[1] == "-weather":
+                if not (len(q) > 3 and q[3] == "[upkeep]"):
+                    self.weather = None if q[2] == "none" else q[2]
+            elif q[1] == "-status":
                 self.set_status(q[2], q[3])
             elif q[1] == "-curestatus":
-                self.cure(q[2], q[3], q[4:])
+                self.cure(q[2], q[3], q[4:], seg[j - 1] if j else None)
             elif q[1] in ("-boost", "-unboost") and len(q) > 4 and q[3] in ("accuracy", "evasion"):
                 self.boosts[q[2]][q[3]] += int(q[4]) * (1 if q[1] == "-boost" else -1)
             elif q[1] == "-start" and len(q) > 3 and q[3] == "move: Focus Energy":
@@ -221,7 +237,7 @@ class _Parser:
             elif q[1] == "-end" and len(q) > 3 and q[3] == "confusion":
                 self.confused.discard(q[2])
             elif q[1] == "-activate" and len(q) > 3 and q[3] == "confusion":
-                self.add("cself", opp(q[2][:2]), 0.5, 1, "%s hit itself in confusion" % self.species(q[2]))
+                self.confusion_check(q[2], seg[j + 1] if j + 1 < len(seg) else None)
 
     # -- one move --------------------------------------------------------------------------
     def resolve_move(self, side, pos, name, seg):
@@ -229,7 +245,7 @@ class _Parser:
         if not mv:
             return
         res = defaultdict(lambda: {"miss": False, "hits": [], "sub": False, "blocked": False,
-                                   "immune": False, "status": set(), "drop": False, "confusion": False,
+                                   "immune": False, "status": set(), "drop": False, "confusion": False, "start": False,
                                    "fainted": False})
         crit_pending = set()
         for q in seg:
@@ -262,12 +278,15 @@ class _Parser:
                 res[q[2]]["drop"] = True
             elif k == "-start" and len(q) > 3 and q[3] == "confusion" and not tag_from:
                 res[q[2]]["confusion"] = True
+            elif k == "-start" and not tag_from:
+                res[q[2]]["start"] = True  # e.g. Leech Seed: a hit with no damage or status line
         atk = self.species(pos)
         for tpos, r in list(res.items()):
             if tpos[:2] == side or tpos not in self.nick:
                 continue  # allies and the user aren't part of this model
             tsp = self.species(tpos)
-            responded = bool(r["hits"] or r["status"] or r["drop"] or r["confusion"] or r["sub"])
+            responded = bool(r["hits"] or r["status"] or r["drop"] or r["confusion"] or r["sub"]
+                         or r["start"])
             # ---- accuracy ----------------------------------------------------------------
             acc = mv["acc"]
             if (acc is not True and not mv["ohko"] and not r["blocked"] and not r["immune"]
@@ -294,9 +313,10 @@ class _Parser:
             if damaging and not mv["willCrit"]:
                 stage = (mv["crit"] - 1) + (2 if pos in self.focus else 0)
                 prob = CRIT_P[min(stage, 4)]
-                for was_crit in r["hits"]:
+                for n, was_crit in enumerate(r["hits"]):
                     self.add("crit", side, prob, was_crit,
-                             "%s's %s %s on %s" % (atk, name, "was a critical hit" if was_crit else "wasn't a crit", tsp))
+                             "%s's %s %s on %s" % (atk, name, "was a critical hit" if was_crit else "wasn't a crit", tsp),
+                             ko=bool(was_crit and r["fainted"] and n == len(r["hits"]) - 1))
             # ---- secondary effects -------------------------------------------------------
             if not r["hits"] or r["sub"] or r["fainted"]:
                 continue
@@ -341,8 +361,17 @@ def luck_for_game(g):
     return events
 
 
-def _phi(z):
-    return 0.5 * (1 + math.erf(z / math.sqrt(2)))
+def verdict(score):
+    """Plain-language band: about ±1 is normal for a 10-player league, beyond ±2 is rare."""
+    if score >= 2:
+        return "Very lucky"
+    if score >= 1:
+        return "Lucky"
+    if score > -1:
+        return "About average"
+    if score > -2:
+        return "Unlucky"
+    return "Very unlucky"
 
 
 def aggregate_luck(games, out_games):
@@ -386,13 +415,13 @@ def aggregate_luck(games, out_games):
                         pl["ca"] += e["x"]
                         pl["cae"] += e["p"]
             odds = e["p"] if e["x"] else 1 - e["p"]
-            if e["kind"] != "crit" and odds <= 0.3:
+            if odds <= 0.3 and (e["kind"] != "crit" or e.get("ko")):  # crits only when they KO
                 lucky_side = ben if d > 0 else vic
                 moments.append({"odds": odds, "order": (og["week"], og["id"], e["turn"]),
                                 "row": OrderedDict([
                                     ("game", og["id"]), ("week", og["week"]), ("gnum", og["game"]),
                                     ("matchup", og["matchup"]), ("turn", e["turn"]), ("what", e["text"]),
-                                    ("odds", round(odds, 2)), ("lucky", names[lucky_side]),
+                                    ("odds", round(odds, 2)), ("replay", og["replay"]), ("lucky", names[lucky_side]),
                                     ("unlucky", names[opp(lucky_side)])])})
         sigma = math.sqrt(var) if var else 0.0
         luckier = "p1" if net1 > 0 else ("p2" if net1 < 0 else None)
@@ -402,6 +431,7 @@ def aggregate_luck(games, out_games):
             ("winner", og["winner"]), ("turns", og["turns"]),
             ("luckier", names[luckier] if luckier else "Even"),
             ("edge", round(abs(net1), 2)), ("edge_score", round(abs(net1) / sigma, 2) if sigma else 0.0),
+            ("swing", "Big swing" if sigma and abs(net1) / sigma >= 2 else ""),
             ("luckier_won", ("Yes" if names[luckier] == og["winner"] else "No") if luckier else "n/a"),
             ("crits1", crits["p1"]), ("crits2", crits["p2"]), ("events", len(g["luck"])),
         ]))
@@ -424,10 +454,12 @@ def aggregate_luck(games, out_games):
     luck_rows = []
     for player, pl in players.items():
         score = pl["net"] / math.sqrt(pl["var"]) if pl["var"] else 0.0
-        row = OrderedDict([("player", player), ("score", round(score, 2)), ("percentile", round(_phi(score), 3)),
+        row = OrderedDict([("player", player), ("score", round(score, 2)), ("verdict", verdict(score)),
                            ("net", round(pl["net"], 2)), ("events", pl["events"])])
-        for col in ("crit_net", "acc_net", "brn_net", "frz_net", "par_net", "flinch_net", "other_net", "deny_net"):
+        for col in NET_COLUMNS:
             row[col] = round(pl["nets"].get(col, 0.0), 2)
+        top = max(NET_COLUMNS, key=lambda c: abs(pl["nets"].get(c, 0.0)))
+        row["driver"] = "mostly %s (%+.1f)" % (NET_LABEL[top], pl["nets"].get(top, 0.0))
         row.update(crits_for=pl["cf"], crits_for_exp=round(pl["cfe"], 1),
                    crits_against=pl["ca"], crits_against_exp=round(pl["cae"], 1))
         luck_rows.append(row)
