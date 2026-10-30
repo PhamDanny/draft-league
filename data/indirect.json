@@ -1,8 +1,8 @@
 [
  {
   "source": "Sandstorm",
-  "hits": 264,
-  "damage": 15.74,
+  "hits": 302,
+  "damage": 18.05,
   "faints": 14
  },
  {
@@ -19,14 +19,14 @@
  },
  {
   "source": "Burn",
-  "hits": 78,
-  "damage": 9.46,
-  "faints": 7
+  "hits": 82,
+  "damage": 9.94,
+  "faints": 8
  },
  {
   "source": "Poison",
-  "hits": 67,
-  "damage": 7.12,
+  "hits": 72,
+  "damage": 8.04,
   "faints": 6
  },
  {
@@ -37,8 +37,8 @@
  },
  {
   "source": "Move recoil",
-  "hits": 13,
-  "damage": 2.2,
+  "hits": 14,
+  "damage": 2.55,
   "faints": 0
  },
  {

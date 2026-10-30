@@ -214,10 +214,10 @@
   "player1": "Brayden",
   "player2": "Connor",
   "status": "Played",
-  "winner": "Brayden",
-  "score": "1–0",
+  "winner": null,
+  "score": "1–1",
   "game1": "2706590747",
-  "game2": null,
+  "game2": "2706626343",
   "game3": null
  },
  {
