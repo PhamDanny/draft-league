@@ -1,7 +1,7 @@
 [
  {
   "move": "Protect",
-  "uses": 299,
+  "uses": 305,
   "kos": 0,
   "damage": 0.0,
   "damage_per_use": null,
@@ -9,11 +9,11 @@
  },
  {
   "move": "Ice Beam",
-  "uses": 82,
+  "uses": 83,
   "kos": 27,
-  "damage": 34.19,
-  "damage_per_use": 0.42,
-  "kos_per_10_uses": 3.29
+  "damage": 34.4,
+  "damage_per_use": 0.41,
+  "kos_per_10_uses": 3.25
  },
  {
   "move": "Fake Out",
@@ -33,11 +33,11 @@
  },
  {
   "move": "Earthquake",
-  "uses": 69,
+  "uses": 71,
   "kos": 23,
-  "damage": 27.6,
+  "damage": 28.6,
   "damage_per_use": 0.4,
-  "kos_per_10_uses": 3.33
+  "kos_per_10_uses": 3.24
  },
  {
   "move": "Thunderbolt",
@@ -48,28 +48,36 @@
   "kos_per_10_uses": 3.77
  },
  {
+  "move": "Psychic",
+  "uses": 55,
+  "kos": 14,
+  "damage": 14.87,
+  "damage_per_use": 0.27,
+  "kos_per_10_uses": 2.55
+ },
+ {
+  "move": "Rock Slide",
+  "uses": 55,
+  "kos": 21,
+  "damage": 19.76,
+  "damage_per_use": 0.36,
+  "kos_per_10_uses": 3.82
+ },
+ {
   "move": "Toxic",
-  "uses": 52,
+  "uses": 53,
   "kos": 0,
   "damage": 0.0,
   "damage_per_use": null,
   "kos_per_10_uses": null
  },
  {
-  "move": "Rock Slide",
-  "uses": 51,
-  "kos": 18,
-  "damage": 17.25,
-  "damage_per_use": 0.34,
-  "kos_per_10_uses": 3.53
- },
- {
-  "move": "Psychic",
-  "uses": 50,
-  "kos": 11,
-  "damage": 12.09,
-  "damage_per_use": 0.24,
-  "kos_per_10_uses": 2.2
+  "move": "Trick Room",
+  "uses": 44,
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
  },
  {
   "move": "Hidden Power",
@@ -78,14 +86,6 @@
   "damage": 16.2,
   "damage_per_use": 0.39,
   "kos_per_10_uses": 3.81
- },
- {
-  "move": "Trick Room",
-  "uses": 42,
-  "kos": 0,
-  "damage": 0.0,
-  "damage_per_use": null,
-  "kos_per_10_uses": null
  },
  {
   "move": "Crunch",
@@ -112,6 +112,14 @@
   "kos_per_10_uses": 2.2
  },
  {
+  "move": "Heat Wave",
+  "uses": 41,
+  "kos": 16,
+  "damage": 17.76,
+  "damage_per_use": 0.43,
+  "kos_per_10_uses": 3.9
+ },
+ {
   "move": "Helping Hand",
   "uses": 41,
   "kos": 0,
@@ -120,12 +128,12 @@
   "kos_per_10_uses": null
  },
  {
-  "move": "Heat Wave",
+  "move": "Giga Drain",
   "uses": 39,
-  "kos": 16,
-  "damage": 16.99,
-  "damage_per_use": 0.44,
-  "kos_per_10_uses": 4.1
+  "kos": 8,
+  "damage": 7.59,
+  "damage_per_use": 0.19,
+  "kos_per_10_uses": 2.05
  },
  {
   "move": "Close Combat",
@@ -136,12 +144,12 @@
   "kos_per_10_uses": 4.17
  },
  {
-  "move": "Giga Drain",
+  "move": "Taunt",
   "uses": 35,
-  "kos": 6,
-  "damage": 6.58,
-  "damage_per_use": 0.19,
-  "kos_per_10_uses": 1.71
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
  },
  {
   "move": "Will-O-Wisp",
@@ -152,6 +160,22 @@
   "kos_per_10_uses": null
  },
  {
+  "move": "Follow Me",
+  "uses": 33,
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
+ },
+ {
+  "move": "Earth Power",
+  "uses": 32,
+  "kos": 10,
+  "damage": 11.08,
+  "damage_per_use": 0.35,
+  "kos_per_10_uses": 3.12
+ },
+ {
   "move": "Flamethrower",
   "uses": 32,
   "kos": 7,
@@ -160,28 +184,20 @@
   "kos_per_10_uses": 2.19
  },
  {
-  "move": "Follow Me",
+  "move": "Seismic Toss",
   "uses": 32,
-  "kos": 0,
-  "damage": 0.0,
-  "damage_per_use": null,
-  "kos_per_10_uses": null
+  "kos": 5,
+  "damage": 7.12,
+  "damage_per_use": 0.22,
+  "kos_per_10_uses": 1.56
  },
  {
-  "move": "Earth Power",
-  "uses": 31,
-  "kos": 9,
-  "damage": 10.14,
-  "damage_per_use": 0.33,
-  "kos_per_10_uses": 2.9
- },
- {
-  "move": "Taunt",
+  "move": "Volt Switch",
   "uses": 30,
-  "kos": 0,
-  "damage": 0.0,
-  "damage_per_use": null,
-  "kos_per_10_uses": null
+  "kos": 4,
+  "damage": 7.47,
+  "damage_per_use": 0.25,
+  "kos_per_10_uses": 1.33
  },
  {
   "move": "Stealth Rock",
@@ -216,16 +232,8 @@
   "kos_per_10_uses": 2.22
  },
  {
-  "move": "Seismic Toss",
-  "uses": 25,
-  "kos": 4,
-  "damage": 5.58,
-  "damage_per_use": 0.22,
-  "kos_per_10_uses": 1.6
- },
- {
   "move": "Rage Powder",
-  "uses": 24,
+  "uses": 26,
   "kos": 0,
   "damage": 0.0,
   "damage_per_use": null,
@@ -270,14 +278,6 @@
   "damage": 9.62,
   "damage_per_use": 0.46,
   "kos_per_10_uses": 3.81
- },
- {
-  "move": "Volt Switch",
-  "uses": 21,
-  "kos": 3,
-  "damage": 5.7,
-  "damage_per_use": 0.27,
-  "kos_per_10_uses": 1.43
  },
  {
   "move": "Drain Punch",
@@ -488,6 +488,14 @@
   "kos_per_10_uses": 1.82
  },
  {
+  "move": "Low Kick",
+  "uses": 11,
+  "kos": 8,
+  "damage": 7.34,
+  "damage_per_use": 0.67,
+  "kos_per_10_uses": 7.27
+ },
+ {
   "move": "Overheat",
   "uses": 11,
   "kos": 7,
@@ -592,6 +600,14 @@
   "kos_per_10_uses": null
  },
  {
+  "move": "Beat Up",
+  "uses": 8,
+  "kos": 1,
+  "damage": 2.41,
+  "damage_per_use": 0.3,
+  "kos_per_10_uses": 1.25
+ },
+ {
   "move": "Extreme Speed",
   "uses": 8,
   "kos": 1,
@@ -616,14 +632,6 @@
   "kos_per_10_uses": 3.75
  },
  {
-  "move": "Low Kick",
-  "uses": 8,
-  "kos": 6,
-  "damage": 6.05,
-  "damage_per_use": 0.76,
-  "kos_per_10_uses": 7.5
- },
- {
   "move": "Mach Punch",
   "uses": 8,
   "kos": 1,
@@ -633,6 +641,14 @@
  },
  {
   "move": "Moonlight",
+  "uses": 8,
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
+ },
+ {
+  "move": "Spore",
   "uses": 8,
   "kos": 0,
   "damage": 0.0,
@@ -832,14 +848,6 @@
   "kos_per_10_uses": 0.0
  },
  {
-  "move": "Spore",
-  "uses": 4,
-  "kos": 0,
-  "damage": 0.0,
-  "damage_per_use": null,
-  "kos_per_10_uses": null
- },
- {
   "move": "Surf",
   "uses": 4,
   "kos": 2,
@@ -921,6 +929,14 @@
  },
  {
   "move": "Iron Defense",
+  "uses": 3,
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
+ },
+ {
+  "move": "Magic Coat",
   "uses": 3,
   "kos": 0,
   "damage": 0.0,
@@ -1024,6 +1040,14 @@
   "kos_per_10_uses": null
  },
  {
+  "move": "Spikes",
+  "uses": 2,
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
+ },
+ {
   "move": "Air Cutter",
   "uses": 1,
   "kos": 0,
@@ -1086,6 +1110,14 @@
   "damage": 0.44,
   "damage_per_use": 0.44,
   "kos_per_10_uses": 0.0
+ },
+ {
+  "move": "Healing Wish",
+  "uses": 1,
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
  },
  {
   "move": "Night Slash",

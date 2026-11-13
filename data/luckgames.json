@@ -1138,5 +1138,43 @@
   "crits1": 2,
   "crits2": 1,
   "events": 72
+ },
+ {
+  "id": "2713345125",
+  "replay": "replays/Gen5DoublesCustomGame-2026-11-12-dzzy444-wienerdogmaster.html",
+  "week": 6,
+  "game": 1,
+  "matchup": "Dzzy vs Ethan",
+  "player1": "Dzzy",
+  "player2": "Ethan",
+  "winner": "Dzzy",
+  "turns": 16,
+  "luckier": "Dzzy",
+  "edge": 0.15,
+  "edge_score": 0.11,
+  "swing": "",
+  "luckier_won": "Yes",
+  "crits1": 0,
+  "crits2": 1,
+  "events": 29
+ },
+ {
+  "id": "2713349250",
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2713349250",
+  "week": 6,
+  "game": 2,
+  "matchup": "Dzzy vs Ethan",
+  "player1": "Dzzy",
+  "player2": "Ethan",
+  "winner": "Dzzy",
+  "turns": 7,
+  "luckier": "Ethan",
+  "edge": 0.89,
+  "edge_score": 0.75,
+  "swing": "",
+  "luckier_won": "No",
+  "crits1": 0,
+  "crits2": 0,
+  "events": 18
  }
 ]
