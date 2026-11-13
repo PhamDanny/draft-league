@@ -21,7 +21,7 @@ import urllib.request
 from collections import defaultdict, OrderedDict
 
 sys.path.insert(0, os.path.dirname(__file__))
-from replay import parse_replay  # noqa: E402
+from replay import parse_replay, unmask_illusions  # noqa: E402
 from luck import luck_for_game, aggregate_luck  # noqa: E402
 import impact  # noqa: E402
 
@@ -249,6 +249,7 @@ def main():
     games = []
     for rid, (week_override, file) in links.items():
         rep = read_html_replay(file) if file else fetch(rid, offline)
+        rep["log"] = unmask_illusions(rep["log"])
         g = parse_replay(rep)
         names = {}
         for side in ("p1", "p2"):

@@ -25,6 +25,38 @@ def base_species(detail):
     return sp
 
 
+def unmask_illusions(log):
+    """Rewrite a Zoroark's disguised lines as Zoroark's own.
+
+    While Illusion holds, Showdown logs Zoroark under the disguise's nickname and species (but with
+    Zoroark's HP). When it breaks, a |replace| line names the real Pokemon. Everything from the
+    switch-in up to that line was really Zoroark, so rename it there; every parser then sees one
+    Pokemon instead of a disguise that took damage and a Zoroark that appeared from nowhere.
+    A Zoroark that leaves without being revealed can't be told apart and stays as the disguise."""
+    lines = log.split("\n")
+    switched_at = {}  # slot ("p2b") -> index of the switch/drag line that put the current mon there
+    for i, line in enumerate(lines):
+        p = line.split("|")
+        if len(p) < 4 or p[1] not in ("switch", "drag", "replace"):
+            continue
+        slot = p[2][:3]
+        if p[1] != "replace":
+            switched_at[slot] = i
+            continue
+        start = switched_at.get(slot)
+        if start is None:
+            continue
+        sw = lines[start].split("|")
+        fake, real = sw[2], p[2]  # "p2b: papa piggy" -> "p2b: erm hi zaddy :D"
+        sw[2], sw[3] = real, p[3]
+        lines[start] = "|".join(sw)
+        for j in range(start + 1, i):
+            q = lines[j].split("|")
+            q = [real if f == fake else "[of] " + real if f == "[of] " + fake else f for f in q]
+            lines[j] = "|".join(q)
+    return "\n".join(lines)
+
+
 def hp_frac(s):
     """'254/282' -> 0.9007; '0 fnt' -> 0.0; '45/100 par' -> 0.45."""
     s = s.split(" ")[0]
