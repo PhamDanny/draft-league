@@ -1,7 +1,7 @@
 [
  {
   "weather": "Sandstorm",
-  "games": 22
+  "games": 24
  },
  {
   "weather": "Rain",
@@ -9,6 +9,6 @@
  },
  {
   "weather": "Sun",
-  "games": 8
+  "games": 10
  }
 ]

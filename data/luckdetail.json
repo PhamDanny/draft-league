@@ -4,66 +4,77 @@
   "player": "Alex",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 154,
-  "happened": 11,
-  "expected": 9.62,
-  "luck": 1.38,
-  "score": 0.46
+  "tries": 188,
+  "happened": 14,
+  "expected": 11.75,
+  "luck": 2.25,
+  "score": 0.68
  },
  {
   "id": "Alex|crit|vic",
   "player": "Alex",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 107,
-  "happened": 10,
-  "expected": 7.0,
-  "luck": -3.0,
-  "score": -1.17
+  "tries": 132,
+  "happened": 12,
+  "expected": 8.62,
+  "luck": -3.38,
+  "score": -1.19
  },
  {
   "id": "Alex|acc|ben",
   "player": "Alex",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 86,
-  "happened": 78,
-  "expected": 76.85,
-  "luck": 1.15,
-  "score": 0.4
+  "tries": 100,
+  "happened": 92,
+  "expected": 89.2,
+  "luck": 2.8,
+  "score": 0.91
  },
  {
   "id": "Alex|acc|vic",
   "player": "Alex",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 21,
-  "happened": 19,
-  "expected": 18.0,
-  "luck": -1.0,
-  "score": -0.63
+  "tries": 35,
+  "happened": 33,
+  "expected": 26.35,
+  "luck": -6.65,
+  "score": -2.83
  },
  {
   "id": "Alex|brn|vic",
   "player": "Alex",
   "event": "Burns you took",
   "kind": "Burns",
-  "tries": 3,
+  "tries": 5,
   "happened": 0,
-  "expected": 0.7,
-  "luck": 0.7,
-  "score": 0.98
+  "expected": 1.3,
+  "luck": 1.3,
+  "score": 1.35
  },
  {
   "id": "Alex|frz|ben",
   "player": "Alex",
   "event": "Freezes you inflicted",
   "kind": "Freezes",
-  "tries": 7,
+  "tries": 10,
   "happened": 1,
-  "expected": 0.7,
-  "luck": 0.3,
-  "score": 0.38
+  "expected": 1.0,
+  "luck": 0.0,
+  "score": 0.0
+ },
+ {
+  "id": "Alex|frz|vic",
+  "player": "Alex",
+  "event": "Freezes you took",
+  "kind": "Freezes",
+  "tries": 1,
+  "happened": 0,
+  "expected": 0.1,
+  "luck": 0.1,
+  "score": 0.33
  },
  {
   "id": "Alex|par|ben",
@@ -92,22 +103,22 @@
   "player": "Alex",
   "event": "Flinches you caused",
   "kind": "Flinches",
-  "tries": 20,
+  "tries": 22,
   "happened": 3,
-  "expected": 5.0,
-  "luck": -2.0,
-  "score": -1.05
+  "expected": 5.6,
+  "luck": -2.6,
+  "score": -1.3
  },
  {
   "id": "Alex|drop|ben",
   "player": "Alex",
   "event": "Stat drops you caused",
   "kind": "Stat drops",
-  "tries": 4,
+  "tries": 5,
   "happened": 1,
-  "expected": 0.8,
-  "luck": 0.2,
-  "score": 0.25
+  "expected": 1.0,
+  "luck": 0.0,
+  "score": 0.0
  },
  {
   "id": "Alex|drop|vic",
@@ -141,6 +152,17 @@
   "expected": 3.75,
   "luck": 2.75,
   "score": 1.64
+ },
+ {
+  "id": "Alex|cself|vic",
+  "player": "Alex",
+  "event": "You hit yourself in confusion",
+  "kind": "Confusion self-hits",
+  "tries": 7,
+  "happened": 2,
+  "expected": 3.5,
+  "luck": 1.5,
+  "score": 1.13
  },
  {
   "id": "Alex|thaw|vic",
@@ -455,55 +477,55 @@
   "player": "Connor",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 108,
-  "happened": 7,
-  "expected": 6.94,
-  "luck": 0.06,
-  "score": 0.02
+  "tries": 133,
+  "happened": 9,
+  "expected": 8.56,
+  "luck": 0.44,
+  "score": 0.15
  },
  {
   "id": "Connor|crit|vic",
   "player": "Connor",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 153,
-  "happened": 11,
-  "expected": 9.69,
-  "luck": -1.31,
-  "score": -0.44
+  "tries": 187,
+  "happened": 14,
+  "expected": 11.81,
+  "luck": -2.19,
+  "score": -0.66
  },
  {
   "id": "Connor|acc|ben",
   "player": "Connor",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 46,
-  "happened": 40,
-  "expected": 38.3,
-  "luck": 1.7,
-  "score": 0.71
+  "tries": 60,
+  "happened": 54,
+  "expected": 46.65,
+  "luck": 7.35,
+  "score": 2.48
  },
  {
   "id": "Connor|acc|vic",
   "player": "Connor",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 46,
-  "happened": 38,
-  "expected": 41.4,
-  "luck": 3.4,
-  "score": 1.68
+  "tries": 60,
+  "happened": 52,
+  "expected": 53.75,
+  "luck": 1.75,
+  "score": 0.74
  },
  {
   "id": "Connor|brn|ben",
   "player": "Connor",
   "event": "Burns you inflicted",
   "kind": "Burns",
-  "tries": 8,
+  "tries": 10,
   "happened": 2,
-  "expected": 1.8,
-  "luck": 0.2,
-  "score": 0.17
+  "expected": 2.4,
+  "luck": -0.4,
+  "score": -0.3
  },
  {
   "id": "Connor|brn|vic",
@@ -521,22 +543,22 @@
   "player": "Connor",
   "event": "Freezes you inflicted",
   "kind": "Freezes",
-  "tries": 2,
+  "tries": 3,
   "happened": 0,
-  "expected": 0.2,
-  "luck": -0.2,
-  "score": -0.47
+  "expected": 0.3,
+  "luck": -0.3,
+  "score": -0.58
  },
  {
   "id": "Connor|frz|vic",
   "player": "Connor",
   "event": "Freezes you took",
   "kind": "Freezes",
-  "tries": 10,
+  "tries": 13,
   "happened": 3,
-  "expected": 1.0,
-  "luck": -2.0,
-  "score": -2.11
+  "expected": 1.3,
+  "luck": -1.7,
+  "score": -1.57
  },
  {
   "id": "Connor|par|ben",
@@ -576,11 +598,11 @@
   "player": "Connor",
   "event": "Flinches you took",
   "kind": "Flinches",
-  "tries": 5,
+  "tries": 7,
   "happened": 2,
-  "expected": 1.2,
-  "luck": -0.8,
-  "score": -0.85
+  "expected": 1.8,
+  "luck": -0.2,
+  "score": -0.18
  },
  {
   "id": "Connor|drop|ben",
@@ -598,11 +620,11 @@
   "player": "Connor",
   "event": "Stat drops you took",
   "kind": "Stat drops",
-  "tries": 10,
+  "tries": 11,
   "happened": 1,
-  "expected": 2.3,
-  "luck": 1.3,
-  "score": 1.0
+  "expected": 2.5,
+  "luck": 1.5,
+  "score": 1.1
  },
  {
   "id": "Connor|conf|vic",
@@ -631,11 +653,11 @@
   "player": "Connor",
   "event": "Opponent hit itself in confusion",
   "kind": "Confusion self-hits",
-  "tries": 5,
-  "happened": 3,
-  "expected": 2.5,
-  "luck": 0.5,
-  "score": 0.45
+  "tries": 12,
+  "happened": 5,
+  "expected": 6.0,
+  "luck": -1.0,
+  "score": -0.58
  },
  {
   "id": "Connor|thaw|ben",

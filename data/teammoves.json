@@ -44,8 +44,16 @@
   "player": "Alex",
   "pokemon": "Crobat",
   "move": "Tailwind",
-  "uses": 10,
-  "share": 0.417
+  "uses": 11,
+  "share": 0.344
+ },
+ {
+  "id": "Alex|Crobat|Brave Bird",
+  "player": "Alex",
+  "pokemon": "Crobat",
+  "move": "Brave Bird",
+  "uses": 8,
+  "share": 0.25
  },
  {
   "id": "Alex|Crobat|Super Fang",
@@ -53,31 +61,23 @@
   "pokemon": "Crobat",
   "move": "Super Fang",
   "uses": 5,
-  "share": 0.208
+  "share": 0.156
  },
  {
   "id": "Alex|Crobat|Taunt",
   "player": "Alex",
   "pokemon": "Crobat",
   "move": "Taunt",
-  "uses": 4,
-  "share": 0.167
- },
- {
-  "id": "Alex|Crobat|Brave Bird",
-  "player": "Alex",
-  "pokemon": "Crobat",
-  "move": "Brave Bird",
-  "uses": 3,
-  "share": 0.125
+  "uses": 5,
+  "share": 0.156
  },
  {
   "id": "Alex|Crobat|U-turn",
   "player": "Alex",
   "pokemon": "Crobat",
   "move": "U-turn",
-  "uses": 2,
-  "share": 0.083
+  "uses": 3,
+  "share": 0.094
  },
  {
   "id": "Alex|Gurdurr|Wide Guard",
@@ -109,23 +109,23 @@
   "pokemon": "Kangaskhan",
   "move": "Rock Slide",
   "uses": 6,
-  "share": 0.3
+  "share": 0.261
  },
  {
   "id": "Alex|Kangaskhan|Fake Out",
   "player": "Alex",
   "pokemon": "Kangaskhan",
   "move": "Fake Out",
-  "uses": 4,
-  "share": 0.2
+  "uses": 5,
+  "share": 0.217
  },
  {
   "id": "Alex|Kangaskhan|Protect",
   "player": "Alex",
   "pokemon": "Kangaskhan",
   "move": "Protect",
-  "uses": 4,
-  "share": 0.2
+  "uses": 5,
+  "share": 0.217
  },
  {
   "id": "Alex|Kangaskhan|Sucker Punch",
@@ -133,15 +133,23 @@
   "pokemon": "Kangaskhan",
   "move": "Sucker Punch",
   "uses": 4,
-  "share": 0.2
+  "share": 0.174
  },
  {
   "id": "Alex|Kangaskhan|Return",
   "player": "Alex",
   "pokemon": "Kangaskhan",
   "move": "Return",
-  "uses": 2,
-  "share": 0.1
+  "uses": 3,
+  "share": 0.13
+ },
+ {
+  "id": "Alex|Keldeo|Secret Sword",
+  "player": "Alex",
+  "pokemon": "Keldeo",
+  "move": "Secret Sword",
+  "uses": 15,
+  "share": 0.429
  },
  {
   "id": "Alex|Keldeo|Hidden Power",
@@ -149,31 +157,31 @@
   "pokemon": "Keldeo",
   "move": "Hidden Power",
   "uses": 10,
-  "share": 0.4
- },
- {
-  "id": "Alex|Keldeo|Secret Sword",
-  "player": "Alex",
-  "pokemon": "Keldeo",
-  "move": "Secret Sword",
-  "uses": 10,
-  "share": 0.4
- },
- {
-  "id": "Alex|Keldeo|Hydro Pump",
-  "player": "Alex",
-  "pokemon": "Keldeo",
-  "move": "Hydro Pump",
-  "uses": 3,
-  "share": 0.12
+  "share": 0.286
  },
  {
   "id": "Alex|Keldeo|Protect",
   "player": "Alex",
   "pokemon": "Keldeo",
   "move": "Protect",
-  "uses": 2,
-  "share": 0.08
+  "uses": 6,
+  "share": 0.171
+ },
+ {
+  "id": "Alex|Keldeo|Hydro Pump",
+  "player": "Alex",
+  "pokemon": "Keldeo",
+  "move": "Hydro Pump",
+  "uses": 4,
+  "share": 0.114
+ },
+ {
+  "id": "Alex|Metagross|Meteor Mash",
+  "player": "Alex",
+  "pokemon": "Metagross",
+  "move": "Meteor Mash",
+  "uses": 16,
+  "share": 0.333
  },
  {
   "id": "Alex|Metagross|Zen Headbutt",
@@ -181,39 +189,39 @@
   "pokemon": "Metagross",
   "move": "Zen Headbutt",
   "uses": 13,
-  "share": 0.361
- },
- {
-  "id": "Alex|Metagross|Meteor Mash",
-  "player": "Alex",
-  "pokemon": "Metagross",
-  "move": "Meteor Mash",
-  "uses": 12,
-  "share": 0.333
+  "share": 0.271
  },
  {
   "id": "Alex|Metagross|Protect",
   "player": "Alex",
   "pokemon": "Metagross",
   "move": "Protect",
-  "uses": 7,
-  "share": 0.194
+  "uses": 9,
+  "share": 0.188
  },
  {
   "id": "Alex|Metagross|Bullet Punch",
   "player": "Alex",
   "pokemon": "Metagross",
   "move": "Bullet Punch",
+  "uses": 6,
+  "share": 0.125
+ },
+ {
+  "id": "Alex|Metagross|Ice Punch",
+  "player": "Alex",
+  "pokemon": "Metagross",
+  "move": "Ice Punch",
   "uses": 4,
-  "share": 0.111
+  "share": 0.083
  },
  {
   "id": "Alex|Rotom-Wash|Volt Switch",
   "player": "Alex",
   "pokemon": "Rotom-Wash",
   "move": "Volt Switch",
-  "uses": 9,
-  "share": 0.409
+  "uses": 15,
+  "share": 0.536
  },
  {
   "id": "Alex|Rotom-Wash|Thunder Wave",
@@ -221,7 +229,7 @@
   "pokemon": "Rotom-Wash",
   "move": "Thunder Wave",
   "uses": 6,
-  "share": 0.273
+  "share": 0.214
  },
  {
   "id": "Alex|Rotom-Wash|Hydro Pump",
@@ -229,7 +237,7 @@
   "pokemon": "Rotom-Wash",
   "move": "Hydro Pump",
   "uses": 4,
-  "share": 0.182
+  "share": 0.143
  },
  {
   "id": "Alex|Rotom-Wash|Protect",
@@ -237,7 +245,7 @@
   "pokemon": "Rotom-Wash",
   "move": "Protect",
   "uses": 1,
-  "share": 0.045
+  "share": 0.036
  },
  {
   "id": "Alex|Rotom-Wash|Thunderbolt",
@@ -245,7 +253,7 @@
   "pokemon": "Rotom-Wash",
   "move": "Thunderbolt",
   "uses": 1,
-  "share": 0.045
+  "share": 0.036
  },
  {
   "id": "Alex|Rotom-Wash|Will-O-Wisp",
@@ -253,7 +261,7 @@
   "pokemon": "Rotom-Wash",
   "move": "Will-O-Wisp",
   "uses": 1,
-  "share": 0.045
+  "share": 0.036
  },
  {
   "id": "Alex|Stoutland|Ice Fang",
@@ -261,7 +269,7 @@
   "pokemon": "Stoutland",
   "move": "Ice Fang",
   "uses": 12,
-  "share": 0.387
+  "share": 0.375
  },
  {
   "id": "Alex|Stoutland|Return",
@@ -269,7 +277,7 @@
   "pokemon": "Stoutland",
   "move": "Return",
   "uses": 9,
-  "share": 0.29
+  "share": 0.281
  },
  {
   "id": "Alex|Stoutland|Crunch",
@@ -277,15 +285,15 @@
   "pokemon": "Stoutland",
   "move": "Crunch",
   "uses": 8,
-  "share": 0.258
+  "share": 0.25
  },
  {
   "id": "Alex|Stoutland|Protect",
   "player": "Alex",
   "pokemon": "Stoutland",
   "move": "Protect",
-  "uses": 2,
-  "share": 0.065
+  "uses": 3,
+  "share": 0.094
  },
  {
   "id": "Alex|Tangrowth|Protect",
@@ -332,8 +340,16 @@
   "player": "Alex",
   "pokemon": "Tyranitar",
   "move": "Rock Slide",
-  "uses": 15,
-  "share": 0.366
+  "uses": 21,
+  "share": 0.396
+ },
+ {
+  "id": "Alex|Tyranitar|Protect",
+  "player": "Alex",
+  "pokemon": "Tyranitar",
+  "move": "Protect",
+  "uses": 17,
+  "share": 0.321
  },
  {
   "id": "Alex|Tyranitar|Earthquake",
@@ -341,23 +357,15 @@
   "pokemon": "Tyranitar",
   "move": "Earthquake",
   "uses": 12,
-  "share": 0.293
- },
- {
-  "id": "Alex|Tyranitar|Protect",
-  "player": "Alex",
-  "pokemon": "Tyranitar",
-  "move": "Protect",
-  "uses": 12,
-  "share": 0.293
+  "share": 0.226
  },
  {
   "id": "Alex|Tyranitar|Crunch",
   "player": "Alex",
   "pokemon": "Tyranitar",
   "move": "Crunch",
-  "uses": 2,
-  "share": 0.049
+  "uses": 3,
+  "share": 0.057
  },
  {
   "id": "Bo|Chandelure|Protect",
@@ -996,24 +1004,24 @@
   "player": "Connor",
   "pokemon": "Dusclops",
   "move": "Seismic Toss",
-  "uses": 15,
-  "share": 0.326
+  "uses": 17,
+  "share": 0.333
  },
  {
   "id": "Connor|Dusclops|Trick Room",
   "player": "Connor",
   "pokemon": "Dusclops",
   "move": "Trick Room",
-  "uses": 12,
-  "share": 0.261
+  "uses": 13,
+  "share": 0.255
  },
  {
   "id": "Connor|Dusclops|Will-O-Wisp",
   "player": "Connor",
   "pokemon": "Dusclops",
   "move": "Will-O-Wisp",
-  "uses": 8,
-  "share": 0.174
+  "uses": 9,
+  "share": 0.176
  },
  {
   "id": "Connor|Dusclops|Night Shade",
@@ -1021,7 +1029,7 @@
   "pokemon": "Dusclops",
   "move": "Night Shade",
   "uses": 6,
-  "share": 0.13
+  "share": 0.118
  },
  {
   "id": "Connor|Dusclops|Rest",
@@ -1029,7 +1037,15 @@
   "pokemon": "Dusclops",
   "move": "Rest",
   "uses": 2,
-  "share": 0.043
+  "share": 0.039
+ },
+ {
+  "id": "Connor|Dusclops|Sunny Day",
+  "player": "Connor",
+  "pokemon": "Dusclops",
+  "move": "Sunny Day",
+  "uses": 2,
+  "share": 0.039
  },
  {
   "id": "Connor|Dusclops|Disable",
@@ -1037,7 +1053,7 @@
   "pokemon": "Dusclops",
   "move": "Disable",
   "uses": 1,
-  "share": 0.022
+  "share": 0.02
  },
  {
   "id": "Connor|Dusclops|Helping Hand",
@@ -1045,15 +1061,7 @@
   "pokemon": "Dusclops",
   "move": "Helping Hand",
   "uses": 1,
-  "share": 0.022
- },
- {
-  "id": "Connor|Dusclops|Sunny Day",
-  "player": "Connor",
-  "pokemon": "Dusclops",
-  "move": "Sunny Day",
-  "uses": 1,
-  "share": 0.022
+  "share": 0.02
  },
  {
   "id": "Connor|Eelektross|Thunder",
@@ -1061,15 +1069,31 @@
   "pokemon": "Eelektross",
   "move": "Thunder",
   "uses": 4,
-  "share": 0.4
+  "share": 0.267
  },
  {
   "id": "Connor|Eelektross|Coil",
   "player": "Connor",
   "pokemon": "Eelektross",
   "move": "Coil",
-  "uses": 2,
+  "uses": 3,
   "share": 0.2
+ },
+ {
+  "id": "Connor|Eelektross|Protect",
+  "player": "Connor",
+  "pokemon": "Eelektross",
+  "move": "Protect",
+  "uses": 3,
+  "share": 0.2
+ },
+ {
+  "id": "Connor|Eelektross|Drain Punch",
+  "player": "Connor",
+  "pokemon": "Eelektross",
+  "move": "Drain Punch",
+  "uses": 2,
+  "share": 0.133
  },
  {
   "id": "Connor|Eelektross|Acrobatics",
@@ -1077,7 +1101,7 @@
   "pokemon": "Eelektross",
   "move": "Acrobatics",
   "uses": 1,
-  "share": 0.1
+  "share": 0.067
  },
  {
   "id": "Connor|Eelektross|Flamethrower",
@@ -1085,7 +1109,7 @@
   "pokemon": "Eelektross",
   "move": "Flamethrower",
   "uses": 1,
-  "share": 0.1
+  "share": 0.067
  },
  {
   "id": "Connor|Eelektross|Giga Drain",
@@ -1093,15 +1117,7 @@
   "pokemon": "Eelektross",
   "move": "Giga Drain",
   "uses": 1,
-  "share": 0.1
- },
- {
-  "id": "Connor|Eelektross|Protect",
-  "player": "Connor",
-  "pokemon": "Eelektross",
-  "move": "Protect",
-  "uses": 1,
-  "share": 0.1
+  "share": 0.067
  },
  {
   "id": "Connor|Genesect|U-turn",
@@ -1196,8 +1212,16 @@
   "player": "Connor",
   "pokemon": "Latios",
   "move": "Draco Meteor",
+  "uses": 7,
+  "share": 0.259
+ },
+ {
+  "id": "Connor|Latios|Hidden Power",
+  "player": "Connor",
+  "pokemon": "Latios",
+  "move": "Hidden Power",
   "uses": 6,
-  "share": 0.286
+  "share": 0.222
  },
  {
   "id": "Connor|Latios|Protect",
@@ -1205,15 +1229,15 @@
   "pokemon": "Latios",
   "move": "Protect",
   "uses": 5,
-  "share": 0.238
+  "share": 0.185
  },
  {
-  "id": "Connor|Latios|Hidden Power",
+  "id": "Connor|Latios|Psyshock",
   "player": "Connor",
   "pokemon": "Latios",
-  "move": "Hidden Power",
-  "uses": 4,
-  "share": 0.19
+  "move": "Psyshock",
+  "uses": 3,
+  "share": 0.111
  },
  {
   "id": "Connor|Latios|Psychic",
@@ -1221,7 +1245,7 @@
   "pokemon": "Latios",
   "move": "Psychic",
   "uses": 2,
-  "share": 0.095
+  "share": 0.074
  },
  {
   "id": "Connor|Latios|Thunderbolt",
@@ -1229,7 +1253,7 @@
   "pokemon": "Latios",
   "move": "Thunderbolt",
   "uses": 2,
-  "share": 0.095
+  "share": 0.074
  },
  {
   "id": "Connor|Latios|Energy Ball",
@@ -1237,7 +1261,7 @@
   "pokemon": "Latios",
   "move": "Energy Ball",
   "uses": 1,
-  "share": 0.048
+  "share": 0.037
  },
  {
   "id": "Connor|Latios|Tailwind",
@@ -1245,7 +1269,15 @@
   "pokemon": "Latios",
   "move": "Tailwind",
   "uses": 1,
-  "share": 0.048
+  "share": 0.037
+ },
+ {
+  "id": "Connor|Machamp|Dynamic Punch",
+  "player": "Connor",
+  "pokemon": "Machamp",
+  "move": "Dynamic Punch",
+  "uses": 15,
+  "share": 0.556
  },
  {
   "id": "Connor|Machamp|Close Combat",
@@ -1253,23 +1285,15 @@
   "pokemon": "Machamp",
   "move": "Close Combat",
   "uses": 4,
-  "share": 0.333
- },
- {
-  "id": "Connor|Machamp|Dynamic Punch",
-  "player": "Connor",
-  "pokemon": "Machamp",
-  "move": "Dynamic Punch",
-  "uses": 3,
-  "share": 0.25
+  "share": 0.148
  },
  {
   "id": "Connor|Machamp|Stone Edge",
   "player": "Connor",
   "pokemon": "Machamp",
   "move": "Stone Edge",
-  "uses": 3,
-  "share": 0.25
+  "uses": 4,
+  "share": 0.148
  },
  {
   "id": "Connor|Machamp|Facade",
@@ -1277,15 +1301,23 @@
   "pokemon": "Machamp",
   "move": "Facade",
   "uses": 2,
-  "share": 0.167
+  "share": 0.074
+ },
+ {
+  "id": "Connor|Machamp|Substitute",
+  "player": "Connor",
+  "pokemon": "Machamp",
+  "move": "Substitute",
+  "uses": 2,
+  "share": 0.074
  },
  {
   "id": "Connor|Magmar|Follow Me",
   "player": "Connor",
   "pokemon": "Magmar",
   "move": "Follow Me",
-  "uses": 4,
-  "share": 0.333
+  "uses": 6,
+  "share": 0.353
  },
  {
   "id": "Connor|Magmar|Flamethrower",
@@ -1293,7 +1325,7 @@
   "pokemon": "Magmar",
   "move": "Flamethrower",
   "uses": 3,
-  "share": 0.25
+  "share": 0.176
  },
  {
   "id": "Connor|Magmar|Helping Hand",
@@ -1301,7 +1333,23 @@
   "pokemon": "Magmar",
   "move": "Helping Hand",
   "uses": 2,
-  "share": 0.167
+  "share": 0.118
+ },
+ {
+  "id": "Connor|Magmar|Overheat",
+  "player": "Connor",
+  "pokemon": "Magmar",
+  "move": "Overheat",
+  "uses": 2,
+  "share": 0.118
+ },
+ {
+  "id": "Connor|Magmar|Sunny Day",
+  "player": "Connor",
+  "pokemon": "Magmar",
+  "move": "Sunny Day",
+  "uses": 2,
+  "share": 0.118
  },
  {
   "id": "Connor|Magmar|Hidden Power",
@@ -1309,15 +1357,7 @@
   "pokemon": "Magmar",
   "move": "Hidden Power",
   "uses": 1,
-  "share": 0.083
- },
- {
-  "id": "Connor|Magmar|Overheat",
-  "player": "Connor",
-  "pokemon": "Magmar",
-  "move": "Overheat",
-  "uses": 1,
-  "share": 0.083
+  "share": 0.059
  },
  {
   "id": "Connor|Magmar|Protect",
@@ -1325,7 +1365,7 @@
   "pokemon": "Magmar",
   "move": "Protect",
   "uses": 1,
-  "share": 0.083
+  "share": 0.059
  },
  {
   "id": "Connor|Rotom-Heat|Volt Switch",
@@ -1333,7 +1373,7 @@
   "pokemon": "Rotom-Heat",
   "move": "Volt Switch",
   "uses": 11,
-  "share": 0.44
+  "share": 0.423
  },
  {
   "id": "Connor|Rotom-Heat|Overheat",
@@ -1341,15 +1381,15 @@
   "pokemon": "Rotom-Heat",
   "move": "Overheat",
   "uses": 9,
-  "share": 0.36
+  "share": 0.346
  },
  {
   "id": "Connor|Rotom-Heat|Thunderbolt",
   "player": "Connor",
   "pokemon": "Rotom-Heat",
   "move": "Thunderbolt",
-  "uses": 3,
-  "share": 0.12
+  "uses": 4,
+  "share": 0.154
  },
  {
   "id": "Connor|Rotom-Heat|Thunder",
@@ -1357,23 +1397,23 @@
   "pokemon": "Rotom-Heat",
   "move": "Thunder",
   "uses": 2,
-  "share": 0.08
+  "share": 0.077
  },
  {
   "id": "Connor|Scrafty|Drain Punch",
   "player": "Connor",
   "pokemon": "Scrafty",
   "move": "Drain Punch",
-  "uses": 10,
-  "share": 0.385
+  "uses": 13,
+  "share": 0.406
  },
  {
   "id": "Connor|Scrafty|Fake Out",
   "player": "Connor",
   "pokemon": "Scrafty",
   "move": "Fake Out",
-  "uses": 9,
-  "share": 0.346
+  "uses": 11,
+  "share": 0.344
  },
  {
   "id": "Connor|Scrafty|Head Smash",
@@ -1381,7 +1421,7 @@
   "pokemon": "Scrafty",
   "move": "Head Smash",
   "uses": 4,
-  "share": 0.154
+  "share": 0.125
  },
  {
   "id": "Connor|Scrafty|Detect",
@@ -1389,15 +1429,31 @@
   "pokemon": "Scrafty",
   "move": "Detect",
   "uses": 3,
-  "share": 0.115
+  "share": 0.094
+ },
+ {
+  "id": "Connor|Scrafty|Protect",
+  "player": "Connor",
+  "pokemon": "Scrafty",
+  "move": "Protect",
+  "uses": 1,
+  "share": 0.031
  },
  {
   "id": "Connor|Suicune|Scald",
   "player": "Connor",
   "pokemon": "Suicune",
   "move": "Scald",
-  "uses": 7,
-  "share": 0.206
+  "uses": 12,
+  "share": 0.261
+ },
+ {
+  "id": "Connor|Suicune|Protect",
+  "player": "Connor",
+  "pokemon": "Suicune",
+  "move": "Protect",
+  "uses": 8,
+  "share": 0.174
  },
  {
   "id": "Connor|Suicune|Air Slash",
@@ -1405,15 +1461,7 @@
   "pokemon": "Suicune",
   "move": "Air Slash",
   "uses": 5,
-  "share": 0.147
- },
- {
-  "id": "Connor|Suicune|Protect",
-  "player": "Connor",
-  "pokemon": "Suicune",
-  "move": "Protect",
-  "uses": 5,
-  "share": 0.147
+  "share": 0.109
  },
  {
   "id": "Connor|Suicune|Substitute",
@@ -1421,7 +1469,15 @@
   "pokemon": "Suicune",
   "move": "Substitute",
   "uses": 5,
-  "share": 0.147
+  "share": 0.109
+ },
+ {
+  "id": "Connor|Suicune|Tailwind",
+  "player": "Connor",
+  "pokemon": "Suicune",
+  "move": "Tailwind",
+  "uses": 5,
+  "share": 0.109
  },
  {
   "id": "Connor|Suicune|Calm Mind",
@@ -1429,7 +1485,7 @@
   "pokemon": "Suicune",
   "move": "Calm Mind",
   "uses": 4,
-  "share": 0.118
+  "share": 0.087
  },
  {
   "id": "Connor|Suicune|Sunny Day",
@@ -1437,15 +1493,7 @@
   "pokemon": "Suicune",
   "move": "Sunny Day",
   "uses": 3,
-  "share": 0.088
- },
- {
-  "id": "Connor|Suicune|Tailwind",
-  "player": "Connor",
-  "pokemon": "Suicune",
-  "move": "Tailwind",
-  "uses": 2,
-  "share": 0.059
+  "share": 0.065
  },
  {
   "id": "Connor|Suicune|Toxic",
@@ -1453,7 +1501,15 @@
   "pokemon": "Suicune",
   "move": "Toxic",
   "uses": 2,
-  "share": 0.059
+  "share": 0.043
+ },
+ {
+  "id": "Connor|Suicune|Ice Beam",
+  "player": "Connor",
+  "pokemon": "Suicune",
+  "move": "Ice Beam",
+  "uses": 1,
+  "share": 0.022
  },
  {
   "id": "Connor|Suicune|Roar",
@@ -1461,7 +1517,7 @@
   "pokemon": "Suicune",
   "move": "Roar",
   "uses": 1,
-  "share": 0.029
+  "share": 0.022
  },
  {
   "id": "Danny|Golbat|Super Fang",

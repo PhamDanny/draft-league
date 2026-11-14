@@ -1,9 +1,9 @@
 [
  {
   "source": "Sandstorm",
-  "hits": 437,
-  "damage": 26.18,
-  "faints": 16
+  "hits": 503,
+  "damage": 30.21,
+  "faints": 17
  },
  {
   "source": "Poison",
@@ -19,14 +19,14 @@
  },
  {
   "source": "Burn",
-  "hits": 134,
-  "damage": 16.22,
+  "hits": 143,
+  "damage": 17.33,
   "faints": 11
  },
  {
   "source": "Life Orb recoil",
-  "hits": 153,
-  "damage": 14.76,
+  "hits": 158,
+  "damage": 15.25,
   "faints": 6
  },
  {
@@ -37,8 +37,8 @@
  },
  {
   "source": "Move recoil",
-  "hits": 19,
-  "damage": 3.67,
+  "hits": 24,
+  "damage": 4.24,
   "faints": 0
  },
  {
@@ -54,15 +54,15 @@
   "faints": 0
  },
  {
-  "source": "Spikes",
-  "hits": 1,
-  "damage": 0.17,
+  "source": "Confusion",
+  "hits": 5,
+  "damage": 0.22,
   "faints": 0
  },
  {
-  "source": "Confusion",
-  "hits": 3,
-  "damage": 0.09,
+  "source": "Spikes",
+  "hits": 1,
+  "damage": 0.17,
   "faints": 0
  }
 ]

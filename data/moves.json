@@ -1,7 +1,7 @@
 [
  {
   "move": "Protect",
-  "uses": 305,
+  "uses": 324,
   "kos": 0,
   "damage": 0.0,
   "damage_per_use": null,
@@ -9,27 +9,27 @@
  },
  {
   "move": "Ice Beam",
-  "uses": 83,
+  "uses": 84,
   "kos": 27,
-  "damage": 34.4,
+  "damage": 34.83,
   "damage_per_use": 0.41,
-  "kos_per_10_uses": 3.25
- },
- {
-  "move": "Fake Out",
-  "uses": 80,
-  "kos": 3,
-  "damage": 6.34,
-  "damage_per_use": 0.08,
-  "kos_per_10_uses": 0.38
+  "kos_per_10_uses": 3.21
  },
  {
   "move": "Scald",
-  "uses": 79,
+  "uses": 84,
   "kos": 12,
-  "damage": 21.51,
-  "damage_per_use": 0.27,
-  "kos_per_10_uses": 1.52
+  "damage": 22.12,
+  "damage_per_use": 0.26,
+  "kos_per_10_uses": 1.43
+ },
+ {
+  "move": "Fake Out",
+  "uses": 83,
+  "kos": 3,
+  "damage": 6.71,
+  "damage_per_use": 0.08,
+  "kos_per_10_uses": 0.36
  },
  {
   "move": "Earthquake",
@@ -41,11 +41,19 @@
  },
  {
   "move": "Thunderbolt",
-  "uses": 69,
+  "uses": 70,
   "kos": 26,
   "damage": 31.02,
-  "damage_per_use": 0.45,
-  "kos_per_10_uses": 3.77
+  "damage_per_use": 0.44,
+  "kos_per_10_uses": 3.71
+ },
+ {
+  "move": "Rock Slide",
+  "uses": 61,
+  "kos": 21,
+  "damage": 21.16,
+  "damage_per_use": 0.35,
+  "kos_per_10_uses": 3.44
  },
  {
   "move": "Psychic",
@@ -54,14 +62,6 @@
   "damage": 14.87,
   "damage_per_use": 0.27,
   "kos_per_10_uses": 2.55
- },
- {
-  "move": "Rock Slide",
-  "uses": 55,
-  "kos": 21,
-  "damage": 19.76,
-  "damage_per_use": 0.36,
-  "kos_per_10_uses": 3.82
  },
  {
   "move": "Toxic",
@@ -73,7 +73,7 @@
  },
  {
   "move": "Trick Room",
-  "uses": 44,
+  "uses": 45,
   "kos": 0,
   "damage": 0.0,
   "damage_per_use": null,
@@ -81,27 +81,27 @@
  },
  {
   "move": "Hidden Power",
-  "uses": 42,
-  "kos": 16,
-  "damage": 16.2,
-  "damage_per_use": 0.39,
-  "kos_per_10_uses": 3.81
+  "uses": 44,
+  "kos": 17,
+  "damage": 16.93,
+  "damage_per_use": 0.38,
+  "kos_per_10_uses": 3.86
  },
  {
   "move": "Crunch",
-  "uses": 41,
+  "uses": 42,
   "kos": 7,
-  "damage": 9.39,
+  "damage": 9.52,
   "damage_per_use": 0.23,
-  "kos_per_10_uses": 1.71
+  "kos_per_10_uses": 1.67
  },
  {
   "move": "Draco Meteor",
-  "uses": 41,
-  "kos": 24,
-  "damage": 21.53,
-  "damage_per_use": 0.53,
-  "kos_per_10_uses": 5.85
+  "uses": 42,
+  "kos": 25,
+  "damage": 21.6,
+  "damage_per_use": 0.51,
+  "kos_per_10_uses": 5.95
  },
  {
   "move": "Gyro Ball",
@@ -145,15 +145,23 @@
  },
  {
   "move": "Taunt",
-  "uses": 35,
+  "uses": 36,
   "kos": 0,
   "damage": 0.0,
   "damage_per_use": null,
   "kos_per_10_uses": null
  },
  {
+  "move": "Volt Switch",
+  "uses": 36,
+  "kos": 5,
+  "damage": 7.92,
+  "damage_per_use": 0.22,
+  "kos_per_10_uses": 1.39
+ },
+ {
   "move": "Will-O-Wisp",
-  "uses": 35,
+  "uses": 36,
   "kos": 0,
   "damage": 0.0,
   "damage_per_use": null,
@@ -161,11 +169,19 @@
  },
  {
   "move": "Follow Me",
-  "uses": 33,
+  "uses": 35,
   "kos": 0,
   "damage": 0.0,
   "damage_per_use": null,
   "kos_per_10_uses": null
+ },
+ {
+  "move": "Seismic Toss",
+  "uses": 34,
+  "kos": 5,
+  "damage": 7.4,
+  "damage_per_use": 0.22,
+  "kos_per_10_uses": 1.47
  },
  {
   "move": "Earth Power",
@@ -184,20 +200,12 @@
   "kos_per_10_uses": 2.19
  },
  {
-  "move": "Seismic Toss",
+  "move": "Tailwind",
   "uses": 32,
-  "kos": 5,
-  "damage": 7.12,
-  "damage_per_use": 0.22,
-  "kos_per_10_uses": 1.56
- },
- {
-  "move": "Volt Switch",
-  "uses": 30,
-  "kos": 4,
-  "damage": 7.47,
-  "damage_per_use": 0.25,
-  "kos_per_10_uses": 1.33
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
  },
  {
   "move": "Stealth Rock",
@@ -209,14 +217,6 @@
  },
  {
   "move": "Leech Seed",
-  "uses": 28,
-  "kos": 0,
-  "damage": 0.0,
-  "damage_per_use": null,
-  "kos_per_10_uses": null
- },
- {
-  "move": "Tailwind",
   "uses": 28,
   "kos": 0,
   "damage": 0.0,
@@ -240,6 +240,22 @@
   "kos_per_10_uses": null
  },
  {
+  "move": "Drain Punch",
+  "uses": 25,
+  "kos": 5,
+  "damage": 7.6,
+  "damage_per_use": 0.3,
+  "kos_per_10_uses": 2.0
+ },
+ {
+  "move": "Substitute",
+  "uses": 24,
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
+ },
+ {
   "move": "Thunder Wave",
   "uses": 24,
   "kos": 0,
@@ -254,14 +270,6 @@
   "damage": 6.83,
   "damage_per_use": 0.31,
   "kos_per_10_uses": 2.73
- },
- {
-  "move": "Substitute",
-  "uses": 22,
-  "kos": 0,
-  "damage": 0.0,
-  "damage_per_use": null,
-  "kos_per_10_uses": null
  },
  {
   "move": "Dragon Pulse",
@@ -280,14 +288,6 @@
   "kos_per_10_uses": 3.81
  },
  {
-  "move": "Drain Punch",
-  "uses": 20,
-  "kos": 3,
-  "damage": 6.44,
-  "damage_per_use": 0.32,
-  "kos_per_10_uses": 1.5
- },
- {
   "move": "Detect",
   "uses": 19,
   "kos": 0,
@@ -304,20 +304,20 @@
   "kos_per_10_uses": null
  },
  {
+  "move": "U-turn",
+  "uses": 19,
+  "kos": 2,
+  "damage": 5.92,
+  "damage_per_use": 0.31,
+  "kos_per_10_uses": 1.05
+ },
+ {
   "move": "Power Whip",
   "uses": 18,
   "kos": 10,
   "damage": 8.81,
   "damage_per_use": 0.49,
   "kos_per_10_uses": 5.56
- },
- {
-  "move": "U-turn",
-  "uses": 18,
-  "kos": 2,
-  "damage": 5.77,
-  "damage_per_use": 0.32,
-  "kos_per_10_uses": 1.11
  },
  {
   "move": "Body Slam",
@@ -344,6 +344,38 @@
   "kos_per_10_uses": 3.53
  },
  {
+  "move": "Hydro Pump",
+  "uses": 16,
+  "kos": 6,
+  "damage": 5.33,
+  "damage_per_use": 0.33,
+  "kos_per_10_uses": 3.75
+ },
+ {
+  "move": "Meteor Mash",
+  "uses": 16,
+  "kos": 3,
+  "damage": 4.01,
+  "damage_per_use": 0.25,
+  "kos_per_10_uses": 1.88
+ },
+ {
+  "move": "Psyshock",
+  "uses": 16,
+  "kos": 4,
+  "damage": 5.42,
+  "damage_per_use": 0.34,
+  "kos_per_10_uses": 2.5
+ },
+ {
+  "move": "Sunny Day",
+  "uses": 16,
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
+ },
+ {
   "move": "Air Slash",
   "uses": 15,
   "kos": 1,
@@ -352,11 +384,35 @@
   "kos_per_10_uses": 0.67
  },
  {
-  "move": "Hydro Pump",
+  "move": "Dynamic Punch",
+  "uses": 15,
+  "kos": 6,
+  "damage": 7.16,
+  "damage_per_use": 0.48,
+  "kos_per_10_uses": 4.0
+ },
+ {
+  "move": "Ice Punch",
+  "uses": 15,
+  "kos": 2,
+  "damage": 4.63,
+  "damage_per_use": 0.31,
+  "kos_per_10_uses": 1.33
+ },
+ {
+  "move": "Return",
   "uses": 15,
   "kos": 5,
-  "damage": 5.0,
-  "damage_per_use": 0.33,
+  "damage": 4.85,
+  "damage_per_use": 0.32,
+  "kos_per_10_uses": 3.33
+ },
+ {
+  "move": "Secret Sword",
+  "uses": 15,
+  "kos": 5,
+  "damage": 4.75,
+  "damage_per_use": 0.32,
   "kos_per_10_uses": 3.33
  },
  {
@@ -368,20 +424,20 @@
   "kos_per_10_uses": null
  },
  {
+  "move": "Brave Bird",
+  "uses": 14,
+  "kos": 2,
+  "damage": 6.84,
+  "damage_per_use": 0.49,
+  "kos_per_10_uses": 1.43
+ },
+ {
   "move": "Icy Wind",
   "uses": 14,
   "kos": 0,
   "damage": 1.27,
   "damage_per_use": 0.09,
   "kos_per_10_uses": 0.0
- },
- {
-  "move": "Return",
-  "uses": 14,
-  "kos": 5,
-  "damage": 4.46,
-  "damage_per_use": 0.32,
-  "kos_per_10_uses": 3.57
  },
  {
   "move": "Wish",
@@ -406,22 +462,6 @@
   "damage": 3.98,
   "damage_per_use": 0.31,
   "kos_per_10_uses": 1.54
- },
- {
-  "move": "Psyshock",
-  "uses": 13,
-  "kos": 3,
-  "damage": 4.94,
-  "damage_per_use": 0.38,
-  "kos_per_10_uses": 2.31
- },
- {
-  "move": "Sunny Day",
-  "uses": 13,
-  "kos": 0,
-  "damage": 0.0,
-  "damage_per_use": null,
-  "kos_per_10_uses": null
  },
  {
   "move": "Zen Headbutt",
@@ -456,12 +496,12 @@
   "kos_per_10_uses": 5.0
  },
  {
-  "move": "Meteor Mash",
+  "move": "Overheat",
   "uses": 12,
-  "kos": 1,
-  "damage": 3.07,
-  "damage_per_use": 0.26,
-  "kos_per_10_uses": 0.83
+  "kos": 7,
+  "damage": 5.41,
+  "damage_per_use": 0.45,
+  "kos_per_10_uses": 5.83
  },
  {
   "move": "Super Fang",
@@ -480,28 +520,12 @@
   "kos_per_10_uses": 5.0
  },
  {
-  "move": "Ice Punch",
-  "uses": 11,
-  "kos": 2,
-  "damage": 3.77,
-  "damage_per_use": 0.34,
-  "kos_per_10_uses": 1.82
- },
- {
   "move": "Low Kick",
   "uses": 11,
   "kos": 8,
   "damage": 7.34,
   "damage_per_use": 0.67,
   "kos_per_10_uses": 7.27
- },
- {
-  "move": "Overheat",
-  "uses": 11,
-  "kos": 7,
-  "damage": 4.96,
-  "damage_per_use": 0.45,
-  "kos_per_10_uses": 6.36
  },
  {
   "move": "Rest",
@@ -552,14 +576,6 @@
   "kos_per_10_uses": 6.0
  },
  {
-  "move": "Secret Sword",
-  "uses": 10,
-  "kos": 4,
-  "damage": 2.68,
-  "damage_per_use": 0.27,
-  "kos_per_10_uses": 4.0
- },
- {
   "move": "Acrobatics",
   "uses": 9,
   "kos": 2,
@@ -568,11 +584,11 @@
   "kos_per_10_uses": 2.22
  },
  {
-  "move": "Brave Bird",
+  "move": "Bullet Punch",
   "uses": 9,
   "kos": 2,
-  "damage": 5.1,
-  "damage_per_use": 0.57,
+  "damage": 1.38,
+  "damage_per_use": 0.15,
   "kos_per_10_uses": 2.22
  },
  {
@@ -664,14 +680,6 @@
   "kos_per_10_uses": 0.0
  },
  {
-  "move": "Bullet Punch",
-  "uses": 7,
-  "kos": 2,
-  "damage": 1.26,
-  "damage_per_use": 0.18,
-  "kos_per_10_uses": 2.86
- },
- {
   "move": "Energy Ball",
   "uses": 7,
   "kos": 2,
@@ -702,6 +710,14 @@
   "damage": 0.0,
   "damage_per_use": null,
   "kos_per_10_uses": null
+ },
+ {
+  "move": "Stone Edge",
+  "uses": 7,
+  "kos": 2,
+  "damage": 3.69,
+  "damage_per_use": 0.53,
+  "kos_per_10_uses": 2.86
  },
  {
   "move": "Flare Blitz",
@@ -742,14 +758,6 @@
   "damage": 2.99,
   "damage_per_use": 0.5,
   "kos_per_10_uses": 5.0
- },
- {
-  "move": "Stone Edge",
-  "uses": 6,
-  "kos": 2,
-  "damage": 3.03,
-  "damage_per_use": 0.51,
-  "kos_per_10_uses": 3.33
  },
  {
   "move": "Swords Dance",
@@ -872,6 +880,14 @@
   "kos_per_10_uses": 10.0
  },
  {
+  "move": "Coil",
+  "uses": 3,
+  "kos": 0,
+  "damage": 0.0,
+  "damage_per_use": null,
+  "kos_per_10_uses": null
+ },
+ {
   "move": "Counter",
   "uses": 3,
   "kos": 0,
@@ -893,14 +909,6 @@
   "kos": 0,
   "damage": 0.39,
   "damage_per_use": 0.13,
-  "kos_per_10_uses": 0.0
- },
- {
-  "move": "Dynamic Punch",
-  "uses": 3,
-  "kos": 0,
-  "damage": 1.9,
-  "damage_per_use": 0.63,
   "kos_per_10_uses": 0.0
  },
  {
@@ -982,14 +990,6 @@
   "damage": 0.59,
   "damage_per_use": 0.2,
   "kos_per_10_uses": 0.0
- },
- {
-  "move": "Coil",
-  "uses": 2,
-  "kos": 0,
-  "damage": 0.0,
-  "damage_per_use": null,
-  "kos_per_10_uses": null
  },
  {
   "move": "Drill Run",
