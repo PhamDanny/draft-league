@@ -7,9 +7,9 @@
  },
  {
   "source": "Poison",
-  "hits": 141,
-  "damage": 18.24,
-  "faints": 14
+  "hits": 145,
+  "damage": 18.85,
+  "faints": 15
  },
  {
   "source": "Stealth Rock",
@@ -25,8 +25,8 @@
  },
  {
   "source": "Life Orb recoil",
-  "hits": 158,
-  "damage": 15.25,
+  "hits": 162,
+  "damage": 15.65,
   "faints": 6
  },
  {
@@ -37,8 +37,8 @@
  },
  {
   "source": "Move recoil",
-  "hits": 24,
-  "damage": 4.24,
+  "hits": 27,
+  "damage": 4.83,
   "faints": 0
  },
  {
