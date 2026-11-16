@@ -323,44 +323,44 @@
   "player": "Brayden",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 175,
-  "happened": 14,
-  "expected": 10.94,
-  "luck": 3.06,
-  "score": 0.96
+  "tries": 193,
+  "happened": 16,
+  "expected": 12.06,
+  "luck": 3.94,
+  "score": 1.17
  },
  {
   "id": "Brayden|crit|vic",
   "player": "Brayden",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 99,
-  "happened": 4,
-  "expected": 6.31,
-  "luck": 2.31,
-  "score": 0.95
+  "tries": 117,
+  "happened": 5,
+  "expected": 7.5,
+  "luck": 2.5,
+  "score": 0.94
  },
  {
   "id": "Brayden|acc|ben",
   "player": "Brayden",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 36,
-  "happened": 34,
-  "expected": 32.85,
-  "luck": 1.15,
-  "score": 0.68
+  "tries": 39,
+  "happened": 37,
+  "expected": 35.45,
+  "luck": 1.55,
+  "score": 0.87
  },
  {
   "id": "Brayden|acc|vic",
   "player": "Brayden",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 32,
-  "happened": 23,
-  "expected": 26.45,
-  "luck": 3.45,
-  "score": 1.64
+  "tries": 34,
+  "happened": 25,
+  "expected": 28.25,
+  "luck": 3.25,
+  "score": 1.52
  },
  {
   "id": "Brayden|brn|ben",
@@ -389,22 +389,22 @@
   "player": "Brayden",
   "event": "Freezes you inflicted",
   "kind": "Freezes",
-  "tries": 12,
+  "tries": 14,
   "happened": 5,
-  "expected": 1.2,
-  "luck": 3.8,
-  "score": 3.66
+  "expected": 1.4,
+  "luck": 3.6,
+  "score": 3.21
  },
  {
   "id": "Brayden|frz|vic",
   "player": "Brayden",
   "event": "Freezes you took",
   "kind": "Freezes",
-  "tries": 8,
+  "tries": 9,
   "happened": 0,
-  "expected": 0.8,
-  "luck": 0.8,
-  "score": 0.94
+  "expected": 0.9,
+  "luck": 0.9,
+  "score": 1.0
  },
  {
   "id": "Brayden|par|ben",
@@ -422,11 +422,11 @@
   "player": "Brayden",
   "event": "Paralysis you took",
   "kind": "Paralysis",
-  "tries": 2,
+  "tries": 3,
   "happened": 0,
-  "expected": 0.2,
-  "luck": 0.2,
-  "score": 0.47
+  "expected": 0.3,
+  "luck": 0.3,
+  "score": 0.58
  },
  {
   "id": "Brayden|flinch|ben",
@@ -444,11 +444,11 @@
   "player": "Brayden",
   "event": "Stat drops you caused",
   "kind": "Stat drops",
-  "tries": 27,
-  "happened": 6,
-  "expected": 4.5,
-  "luck": 1.5,
-  "score": 0.78
+  "tries": 31,
+  "happened": 7,
+  "expected": 5.3,
+  "luck": 1.7,
+  "score": 0.82
  },
  {
   "id": "Brayden|drop|vic",
@@ -675,44 +675,44 @@
   "player": "Danny",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 95,
-  "happened": 11,
-  "expected": 6.5,
-  "luck": 4.5,
-  "score": 1.83
+  "tries": 113,
+  "happened": 12,
+  "expected": 7.69,
+  "luck": 4.31,
+  "score": 1.62
  },
  {
   "id": "Danny|crit|vic",
   "player": "Danny",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 79,
-  "happened": 4,
-  "expected": 5.06,
-  "luck": 1.06,
-  "score": 0.49
+  "tries": 97,
+  "happened": 6,
+  "expected": 6.19,
+  "luck": 0.19,
+  "score": 0.08
  },
  {
   "id": "Danny|acc|ben",
   "player": "Danny",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 49,
-  "happened": 45,
-  "expected": 44.2,
-  "luck": 0.8,
-  "score": 0.38
+  "tries": 51,
+  "happened": 47,
+  "expected": 46.0,
+  "luck": 1.0,
+  "score": 0.47
  },
  {
   "id": "Danny|acc|vic",
   "player": "Danny",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 23,
-  "happened": 21,
-  "expected": 19.65,
-  "luck": -1.35,
-  "score": -0.81
+  "tries": 26,
+  "happened": 24,
+  "expected": 22.25,
+  "luck": -1.75,
+  "score": -0.99
  },
  {
   "id": "Danny|brn|ben",
@@ -741,33 +741,33 @@
   "player": "Danny",
   "event": "Freezes you inflicted",
   "kind": "Freezes",
-  "tries": 1,
+  "tries": 2,
   "happened": 0,
-  "expected": 0.1,
-  "luck": -0.1,
-  "score": -0.33
+  "expected": 0.2,
+  "luck": -0.2,
+  "score": -0.47
  },
  {
   "id": "Danny|frz|vic",
   "player": "Danny",
   "event": "Freezes you took",
   "kind": "Freezes",
-  "tries": 8,
+  "tries": 10,
   "happened": 1,
-  "expected": 0.8,
-  "luck": -0.2,
-  "score": -0.24
+  "expected": 1.0,
+  "luck": -0.0,
+  "score": -0.0
  },
  {
   "id": "Danny|par|ben",
   "player": "Danny",
   "event": "Paralysis you inflicted",
   "kind": "Paralysis",
-  "tries": 5,
+  "tries": 6,
   "happened": 0,
-  "expected": 0.5,
-  "luck": -0.5,
-  "score": -0.75
+  "expected": 0.6,
+  "luck": -0.6,
+  "score": -0.82
  },
  {
   "id": "Danny|par|vic",
@@ -796,11 +796,11 @@
   "player": "Danny",
   "event": "Stat drops you took",
   "kind": "Stat drops",
-  "tries": 4,
-  "happened": 2,
-  "expected": 0.4,
-  "luck": -1.6,
-  "score": -2.67
+  "tries": 8,
+  "happened": 3,
+  "expected": 1.2,
+  "luck": -1.8,
+  "score": -1.8
  },
  {
   "id": "Danny|fpar|ben",

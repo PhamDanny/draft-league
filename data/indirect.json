@@ -1,8 +1,8 @@
 [
  {
   "source": "Sandstorm",
-  "hits": 503,
-  "damage": 30.21,
+  "hits": 513,
+  "damage": 30.81,
   "faints": 17
  },
  {
@@ -25,8 +25,8 @@
  },
  {
   "source": "Life Orb recoil",
-  "hits": 162,
-  "damage": 15.65,
+  "hits": 172,
+  "damage": 16.63,
   "faints": 6
  },
  {
