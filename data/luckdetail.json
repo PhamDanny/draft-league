@@ -818,44 +818,44 @@
   "player": "David Kim",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 190,
-  "happened": 10,
-  "expected": 12.25,
-  "luck": -2.25,
-  "score": -0.67
+  "tries": 217,
+  "happened": 13,
+  "expected": 13.94,
+  "luck": -0.94,
+  "score": -0.26
  },
  {
   "id": "David Kim|crit|vic",
   "player": "David Kim",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 191,
-  "happened": 9,
-  "expected": 11.94,
-  "luck": 2.94,
-  "score": 0.88
+  "tries": 213,
+  "happened": 10,
+  "expected": 13.31,
+  "luck": 3.31,
+  "score": 0.94
  },
  {
   "id": "David Kim|acc|ben",
   "player": "David Kim",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 83,
-  "happened": 74,
-  "expected": 75.0,
-  "luck": -1.0,
-  "score": -0.37
+  "tries": 97,
+  "happened": 84,
+  "expected": 87.2,
+  "luck": -3.2,
+  "score": -1.09
  },
  {
   "id": "David Kim|acc|vic",
   "player": "David Kim",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 55,
+  "tries": 56,
   "happened": 49,
-  "expected": 48.55,
-  "luck": -0.45,
-  "score": -0.19
+  "expected": 49.3,
+  "luck": 0.3,
+  "score": 0.13
  },
  {
   "id": "David Kim|brn|ben",
@@ -873,11 +873,11 @@
   "player": "David Kim",
   "event": "Burns you took",
   "kind": "Burns",
-  "tries": 13,
+  "tries": 15,
   "happened": 1,
-  "expected": 1.5,
-  "luck": 0.5,
-  "score": 0.44
+  "expected": 1.7,
+  "luck": 0.7,
+  "score": 0.58
  },
  {
   "id": "David Kim|frz|ben",
@@ -917,11 +917,11 @@
   "player": "David Kim",
   "event": "Paralysis you took",
   "kind": "Paralysis",
-  "tries": 14,
-  "happened": 4,
-  "expected": 3.4,
-  "luck": -0.6,
-  "score": -0.38
+  "tries": 15,
+  "happened": 5,
+  "expected": 3.7,
+  "luck": -1.3,
+  "score": -0.8
  },
  {
   "id": "David Kim|flinch|ben",
@@ -950,22 +950,22 @@
   "player": "David Kim",
   "event": "Stat drops you caused",
   "kind": "Stat drops",
-  "tries": 1,
+  "tries": 2,
   "happened": 0,
-  "expected": 0.2,
-  "luck": -0.2,
-  "score": -0.5
+  "expected": 0.5,
+  "luck": -0.5,
+  "score": -0.82
  },
  {
   "id": "David Kim|drop|vic",
   "player": "David Kim",
   "event": "Stat drops you took",
   "kind": "Stat drops",
-  "tries": 1,
+  "tries": 6,
   "happened": 0,
-  "expected": 0.1,
-  "luck": 0.1,
-  "score": 0.33
+  "expected": 0.6,
+  "luck": 0.6,
+  "score": 0.82
  },
  {
   "id": "David Kim|conf|ben",
@@ -994,66 +994,66 @@
   "player": "David Kim",
   "event": "You fully paralyzed",
   "kind": "Full paralysis",
-  "tries": 53,
-  "happened": 13,
-  "expected": 13.25,
-  "luck": 0.25,
-  "score": 0.08
+  "tries": 58,
+  "happened": 14,
+  "expected": 14.5,
+  "luck": 0.5,
+  "score": 0.15
  },
  {
   "id": "Dennis|crit|ben",
   "player": "Dennis",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 121,
-  "happened": 12,
-  "expected": 7.56,
-  "luck": 4.44,
-  "score": 1.67
+  "tries": 143,
+  "happened": 13,
+  "expected": 8.94,
+  "luck": 4.06,
+  "score": 1.4
  },
  {
   "id": "Dennis|crit|vic",
   "player": "Dennis",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 117,
-  "happened": 9,
-  "expected": 7.31,
-  "luck": -1.69,
-  "score": -0.64
+  "tries": 144,
+  "happened": 12,
+  "expected": 9.0,
+  "luck": -3.0,
+  "score": -1.03
  },
  {
   "id": "Dennis|acc|ben",
   "player": "Dennis",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 19,
+  "tries": 20,
   "happened": 15,
-  "expected": 15.25,
-  "luck": -0.25,
-  "score": -0.15
+  "expected": 16.0,
+  "luck": -1.0,
+  "score": -0.58
  },
  {
   "id": "Dennis|acc|vic",
   "player": "Dennis",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 42,
-  "happened": 40,
-  "expected": 36.85,
-  "luck": -3.15,
-  "score": -1.51
+  "tries": 56,
+  "happened": 50,
+  "expected": 49.05,
+  "luck": -0.95,
+  "score": -0.39
  },
  {
   "id": "Dennis|brn|ben",
   "player": "Dennis",
   "event": "Burns you inflicted",
   "kind": "Burns",
-  "tries": 2,
+  "tries": 4,
   "happened": 0,
-  "expected": 0.2,
-  "luck": -0.2,
-  "score": -0.47
+  "expected": 0.4,
+  "luck": -0.4,
+  "score": -0.67
  },
  {
   "id": "Dennis|brn|vic",
@@ -1087,6 +1087,17 @@
   "expected": 0.4,
   "luck": 0.4,
   "score": 0.67
+ },
+ {
+  "id": "Dennis|par|ben",
+  "player": "Dennis",
+  "event": "Paralysis you inflicted",
+  "kind": "Paralysis",
+  "tries": 1,
+  "happened": 1,
+  "expected": 0.3,
+  "luck": 0.7,
+  "score": 1.53
  },
  {
   "id": "Dennis|par|vic",
@@ -1126,22 +1137,33 @@
   "player": "Dennis",
   "event": "Stat drops you caused",
   "kind": "Stat drops",
-  "tries": 27,
+  "tries": 32,
   "happened": 3,
-  "expected": 3.4,
-  "luck": -0.4,
-  "score": -0.23
+  "expected": 3.9,
+  "luck": -0.9,
+  "score": -0.49
  },
  {
   "id": "Dennis|drop|vic",
   "player": "Dennis",
   "event": "Stat drops you took",
   "kind": "Stat drops",
-  "tries": 4,
+  "tries": 5,
   "happened": 3,
-  "expected": 0.7,
-  "luck": -2.3,
-  "score": -3.05
+  "expected": 1.0,
+  "luck": -2.0,
+  "score": -2.26
+ },
+ {
+  "id": "Dennis|fpar|ben",
+  "player": "Dennis",
+  "event": "Opponent fully paralyzed",
+  "kind": "Full paralysis",
+  "tries": 5,
+  "happened": 1,
+  "expected": 1.25,
+  "luck": -0.25,
+  "score": -0.26
  },
  {
   "id": "Dennis|fpar|vic",
