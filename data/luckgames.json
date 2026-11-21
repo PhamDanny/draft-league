@@ -1328,5 +1328,43 @@
   "crits1": 0,
   "crits2": 0,
   "events": 18
+ },
+ {
+  "id": "2717572880",
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2717572880",
+  "week": 7,
+  "game": 1,
+  "matchup": "Danny vs David Kim",
+  "player1": "Danny",
+  "player2": "David Kim",
+  "winner": "Danny",
+  "turns": 10,
+  "luckier": "David Kim",
+  "edge": 1.44,
+  "edge_score": 1.22,
+  "swing": "",
+  "luckier_won": "No",
+  "crits1": 0,
+  "crits2": 1,
+  "events": 21
+ },
+ {
+  "id": "2717578485",
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2717578485",
+  "week": 7,
+  "game": 2,
+  "matchup": "Danny vs David Kim",
+  "player1": "Danny",
+  "player2": "David Kim",
+  "winner": "Danny",
+  "turns": 14,
+  "luckier": "David Kim",
+  "edge": 0.89,
+  "edge_score": 0.65,
+  "swing": "",
+  "luckier_won": "No",
+  "crits1": 0,
+  "crits2": 0,
+  "events": 25
  }
 ]

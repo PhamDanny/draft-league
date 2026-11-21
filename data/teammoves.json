@@ -1608,20 +1608,20 @@
   "share": 0.034
  },
  {
-  "id": "Danny|Hitmonlee|Fake Out",
-  "player": "Danny",
-  "pokemon": "Hitmonlee",
-  "move": "Fake Out",
-  "uses": 3,
-  "share": 0.6
- },
- {
   "id": "Danny|Hitmonlee|Close Combat",
   "player": "Danny",
   "pokemon": "Hitmonlee",
   "move": "Close Combat",
-  "uses": 1,
-  "share": 0.2
+  "uses": 4,
+  "share": 0.444
+ },
+ {
+  "id": "Danny|Hitmonlee|Fake Out",
+  "player": "Danny",
+  "pokemon": "Hitmonlee",
+  "move": "Fake Out",
+  "uses": 4,
+  "share": 0.444
  },
  {
   "id": "Danny|Hitmonlee|Superpower",
@@ -1629,7 +1629,7 @@
   "pokemon": "Hitmonlee",
   "move": "Superpower",
   "uses": 1,
-  "share": 0.2
+  "share": 0.111
  },
  {
   "id": "Danny|Kyurem-Black|Ice Beam",
@@ -1637,7 +1637,15 @@
   "pokemon": "Kyurem-Black",
   "move": "Ice Beam",
   "uses": 7,
-  "share": 0.241
+  "share": 0.194
+ },
+ {
+  "id": "Danny|Kyurem-Black|Protect",
+  "player": "Danny",
+  "pokemon": "Kyurem-Black",
+  "move": "Protect",
+  "uses": 7,
+  "share": 0.194
  },
  {
   "id": "Danny|Kyurem-Black|Outrage",
@@ -1645,15 +1653,7 @@
   "pokemon": "Kyurem-Black",
   "move": "Outrage",
   "uses": 6,
-  "share": 0.207
- },
- {
-  "id": "Danny|Kyurem-Black|Protect",
-  "player": "Danny",
-  "pokemon": "Kyurem-Black",
-  "move": "Protect",
-  "uses": 5,
-  "share": 0.172
+  "share": 0.167
  },
  {
   "id": "Danny|Kyurem-Black|Dragon Claw",
@@ -1661,7 +1661,15 @@
   "pokemon": "Kyurem-Black",
   "move": "Dragon Claw",
   "uses": 4,
-  "share": 0.138
+  "share": 0.111
+ },
+ {
+  "id": "Danny|Kyurem-Black|Fusion Bolt",
+  "player": "Danny",
+  "pokemon": "Kyurem-Black",
+  "move": "Fusion Bolt",
+  "uses": 4,
+  "share": 0.111
  },
  {
   "id": "Danny|Kyurem-Black|Earth Power",
@@ -1669,31 +1677,47 @@
   "pokemon": "Kyurem-Black",
   "move": "Earth Power",
   "uses": 3,
-  "share": 0.103
+  "share": 0.083
  },
  {
-  "id": "Danny|Kyurem-Black|Fusion Bolt",
+  "id": "Danny|Kyurem-Black|Hidden Power",
   "player": "Danny",
   "pokemon": "Kyurem-Black",
-  "move": "Fusion Bolt",
+  "move": "Hidden Power",
   "uses": 3,
-  "share": 0.103
+  "share": 0.083
  },
  {
   "id": "Danny|Kyurem-Black|Draco Meteor",
   "player": "Danny",
   "pokemon": "Kyurem-Black",
   "move": "Draco Meteor",
-  "uses": 1,
-  "share": 0.034
+  "uses": 2,
+  "share": 0.056
  },
  {
   "id": "Danny|Latias|Draco Meteor",
   "player": "Danny",
   "pokemon": "Latias",
   "move": "Draco Meteor",
-  "uses": 8,
-  "share": 0.32
+  "uses": 10,
+  "share": 0.263
+ },
+ {
+  "id": "Danny|Latias|Hidden Power",
+  "player": "Danny",
+  "pokemon": "Latias",
+  "move": "Hidden Power",
+  "uses": 6,
+  "share": 0.158
+ },
+ {
+  "id": "Danny|Latias|Sunny Day",
+  "player": "Danny",
+  "pokemon": "Latias",
+  "move": "Sunny Day",
+  "uses": 5,
+  "share": 0.132
  },
  {
   "id": "Danny|Latias|Ice Beam",
@@ -1701,7 +1725,7 @@
   "pokemon": "Latias",
   "move": "Ice Beam",
   "uses": 4,
-  "share": 0.16
+  "share": 0.105
  },
  {
   "id": "Danny|Latias|Protect",
@@ -1709,7 +1733,7 @@
   "pokemon": "Latias",
   "move": "Protect",
   "uses": 3,
-  "share": 0.12
+  "share": 0.079
  },
  {
   "id": "Danny|Latias|Psychic",
@@ -1717,7 +1741,7 @@
   "pokemon": "Latias",
   "move": "Psychic",
   "uses": 2,
-  "share": 0.08
+  "share": 0.053
  },
  {
   "id": "Danny|Latias|Reflect",
@@ -1725,7 +1749,7 @@
   "pokemon": "Latias",
   "move": "Reflect",
   "uses": 2,
-  "share": 0.08
+  "share": 0.053
  },
  {
   "id": "Danny|Latias|Tailwind",
@@ -1733,7 +1757,7 @@
   "pokemon": "Latias",
   "move": "Tailwind",
   "uses": 2,
-  "share": 0.08
+  "share": 0.053
  },
  {
   "id": "Danny|Latias|Energy Ball",
@@ -1741,15 +1765,15 @@
   "pokemon": "Latias",
   "move": "Energy Ball",
   "uses": 1,
-  "share": 0.04
+  "share": 0.026
  },
  {
-  "id": "Danny|Latias|Hidden Power",
+  "id": "Danny|Latias|Light Screen",
   "player": "Danny",
   "pokemon": "Latias",
-  "move": "Hidden Power",
+  "move": "Light Screen",
   "uses": 1,
-  "share": 0.04
+  "share": 0.026
  },
  {
   "id": "Danny|Latias|Psyshock",
@@ -1757,7 +1781,7 @@
   "pokemon": "Latias",
   "move": "Psyshock",
   "uses": 1,
-  "share": 0.04
+  "share": 0.026
  },
  {
   "id": "Danny|Latias|Roar",
@@ -1765,7 +1789,7 @@
   "pokemon": "Latias",
   "move": "Roar",
   "uses": 1,
-  "share": 0.04
+  "share": 0.026
  },
  {
   "id": "Danny|Manaphy|Scald",
@@ -1876,8 +1900,8 @@
   "player": "Danny",
   "pokemon": "Staraptor",
   "move": "Final Gambit",
-  "uses": 5,
-  "share": 0.556
+  "uses": 7,
+  "share": 0.636
  },
  {
   "id": "Danny|Staraptor|Brave Bird",
@@ -1885,7 +1909,7 @@
   "pokemon": "Staraptor",
   "move": "Brave Bird",
   "uses": 2,
-  "share": 0.222
+  "share": 0.182
  },
  {
   "id": "Danny|Staraptor|Tailwind",
@@ -1893,7 +1917,7 @@
   "pokemon": "Staraptor",
   "move": "Tailwind",
   "uses": 1,
-  "share": 0.111
+  "share": 0.091
  },
  {
   "id": "Danny|Staraptor|U-turn",
@@ -1901,31 +1925,31 @@
   "pokemon": "Staraptor",
   "move": "U-turn",
   "uses": 1,
-  "share": 0.111
+  "share": 0.091
  },
  {
   "id": "Danny|Thundurus|Thunderbolt",
   "player": "Danny",
   "pokemon": "Thundurus",
   "move": "Thunderbolt",
-  "uses": 12,
-  "share": 0.343
- },
- {
-  "id": "Danny|Thundurus|Thunder Wave",
-  "player": "Danny",
-  "pokemon": "Thundurus",
-  "move": "Thunder Wave",
-  "uses": 8,
-  "share": 0.229
+  "uses": 15,
+  "share": 0.357
  },
  {
   "id": "Danny|Thundurus|Taunt",
   "player": "Danny",
   "pokemon": "Thundurus",
   "move": "Taunt",
-  "uses": 6,
-  "share": 0.171
+  "uses": 9,
+  "share": 0.214
+ },
+ {
+  "id": "Danny|Thundurus|Thunder Wave",
+  "player": "Danny",
+  "pokemon": "Thundurus",
+  "move": "Thunder Wave",
+  "uses": 9,
+  "share": 0.214
  },
  {
   "id": "Danny|Thundurus|Hidden Power",
@@ -1933,7 +1957,7 @@
   "pokemon": "Thundurus",
   "move": "Hidden Power",
   "uses": 4,
-  "share": 0.114
+  "share": 0.095
  },
  {
   "id": "Danny|Thundurus|Protect",
@@ -1941,7 +1965,7 @@
   "pokemon": "Thundurus",
   "move": "Protect",
   "uses": 3,
-  "share": 0.086
+  "share": 0.071
  },
  {
   "id": "Danny|Thundurus|Rain Dance",
@@ -1949,15 +1973,23 @@
   "pokemon": "Thundurus",
   "move": "Rain Dance",
   "uses": 2,
-  "share": 0.057
+  "share": 0.048
  },
  {
   "id": "Danny|Virizion|Leaf Blade",
   "player": "Danny",
   "pokemon": "Virizion",
   "move": "Leaf Blade",
-  "uses": 9,
-  "share": 0.529
+  "uses": 10,
+  "share": 0.435
+ },
+ {
+  "id": "Danny|Virizion|Sacred Sword",
+  "player": "Danny",
+  "pokemon": "Virizion",
+  "move": "Sacred Sword",
+  "uses": 5,
+  "share": 0.217
  },
  {
   "id": "Danny|Virizion|Close Combat",
@@ -1965,7 +1997,15 @@
   "pokemon": "Virizion",
   "move": "Close Combat",
   "uses": 4,
-  "share": 0.235
+  "share": 0.174
+ },
+ {
+  "id": "Danny|Virizion|Quick Guard",
+  "player": "Danny",
+  "pokemon": "Virizion",
+  "move": "Quick Guard",
+  "uses": 2,
+  "share": 0.087
  },
  {
   "id": "Danny|Virizion|Light Screen",
@@ -1973,7 +2013,7 @@
   "pokemon": "Virizion",
   "move": "Light Screen",
   "uses": 1,
-  "share": 0.059
+  "share": 0.043
  },
  {
   "id": "Danny|Virizion|Protect",
@@ -1981,31 +2021,15 @@
   "pokemon": "Virizion",
   "move": "Protect",
   "uses": 1,
-  "share": 0.059
- },
- {
-  "id": "Danny|Virizion|Quick Guard",
-  "player": "Danny",
-  "pokemon": "Virizion",
-  "move": "Quick Guard",
-  "uses": 1,
-  "share": 0.059
- },
- {
-  "id": "Danny|Virizion|Sacred Sword",
-  "player": "Danny",
-  "pokemon": "Virizion",
-  "move": "Sacred Sword",
-  "uses": 1,
-  "share": 0.059
+  "share": 0.043
  },
  {
   "id": "David Kim|Blastoise|Fake Out",
   "player": "David Kim",
   "pokemon": "Blastoise",
   "move": "Fake Out",
-  "uses": 17,
-  "share": 0.315
+  "uses": 18,
+  "share": 0.327
  },
  {
   "id": "David Kim|Blastoise|Follow Me",
@@ -2013,7 +2037,7 @@
   "pokemon": "Blastoise",
   "move": "Follow Me",
   "uses": 13,
-  "share": 0.241
+  "share": 0.236
  },
  {
   "id": "David Kim|Blastoise|Scald",
@@ -2021,7 +2045,7 @@
   "pokemon": "Blastoise",
   "move": "Scald",
   "uses": 8,
-  "share": 0.148
+  "share": 0.145
  },
  {
   "id": "David Kim|Blastoise|Protect",
@@ -2029,7 +2053,7 @@
   "pokemon": "Blastoise",
   "move": "Protect",
   "uses": 5,
-  "share": 0.093
+  "share": 0.091
  },
  {
   "id": "David Kim|Blastoise|Water Spout",
@@ -2037,7 +2061,7 @@
   "pokemon": "Blastoise",
   "move": "Water Spout",
   "uses": 5,
-  "share": 0.093
+  "share": 0.091
  },
  {
   "id": "David Kim|Blastoise|Whirlpool",
@@ -2045,7 +2069,7 @@
   "pokemon": "Blastoise",
   "move": "Whirlpool",
   "uses": 4,
-  "share": 0.074
+  "share": 0.073
  },
  {
   "id": "David Kim|Blastoise|Hidden Power",
@@ -2053,7 +2077,7 @@
   "pokemon": "Blastoise",
   "move": "Hidden Power",
   "uses": 1,
-  "share": 0.019
+  "share": 0.018
  },
  {
   "id": "David Kim|Blastoise|Roar",
@@ -2061,15 +2085,15 @@
   "pokemon": "Blastoise",
   "move": "Roar",
   "uses": 1,
-  "share": 0.019
+  "share": 0.018
  },
  {
   "id": "David Kim|Escavalier|Megahorn",
   "player": "David Kim",
   "pokemon": "Escavalier",
   "move": "Megahorn",
-  "uses": 12,
-  "share": 0.632
+  "uses": 15,
+  "share": 0.625
  },
  {
   "id": "David Kim|Escavalier|X-Scissor",
@@ -2077,15 +2101,23 @@
   "pokemon": "Escavalier",
   "move": "X-Scissor",
   "uses": 7,
-  "share": 0.368
+  "share": 0.292
+ },
+ {
+  "id": "David Kim|Escavalier|Iron Head",
+  "player": "David Kim",
+  "pokemon": "Escavalier",
+  "move": "Iron Head",
+  "uses": 2,
+  "share": 0.083
  },
  {
   "id": "David Kim|Ferrothorn|Leech Seed",
   "player": "David Kim",
   "pokemon": "Ferrothorn",
   "move": "Leech Seed",
-  "uses": 20,
-  "share": 0.168
+  "uses": 21,
+  "share": 0.174
  },
  {
   "id": "David Kim|Ferrothorn|Gyro Ball",
@@ -2093,7 +2125,15 @@
   "pokemon": "Ferrothorn",
   "move": "Gyro Ball",
   "uses": 17,
-  "share": 0.143
+  "share": 0.14
+ },
+ {
+  "id": "David Kim|Ferrothorn|Protect",
+  "player": "David Kim",
+  "pokemon": "Ferrothorn",
+  "move": "Protect",
+  "uses": 16,
+  "share": 0.132
  },
  {
   "id": "David Kim|Ferrothorn|Power Whip",
@@ -2101,15 +2141,7 @@
   "pokemon": "Ferrothorn",
   "move": "Power Whip",
   "uses": 15,
-  "share": 0.126
- },
- {
-  "id": "David Kim|Ferrothorn|Protect",
-  "player": "David Kim",
-  "pokemon": "Ferrothorn",
-  "move": "Protect",
-  "uses": 15,
-  "share": 0.126
+  "share": 0.124
  },
  {
   "id": "David Kim|Ferrothorn|Iron Head",
@@ -2117,7 +2149,7 @@
   "pokemon": "Ferrothorn",
   "move": "Iron Head",
   "uses": 12,
-  "share": 0.101
+  "share": 0.099
  },
  {
   "id": "David Kim|Ferrothorn|Seed Bomb",
@@ -2125,7 +2157,7 @@
   "pokemon": "Ferrothorn",
   "move": "Seed Bomb",
   "uses": 11,
-  "share": 0.092
+  "share": 0.091
  },
  {
   "id": "David Kim|Ferrothorn|Toxic",
@@ -2133,7 +2165,7 @@
   "pokemon": "Ferrothorn",
   "move": "Toxic",
   "uses": 11,
-  "share": 0.092
+  "share": 0.091
  },
  {
   "id": "David Kim|Ferrothorn|Knock Off",
@@ -2141,7 +2173,7 @@
   "pokemon": "Ferrothorn",
   "move": "Knock Off",
   "uses": 8,
-  "share": 0.067
+  "share": 0.066
  },
  {
   "id": "David Kim|Ferrothorn|Substitute",
@@ -2149,7 +2181,7 @@
   "pokemon": "Ferrothorn",
   "move": "Substitute",
   "uses": 5,
-  "share": 0.042
+  "share": 0.041
  },
  {
   "id": "David Kim|Ferrothorn|Hone Claws",
@@ -2172,8 +2204,8 @@
   "player": "David Kim",
   "pokemon": "Kingdra",
   "move": "Draco Meteor",
-  "uses": 8,
-  "share": 0.25
+  "uses": 9,
+  "share": 0.257
  },
  {
   "id": "David Kim|Kingdra|Protect",
@@ -2181,7 +2213,7 @@
   "pokemon": "Kingdra",
   "move": "Protect",
   "uses": 8,
-  "share": 0.25
+  "share": 0.229
  },
  {
   "id": "David Kim|Kingdra|Dragon Pulse",
@@ -2189,7 +2221,15 @@
   "pokemon": "Kingdra",
   "move": "Dragon Pulse",
   "uses": 6,
-  "share": 0.188
+  "share": 0.171
+ },
+ {
+  "id": "David Kim|Kingdra|Ice Beam",
+  "player": "David Kim",
+  "pokemon": "Kingdra",
+  "move": "Ice Beam",
+  "uses": 4,
+  "share": 0.114
  },
  {
   "id": "David Kim|Kingdra|Hydro Pump",
@@ -2197,15 +2237,7 @@
   "pokemon": "Kingdra",
   "move": "Hydro Pump",
   "uses": 2,
-  "share": 0.062
- },
- {
-  "id": "David Kim|Kingdra|Ice Beam",
-  "player": "David Kim",
-  "pokemon": "Kingdra",
-  "move": "Ice Beam",
-  "uses": 2,
-  "share": 0.062
+  "share": 0.057
  },
  {
   "id": "David Kim|Kingdra|Outrage",
@@ -2213,7 +2245,7 @@
   "pokemon": "Kingdra",
   "move": "Outrage",
   "uses": 2,
-  "share": 0.062
+  "share": 0.057
  },
  {
   "id": "David Kim|Kingdra|Dragon Dance",
@@ -2221,7 +2253,7 @@
   "pokemon": "Kingdra",
   "move": "Dragon Dance",
   "uses": 1,
-  "share": 0.031
+  "share": 0.029
  },
  {
   "id": "David Kim|Kingdra|Focus Energy",
@@ -2229,7 +2261,7 @@
   "pokemon": "Kingdra",
   "move": "Focus Energy",
   "uses": 1,
-  "share": 0.031
+  "share": 0.029
  },
  {
   "id": "David Kim|Kingdra|Muddy Water",
@@ -2237,7 +2269,7 @@
   "pokemon": "Kingdra",
   "move": "Muddy Water",
   "uses": 1,
-  "share": 0.031
+  "share": 0.029
  },
  {
   "id": "David Kim|Kingdra|Waterfall",
@@ -2245,7 +2277,7 @@
   "pokemon": "Kingdra",
   "move": "Waterfall",
   "uses": 1,
-  "share": 0.031
+  "share": 0.029
  },
  {
   "id": "David Kim|Magneton|Hidden Power",
@@ -2284,24 +2316,24 @@
   "player": "David Kim",
   "pokemon": "Politoed",
   "move": "Protect",
-  "uses": 21,
-  "share": 0.318
+  "uses": 26,
+  "share": 0.356
  },
  {
   "id": "David Kim|Politoed|Icy Wind",
   "player": "David Kim",
   "pokemon": "Politoed",
   "move": "Icy Wind",
-  "uses": 14,
-  "share": 0.212
+  "uses": 15,
+  "share": 0.205
  },
  {
   "id": "David Kim|Politoed|Scald",
   "player": "David Kim",
   "pokemon": "Politoed",
   "move": "Scald",
-  "uses": 13,
-  "share": 0.197
+  "uses": 14,
+  "share": 0.192
  },
  {
   "id": "David Kim|Politoed|Helping Hand",
@@ -2309,7 +2341,7 @@
   "pokemon": "Politoed",
   "move": "Helping Hand",
   "uses": 11,
-  "share": 0.167
+  "share": 0.151
  },
  {
   "id": "David Kim|Politoed|Toxic",
@@ -2317,7 +2349,7 @@
   "pokemon": "Politoed",
   "move": "Toxic",
   "uses": 4,
-  "share": 0.061
+  "share": 0.055
  },
  {
   "id": "David Kim|Politoed|Ice Beam",
@@ -2325,7 +2357,7 @@
   "pokemon": "Politoed",
   "move": "Ice Beam",
   "uses": 2,
-  "share": 0.03
+  "share": 0.027
  },
  {
   "id": "David Kim|Politoed|Encore",
@@ -2333,7 +2365,7 @@
   "pokemon": "Politoed",
   "move": "Encore",
   "uses": 1,
-  "share": 0.015
+  "share": 0.014
  },
  {
   "id": "David Kim|Quagsire|Protect",
@@ -2432,12 +2464,20 @@
   "share": 0.026
  },
  {
+  "id": "David Kim|Rhyperior|Rock Wrecker",
+  "player": "David Kim",
+  "pokemon": "Rhyperior",
+  "move": "Rock Wrecker",
+  "uses": 1,
+  "share": 0.333
+ },
+ {
   "id": "David Kim|Rhyperior|Substitute",
   "player": "David Kim",
   "pokemon": "Rhyperior",
   "move": "Substitute",
   "uses": 1,
-  "share": 0.5
+  "share": 0.333
  },
  {
   "id": "David Kim|Rhyperior|Swords Dance",
@@ -2445,15 +2485,23 @@
   "pokemon": "Rhyperior",
   "move": "Swords Dance",
   "uses": 1,
-  "share": 0.5
+  "share": 0.333
  },
  {
   "id": "David Kim|Tangela|Rage Powder",
   "player": "David Kim",
   "pokemon": "Tangela",
   "move": "Rage Powder",
-  "uses": 8,
-  "share": 0.333
+  "uses": 12,
+  "share": 0.387
+ },
+ {
+  "id": "David Kim|Tangela|Knock Off",
+  "player": "David Kim",
+  "pokemon": "Tangela",
+  "move": "Knock Off",
+  "uses": 5,
+  "share": 0.161
  },
  {
   "id": "David Kim|Tangela|Leaf Storm",
@@ -2461,7 +2509,7 @@
   "pokemon": "Tangela",
   "move": "Leaf Storm",
   "uses": 5,
-  "share": 0.208
+  "share": 0.161
  },
  {
   "id": "David Kim|Tangela|Toxic",
@@ -2469,15 +2517,7 @@
   "pokemon": "Tangela",
   "move": "Toxic",
   "uses": 5,
-  "share": 0.208
- },
- {
-  "id": "David Kim|Tangela|Knock Off",
-  "player": "David Kim",
-  "pokemon": "Tangela",
-  "move": "Knock Off",
-  "uses": 3,
-  "share": 0.125
+  "share": 0.161
  },
  {
   "id": "David Kim|Tangela|Leech Seed",
@@ -2485,7 +2525,15 @@
   "pokemon": "Tangela",
   "move": "Leech Seed",
   "uses": 3,
-  "share": 0.125
+  "share": 0.097
+ },
+ {
+  "id": "David Kim|Tangela|Sleep Powder",
+  "player": "David Kim",
+  "pokemon": "Tangela",
+  "move": "Sleep Powder",
+  "uses": 1,
+  "share": 0.032
  },
  {
   "id": "David Kim|Tornadus|Acrobatics",

@@ -18,21 +18,21 @@
   "faints": 2
  },
  {
+  "source": "Life Orb recoil",
+  "hits": 185,
+  "damage": 17.92,
+  "faints": 6
+ },
+ {
   "source": "Burn",
   "hits": 143,
   "damage": 17.33,
   "faints": 11
  },
  {
-  "source": "Life Orb recoil",
-  "hits": 174,
-  "damage": 16.83,
-  "faints": 6
- },
- {
   "source": "Leech Seed",
-  "hits": 57,
-  "damage": 7.08,
+  "hits": 60,
+  "damage": 7.45,
   "faints": 0
  },
  {
@@ -43,8 +43,8 @@
  },
  {
   "source": "Iron Barbs",
-  "hits": 9,
-  "damage": 1.11,
+  "hits": 10,
+  "damage": 1.23,
   "faints": 0
  },
  {
