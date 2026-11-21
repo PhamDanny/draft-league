@@ -13,21 +13,21 @@
  },
  {
   "source": "Stealth Rock",
-  "hits": 143,
-  "damage": 18.19,
+  "hits": 146,
+  "damage": 18.81,
   "faints": 2
  },
  {
-  "source": "Life Orb recoil",
-  "hits": 185,
-  "damage": 17.92,
-  "faints": 6
+  "source": "Burn",
+  "hits": 152,
+  "damage": 18.45,
+  "faints": 11
  },
  {
-  "source": "Burn",
-  "hits": 143,
-  "damage": 17.33,
-  "faints": 11
+  "source": "Life Orb recoil",
+  "hits": 188,
+  "damage": 18.22,
+  "faints": 6
  },
  {
   "source": "Leech Seed",
