@@ -4,55 +4,55 @@
   "player": "Alex",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 188,
+  "tries": 205,
   "happened": 14,
-  "expected": 11.75,
-  "luck": 2.25,
-  "score": 0.68
+  "expected": 12.94,
+  "luck": 1.06,
+  "score": 0.31
  },
  {
   "id": "Alex|crit|vic",
   "player": "Alex",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 132,
+  "tries": 158,
   "happened": 12,
-  "expected": 8.62,
-  "luck": -3.38,
-  "score": -1.19
+  "expected": 10.25,
+  "luck": -1.75,
+  "score": -0.57
  },
  {
   "id": "Alex|acc|ben",
   "player": "Alex",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 100,
-  "happened": 92,
-  "expected": 89.2,
-  "luck": 2.8,
-  "score": 0.91
+  "tries": 109,
+  "happened": 99,
+  "expected": 96.8,
+  "luck": 2.2,
+  "score": 0.67
  },
  {
   "id": "Alex|acc|vic",
   "player": "Alex",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 35,
-  "happened": 33,
-  "expected": 26.35,
-  "luck": -6.65,
-  "score": -2.83
+  "tries": 48,
+  "happened": 44,
+  "expected": 37.9,
+  "luck": -6.1,
+  "score": -2.34
  },
  {
   "id": "Alex|brn|vic",
   "player": "Alex",
   "event": "Burns you took",
   "kind": "Burns",
-  "tries": 5,
+  "tries": 11,
   "happened": 0,
-  "expected": 1.3,
-  "luck": 1.3,
-  "score": 1.35
+  "expected": 1.9,
+  "luck": 1.9,
+  "score": 1.57
  },
  {
   "id": "Alex|frz|ben",
@@ -1522,55 +1522,55 @@
   "player": "Max",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 170,
+  "tries": 196,
   "happened": 11,
-  "expected": 10.62,
-  "luck": 0.38,
-  "score": 0.12
+  "expected": 12.25,
+  "luck": -1.25,
+  "score": -0.37
  },
  {
   "id": "Max|crit|vic",
   "player": "Max",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 209,
+  "tries": 226,
   "happened": 17,
-  "expected": 13.44,
-  "luck": -3.56,
-  "score": -1.01
+  "expected": 14.62,
+  "luck": -2.38,
+  "score": -0.64
  },
  {
   "id": "Max|acc|ben",
   "player": "Max",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 26,
-  "happened": 26,
-  "expected": 23.4,
-  "luck": 2.6,
-  "score": 1.72
+  "tries": 39,
+  "happened": 37,
+  "expected": 34.95,
+  "luck": 2.05,
+  "score": 1.09
  },
  {
   "id": "Max|acc|vic",
   "player": "Max",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 67,
-  "happened": 60,
-  "expected": 59.2,
-  "luck": -0.8,
-  "score": -0.32
+  "tries": 76,
+  "happened": 67,
+  "expected": 66.8,
+  "luck": -0.2,
+  "score": -0.07
  },
  {
   "id": "Max|brn|ben",
   "player": "Max",
   "event": "Burns you inflicted",
   "kind": "Burns",
-  "tries": 14,
+  "tries": 20,
   "happened": 2,
-  "expected": 3.6,
-  "luck": -1.6,
-  "score": -1.0
+  "expected": 4.2,
+  "luck": -2.2,
+  "score": -1.25
  },
  {
   "id": "Max|brn|vic",

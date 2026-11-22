@@ -45,23 +45,23 @@
   "pokemon": "Crobat",
   "move": "Tailwind",
   "uses": 11,
-  "share": 0.344
+  "share": 0.289
  },
  {
   "id": "Alex|Crobat|Brave Bird",
   "player": "Alex",
   "pokemon": "Crobat",
   "move": "Brave Bird",
-  "uses": 8,
-  "share": 0.25
+  "uses": 10,
+  "share": 0.263
  },
  {
   "id": "Alex|Crobat|Super Fang",
   "player": "Alex",
   "pokemon": "Crobat",
   "move": "Super Fang",
-  "uses": 5,
-  "share": 0.156
+  "uses": 7,
+  "share": 0.184
  },
  {
   "id": "Alex|Crobat|Taunt",
@@ -69,31 +69,47 @@
   "pokemon": "Crobat",
   "move": "Taunt",
   "uses": 5,
-  "share": 0.156
+  "share": 0.132
  },
  {
   "id": "Alex|Crobat|U-turn",
   "player": "Alex",
   "pokemon": "Crobat",
   "move": "U-turn",
-  "uses": 3,
-  "share": 0.094
+  "uses": 5,
+  "share": 0.132
  },
  {
   "id": "Alex|Gurdurr|Wide Guard",
   "player": "Alex",
   "pokemon": "Gurdurr",
   "move": "Wide Guard",
-  "uses": 6,
-  "share": 0.667
+  "uses": 7,
+  "share": 0.389
  },
  {
   "id": "Alex|Gurdurr|Drain Punch",
   "player": "Alex",
   "pokemon": "Gurdurr",
   "move": "Drain Punch",
-  "uses": 2,
+  "uses": 4,
   "share": 0.222
+ },
+ {
+  "id": "Alex|Gurdurr|Knock Off",
+  "player": "Alex",
+  "pokemon": "Gurdurr",
+  "move": "Knock Off",
+  "uses": 3,
+  "share": 0.167
+ },
+ {
+  "id": "Alex|Gurdurr|Stone Edge",
+  "player": "Alex",
+  "pokemon": "Gurdurr",
+  "move": "Stone Edge",
+  "uses": 3,
+  "share": 0.167
  },
  {
   "id": "Alex|Gurdurr|Ice Punch",
@@ -101,7 +117,7 @@
   "pokemon": "Gurdurr",
   "move": "Ice Punch",
   "uses": 1,
-  "share": 0.111
+  "share": 0.056
  },
  {
   "id": "Alex|Kangaskhan|Rock Slide",
@@ -149,7 +165,7 @@
   "pokemon": "Keldeo",
   "move": "Secret Sword",
   "uses": 15,
-  "share": 0.429
+  "share": 0.395
  },
  {
   "id": "Alex|Keldeo|Hidden Power",
@@ -157,23 +173,23 @@
   "pokemon": "Keldeo",
   "move": "Hidden Power",
   "uses": 10,
-  "share": 0.286
+  "share": 0.263
  },
  {
   "id": "Alex|Keldeo|Protect",
   "player": "Alex",
   "pokemon": "Keldeo",
   "move": "Protect",
-  "uses": 6,
-  "share": 0.171
+  "uses": 7,
+  "share": 0.184
  },
  {
   "id": "Alex|Keldeo|Hydro Pump",
   "player": "Alex",
   "pokemon": "Keldeo",
   "move": "Hydro Pump",
-  "uses": 4,
-  "share": 0.114
+  "uses": 6,
+  "share": 0.158
  },
  {
   "id": "Alex|Metagross|Meteor Mash",
@@ -216,12 +232,44 @@
   "share": 0.083
  },
  {
+  "id": "Alex|Piloswine|Earthquake",
+  "player": "Alex",
+  "pokemon": "Piloswine",
+  "move": "Earthquake",
+  "uses": 3,
+  "share": 0.429
+ },
+ {
+  "id": "Alex|Piloswine|Stealth Rock",
+  "player": "Alex",
+  "pokemon": "Piloswine",
+  "move": "Stealth Rock",
+  "uses": 2,
+  "share": 0.286
+ },
+ {
+  "id": "Alex|Piloswine|Avalanche",
+  "player": "Alex",
+  "pokemon": "Piloswine",
+  "move": "Avalanche",
+  "uses": 1,
+  "share": 0.143
+ },
+ {
+  "id": "Alex|Piloswine|Protect",
+  "player": "Alex",
+  "pokemon": "Piloswine",
+  "move": "Protect",
+  "uses": 1,
+  "share": 0.143
+ },
+ {
   "id": "Alex|Rotom-Wash|Volt Switch",
   "player": "Alex",
   "pokemon": "Rotom-Wash",
   "move": "Volt Switch",
-  "uses": 15,
-  "share": 0.536
+  "uses": 17,
+  "share": 0.548
  },
  {
   "id": "Alex|Rotom-Wash|Thunder Wave",
@@ -229,15 +277,15 @@
   "pokemon": "Rotom-Wash",
   "move": "Thunder Wave",
   "uses": 6,
-  "share": 0.214
+  "share": 0.194
  },
  {
   "id": "Alex|Rotom-Wash|Hydro Pump",
   "player": "Alex",
   "pokemon": "Rotom-Wash",
   "move": "Hydro Pump",
-  "uses": 4,
-  "share": 0.143
+  "uses": 5,
+  "share": 0.161
  },
  {
   "id": "Alex|Rotom-Wash|Protect",
@@ -245,7 +293,7 @@
   "pokemon": "Rotom-Wash",
   "move": "Protect",
   "uses": 1,
-  "share": 0.036
+  "share": 0.032
  },
  {
   "id": "Alex|Rotom-Wash|Thunderbolt",
@@ -253,7 +301,7 @@
   "pokemon": "Rotom-Wash",
   "move": "Thunderbolt",
   "uses": 1,
-  "share": 0.036
+  "share": 0.032
  },
  {
   "id": "Alex|Rotom-Wash|Will-O-Wisp",
@@ -261,7 +309,7 @@
   "pokemon": "Rotom-Wash",
   "move": "Will-O-Wisp",
   "uses": 1,
-  "share": 0.036
+  "share": 0.032
  },
  {
   "id": "Alex|Stoutland|Ice Fang",
@@ -296,20 +344,20 @@
   "share": 0.094
  },
  {
+  "id": "Alex|Tangrowth|Rage Powder",
+  "player": "Alex",
+  "pokemon": "Tangrowth",
+  "move": "Rage Powder",
+  "uses": 4,
+  "share": 0.364
+ },
+ {
   "id": "Alex|Tangrowth|Protect",
   "player": "Alex",
   "pokemon": "Tangrowth",
   "move": "Protect",
   "uses": 3,
-  "share": 0.333
- },
- {
-  "id": "Alex|Tangrowth|Rage Powder",
-  "player": "Alex",
-  "pokemon": "Tangrowth",
-  "move": "Rage Powder",
-  "uses": 3,
-  "share": 0.333
+  "share": 0.273
  },
  {
   "id": "Alex|Tangrowth|Giga Drain",
@@ -317,7 +365,15 @@
   "pokemon": "Tangrowth",
   "move": "Giga Drain",
   "uses": 1,
-  "share": 0.111
+  "share": 0.091
+ },
+ {
+  "id": "Alex|Tangrowth|Leech Seed",
+  "player": "Alex",
+  "pokemon": "Tangrowth",
+  "move": "Leech Seed",
+  "uses": 1,
+  "share": 0.091
  },
  {
   "id": "Alex|Tangrowth|Return",
@@ -325,7 +381,7 @@
   "pokemon": "Tangrowth",
   "move": "Return",
   "uses": 1,
-  "share": 0.111
+  "share": 0.091
  },
  {
   "id": "Alex|Tangrowth|Sleep Powder",
@@ -333,15 +389,15 @@
   "pokemon": "Tangrowth",
   "move": "Sleep Powder",
   "uses": 1,
-  "share": 0.111
+  "share": 0.091
  },
  {
   "id": "Alex|Tyranitar|Rock Slide",
   "player": "Alex",
   "pokemon": "Tyranitar",
   "move": "Rock Slide",
-  "uses": 21,
-  "share": 0.396
+  "uses": 22,
+  "share": 0.407
  },
  {
   "id": "Alex|Tyranitar|Protect",
@@ -349,7 +405,7 @@
   "pokemon": "Tyranitar",
   "move": "Protect",
   "uses": 17,
-  "share": 0.321
+  "share": 0.315
  },
  {
   "id": "Alex|Tyranitar|Earthquake",
@@ -357,7 +413,7 @@
   "pokemon": "Tyranitar",
   "move": "Earthquake",
   "uses": 12,
-  "share": 0.226
+  "share": 0.222
  },
  {
   "id": "Alex|Tyranitar|Crunch",
@@ -365,7 +421,7 @@
   "pokemon": "Tyranitar",
   "move": "Crunch",
   "uses": 3,
-  "share": 0.057
+  "share": 0.056
  },
  {
   "id": "Bo|Chandelure|Heat Wave",
@@ -4268,8 +4324,8 @@
   "player": "Max",
   "pokemon": "Bronzong",
   "move": "Gyro Ball",
-  "uses": 24,
-  "share": 0.407
+  "uses": 30,
+  "share": 0.405
  },
  {
   "id": "Max|Bronzong|Stealth Rock",
@@ -4277,15 +4333,23 @@
   "pokemon": "Bronzong",
   "move": "Stealth Rock",
   "uses": 11,
-  "share": 0.186
+  "share": 0.149
  },
  {
   "id": "Max|Bronzong|Trick Room",
   "player": "Max",
   "pokemon": "Bronzong",
   "move": "Trick Room",
-  "uses": 8,
-  "share": 0.136
+  "uses": 11,
+  "share": 0.149
+ },
+ {
+  "id": "Max|Bronzong|Light Screen",
+  "player": "Max",
+  "pokemon": "Bronzong",
+  "move": "Light Screen",
+  "uses": 5,
+  "share": 0.068
  },
  {
   "id": "Max|Bronzong|Protect",
@@ -4293,7 +4357,15 @@
   "pokemon": "Bronzong",
   "move": "Protect",
   "uses": 5,
-  "share": 0.085
+  "share": 0.068
+ },
+ {
+  "id": "Max|Bronzong|Reflect",
+  "player": "Max",
+  "pokemon": "Bronzong",
+  "move": "Reflect",
+  "uses": 5,
+  "share": 0.068
  },
  {
   "id": "Max|Bronzong|Sunny Day",
@@ -4301,23 +4373,7 @@
   "pokemon": "Bronzong",
   "move": "Sunny Day",
   "uses": 3,
-  "share": 0.051
- },
- {
-  "id": "Max|Bronzong|Light Screen",
-  "player": "Max",
-  "pokemon": "Bronzong",
-  "move": "Light Screen",
-  "uses": 2,
-  "share": 0.034
- },
- {
-  "id": "Max|Bronzong|Reflect",
-  "player": "Max",
-  "pokemon": "Bronzong",
-  "move": "Reflect",
-  "uses": 2,
-  "share": 0.034
+  "share": 0.041
  },
  {
   "id": "Max|Bronzong|Toxic",
@@ -4325,7 +4381,7 @@
   "pokemon": "Bronzong",
   "move": "Toxic",
   "uses": 2,
-  "share": 0.034
+  "share": 0.027
  },
  {
   "id": "Max|Bronzong|Explosion",
@@ -4333,7 +4389,7 @@
   "pokemon": "Bronzong",
   "move": "Explosion",
   "uses": 1,
-  "share": 0.017
+  "share": 0.014
  },
  {
   "id": "Max|Bronzong|Rain Dance",
@@ -4341,7 +4397,7 @@
   "pokemon": "Bronzong",
   "move": "Rain Dance",
   "uses": 1,
-  "share": 0.017
+  "share": 0.014
  },
  {
   "id": "Max|Camerupt|Eruption",
@@ -4372,16 +4428,16 @@
   "player": "Max",
   "pokemon": "Hariyama",
   "move": "Fake Out",
-  "uses": 9,
-  "share": 0.346
+  "uses": 10,
+  "share": 0.345
  },
  {
   "id": "Max|Hariyama|Detect",
   "player": "Max",
   "pokemon": "Hariyama",
   "move": "Detect",
-  "uses": 7,
-  "share": 0.269
+  "uses": 8,
+  "share": 0.276
  },
  {
   "id": "Max|Hariyama|Ice Punch",
@@ -4389,15 +4445,31 @@
   "pokemon": "Hariyama",
   "move": "Ice Punch",
   "uses": 7,
-  "share": 0.269
+  "share": 0.241
  },
  {
   "id": "Max|Hariyama|Close Combat",
   "player": "Max",
   "pokemon": "Hariyama",
   "move": "Close Combat",
-  "uses": 3,
-  "share": 0.115
+  "uses": 4,
+  "share": 0.138
+ },
+ {
+  "id": "Max|Ninetales|Heat Wave",
+  "player": "Max",
+  "pokemon": "Ninetales",
+  "move": "Heat Wave",
+  "uses": 6,
+  "share": 0.286
+ },
+ {
+  "id": "Max|Ninetales|Protect",
+  "player": "Max",
+  "pokemon": "Ninetales",
+  "move": "Protect",
+  "uses": 5,
+  "share": 0.238
  },
  {
   "id": "Max|Ninetales|Calm Mind",
@@ -4405,15 +4477,23 @@
   "pokemon": "Ninetales",
   "move": "Calm Mind",
   "uses": 4,
-  "share": 0.444
+  "share": 0.19
  },
  {
-  "id": "Max|Ninetales|Protect",
+  "id": "Max|Ninetales|Solar Beam",
   "player": "Max",
   "pokemon": "Ninetales",
-  "move": "Protect",
+  "move": "Solar Beam",
   "uses": 2,
-  "share": 0.222
+  "share": 0.095
+ },
+ {
+  "id": "Max|Ninetales|Will-O-Wisp",
+  "player": "Max",
+  "pokemon": "Ninetales",
+  "move": "Will-O-Wisp",
+  "uses": 2,
+  "share": 0.095
  },
  {
   "id": "Max|Ninetales|Flamethrower",
@@ -4421,7 +4501,7 @@
   "pokemon": "Ninetales",
   "move": "Flamethrower",
   "uses": 1,
-  "share": 0.111
+  "share": 0.048
  },
  {
   "id": "Max|Ninetales|Overheat",
@@ -4429,15 +4509,7 @@
   "pokemon": "Ninetales",
   "move": "Overheat",
   "uses": 1,
-  "share": 0.111
- },
- {
-  "id": "Max|Ninetales|Will-O-Wisp",
-  "player": "Max",
-  "pokemon": "Ninetales",
-  "move": "Will-O-Wisp",
-  "uses": 1,
-  "share": 0.111
+  "share": 0.048
  },
  {
   "id": "Max|Porygon2|Ice Beam",
@@ -4445,7 +4517,7 @@
   "pokemon": "Porygon2",
   "move": "Ice Beam",
   "uses": 26,
-  "share": 0.406
+  "share": 0.388
  },
  {
   "id": "Max|Porygon2|Recover",
@@ -4453,7 +4525,7 @@
   "pokemon": "Porygon2",
   "move": "Recover",
   "uses": 10,
-  "share": 0.156
+  "share": 0.149
  },
  {
   "id": "Max|Porygon2|Thunderbolt",
@@ -4461,7 +4533,7 @@
   "pokemon": "Porygon2",
   "move": "Thunderbolt",
   "uses": 9,
-  "share": 0.141
+  "share": 0.134
  },
  {
   "id": "Max|Porygon2|Trick Room",
@@ -4469,7 +4541,7 @@
   "pokemon": "Porygon2",
   "move": "Trick Room",
   "uses": 9,
-  "share": 0.141
+  "share": 0.134
  },
  {
   "id": "Max|Porygon2|Shadow Ball",
@@ -4477,7 +4549,7 @@
   "pokemon": "Porygon2",
   "move": "Shadow Ball",
   "uses": 6,
-  "share": 0.094
+  "share": 0.09
  },
  {
   "id": "Max|Porygon2|Discharge",
@@ -4485,7 +4557,15 @@
   "pokemon": "Porygon2",
   "move": "Discharge",
   "uses": 3,
-  "share": 0.047
+  "share": 0.045
+ },
+ {
+  "id": "Max|Porygon2|Hidden Power",
+  "player": "Max",
+  "pokemon": "Porygon2",
+  "move": "Hidden Power",
+  "uses": 3,
+  "share": 0.045
  },
  {
   "id": "Max|Porygon2|Rain Dance",
@@ -4493,7 +4573,7 @@
   "pokemon": "Porygon2",
   "move": "Rain Dance",
   "uses": 1,
-  "share": 0.016
+  "share": 0.015
  },
  {
   "id": "Max|Rampardos|Earthquake",
@@ -4632,12 +4712,28 @@
   "share": 0.026
  },
  {
+  "id": "Max|Vileplume|Protect",
+  "player": "Max",
+  "pokemon": "Vileplume",
+  "move": "Protect",
+  "uses": 2,
+  "share": 0.4
+ },
+ {
+  "id": "Max|Vileplume|Solar Beam",
+  "player": "Max",
+  "pokemon": "Vileplume",
+  "move": "Solar Beam",
+  "uses": 2,
+  "share": 0.4
+ },
+ {
   "id": "Max|Vileplume|Moonlight",
   "player": "Max",
   "pokemon": "Vileplume",
   "move": "Moonlight",
   "uses": 1,
-  "share": 1.0
+  "share": 0.2
  },
  {
   "id": "Max|Volcarona|Flamethrower",
@@ -4645,7 +4741,7 @@
   "pokemon": "Volcarona",
   "move": "Flamethrower",
   "uses": 4,
-  "share": 0.286
+  "share": 0.25
  },
  {
   "id": "Max|Volcarona|Giga Drain",
@@ -4653,7 +4749,7 @@
   "pokemon": "Volcarona",
   "move": "Giga Drain",
   "uses": 4,
-  "share": 0.286
+  "share": 0.25
  },
  {
   "id": "Max|Volcarona|Protect",
@@ -4661,7 +4757,7 @@
   "pokemon": "Volcarona",
   "move": "Protect",
   "uses": 3,
-  "share": 0.214
+  "share": 0.188
  },
  {
   "id": "Max|Volcarona|Bug Buzz",
@@ -4669,7 +4765,15 @@
   "pokemon": "Volcarona",
   "move": "Bug Buzz",
   "uses": 2,
-  "share": 0.143
+  "share": 0.125
+ },
+ {
+  "id": "Max|Volcarona|Heat Wave",
+  "player": "Max",
+  "pokemon": "Volcarona",
+  "move": "Heat Wave",
+  "uses": 1,
+  "share": 0.062
  },
  {
   "id": "Max|Volcarona|Rage Powder",
@@ -4677,7 +4781,15 @@
   "pokemon": "Volcarona",
   "move": "Rage Powder",
   "uses": 1,
-  "share": 0.071
+  "share": 0.062
+ },
+ {
+  "id": "Max|Volcarona|Solar Beam",
+  "player": "Max",
+  "pokemon": "Volcarona",
+  "move": "Solar Beam",
+  "uses": 1,
+  "share": 0.062
  },
  {
   "id": "Max|Wartortle|Follow Me",
