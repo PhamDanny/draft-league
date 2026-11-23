@@ -151,6 +151,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-bname { flex: 1; min-width: 0; overflow-wrap: anywhere; font-weight: var(--cds-font-weight-medium); }
 .lx-brec { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
 .lx-bbye { color: var(--color-ok); font-size: 0.6875rem; }
+.lx-clinch.lx-elim { color: var(--color-bad); }
 .lx-clinch { color: var(--color-ok); font-weight: var(--cds-font-weight-medium); margin-right: 0.3em; }
 .lx-bph .lx-bname { color: var(--color-fg-muted); font-weight: normal; font-size: var(--cds-font-size-caption); }
 .lx-bcell.lx-bl::before, .lx-bcell.lx-br::after { content: ""; position: absolute; width: 1rem; top: 50%; border-top: 1px solid var(--cds-chart-muted); }
@@ -342,7 +343,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Playoff race</h2>
-      <p class="lx-note">Tiebreaks, in order: Series Wins, Head-to-Head, Game Win %, Game Differential. Players level on all of them share a seed. <b>z</b> clinched bye, <b>x</b> clinched playoffs.</p>
+      <p class="lx-note">Tiebreaks, in order: Series Wins, Head-to-Head, Game Win %, Game Differential. Players level on all of them share a seed. <b>z</b> clinched bye, <b>x</b> clinched playoffs, <b>e</b> eliminated.</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-playoffs" data-source="playoffs" data-row-key="player">
           <thead><tr>
@@ -950,16 +951,19 @@ dash.calc('playoffs', {
     const place = {};
     ranked.forEach((p, i) => { place[p] = level[p] && level[p].some((q) => q in place) ? place[level[p].find((q) => q in place)] : i + 1; });
     const status = (n) => (n <= 2 ? 'Bye' : n <= 6 ? 'Wild card' : 'Out');
-    // Clinches: the worst place each player can finish whatever happens in the series still to play.
+    // Clinches and eliminations: the worst and best place each player can finish whatever happens in the series still to play.
     // Every way the open series can go is tried. Series wins and head-to-head are exact in each one;
-    // a player still level after head-to-head counts as finishing below everyone level with them,
-    // since game win % and differential depend on game scores nobody knows yet.
-    const worst = {};
+    // a player still level after head-to-head counts as finishing below everyone level with them for the worst place,
+    // and above them for the best, since game win % and differential depend on game scores nobody knows yet.
+    const worst = {}, best = {};
     const open = sched.filter((r) => !r.winner);
     if (!open.length) {
-      ranked.forEach((p, i) => { worst[p] = Math.max(i, ...(level[p] || []).map((q) => ranked.indexOf(q))) + 1; });
+      ranked.forEach((p, i) => {
+        const at = [i, ...(level[p] || []).map((q) => ranked.indexOf(q))];
+        worst[p] = Math.max(...at) + 1; best[p] = Math.min(...at) + 1;
+      });
     } else if (open.length <= 16) {
-      names.forEach((p) => { worst[p] = 1; });
+      names.forEach((p) => { worst[p] = 1; best[p] = names.length; });
       const beat = Object.fromEntries(names.map((p) => [p, Object.fromEntries(names.map((q) => [q, 0]))]));
       played.forEach((r) => { if (beat[r.winner]) beat[r.winner][r.winner === r.player1 ? r.player2 : r.player1]++; });
       for (let m = 0; m < 1 << open.length; m++) {
@@ -974,23 +978,28 @@ dash.calc('playoffs', {
         names.forEach((p) => { (groups[sw[p]] = groups[sw[p]] || []).push(p); });
         names.forEach((p) => {
           const g = groups[sw[p]];
-          let n = names.filter((q) => sw[q] > sw[p]).length + 1;
+          let n = names.filter((q) => sw[q] > sw[p]).length + 1, b = n;
           if (g.length > 1) {
             const rec = (x) => g.reduce((a, q) => [a[0] + beat[x][q], a[1] + beat[q][x]], [0, 0]);
             const ok = g.every((x) => { const h = rec(x); return h[0] + h[1] === g.length - 1; });
             const pct = (x) => { const h = rec(x); return Math.round((h[0] / (h[0] + h[1])) * 1e9); };
             n += g.filter((q) => q !== p && (!ok || pct(q) >= pct(p))).length;
+            if (ok) b += g.filter((q) => pct(q) > pct(p)).length;
           }
           if (n > worst[p]) worst[p] = n;
+          if (b < best[p]) best[p] = b;
         });
         extra.forEach(([w, l]) => { beat[w][l]--; });
       }
     } else {
       // Too many to try them all: anyone who can still reach a player's series wins counts as above them.
       const left = (p) => open.filter((r) => r.player1 === p || r.player2 === p).length;
-      names.forEach((p) => { worst[p] = 1 + names.filter((q) => q !== p && by[q].series_wins + left(q) >= by[p].series_wins).length; });
+      names.forEach((p) => {
+        worst[p] = 1 + names.filter((q) => q !== p && by[q].series_wins + left(q) >= by[p].series_wins).length;
+        best[p] = 1 + names.filter((q) => by[q].series_wins > by[p].series_wins + left(p)).length;
+      });
     }
-    const clinch = (p) => (worst[p] == null ? '' : worst[p] <= 2 ? 'z' : worst[p] <= 6 ? 'x' : '');
+    const clinch = (p) => (worst[p] == null ? '' : worst[p] <= 2 ? 'z' : worst[p] <= 6 ? 'x' : best[p] > 6 ? 'e' : '');
     return ranked.map((p, i) => {
       const t = by[p], n = place[p], next = ranked[i + 1];
       const split = !next || place[next] !== n;
@@ -1355,11 +1364,11 @@ const scoutHref = (p, v) => {
   const r = wkRange();
   return '#scout?player=' + encodeURIComponent(p) + (v ? '&vs=' + encodeURIComponent(v) : '') + (r ? '&from=' + r.from + '&to=' + r.to : '');
 };
-const CLINCH = { z: 'Clinched a bye', x: 'Clinched a playoff spot' };
+const CLINCH = { z: 'Clinched a bye', x: 'Clinched a playoff spot', e: 'Eliminated' };
 const clinchOf = (p) => { const po = okAll(['playoffs']) && rowsOf('playoffs').find((x) => x.player === p); return (po && po.clinch) || ''; };
 function clinchMark(el, k) {
   if (!k) return;
-  const s = document.createElement('span'); s.className = 'lx-clinch'; s.textContent = k; s.title = CLINCH[k]; s.setAttribute('aria-label', CLINCH[k]);
+  const s = document.createElement('span'); s.className = 'lx-clinch' + (k === 'e' ? ' lx-elim' : ''); s.textContent = k; s.title = CLINCH[k]; s.setAttribute('aria-label', CLINCH[k]);
   el.appendChild(s);
 }
 function plink(p) {
@@ -1789,7 +1798,7 @@ function summaryCard(p, v) {
   if (t && t.accounts) head.appendChild(node('span', 'lx-dteam', t.accounts));
   card.appendChild(head);
   const st = node('div', 'lx-stats');
-  const seed = !po ? '–' : po.seed ? po.seed + (po.clinch === 'z' ? ' (bye clinched)' : po.status === 'Bye' ? ' (bye)' : po.clinch === 'x' ? ' (clinched)' : '') : 'Out';
+  const seed = !po ? '–' : po.seed ? po.seed + (po.clinch === 'z' ? ' (bye clinched)' : po.status === 'Bye' ? ' (bye)' : po.clinch === 'x' ? ' (clinched)' : '') : po.clinch === 'e' ? 'Eliminated' : 'Out';
   [['Series', t ? t.series_wins + '–' + t.series_losses : '–'], ['Games', t ? t.wins + '–' + t.losses : '–'], ['Win %', sv('pct', t && t.win_pct)], ['Projected seed', seed],
     ['Avg turns', sv('d1', t && t.avg_turns)], ['KOs / game', sv('d1', t && t.kos_per_game)], ['Pokémon lost / game', sv('d2', t && t.lost_per_game)],
     ['First KO %', sv('pct', t && t.first_blood_pct)], ['Luck score', sv('s2', lk && lk.score)]].forEach(([l, x]) => st.appendChild(statBox(l, x)));
