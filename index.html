@@ -151,6 +151,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
 .lx-bname { flex: 1; min-width: 0; overflow-wrap: anywhere; font-weight: var(--cds-font-weight-medium); }
 .lx-brec { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
 .lx-bbye { color: var(--color-ok); font-size: 0.6875rem; }
+.lx-clinch { color: var(--color-ok); font-weight: var(--cds-font-weight-medium); margin-right: 0.3em; }
 .lx-bph .lx-bname { color: var(--color-fg-muted); font-weight: normal; font-size: var(--cds-font-size-caption); }
 .lx-bcell.lx-bl::before, .lx-bcell.lx-br::after { content: ""; position: absolute; width: 1rem; top: 50%; border-top: 1px solid var(--cds-chart-muted); }
 .lx-bcell.lx-bl::before { right: 100%; }
@@ -310,7 +311,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
   <section class="lx-page" id="lx-teams" data-page="teams">
     <div class="lx-card">
       <h2>Standings and results</h2>
-      <p class="lx-note">Series are the weekly best-of-three matches. Players with more than one Showdown account are combined. Damage is in full HP bars: one bar is one Pokémon's whole HP.</p>
+      <p class="lx-note">Series are the weekly best-of-three matches. Players with more than one Showdown account are combined. Damage is in full HP bars: one bar is one Pokémon's whole HP. <b>z</b> clinched a bye, <b>x</b> clinched a playoff spot (full season).</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-teams" data-source="teams" data-row-key="player">
           <thead><tr>
@@ -341,7 +342,7 @@ html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); fon
     </div>
     <div class="lx-card">
       <h2>Playoff race</h2>
-      <p class="lx-note">Tiebreaks, in order: Series Wins, Head-to-Head, Game Win %, Game Differential. Players level on all of them share a seed.</p>
+      <p class="lx-note">Tiebreaks, in order: Series Wins, Head-to-Head, Game Win %, Game Differential. Players level on all of them share a seed. <b>z</b>: clinched a bye (top 2). <b>x</b>: clinched a playoff spot (top 6). A clinch holds however the remaining series go; a tie that would come down to game win % counts against the player, since game scores aren't known yet.</p>
       <div class="lx-scroll">
         <table class="lx-table" id="lx-t-playoffs" data-source="playoffs" data-row-key="player">
           <thead><tr>
@@ -949,6 +950,47 @@ dash.calc('playoffs', {
     const place = {};
     ranked.forEach((p, i) => { place[p] = level[p] && level[p].some((q) => q in place) ? place[level[p].find((q) => q in place)] : i + 1; });
     const status = (n) => (n <= 2 ? 'Bye' : n <= 6 ? 'Wild card' : 'Out');
+    // Clinches: the worst place each player can finish whatever happens in the series still to play.
+    // Every way the open series can go is tried. Series wins and head-to-head are exact in each one;
+    // a player still level after head-to-head counts as finishing below everyone level with them,
+    // since game win % and differential depend on game scores nobody knows yet.
+    const worst = {};
+    const open = sched.filter((r) => !r.winner);
+    if (!open.length) {
+      ranked.forEach((p, i) => { worst[p] = Math.max(i, ...(level[p] || []).map((q) => ranked.indexOf(q))) + 1; });
+    } else if (open.length <= 16) {
+      names.forEach((p) => { worst[p] = 1; });
+      const beat = Object.fromEntries(names.map((p) => [p, Object.fromEntries(names.map((q) => [q, 0]))]));
+      played.forEach((r) => { if (beat[r.winner]) beat[r.winner][r.winner === r.player1 ? r.player2 : r.player1]++; });
+      for (let m = 0; m < 1 << open.length; m++) {
+        const sw = Object.fromEntries(names.map((p) => [p, by[p].series_wins]));
+        const extra = [];
+        open.forEach((r, k) => {
+          const [w, l] = m & (1 << k) ? [r.player1, r.player2] : [r.player2, r.player1];
+          if (!(w in sw) || !(l in sw)) return;
+          sw[w]++; beat[w][l]++; extra.push([w, l]);
+        });
+        const groups = {};
+        names.forEach((p) => { (groups[sw[p]] = groups[sw[p]] || []).push(p); });
+        names.forEach((p) => {
+          const g = groups[sw[p]];
+          let n = names.filter((q) => sw[q] > sw[p]).length + 1;
+          if (g.length > 1) {
+            const rec = (x) => g.reduce((a, q) => [a[0] + beat[x][q], a[1] + beat[q][x]], [0, 0]);
+            const ok = g.every((x) => { const h = rec(x); return h[0] + h[1] === g.length - 1; });
+            const pct = (x) => { const h = rec(x); return Math.round((h[0] / (h[0] + h[1])) * 1e9); };
+            n += g.filter((q) => q !== p && (!ok || pct(q) >= pct(p))).length;
+          }
+          if (n > worst[p]) worst[p] = n;
+        });
+        extra.forEach(([w, l]) => { beat[w][l]--; });
+      }
+    } else {
+      // Too many to try them all: anyone who can still reach a player's series wins counts as above them.
+      const left = (p) => open.filter((r) => r.player1 === p || r.player2 === p).length;
+      names.forEach((p) => { worst[p] = 1 + names.filter((q) => q !== p && by[q].series_wins + left(q) >= by[p].series_wins).length; });
+    }
+    const clinch = (p) => (worst[p] == null ? '' : worst[p] <= 2 ? 'z' : worst[p] <= 6 ? 'x' : '');
     return ranked.map((p, i) => {
       const t = by[p], n = place[p], next = ranked[i + 1];
       const split = !next || place[next] !== n;
@@ -960,6 +1002,7 @@ dash.calc('playoffs', {
         left: sched.filter((r) => r.status === 'Upcoming' && (r.player1 === p || r.player2 === p)).length,
         status: level[p] && level[p].some((q) => status(ranked.indexOf(q) + 1) !== status(i + 1)) ? 'Tied at the cut' : status(n),
         reason: say(p),
+        clinch: clinch(p),
         reason_full: (tied[p] || []).length > 1 ? 'Tied with ' + tied[p].join(', ') : '',
       };
     });
@@ -1312,6 +1355,13 @@ const scoutHref = (p, v) => {
   const r = wkRange();
   return '#scout?player=' + encodeURIComponent(p) + (v ? '&vs=' + encodeURIComponent(v) : '') + (r ? '&from=' + r.from + '&to=' + r.to : '');
 };
+const CLINCH = { z: 'Clinched a bye', x: 'Clinched a playoff spot' };
+const clinchOf = (p) => { const po = okAll(['playoffs']) && rowsOf('playoffs').find((x) => x.player === p); return (po && po.clinch) || ''; };
+function clinchMark(el, k) {
+  if (!k) return;
+  const s = document.createElement('span'); s.className = 'lx-clinch'; s.textContent = k; s.title = CLINCH[k]; s.setAttribute('aria-label', CLINCH[k]);
+  el.appendChild(s);
+}
 function plink(p) {
   const a = document.createElement('a');
   a.className = 'lx-pl'; a.href = scoutHref(p); a.textContent = p; a.title = 'Scout ' + p;
@@ -1385,6 +1435,7 @@ function draw(T) {
         String(v).split(' + ').forEach((b) => { const im = spr(leadName(r[c.leads], b), 'lx-spr lx-spr-sm'); if (im) td.appendChild(im); });
         const tx = document.createElement('span'); tx.style.marginLeft = '0.25rem'; tx.textContent = String(v); td.appendChild(tx);
       } else if (c.plink && v) {
+        if (c.mark) clinchMark(td, c.mark(r));
         td.appendChild(plink(v));
       } else if (c.vs && r.player1 && r.player2) {
         td.appendChild(plink(r.player1)); td.appendChild(document.createTextNode(' vs ')); td.appendChild(plink(r.player2));
@@ -1403,7 +1454,7 @@ function draw(T) {
 }
 
 const T_TEAMS = mkTable('lx-t-teams', [
-  { f: 'player', t: 'text', plink: true }, { f: 'series_wins', t: 'int' }, { f: 'series_losses', t: 'int' }, { f: 'games', t: 'int' }, { f: 'wins', t: 'int' }, { f: 'losses', t: 'int' }, { f: 'win_pct', t: 'pct' },
+  { f: 'player', t: 'text', plink: true, mark: (r) => clinchOf(r.player) }, { f: 'series_wins', t: 'int' }, { f: 'series_losses', t: 'int' }, { f: 'games', t: 'int' }, { f: 'wins', t: 'int' }, { f: 'losses', t: 'int' }, { f: 'win_pct', t: 'pct' },
   { f: 'avg_turns', t: 'd1' }, { f: 'kos', t: 'int' }, { f: 'damage', t: 'd1' }, { f: 'taken', t: 'd1' }, { f: 'lost_per_game', t: 'd2' },
   { f: 'first_blood_pct', t: 'pct' }, { f: 'win_pct_after_first_blood', t: 'pct' }, { f: 'accounts', t: 'text' },
 ], { f: 'series_wins', dir: -1 }, 'player');
@@ -1430,7 +1481,7 @@ const T_SCHED = mkTable('lx-t-sched', [
 T_SCHED.rowClass = (r) => (r.status === 'Upcoming' ? 'lx-up' : '');
 T_SCHED.weekHeaders = true;
 const T_PO = mkTable('lx-t-playoffs', [
-  { f: 'seed', t: 'int' }, { f: 'player', t: 'text', plink: true }, { f: 'series', t: 'text' }, { f: 'games_wl', t: 'text' }, { f: 'game_pct', t: 'pct' },
+  { f: 'seed', t: 'int' }, { f: 'player', t: 'text', plink: true, mark: (r) => r.clinch }, { f: 'series', t: 'text' }, { f: 'games_wl', t: 'text' }, { f: 'game_pct', t: 'pct' },
   { f: 'left', t: 'int' }, { f: 'status', t: 'text' }, { f: 'reason', t: 'text', tip: 'reason_full' },
 ], { f: 'rank', dir: 1 }, 'player');
 T_PO.rowClass = (r) => (T_PO.sort.f !== 'rank' || T_PO.sort.dir !== 1 ? '' : r.cut === 2 ? 'lx-cut2' : r.cut === 6 ? 'lx-cut6' : '');
@@ -1738,7 +1789,7 @@ function summaryCard(p, v) {
   if (t && t.accounts) head.appendChild(node('span', 'lx-dteam', t.accounts));
   card.appendChild(head);
   const st = node('div', 'lx-stats');
-  const seed = !po ? '–' : po.seed ? po.seed + (po.status === 'Bye' ? ' (bye)' : '') : 'Out';
+  const seed = !po ? '–' : po.seed ? po.seed + (po.clinch === 'z' ? ' (bye clinched)' : po.status === 'Bye' ? ' (bye)' : po.clinch === 'x' ? ' (clinched)' : '') : 'Out';
   [['Series', t ? t.series_wins + '–' + t.series_losses : '–'], ['Games', t ? t.wins + '–' + t.losses : '–'], ['Win %', sv('pct', t && t.win_pct)], ['Projected seed', seed],
     ['Avg turns', sv('d1', t && t.avg_turns)], ['KOs / game', sv('d1', t && t.kos_per_game)], ['Pokémon lost / game', sv('d2', t && t.lost_per_game)],
     ['First KO %', sv('pct', t && t.first_blood_pct)], ['Luck score', sv('s2', lk && lk.score)]].forEach(([l, x]) => st.appendChild(statBox(l, x)));
@@ -1917,12 +1968,12 @@ function bracket(el, rows) {
     const d = document.createElement('div');
     d.className = 'lx-bs' + (x.ph ? ' lx-bph' : '');
     const s = document.createElement('span'); s.className = 'lx-bseed'; s.textContent = x.ph ? '' : x.seed;
-    const n = document.createElement('span'); n.className = 'lx-bname'; if (x.ph) n.textContent = x.ph; else n.appendChild(plink(x.player));
+    const n = document.createElement('span'); n.className = 'lx-bname'; if (x.ph) n.textContent = x.ph; else { clinchMark(n, x.clinch); n.appendChild(plink(x.player)); }
     d.appendChild(s); d.appendChild(n);
     if (!x.ph) {
       if (x.bye) { const b = document.createElement('span'); b.className = 'lx-bbye'; b.textContent = 'Bye'; d.appendChild(b); }
       const r = document.createElement('span'); r.className = 'lx-brec'; r.textContent = x.series; d.appendChild(r);
-      tipOn(d, el.parentNode, () => [x.player + ', seed ' + x.seed, 'Series ' + x.series + ', games ' + x.games_wl + ' (' + fmt.pct(x.game_pct) + ')', x.reason]);
+      tipOn(d, el.parentNode, () => [x.player + ', seed ' + x.seed, 'Series ' + x.series + ', games ' + x.games_wl + ' (' + fmt.pct(x.game_pct) + ')', x.reason, CLINCH[x.clinch] || ''].filter(Boolean));
     }
     return d;
   };
