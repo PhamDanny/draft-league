@@ -7,20 +7,20 @@
  },
  {
   "source": "Stealth Rock",
-  "hits": 152,
-  "damage": 20.31,
+  "hits": 166,
+  "damage": 22.48,
   "faints": 2
  },
  {
   "source": "Poison",
-  "hits": 153,
-  "damage": 19.74,
+  "hits": 177,
+  "damage": 22.3,
   "faints": 16
  },
  {
   "source": "Life Orb recoil",
-  "hits": 193,
-  "damage": 18.64,
+  "hits": 195,
+  "damage": 18.84,
   "faints": 7
  },
  {
@@ -57,6 +57,12 @@
   "source": "Confusion",
   "hits": 5,
   "damage": 0.22,
+  "faints": 0
+ },
+ {
+  "source": "move: Whirlpool",
+  "hits": 3,
+  "damage": 0.18,
   "faints": 0
  },
  {
