@@ -90,6 +90,24 @@
   "crits_against_exp": 6.9
  },
  {
+  "player": "Dennis",
+  "score": -0.06,
+  "verdict": "About average",
+  "net": -0.41,
+  "events": 513,
+  "crit_net": 2.69,
+  "acc_net": -1.5,
+  "status_net": 3.1,
+  "flinch_net": -0.2,
+  "lost_net": -0.8,
+  "minor_net": -3.7,
+  "driver": "mostly minor effects (-3.7)",
+  "crits_for": 15,
+  "crits_for_exp": 10.4,
+  "crits_against": 12,
+  "crits_against_exp": 10.1
+ },
+ {
   "player": "Alex",
   "score": -0.18,
   "verdict": "About average",
@@ -106,24 +124,6 @@
   "crits_for_exp": 12.9,
   "crits_against": 12,
   "crits_against_exp": 10.2
- },
- {
-  "player": "Dennis",
-  "score": -0.31,
-  "verdict": "About average",
-  "net": -1.89,
-  "events": 456,
-  "crit_net": 1.06,
-  "acc_net": -1.95,
-  "status_net": 2.1,
-  "flinch_net": -0.2,
-  "lost_net": 0.0,
-  "minor_net": -2.9,
-  "driver": "mostly minor effects (-2.9)",
-  "crits_for": 13,
-  "crits_for_exp": 8.9,
-  "crits_against": 12,
-  "crits_against_exp": 9.0
  },
  {
   "player": "Dzzy",
@@ -144,24 +144,6 @@
   "crits_against_exp": 10.0
  },
  {
-  "player": "Bo",
-  "score": -1.18,
-  "verdict": "Unlucky",
-  "net": -6.88,
-  "events": 432,
-  "crit_net": -7.88,
-  "acc_net": -2.4,
-  "status_net": 1.6,
-  "flinch_net": 1.8,
-  "lost_net": 0.8,
-  "minor_net": -0.8,
-  "driver": "mostly crits (-7.9)",
-  "crits_for": 6,
-  "crits_for_exp": 7.6,
-  "crits_against": 15,
-  "crits_against_exp": 8.8
- },
- {
   "player": "Max",
   "score": -1.18,
   "verdict": "Unlucky",
@@ -178,5 +160,23 @@
   "crits_for_exp": 12.2,
   "crits_against": 17,
   "crits_against_exp": 14.6
+ },
+ {
+  "player": "Bo",
+  "score": -1.35,
+  "verdict": "Unlucky",
+  "net": -8.35,
+  "events": 489,
+  "crit_net": -9.5,
+  "acc_net": -2.85,
+  "status_net": 0.6,
+  "flinch_net": 1.8,
+  "lost_net": 1.6,
+  "minor_net": 0.0,
+  "driver": "mostly crits (-9.5)",
+  "crits_for": 6,
+  "crits_for_exp": 8.8,
+  "crits_against": 17,
+  "crits_against_exp": 10.2
  }
 ]

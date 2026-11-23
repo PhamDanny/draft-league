@@ -19,8 +19,8 @@
  },
  {
   "source": "Life Orb recoil",
-  "hits": 195,
-  "damage": 18.84,
+  "hits": 200,
+  "damage": 19.34,
   "faints": 7
  },
  {
@@ -37,8 +37,8 @@
  },
  {
   "source": "Move recoil",
-  "hits": 28,
-  "damage": 5.21,
+  "hits": 30,
+  "damage": 5.46,
   "faints": 0
  },
  {

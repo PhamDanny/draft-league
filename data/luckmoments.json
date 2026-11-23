@@ -1690,6 +1690,19 @@
   "id": "m129"
  },
  {
+  "game": "2718108977",
+  "week": 7,
+  "gnum": 2,
+  "matchup": "Dennis vs Bo",
+  "turn": 3,
+  "what": "Darkrai's Ice Beam froze Mandibuzz (10%)",
+  "odds": 0.1,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2718108977",
+  "lucky": "Dennis",
+  "unlucky": "Bo",
+  "id": "m130"
+ },
+ {
   "game": "2696468150",
   "week": 1,
   "gnum": 2,
@@ -1700,7 +1713,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696468150",
   "lucky": "Danny",
   "unlucky": "Alex",
-  "id": "m130"
+  "id": "m131"
  },
  {
   "game": "2710810790",
@@ -1713,7 +1726,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2710810790",
   "lucky": "Danny",
   "unlucky": "Connor",
-  "id": "m131"
+  "id": "m132"
  },
  {
   "game": "2717600522",
@@ -1726,7 +1739,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2717600522",
   "lucky": "Dzzy",
   "unlucky": "Connor",
-  "id": "m132"
+  "id": "m133"
  },
  {
   "game": "2703148857",
@@ -1739,7 +1752,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703148857",
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m133"
+  "id": "m134"
  },
  {
   "game": "2703169361",
@@ -1752,7 +1765,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703169361",
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m134"
+  "id": "m135"
  },
  {
   "game": "2707511616",
@@ -1765,7 +1778,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707511616",
   "lucky": "Dzzy",
   "unlucky": "David Kim",
-  "id": "m135"
+  "id": "m136"
  },
  {
   "game": "2707997564",
@@ -1778,7 +1791,7 @@
   "replay": "replays/Gen5DoublesCustomGame-2026-11-01-wizior-nikeja3.html",
   "lucky": "Bo",
   "unlucky": "Alex",
-  "id": "m136"
+  "id": "m137"
  },
  {
   "game": "2709847817",
@@ -1791,7 +1804,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2709847817",
   "lucky": "Brayden",
   "unlucky": "Dzzy",
-  "id": "m137"
+  "id": "m138"
  },
  {
   "game": "2711184417",
@@ -1804,7 +1817,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2711184417",
   "lucky": "David Kim",
   "unlucky": "Alex",
-  "id": "m138"
+  "id": "m139"
  },
  {
   "game": "2715218969",
@@ -1817,7 +1830,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2715218969",
   "lucky": "Dennis",
   "unlucky": "David Kim",
-  "id": "m139"
+  "id": "m140"
  },
  {
   "game": "2715220385",
@@ -1830,7 +1843,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2715220385",
   "lucky": "Dennis",
   "unlucky": "David Kim",
-  "id": "m140"
+  "id": "m141"
  },
  {
   "game": "2715220385",
@@ -1843,7 +1856,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2715220385",
   "lucky": "Dennis",
   "unlucky": "David Kim",
-  "id": "m141"
+  "id": "m142"
  },
  {
   "game": "2703719604",
@@ -1856,7 +1869,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703719604",
   "lucky": "Danny",
   "unlucky": "Ethan",
-  "id": "m142"
+  "id": "m143"
  },
  {
   "game": "2710805765",
@@ -1869,7 +1882,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2710805765",
   "lucky": "Danny",
   "unlucky": "Connor",
-  "id": "m143"
+  "id": "m144"
  },
  {
   "game": "2717749887",
@@ -1882,7 +1895,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2717749887",
   "lucky": "Max",
   "unlucky": "Alex",
-  "id": "m144"
+  "id": "m145"
  },
  {
   "game": "2695417408",
@@ -1895,7 +1908,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695417408",
   "lucky": "Bo",
   "unlucky": "Brayden",
-  "id": "m145"
+  "id": "m146"
  },
  {
   "game": "2700807864",
@@ -1908,7 +1921,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700807864",
   "lucky": "Brayden",
   "unlucky": "Max",
-  "id": "m146"
+  "id": "m147"
  },
  {
   "game": "2700817133",
@@ -1921,7 +1934,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700817133",
   "lucky": "Max",
   "unlucky": "Brayden",
-  "id": "m147"
+  "id": "m148"
  },
  {
   "game": "2700817133",
@@ -1934,7 +1947,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700817133",
   "lucky": "Brayden",
   "unlucky": "Max",
-  "id": "m148"
+  "id": "m149"
  },
  {
   "game": "2704645206",
@@ -1947,7 +1960,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704645206",
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m149"
+  "id": "m150"
  },
  {
   "game": "2704645206",
@@ -1960,7 +1973,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704645206",
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m150"
+  "id": "m151"
  },
  {
   "game": "2704703137",
@@ -1973,7 +1986,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704703137",
   "lucky": "Alex",
   "unlucky": "Dzzy",
-  "id": "m151"
+  "id": "m152"
  },
  {
   "game": "2714717527",
@@ -1986,7 +1999,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2714717527",
   "lucky": "Brayden",
   "unlucky": "Danny",
-  "id": "m152"
+  "id": "m153"
  },
  {
   "game": "2718092791",
@@ -1999,7 +2012,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2718092791",
   "lucky": "Brayden",
   "unlucky": "Ethan",
-  "id": "m153"
+  "id": "m154"
  },
  {
   "game": "2718092791",
@@ -2012,7 +2025,33 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2718092791",
   "lucky": "Brayden",
   "unlucky": "Ethan",
-  "id": "m154"
+  "id": "m155"
+ },
+ {
+  "game": "2718102134",
+  "week": 7,
+  "gnum": 1,
+  "matchup": "Dennis vs Bo",
+  "turn": 4,
+  "what": "Chandelure's Shadow Ball lowered the stats of Cresselia (20%)",
+  "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2718102134",
+  "lucky": "Bo",
+  "unlucky": "Dennis",
+  "id": "m156"
+ },
+ {
+  "game": "2718108977",
+  "week": 7,
+  "gnum": 2,
+  "matchup": "Dennis vs Bo",
+  "turn": 3,
+  "what": "Mandibuzz thawed out",
+  "odds": 0.2,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2718108977",
+  "lucky": "Bo",
+  "unlucky": "Dennis",
+  "id": "m157"
  },
  {
   "game": "2696363795",
@@ -2025,7 +2064,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696363795",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m155"
+  "id": "m158"
  },
  {
   "game": "2696363795",
@@ -2038,7 +2077,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696363795",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m156"
+  "id": "m159"
  },
  {
   "game": "2696363795",
@@ -2051,7 +2090,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696363795",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m157"
+  "id": "m160"
  },
  {
   "game": "2696369469",
@@ -2064,7 +2103,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696369469",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m158"
+  "id": "m161"
  },
  {
   "game": "2696369469",
@@ -2077,7 +2116,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696369469",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m159"
+  "id": "m162"
  },
  {
   "game": "2696374950",
@@ -2090,7 +2129,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696374950",
   "lucky": "Ethan",
   "unlucky": "David Kim",
-  "id": "m160"
+  "id": "m163"
  },
  {
   "game": "2699305959",
@@ -2103,7 +2142,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2699305959",
   "lucky": "Bo",
   "unlucky": "Dzzy",
-  "id": "m161"
+  "id": "m164"
  },
  {
   "game": "2700859652",
@@ -2116,7 +2155,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700859652",
   "lucky": "Alex",
   "unlucky": "Ethan",
-  "id": "m162"
+  "id": "m165"
  },
  {
   "game": "2700859652",
@@ -2129,7 +2168,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700859652",
   "lucky": "Ethan",
   "unlucky": "Alex",
-  "id": "m163"
+  "id": "m166"
  },
  {
   "game": "2703157167",
@@ -2142,7 +2181,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703157167",
   "lucky": "David Kim",
   "unlucky": "Max",
-  "id": "m164"
+  "id": "m167"
  },
  {
   "game": "2704703137",
@@ -2155,7 +2194,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704703137",
   "lucky": "Alex",
   "unlucky": "Dzzy",
-  "id": "m165"
+  "id": "m168"
  },
  {
   "game": "2706632014",
@@ -2168,7 +2207,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m166"
+  "id": "m169"
  },
  {
   "game": "2706632014",
@@ -2181,7 +2220,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m167"
+  "id": "m170"
  },
  {
   "game": "2706632014",
@@ -2194,7 +2233,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m168"
+  "id": "m171"
  },
  {
   "game": "2707493080",
@@ -2207,7 +2246,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707493080",
   "lucky": "Ethan",
   "unlucky": "Dennis",
-  "id": "m169"
+  "id": "m172"
  },
  {
   "game": "2707504678",
@@ -2220,7 +2259,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707504678",
   "lucky": "David Kim",
   "unlucky": "Dzzy",
-  "id": "m170"
+  "id": "m173"
  },
  {
   "game": "2707504678",
@@ -2233,7 +2272,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707504678",
   "lucky": "David Kim",
   "unlucky": "Dzzy",
-  "id": "m171"
+  "id": "m174"
  },
  {
   "game": "2707504678",
@@ -2246,7 +2285,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707504678",
   "lucky": "Dzzy",
   "unlucky": "David Kim",
-  "id": "m172"
+  "id": "m175"
  },
  {
   "game": "2707504678",
@@ -2259,7 +2298,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707504678",
   "lucky": "Dzzy",
   "unlucky": "David Kim",
-  "id": "m173"
+  "id": "m176"
  },
  {
   "game": "2707504678",
@@ -2272,7 +2311,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707504678",
   "lucky": "Dzzy",
   "unlucky": "David Kim",
-  "id": "m174"
+  "id": "m177"
  },
  {
   "game": "2707511616",
@@ -2285,7 +2324,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707511616",
   "lucky": "Dzzy",
   "unlucky": "David Kim",
-  "id": "m175"
+  "id": "m178"
  },
  {
   "game": "2709847817",
@@ -2298,7 +2337,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2709847817",
   "lucky": "Brayden",
   "unlucky": "Dzzy",
-  "id": "m176"
+  "id": "m179"
  },
  {
   "game": "2710810790",
@@ -2311,7 +2350,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2710810790",
   "lucky": "Danny",
   "unlucky": "Connor",
-  "id": "m177"
+  "id": "m180"
  },
  {
   "game": "2711184417",
@@ -2324,7 +2363,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2711184417",
   "lucky": "Alex",
   "unlucky": "David Kim",
-  "id": "m178"
+  "id": "m181"
  },
  {
   "game": "2711184417",
@@ -2337,7 +2376,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2711184417",
   "lucky": "Alex",
   "unlucky": "David Kim",
-  "id": "m179"
+  "id": "m182"
  },
  {
   "game": "2711201330",
@@ -2350,7 +2389,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2711201330",
   "lucky": "Alex",
   "unlucky": "David Kim",
-  "id": "m180"
+  "id": "m183"
  },
  {
   "game": "2715218969",
@@ -2363,7 +2402,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2715218969",
   "lucky": "Dennis",
   "unlucky": "David Kim",
-  "id": "m181"
+  "id": "m184"
  },
  {
   "game": "2715218969",
@@ -2376,7 +2415,20 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2715218969",
   "lucky": "David Kim",
   "unlucky": "Dennis",
-  "id": "m182"
+  "id": "m185"
+ },
+ {
+  "game": "2718102134",
+  "week": 7,
+  "gnum": 1,
+  "matchup": "Dennis vs Bo",
+  "turn": 11,
+  "what": "Darmanitan was fully paralyzed",
+  "odds": 0.25,
+  "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2718102134",
+  "lucky": "Dennis",
+  "unlucky": "Bo",
+  "id": "m186"
  },
  {
   "game": "2695875340",
@@ -2389,7 +2441,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695875340",
   "lucky": "Connor",
   "unlucky": "Max",
-  "id": "m183"
+  "id": "m187"
  },
  {
   "game": "2695897212",
@@ -2402,7 +2454,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2695897212",
   "lucky": "Connor",
   "unlucky": "Max",
-  "id": "m184"
+  "id": "m188"
  },
  {
   "game": "2696363795",
@@ -2415,7 +2467,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696363795",
   "lucky": "David Kim",
   "unlucky": "Ethan",
-  "id": "m185"
+  "id": "m189"
  },
  {
   "game": "2696369469",
@@ -2428,7 +2480,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696369469",
   "lucky": "David Kim",
   "unlucky": "Ethan",
-  "id": "m186"
+  "id": "m190"
  },
  {
   "game": "2696374950",
@@ -2441,7 +2493,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2696374950",
   "lucky": "David Kim",
   "unlucky": "Ethan",
-  "id": "m187"
+  "id": "m191"
  },
  {
   "game": "2700072500",
@@ -2454,7 +2506,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700072500",
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m188"
+  "id": "m192"
  },
  {
   "game": "2700079479",
@@ -2467,7 +2519,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700079479",
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m189"
+  "id": "m193"
  },
  {
   "game": "2700079479",
@@ -2480,7 +2532,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700079479",
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m190"
+  "id": "m194"
  },
  {
   "game": "2700079479",
@@ -2493,7 +2545,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2700079479",
   "lucky": "David Kim",
   "unlucky": "Connor",
-  "id": "m191"
+  "id": "m195"
  },
  {
   "game": "2703157167",
@@ -2506,7 +2558,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703157167",
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m192"
+  "id": "m196"
  },
  {
   "game": "2703157167",
@@ -2519,7 +2571,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2703157167",
   "lucky": "Max",
   "unlucky": "David Kim",
-  "id": "m193"
+  "id": "m197"
  },
  {
   "game": "2704645206",
@@ -2532,7 +2584,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704645206",
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m194"
+  "id": "m198"
  },
  {
   "game": "2704648705",
@@ -2545,7 +2597,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2704648705",
   "lucky": "Brayden",
   "unlucky": "Dennis",
-  "id": "m195"
+  "id": "m199"
  },
  {
   "game": "2706590747",
@@ -2558,7 +2610,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706590747",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m196"
+  "id": "m200"
  },
  {
   "game": "2706632014",
@@ -2571,7 +2623,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m197"
+  "id": "m201"
  },
  {
   "game": "2706632014",
@@ -2584,7 +2636,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706632014",
   "lucky": "Brayden",
   "unlucky": "Connor",
-  "id": "m198"
+  "id": "m202"
  },
  {
   "game": "2707504678",
@@ -2597,7 +2649,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707504678",
   "lucky": "David Kim",
   "unlucky": "Dzzy",
-  "id": "m199"
+  "id": "m203"
  },
  {
   "game": "2707504678",
@@ -2610,7 +2662,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707504678",
   "lucky": "Dzzy",
   "unlucky": "David Kim",
-  "id": "m200"
+  "id": "m204"
  },
  {
   "game": "2707504678",
@@ -2623,7 +2675,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707504678",
   "lucky": "David Kim",
   "unlucky": "Dzzy",
-  "id": "m201"
+  "id": "m205"
  },
  {
   "game": "2707511616",
@@ -2636,7 +2688,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707511616",
   "lucky": "Dzzy",
   "unlucky": "David Kim",
-  "id": "m202"
+  "id": "m206"
  },
  {
   "game": "2707511616",
@@ -2649,7 +2701,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707511616",
   "lucky": "Dzzy",
   "unlucky": "David Kim",
-  "id": "m203"
+  "id": "m207"
  },
  {
   "game": "2707511616",
@@ -2662,7 +2714,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2707511616",
   "lucky": "Dzzy",
   "unlucky": "David Kim",
-  "id": "m204"
+  "id": "m208"
  },
  {
   "game": "2708015115",
@@ -2675,7 +2727,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2708015115",
   "lucky": "Alex",
   "unlucky": "Bo",
-  "id": "m205"
+  "id": "m209"
  },
  {
   "game": "kbus6lnon4epfaxnhvit9ketljxqec1pw",
@@ -2688,7 +2740,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2706578313-kbus6lnon4epfaxnhvit9ketljxqec1pw",
   "lucky": "Danny",
   "unlucky": "Max",
-  "id": "m206"
+  "id": "m210"
  },
  {
   "game": "2711184417",
@@ -2701,7 +2753,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2711184417",
   "lucky": "Alex",
   "unlucky": "David Kim",
-  "id": "m207"
+  "id": "m211"
  },
  {
   "game": "2711185168",
@@ -2714,7 +2766,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2711185168",
   "lucky": "Max",
   "unlucky": "Dennis",
-  "id": "m208"
+  "id": "m212"
  },
  {
   "game": "2711185168",
@@ -2727,7 +2779,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2711185168",
   "lucky": "Dennis",
   "unlucky": "Max",
-  "id": "m209"
+  "id": "m213"
  },
  {
   "game": "2711193088",
@@ -2740,7 +2792,7 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2711193088",
   "lucky": "Alex",
   "unlucky": "David Kim",
-  "id": "m210"
+  "id": "m214"
  },
  {
   "game": "2715220385",
@@ -2753,6 +2805,6 @@
   "replay": "https://replay.pokemonshowdown.com/gen5doublescustomgame-2715220385",
   "lucky": "Dennis",
   "unlucky": "David Kim",
-  "id": "m211"
+  "id": "m215"
  }
 ]
