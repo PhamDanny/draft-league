@@ -708,66 +708,66 @@
   "player": "Danny",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 134,
-  "happened": 12,
-  "expected": 9.06,
-  "luck": 2.94,
-  "score": 1.01
+  "tries": 167,
+  "happened": 14,
+  "expected": 11.5,
+  "luck": 2.5,
+  "score": 0.77
  },
  {
   "id": "Danny|crit|vic",
   "player": "Danny",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 109,
-  "happened": 7,
-  "expected": 6.94,
-  "luck": -0.06,
-  "score": -0.02
+  "tries": 136,
+  "happened": 8,
+  "expected": 8.75,
+  "luck": 0.75,
+  "score": 0.26
  },
  {
   "id": "Danny|acc|ben",
   "player": "Danny",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 54,
-  "happened": 50,
-  "expected": 48.7,
-  "luck": 1.3,
-  "score": 0.59
+  "tries": 70,
+  "happened": 65,
+  "expected": 63.1,
+  "luck": 1.9,
+  "score": 0.76
  },
  {
   "id": "Danny|acc|vic",
   "player": "Danny",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 34,
-  "happened": 32,
-  "expected": 29.4,
-  "luck": -2.6,
-  "score": -1.32
+  "tries": 45,
+  "happened": 42,
+  "expected": 38.95,
+  "luck": -3.05,
+  "score": -1.35
  },
  {
   "id": "Danny|brn|ben",
   "player": "Danny",
   "event": "Burns you inflicted",
   "kind": "Burns",
-  "tries": 17,
-  "happened": 4,
-  "expected": 2.3,
-  "luck": 1.7,
-  "score": 1.24
+  "tries": 23,
+  "happened": 5,
+  "expected": 2.9,
+  "luck": 2.1,
+  "score": 1.35
  },
  {
   "id": "Danny|brn|vic",
   "player": "Danny",
   "event": "Burns you took",
   "kind": "Burns",
-  "tries": 8,
+  "tries": 11,
   "happened": 1,
-  "expected": 0.8,
-  "luck": -0.2,
-  "score": -0.24
+  "expected": 1.3,
+  "luck": 0.3,
+  "score": 0.28
  },
  {
   "id": "Danny|frz|ben",
@@ -785,11 +785,11 @@
   "player": "Danny",
   "event": "Freezes you took",
   "kind": "Freezes",
-  "tries": 11,
+  "tries": 14,
   "happened": 1,
-  "expected": 1.1,
-  "luck": 0.1,
-  "score": 0.1
+  "expected": 1.4,
+  "luck": 0.4,
+  "score": 0.36
  },
  {
   "id": "Danny|par|ben",
@@ -814,15 +814,37 @@
   "score": 0.82
  },
  {
+  "id": "Danny|flinch|ben",
+  "player": "Danny",
+  "event": "Flinches you caused",
+  "kind": "Flinches",
+  "tries": 1,
+  "happened": 0,
+  "expected": 0.3,
+  "luck": -0.3,
+  "score": -0.65
+ },
+ {
+  "id": "Danny|flinch|vic",
+  "player": "Danny",
+  "event": "Flinches you took",
+  "kind": "Flinches",
+  "tries": 1,
+  "happened": 1,
+  "expected": 0.3,
+  "luck": -0.7,
+  "score": -1.53
+ },
+ {
   "id": "Danny|drop|ben",
   "player": "Danny",
   "event": "Stat drops you caused",
   "kind": "Stat drops",
-  "tries": 2,
+  "tries": 4,
   "happened": 1,
-  "expected": 0.2,
-  "luck": 0.8,
-  "score": 1.89
+  "expected": 0.6,
+  "luck": 0.4,
+  "score": 0.57
  },
  {
   "id": "Danny|drop|vic",
@@ -1225,77 +1247,77 @@
   "player": "Dzzy",
   "event": "Crits you landed",
   "kind": "Critical hits",
-  "tries": 149,
-  "happened": 11,
-  "expected": 10.44,
-  "luck": 0.56,
-  "score": 0.18
+  "tries": 176,
+  "happened": 12,
+  "expected": 12.25,
+  "luck": -0.25,
+  "score": -0.07
  },
  {
   "id": "Dzzy|crit|vic",
   "player": "Dzzy",
   "event": "Crits you took",
   "kind": "Critical hits",
-  "tries": 160,
-  "happened": 12,
-  "expected": 10.0,
-  "luck": -2.0,
-  "score": -0.65
+  "tries": 193,
+  "happened": 14,
+  "expected": 12.44,
+  "luck": -1.56,
+  "score": -0.46
  },
  {
   "id": "Dzzy|acc|ben",
   "player": "Dzzy",
   "event": "Your moves hitting",
   "kind": "Accuracy",
-  "tries": 51,
-  "happened": 42,
-  "expected": 44.05,
-  "luck": -2.05,
-  "score": -0.86
+  "tries": 62,
+  "happened": 52,
+  "expected": 53.6,
+  "luck": -1.6,
+  "score": -0.61
  },
  {
   "id": "Dzzy|acc|vic",
   "player": "Dzzy",
   "event": "Opponent moves hitting you",
   "kind": "Accuracy",
-  "tries": 68,
-  "happened": 58,
-  "expected": 61.05,
-  "luck": 3.05,
-  "score": 1.24
+  "tries": 84,
+  "happened": 73,
+  "expected": 75.45,
+  "luck": 2.45,
+  "score": 0.9
  },
  {
   "id": "Dzzy|brn|ben",
   "player": "Dzzy",
   "event": "Burns you inflicted",
   "kind": "Burns",
-  "tries": 8,
+  "tries": 11,
   "happened": 0,
-  "expected": 2.2,
-  "luck": -2.2,
-  "score": -1.76
+  "expected": 2.7,
+  "luck": -2.7,
+  "score": -1.93
  },
  {
   "id": "Dzzy|brn|vic",
   "player": "Dzzy",
   "event": "Burns you took",
   "kind": "Burns",
-  "tries": 12,
-  "happened": 2,
-  "expected": 1.8,
-  "luck": -0.2,
-  "score": -0.17
+  "tries": 18,
+  "happened": 3,
+  "expected": 2.4,
+  "luck": -0.6,
+  "score": -0.43
  },
  {
   "id": "Dzzy|frz|ben",
   "player": "Dzzy",
   "event": "Freezes you inflicted",
   "kind": "Freezes",
-  "tries": 2,
+  "tries": 5,
   "happened": 0,
-  "expected": 0.2,
-  "luck": -0.2,
-  "score": -0.47
+  "expected": 0.5,
+  "luck": -0.5,
+  "score": -0.75
  },
  {
   "id": "Dzzy|frz|vic",
@@ -1324,22 +1346,22 @@
   "player": "Dzzy",
   "event": "Flinches you caused",
   "kind": "Flinches",
-  "tries": 3,
-  "happened": 0,
-  "expected": 0.9,
-  "luck": -0.9,
-  "score": -1.13
+  "tries": 4,
+  "happened": 1,
+  "expected": 1.2,
+  "luck": -0.2,
+  "score": -0.22
  },
  {
   "id": "Dzzy|flinch|vic",
   "player": "Dzzy",
   "event": "Flinches you took",
   "kind": "Flinches",
-  "tries": 5,
+  "tries": 6,
   "happened": 1,
-  "expected": 1.5,
-  "luck": 0.5,
-  "score": 0.49
+  "expected": 1.8,
+  "luck": 0.8,
+  "score": 0.71
  },
  {
   "id": "Dzzy|drop|ben",
@@ -1357,11 +1379,11 @@
   "player": "Dzzy",
   "event": "Stat drops you took",
   "kind": "Stat drops",
-  "tries": 2,
+  "tries": 4,
   "happened": 1,
-  "expected": 0.4,
-  "luck": -0.6,
-  "score": -1.06
+  "expected": 0.8,
+  "luck": -0.2,
+  "score": -0.25
  },
  {
   "id": "Dzzy|fpar|ben",

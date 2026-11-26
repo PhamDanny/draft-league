@@ -13,21 +13,21 @@
  },
  {
   "source": "Poison",
-  "hits": 177,
-  "damage": 22.3,
+  "hits": 179,
+  "damage": 22.47,
   "faints": 16
  },
  {
   "source": "Life Orb recoil",
-  "hits": 200,
-  "damage": 19.34,
+  "hits": 209,
+  "damage": 20.23,
   "faints": 7
  },
  {
   "source": "Burn",
-  "hits": 153,
-  "damage": 18.58,
-  "faints": 11
+  "hits": 155,
+  "damage": 18.74,
+  "faints": 12
  },
  {
   "source": "Leech Seed",
@@ -37,8 +37,8 @@
  },
  {
   "source": "Move recoil",
-  "hits": 30,
-  "damage": 5.46,
+  "hits": 31,
+  "damage": 5.57,
   "faints": 0
  },
  {
